@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+- Added an extension icon.
+- README, changelog and description are now in English.
+- Added links to the repository and the issue tracker (feedback, errors, wishes for more syntax).
+
 ## 1.0.0
 - Replaces the former separate Vim theme extensions (Default, Desert, Elflord, Peachpuff).
 - 32 color schemes of Vim 9.2 as themes "Vim: …".
