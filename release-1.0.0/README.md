@@ -38,7 +38,7 @@ Likewise `"editor.semanticHighlighting.enabled": false` fits Vim better.
 
 ## Feedback, wishes and questions
 
-Please report here: **https://github.com/r11s/vim-colorschemes/issues**
+If something is not right, please open an issue here: **https://github.com/r11s/vim-colorschemes/issues**
 
 Welcome are:
 - **Errors**: places where VS Code looks different from gVim.
