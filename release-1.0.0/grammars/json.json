@@ -1,0 +1,14 @@
+{
+ "scopeName": "vim.injection.json",
+ "injectionSelector": "L:source.json -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:match)\\b",
+   "name": "vim.Error.jsonNoQuotesError"
+  },
+  {
+   "match": "\\b(?:null)\\b",
+   "name": "vim.Function.jsonNull"
+  }
+ ]
+}

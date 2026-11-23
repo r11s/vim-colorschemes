@@ -1,0 +1,222 @@
+{
+ "scopeName": "vim.injection.javascript",
+ "injectionSelector": "L:source.js -comment -string",
+ "patterns": [
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:false|true)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Boolean.javaScriptBoolean"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:continue|break)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Conditional.javaScriptBranch"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:switch|else|if)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Conditional.javaScriptConditional"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:unescape|escape)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Exception.javaScriptDeprecated"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:finally|catch|throw|try)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Exception.javaScriptException"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:arguments|this)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Identifier.javaScriptIdentifier"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:function)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Keyword.javaScriptFunction"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:parent|window|self|top)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Keyword.javaScriptGlobal"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:document|location|event)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Keyword.javaScriptMember"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:confirm|prompt|status|alert)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Keyword.javaScriptMessage"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:undefined|null)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Keyword.javaScriptNull"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:synchronized|implements|interface|protected|transient|abstract|debugger|volatile|boolean|extends|package|private|double|export|import|native|public|throws|async|class|const|final|float|short|super|using|byte|char|enum|from|goto|long|int|let|var|as)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Keyword.javaScriptReserved"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:default|case)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Label.javaScriptLabel"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:instanceof|delete|typeof|new)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Operator.javaScriptOperator"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:while|for|do|in|of)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Repeat.javaScriptRepeat"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:return|await|yield|with)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Statement.javaScriptStatement"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:static)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.StorageClass.javaScriptModifier"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:Function|Boolean|Number|Object|RegExp|String|Array|Date)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Type.javaScriptType"
+    }
+   }
+  },
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.javaScriptBoolean"
+  },
+  {
+   "match": "\\b(?:continue|break)\\b",
+   "name": "vim.Conditional.javaScriptBranch"
+  },
+  {
+   "match": "\\b(?:switch|else|if)\\b",
+   "name": "vim.Conditional.javaScriptConditional"
+  },
+  {
+   "match": "\\b(?:unescape|escape)\\b",
+   "name": "vim.Exception.javaScriptDeprecated"
+  },
+  {
+   "match": "\\b(?:finally|catch|throw|try)\\b",
+   "name": "vim.Exception.javaScriptException"
+  },
+  {
+   "match": "\\b(?:arguments|this)\\b",
+   "name": "vim.Identifier.javaScriptIdentifier"
+  },
+  {
+   "match": "\\b(?:function)\\b",
+   "name": "vim.Keyword.javaScriptFunction"
+  },
+  {
+   "match": "\\b(?:parent|window|self|top)\\b",
+   "name": "vim.Keyword.javaScriptGlobal"
+  },
+  {
+   "match": "\\b(?:document|location|event)\\b",
+   "name": "vim.Keyword.javaScriptMember"
+  },
+  {
+   "match": "\\b(?:confirm|prompt|status|alert)\\b",
+   "name": "vim.Keyword.javaScriptMessage"
+  },
+  {
+   "match": "\\b(?:undefined|null)\\b",
+   "name": "vim.Keyword.javaScriptNull"
+  },
+  {
+   "match": "\\b(?:synchronized|implements|interface|protected|transient|abstract|debugger|volatile|boolean|extends|package|private|double|export|import|native|public|throws|async|class|const|final|float|short|super|using|byte|char|enum|from|goto|long|int|let|var|as)\\b",
+   "name": "vim.Keyword.javaScriptReserved"
+  },
+  {
+   "match": "\\b(?:default|case)\\b",
+   "name": "vim.Label.javaScriptLabel"
+  },
+  {
+   "match": "\\b(?:instanceof|delete|typeof|new)\\b",
+   "name": "vim.Operator.javaScriptOperator"
+  },
+  {
+   "match": "\\b(?:while|for|do|in|of)\\b",
+   "name": "vim.Repeat.javaScriptRepeat"
+  },
+  {
+   "match": "\\b(?:return|await|yield|with)\\b",
+   "name": "vim.Statement.javaScriptStatement"
+  },
+  {
+   "match": "\\b(?:static)\\b",
+   "name": "vim.StorageClass.javaScriptModifier"
+  },
+  {
+   "match": "\\b(?:Function|Boolean|Number|Object|RegExp|String|Array|Date)\\b",
+   "name": "vim.Type.javaScriptType"
+  }
+ ]
+}

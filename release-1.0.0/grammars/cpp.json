@@ -1,0 +1,90 @@
+{
+ "scopeName": "vim.injection.cpp",
+ "injectionSelector": "L:source.cpp -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.cppBoolean"
+  },
+  {
+   "match": "\\b(?:switch|else|if)\\b",
+   "name": "vim.Conditional.cConditional"
+  },
+  {
+   "match": "\\b(?:__STDC_IEC_60559_COMPLEX__|__STDC_EMBED_NOT_FOUND__|__STDC_IEC_559_COMPLEX__|__STDC_IEC_60559_TYPES__|__STDC_MB_MIGHT_NEQ_WC__|__STDC_IEC_60559_BFP__|__STDC_IEC_60559_DFP__|__STDC_EMBED_EMPTY__|__STDC_EMBED_FOUND__|__STDC_ANALYZABLE__|__STDC_NO_ATOMICS__|__STDC_NO_COMPLEX__|__STDC_NO_THREADS__|__STDC_ISO_10646__|__STDC_LIB_EXT1__|UINT_LEAST16_MAX|UINT_LEAST32_MAX|UINT_LEAST64_MAX|__STDC_VERSION__|math_errhandling|BITINT_MAXWIDTH|ENOTRECOVERABLE|EPROTONOSUPPORT|INT_LEAST16_MAX|INT_LEAST16_MIN|INT_LEAST32_MAX|INT_LEAST32_MIN|INT_LEAST64_MAX|INT_LEAST64_MIN|LDBL_MAX_10_EXP|LDBL_MIN_10_EXP|UINT_FAST16_MAX|UINT_FAST32_MAX|UINT_FAST64_MAX|UINT_LEAST8_MAX|__STDC_HOSTED__|__STDC_NO_VLA__|__STDC_UTF_16__|__STDC_UTF_32__|CLOCKS_PER_SEC|DBL_MAX_10_EXP|DBL_MIN_10_EXP|FLT_MAX_10_EXP|FLT_MIN_10_EXP|INT_FAST16_MAX|INT_FAST16_MIN|INT_FAST32_MAX|INT_FAST32_MIN|INT_FAST64_MAX|INT_FAST64_MIN|INT_LEAST8_MAX|INT_LEAST8_MIN|MATH_ERREXCEPT|SIG_ATOMIC_MAX|SIG_ATOMIC_MIN|UINT_FAST8_MAX|EADDRNOTAVAIL|INT_FAST8_MAX|INT_FAST8_MIN|LDBL_MANT_DIG|STDERR_FILENO|STDOUT_FILENO|DBL_MANT_DIG|EAFNOSUPPORT|ECONNABORTED|ECONNREFUSED|EDESTADDRREQ|EHOSTUNREACH|ENAMETOOLONG|EXIT_FAILURE|EXIT_SUCCESS|FILENAME_MAX|FLT_MANT_DIG|FP_FAST_FMAF|FP_FAST_FMAL|FP_SUBNORMAL|LDBL_EPSILON|LDBL_MAX_EXP|LDBL_MIN_EXP|STDIN_FILENO|DBL_EPSILON|DBL_MAX_EXP|DBL_MIN_EXP|EINPROGRESS|ENETUNREACH|ENOPROTOOPT|EWOULDBLOCK|FLT_EPSILON|FLT_MAX_EXP|FLT_MIN_EXP|FP_FAST_FMA|FP_ILOGBNAN|FP_INFINITE|LC_MONETARY|PTRDIFF_MAX|PTRDIFF_MIN|UINTMAX_MAX|UINTPTR_MAX|__VA_ARGS__|EADDRINUSE|ECONNRESET|EOPNOTSUPP|EOWNERDEAD|EPROTOTYPE|FLT_ROUNDS|INTMAX_MAX|INTMAX_MIN|INTPTR_MAX|INTPTR_MIN|LC_COLLATE|LC_NUMERIC|MATH_ERRNO|MB_CUR_MAX|MB_LEN_MAX|M_2_SQRTPI|UINT16_MAX|UINT32_MAX|UINT64_MAX|ULLONG_MAX|__VA_OPT__|ECANCELED|EMULTIHOP|ENETRESET|ENOTEMPTY|EOVERFLOW|ETIMEDOUT|FLT_RADIX|FOPEN_MAX|FP_ILOGB0|FP_NORMAL|HUGE_VALF|HUGE_VALL|INT16_MAX|INT16_MIN|INT32_MAX|INT32_MIN|INT64_MAX|INT64_MIN|LLONG_MAX|LLONG_MIN|M_SQRT1_2|SCHAR_MAX|SCHAR_MIN|SIGVTALRM|SLONG_MAX|SLONG_MIN|SSHRT_MAX|SSHRT_MIN|UCHAR_MAX|UINT8_MAX|ULONG_MAX|USHRT_MAX|WCHAR_MAX|WCHAR_MIN|CHAR_BIT|CHAR_MAX|CHAR_MIN|EALREADY|EMSGSIZE|ENETDOWN|ENOTCONN|ENOTSOCK|HUGE_VAL|INFINITY|INT8_MAX|INT8_MIN|LC_CTYPE|LDBL_DIG|LDBL_MAX|LDBL_MIN|LONG_MAX|LONG_MIN|L_tmpnam|M_LOG10E|RAND_MAX|SEEK_CUR|SEEK_END|SEEK_SET|SHRT_MAX|SHRT_MIN|SIGWINCH|SINT_MAX|SINT_MIN|SIZE_MAX|UINT_MAX|WINT_MAX|WINT_MIN|__DATE__|__FILE__|__LINE__|__STDC__|__TIME__|__func__|DBL_DIG|DBL_MAX|DBL_MIN|EBADMSG|EDEADLK|EISCONN|ENOBUFS|ENODATA|ENOEXEC|ENOLINK|ENOTBLK|ENOTDIR|ENOTSUP|ETXTBSY|FLT_DIG|FLT_MAX|FLT_MIN|FP_ZERO|INT_MAX|INT_MIN|LC_TIME|M_LOG2E|M_SQRT2|SIGABRT|SIGALRM|SIGCHLD|SIGCONT|SIGINFO|SIGKILL|SIGPIPE|SIGPOLL|SIGPROF|SIGQUIT|SIGSEGV|SIGSTOP|SIGTERM|SIGTRAP|SIGTSTP|SIGTTIN|SIGTTOU|SIGUSR1|SIGUSR2|SIGXCPU|SIGXFSZ|SIG_DFL|SIG_ERR|SIG_IGN|TMP_MAX|BUFSIZ|EACCES|EAGAIN|ECHILD|EDQUOT|EEXIST|EFAULT|EILSEQ|EINVAL|EISDIR|EMFILE|EMLINK|ENFILE|ENODEV|ENOENT|ENOLCK|ENOMEM|ENOMSG|ENOSPC|ENOSTR|ENOSYS|ENOTTY|EPROTO|ERANGE|ESPIPE|ESTALE|FP_NAN|LC_ALL|M_1_PI|M_2_PI|M_LN10|M_PI_2|M_PI_4|NDEBUG|SIGBUS|SIGFPE|SIGHUP|SIGILL|SIGINT|SIGSYS|SIGURG|_IOFBF|_IOLBF|_IONBF|stderr|stdout|E2BIG|EBADF|EBUSY|EFBIG|EIDRM|EINTR|ELOOP|ENOSR|ENXIO|EPERM|EPIPE|EROFS|ESRCH|ETIME|EXDEV|M_LN2|SIGIO|stdin|EDOM|M_PI|NULL|WEOF|EIO|EOF|M_E|NAN)\\b",
+   "name": "vim.Constant.cConstant"
+  },
+  {
+   "match": "\\b(?:ATOMIC_CHAR16_T_LOCK_FREE|ATOMIC_CHAR32_T_LOCK_FREE|ATOMIC_POINTER_LOCK_FREE|ATOMIC_WCHAR_T_LOCK_FREE|ATOMIC_LLONG_LOCK_FREE|ATOMIC_SHORT_LOCK_FREE|ATOMIC_BOOL_LOCK_FREE|ATOMIC_CHAR_LOCK_FREE|ATOMIC_LONG_LOCK_FREE|ATOMIC_INT_LOCK_FREE|ATOMIC_FLAG_INIT|ATOMIC_VAR_INIT|__cplusplus|nullptr)\\b",
+   "name": "vim.Constant.cppConstant"
+  },
+  {
+   "match": "\\b(?:noexcept|catch|throw|try)\\b",
+   "name": "vim.Exception.cppExceptions"
+  },
+  {
+   "match": "\\b(?:export|import|module)\\b",
+   "name": "vim.Include.cppModule"
+  },
+  {
+   "match": "\\b(?:default|case)\\b",
+   "name": "vim.Label.cLabel"
+  },
+  {
+   "match": "\\b(?:_Static_assert|static_assert|_Alignof|_Generic|alignof|sizeof)\\b",
+   "name": "vim.Operator.cOperator"
+  },
+  {
+   "match": "\\b(?:operator|and_eq|bitand|not_eq|typeid|xor_eq|bitor|compl|or_eq|and|not|xor|or)\\b",
+   "name": "vim.Operator.cppOperator"
+  },
+  {
+   "match": "\\b(?:while|for|do)\\b",
+   "name": "vim.Repeat.cRepeat"
+  },
+  {
+   "match": "\\b(?:continue|return|break|goto|asm)\\b",
+   "name": "vim.Statement.cStatement"
+  },
+  {
+   "match": "\\b(?:protected|private|public)\\b",
+   "name": "vim.Statement.cppAccess"
+  },
+  {
+   "match": "\\b(?:co_return|co_await|co_yield|requires|delete|friend|using|this|new)\\b",
+   "name": "vim.Statement.cppStatement"
+  },
+  {
+   "match": "\\b(?:_Thread_local|_Noreturn|_Alignas|register|volatile|_Atomic|alignas|extern|static|const)\\b",
+   "name": "vim.StorageClass.cStorageClass"
+  },
+  {
+   "match": "\\b(?:thread_local|consteval|constexpr|constinit|decltype|mutable)\\b",
+   "name": "vim.StorageClass.cppStorageClass"
+  },
+  {
+   "match": "\\b(?:struct|union|enum)\\b",
+   "name": "vim.Structure.cStructure"
+  },
+  {
+   "match": "\\b(?:typedef)\\b",
+   "name": "vim.Structure.cTypedef"
+  },
+  {
+   "match": "\\b(?:namespace|template|typename|concept|class)\\b",
+   "name": "vim.Structure.cppStructure"
+  },
+  {
+   "match": "\\b(?:atomic_uint_least16_t|atomic_uint_least32_t|atomic_uint_least64_t|atomic_int_least16_t|atomic_int_least32_t|atomic_int_least64_t|atomic_uint_fast16_t|atomic_uint_fast32_t|atomic_uint_fast64_t|atomic_uint_least8_t|atomic_int_fast16_t|atomic_int_fast32_t|atomic_int_fast64_t|atomic_int_least8_t|atomic_uint_fast8_t|atomic_int_fast8_t|atomic_ptrdiff_t|atomic_uintmax_t|atomic_uintptr_t|atomic_char16_t|atomic_char32_t|atomic_intmax_t|atomic_intptr_t|atomic_wchar_t|uint_least16_t|uint_least32_t|uint_least64_t|atomic_size_t|atomic_ullong|atomic_ushort|int_least16_t|int_least32_t|int_least64_t|uint_fast16_t|uint_fast32_t|uint_fast64_t|uint_least8_t|atomic_llong|atomic_schar|atomic_short|atomic_uchar|atomic_ulong|int_fast16_t|int_fast32_t|int_fast64_t|int_least8_t|sig_atomic_t|uint_fast8_t|atomic_bool|atomic_char|atomic_long|atomic_uint|int_fast8_t|max_align_t|_Imaginary|atomic_int|imaginary|mbstate_t|ptrdiff_t|u_int16_t|u_int32_t|u_int64_t|uintmax_t|uintptr_t|wctrans_t|_Complex|char16_t|char32_t|intmax_t|intptr_t|u_int8_t|uint16_t|uint32_t|uint64_t|unsigned|wctype_t|clock_t|complex|int16_t|int32_t|int64_t|jmp_buf|ssize_t|uint8_t|va_list|double|fpos_t|int8_t|ldiv_t|signed|size_t|time_t|wint_t|_Bool|div_t|float|off_t|short|FILE|char|long|void|DIR|int)\\b",
+   "name": "vim.Type.cType"
+  },
+  {
+   "match": "\\b(?:explicit|override|virtual|inline|final)\\b",
+   "name": "vim.Type.cppModifier"
+  },
+  {
+   "match": "\\b(?:nullptr_t|char8_t|wchar_t|auto|bool)\\b",
+   "name": "vim.Type.cppType"
+  }
+ ]
+}

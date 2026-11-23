@@ -1,0 +1,22 @@
+{
+ "scopeName": "vim.injection.php",
+ "injectionSelector": "L:source.php -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:sessionupdatetimestamphandlerinterface|sessionhandlerinterface|sessionidinterface|datetimeinterface|iteratoraggregate|recursiveiterator|jsonserializable|seekableiterator|outeriterator|serializable|arrayaccess|splobserver|traversable|splsubject|countable|reflector|throwable|iterator)\\b",
+   "name": "vim.Constant.phpInterfaces"
+  },
+  {
+   "match": "(?i)\\b(?:opensslcertificatesigningrequest|recursivecallbackfilteriterator|intlcodepointbreakiterator|intlrulebasedbreakiterator|recursivedirectoryiterator|reflectionfunctionabstract|recursiveiteratoriterator|badfunctioncallexception|closedgeneratorexception|domprocessinginstruction|invalidargumentexception|recursivecachingiterator|unexpectedvalueexception|domimplementationsource|recursivefilteriterator|reflectionclassconstant|reflectionzendextension|__php_incomplete_class|badmethodcallexception|callbackfilteriterator|recursivearrayiterator|recursiveregexiterator|domimplementationlist|intlgregoriancalendar|recursivetreeiterator|mysqli_sql_exception|opensslasymmetrickey|outofboundsexception|divisionbyzeroerror|domdocumentfragment|outofrangeexception|reflectionattribute|reflectionexception|reflectionextension|reflectiongenerator|reflectionnamedtype|reflectionparameter|reflectionreference|reflectionuniontype|spldoublylinkedlist|unhandledmatcherror|argumentcounterror|domentityreference|domuserdatahandler|filesystemiterator|memcachedexception|opensslcertificate|reflectionfunction|reflectionproperty|underflowexception|datetimeimmutable|directoryiterator|domimplementation|enchantdictionary|intlbreakiterator|intldateformatter|intlpartsiterator|overflowexception|simplexmliterator|spltempfileobject|domcharacterdata|domconfiguration|domnamespacenode|infiniteiterator|internaliterator|iteratoriterator|messageformatter|multipleiterator|norewinditerator|reflectionmethod|reflectionobject|runtimeexception|simplexmlelement|splobjectstorage|splpriorityqueue|sysvmessagequeue|sysvsharedmemory|arithmeticerror|cachingiterator|curlmultihandle|curlsharehandle|domainexception|domcdatasection|domdocumenttype|domerrorhandler|domnamednodemap|domstringextend|lengthexception|numberformatter|parserexception|php_user_filter|reflectionclass|appenditerator|assertionerror|deflatecontext|errorexception|filteriterator|inflatecontext|logicexception|mysqli_warning|parentiterator|rangeexception|reflectiontype|resourcebundle|sessionhandler|transliterator|arrayiterator|domparentnode|domstringlist|emptyiterator|enchantbroker|intlexception|jsonexception|limititerator|mysqli_driver|mysqli_result|pharexception|regexiterator|splfileobject|splfixedarray|sqlite3result|sysvsemaphore|weakreference|xsltprocessor|apcuiterator|compileerror|dateinterval|datetimezone|domchildnode|domexception|globiterator|intlcalendar|intliterator|intltimezone|pdoexception|pdostatement|pharfileinfo|spoofchecker|addressinfo|apciterator|arrayobject|domdocument|domdomerror|domnamelist|domnodelist|domnotation|domtypeinfo|hashcontext|libxmlerror|mysqli_stmt|splfileinfo|sqlite3stmt|curlhandle|dateperiod|domcomment|domelement|domlocator|normalizer|parseerror|reflection|soapclient|soapheader|soapserver|splmaxheap|splminheap|stringable|uconverter|valueerror|ziparchive|attribute|directory|domentity|exception|generator|memcached|soapfault|soapparam|typeerror|xmlparser|xmlreader|xmlwriter|collator|curlfile|datetime|domxpath|intlchar|phardata|phptoken|splqueue|splstack|stdclass|tidynode|closure|domattr|domnode|domtext|gdimage|soapvar|splheap|sqlite3|weakmap|locale|mysqli|pdorow|socket|cdata|ctype|finfo|shmop|phar|tidy|ffi|gmp|pdo)\\b",
+   "name": "vim.Function.phpClasses"
+  },
+  {
+   "match": "(?i)\\b(?:str_starts_with|get_debug_type|str_ends_with|str_contains|getdir|fdiv)\\b",
+   "name": "vim.Function.phpFunctions"
+  },
+  {
+   "match": "(?i)\\b(?:__unserialize|trigger_error|__callstatic|__construct|__debuginfo|__serialize|__set_state|__autoload|__destruct|__tostring|user_error|__invoke|__wakeup|__clone|__isset|__sleep|__unset|compact|extract|__call|__get|__set|empty|isset|unset|eval)\\b",
+   "name": "vim.Operator.phpSpecialFunction"
+  }
+ ]
+}

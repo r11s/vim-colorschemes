@@ -1,0 +1,58 @@
+{
+ "scopeName": "vim.injection.kotlin",
+ "injectionSelector": "L:source.kotlin -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.ktBoolean"
+  },
+  {
+   "match": "\\b(?:else|when|if)\\b",
+   "name": "vim.Conditional.ktConditional"
+  },
+  {
+   "match": "\\b(?:null)\\b",
+   "name": "vim.Constant.ktConstant"
+  },
+  {
+   "match": "\\b(?:typeof)\\b",
+   "name": "vim.Error.ktReservedKeyword"
+  },
+  {
+   "match": "\\b(?:finally|catch|throw|try)\\b",
+   "name": "vim.Exception.ktException"
+  },
+  {
+   "match": "\\b(?:package|import)\\b",
+   "name": "vim.Include.ktInclude"
+  },
+  {
+   "match": "\\b(?:super|where|this|get|out|set)\\b",
+   "name": "vim.Keyword.ktKeyword"
+  },
+  {
+   "match": "\\b(?:by|in|is)\\b",
+   "name": "vim.Operator.ktOperator"
+  },
+  {
+   "match": "\\b(?:while|for|do)\\b",
+   "name": "vim.Repeat.ktRepeat"
+  },
+  {
+   "match": "\\b(?:continue|return|break)\\b",
+   "name": "vim.Statement.ktStatement"
+  },
+  {
+   "match": "\\b(?:crossinline|annotation|companion|abstract|external|noinline|override|dynamic|reified|suspend|actual|expect|inline|sealed|vararg|final|inner|enum|open)\\b",
+   "name": "vim.StorageClass.ktModifier"
+  },
+  {
+   "match": "\\b(?:constructor|interface|typealias|object|class|init|fun|val|var)\\b",
+   "name": "vim.Structure.ktStructure"
+  },
+  {
+   "match": "\\b(?:OverloadResolutionByLambdaReturnType|UninitializedPropertyAccessException|KotlinReflectionNotSupportedError|AbstractCoroutineContextElement|ConcurrentModificationException|JvmDefaultWithoutCompatibility|UnsupportedOperationException|NoWhenBranchMatchedException|AbstractCoroutineContextKey|JvmDefaultWithCompatibility|ExperimentalObjCRefinement|FileAlreadyExistsException|KotlinNullPointerException|AbstractMutableCollection|ContextFunctionTypeParams|ExperimentalMultiplatform|ExperimentalSubclassOptIn|ExperimentalTypeInference|ExperimentalUnsignedTypes|IndexOutOfBoundsException|MatchNamedGroupCollection|AbstractDoubleTimeSource|CharacterCodingException|ClosedFloatingPointRange|IllegalArgumentException|PropertyDelegateProvider|ContinuationInterceptor|AbstractLongTimeSource|NoSuchElementException|AccessDeniedException|CancellationException|DeepRecursiveFunction|DeprecatedSinceKotlin|EmptyCoroutineContext|ExperimentalContracts|ExperimentalStdlibApi|ExtensionFunctionType|IllegalStateException|JvmSerializableLambda|KDeclarationContainer|NumberFormatException|SubclassOptInRequired|ExperimentalJsExport|ExperimentalObjCName|FreezingIsDeprecated|JvmSuppressWildcards|LazyThreadSafetyMode|MatchGroupCollection|NullPointerException|AbstractMutableList|AnnotationRetention|ArithmeticException|ExperimentalPathApi|FileSystemException|MutableListIterator|NoSuchFileException|NotImplementedError|OptionalExpectation|RestrictsSuspension|ShouldRefineInSwift|WithComparableMarks|AbstractCollection|AbstractMutableMap|AbstractMutableSet|CharDirectionality|ClassCastException|ComparableTimeMark|DeepRecursiveScope|FileVisitorBuilder|ObservableProperty|ConditionalEffect|CopyActionContext|FileWalkDirection|JvmMultifileClass|KAnnotatedElement|KMutableProperty0|KMutableProperty1|KMutableProperty2|MutableCollection|ReadWriteProperty|TypeCastException|AbstractIterator|AnnotationTarget|BuilderInference|CopyActionResult|CoroutineContext|DeprecationLevel|ExperimentalTime|KMutableProperty|MustBeDocumented|PurelyImplements|ReadOnlyProperty|RuntimeException|ULongProgression|BooleanIterator|CharProgression|ContractBuilder|KTypeProjection|LongProgression|MutableIterable|MutableIterator|SharedImmutable|UIntProgression|AssertionError|DoubleIterator|HiddenFromObjC|IntProgression|InvocationKind|KTypeParameter|PathWalkOption|RefinesInSwift|ReturnsNotNull|TestTimeSource|UnsafeVariance|FloatIterator|HidesFromObjC|KotlinVersion|LinkedHashMap|LinkedHashSet|OnErrorAction|OnErrorResult|ParameterName|RequiresOptIn|SequenceScope|ShortIterator|StringBuilder|ValueTimeMark|AbstractList|BooleanArray|ByteIterator|CallsInPlace|CharCategory|CharIterator|CharSequence|Continuation|Destructured|DurationUnit|FileTreeWalk|IndexedValue|JvmOverloads|JvmSynthetic|ListIterator|LongIterator|MutableEntry|OpenEndRange|PublishedApi|RandomAccess|SimpleEffect|Synchronized|AbstractMap|AbstractSet|ClosedRange|DoubleArray|EnumEntries|IntIterator|JvmWildcard|KClassifier|KVisibility|MatchResult|MutableList|RegexOption|ReplaceWith|SinceKotlin|ThreadLocal|UShortArray|Annotation|Appendable|ArrayDeque|Collection|Comparable|Comparator|Deprecated|FloatArray|Function10|Function11|Function12|Function13|Function14|Function15|Function16|Function17|Function18|Function19|Function20|Function21|Function22|JvmDefault|KParameter|KProperty0|KProperty1|KProperty2|MatchGroup|MutableMap|MutableSet|Repeatable|ShortArray|TimeSource|TimedValue|Typography|UByteArray|ULongArray|ULongRange|ArrayList|ByteArray|CharArray|CharRange|Cloneable|Delegates|DslMarker|Exception|Function0|Function1|Function2|Function3|Function4|Function5|Function6|Function7|Function8|Function9|FunctionN|JvmInline|JvmRecord|JvmStatic|KCallable|KFunction|KProperty|KVariance|LongArray|LongRange|Monotonic|Retention|Throwable|Transient|UIntArray|UIntRange|Accessor|Charsets|Duration|Function|Grouping|IntArray|IntRange|Iterable|Iterator|JsExport|JvmField|Metadata|ObjCName|Sequence|Strictfp|Suppress|TimeMark|Volatile|Boolean|Element|HashMap|HashSet|JvmName|Nothing|Returns|Double|Effect|Getter|Ignore|JsName|KClass|Number|Random|Result|Setter|String|Target|Throws|Triple|UShort|Array|CName|Entry|Error|Float|KType|Level|OptIn|Regex|Short|UByte|ULong|Byte|Char|Enum|Kind|Lazy|List|Long|Pair|UInt|Unit|Any|Int|Key|Map|Set)\\b",
+   "name": "vim.Type.ktType"
+  }
+ ]
+}

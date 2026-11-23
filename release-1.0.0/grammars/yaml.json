@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.yaml",
+ "injectionSelector": "L:source.yaml -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:match)\\b",
+   "name": "vim.yamlPlainScalar.yamlPlainScalar"
+  }
+ ]
+}

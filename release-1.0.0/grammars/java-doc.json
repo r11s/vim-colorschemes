@@ -1,0 +1,51 @@
+{
+ "scopeName": "vim.injection.java-doc",
+ "injectionSelector": "L:comment.block.javadoc.java -vim.SpecialComment",
+ "patterns": [
+  {
+   "begin": "(?<=/\\*\\*)",
+   "end": "\\.(?=\\s|$)|(?=\\*/)|(?=^\\s*\\*+\\s*@)",
+   "name": "vim.SpecialComment",
+   "patterns": [
+    {
+     "match": "^\\s*\\*+(?!/)",
+     "name": "vim.Comment"
+    },
+    {
+     "match": "\\{@(?:code|link|linkplain|literal|value|docRoot|inheritDoc|index|systemProperty|snippet)\\b[^}]*\\}",
+     "name": "vim.Special"
+    }
+   ]
+  },
+  {
+   "match": "\\{@(?:code|link|linkplain|literal|value|docRoot|inheritDoc|index|systemProperty|snippet)\\b[^}]*\\}",
+   "name": "vim.Special"
+  },
+  {
+   "match": "(@(?:param|exception|throws|since))(\\s+)(\\S+)",
+   "captures": {
+    "1": {
+     "name": "vim.Special"
+    },
+    "3": {
+     "name": "vim.Function"
+    }
+   }
+  },
+  {
+   "match": "(@see)(\\s+)((?:[\\w/.$])*(?:#\\w+(?:\\([^)]*\\))?)?)",
+   "captures": {
+    "1": {
+     "name": "vim.Special"
+    },
+    "3": {
+     "name": "vim.Function"
+    }
+   }
+  },
+  {
+   "match": "@(?:author|deprecated|hidden|return|serial|serialData|serialField|version)\\b",
+   "name": "vim.Special"
+  }
+ ]
+}

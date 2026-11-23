@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.js-esc",
+ "injectionSelector": "L:string.quoted.single.js, L:string.quoted.double.js, L:string.template.js",
+ "patterns": [
+  {
+   "match": "\\\\(?:\\d\\d\\d|.)",
+   "name": "vim.Special"
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.r-todo",
+ "injectionSelector": "L:source.r comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|NOTE|TODO|BUG)\\b",
+   "name": "vim.Todo.rTodoKeyw"
+  }
+ ]
+}

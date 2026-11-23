@@ -1,0 +1,14 @@
+# Alles ignorieren, nur das Notwendige aufnehmen
+/*
+
+!/.gitignore
+!/README.md
+!/release-1.0.0/
+!/tools/
+!/data/
+
+# Pakete und Zwischenstände
+*.vsix
+__pycache__/
+*.pyc
+node_modules/

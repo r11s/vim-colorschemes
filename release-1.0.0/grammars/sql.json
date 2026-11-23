@@ -1,0 +1,30 @@
+{
+ "scopeName": "vim.injection.sql",
+ "injectionSelector": "L:source.sql -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:powermultiset_by_cardinality|prediction_probability|cluster_probability|ls_charset_decl_len|stats_binomial_test|stats_one_way_anova|stats_t_test_indepu|stats_t_test_paired|sys_connect_by_path|prediction_details|stats_t_test_indep|current_timestamp|prediction_bounds|nls_charset_name|scn_to_timestamp|stats_t_test_one|timestamp_to_scn|to_binary_double|insertxmlbefore|numtodsinterval|numtoyminterval|percentile_cont|percentile_disc|prediction_cost|sessiontimezone|sys_extract_utc|to_binary_float|to_timestamp_tz|appendchildxml|insertchildxml|localtimestamp|months_between|nls_charset_id|prediction_set|regexp_replace|regr_intercept|stats_crosstab|stats_wsr_test|to_single_byte|feature_value|powermultiset|regexp_substr|stats_ks_test|stats_mw_test|to_dsinterval|to_multi_byte|to_yminterval|current_date|extractvalue|percent_rank|regexp_instr|rowidtonchar|stats_f_test|sys_dburigen|systimestamp|to_timestamp|width_bucket|xmlcolattval|xmlserialize|xmltransform|chartorowid|cluster_set|feature_set|grouping_id|nls_initcap|rowidtochar|stddev_samp|sys_context|xmlsequence|add_months|bin_to_num|cluster_id|covar_samp|dbtimezone|dense_rank|empty_blob|empty_clob|existsnode|feature_id|prediction|regr_count|regr_slope|stats_mode|stddev_pop|sys_typeid|sys_xmlagg|sys_xmlgen|vsizeality|xmlcomment|xmlelement|bfilename|covar_pop|cume_dist|decompose|deletexml|nls_lower|nls_upper|rawtonhex|regr_avgx|regr_avgy|remainder|to_number|translate|tz_offset|updatexml|wm_concat|xmlconcat|xmlexists|xmlforest|asciistr|coalesce|greatest|group_id|grouping|hextoraw|last_day|new_time|next_day|ora_hash|rawtohex|regr_sxx|regr_sxy|regr_syy|sys_guid|to_nchar|to_nclob|var_samp|variance|xmlcdata|xmlparse|xmlpatch|xmlquery|xmltable|collect|compose|convert|extract|from_tz|initcap|listagg|nlssort|regr_r2|replace|soundex|sysdate|to_char|to_clob|to_date|userenv|var_pop|xmlcast|xmldiff|xmlroot|bitand|cardin|concat|corr_k|corr_s|decode|length|median|nullif|stddev|substr|to_lob|unistr|xmlagg|ascii|atan2|count|depth|first|floor|instr|least|lnnvl|lower|ltrim|nanvl|power|round|rtrim|treat|trunc|upper|xmlpi|acos|asin|atan|cast|ceil|corr|cosh|dump|last|lpad|nvl2|path|rank|rpad|sign|sinh|sqrt|tanh|trim|user|abs|avg|chr|cos|exp|log|max|min|mod|nvl|sin|sum|tan|uid|ln)\\b",
+   "name": "vim.Function.sqlFunction"
+  },
+  {
+   "match": "(?i)\\b(?:identified|maxextents|monitoring|nocompress|noparallel|privileges|successful|tablespace|exception|exclusive|immediate|increment|nologging|procedure|compress|function|initrans|maxtrans|parallel|resource|rowlabel|validate|whenever|cluster|connect|current|default|initial|logging|nocache|offline|pctfree|pctused|session|synonym|trigger|access|column|cursor|having|modify|nowait|online|option|public|return|rownum|unique|values|within|begin|cache|check|cross|elsif|group|index|inner|level|order|outer|right|share|start|table|using|where|case|desc|else|file|from|into|join|left|link|loop|mode|rows|size|then|type|view|when|with|add|asc|end|for|row|as|by|if|is|of|on|to)\\b",
+   "name": "vim.Special.sqlKeyword"
+  },
+  {
+   "match": "(?i)\\b(?:false|null|true)\\b",
+   "name": "vim.Special.sqlSpecial"
+  },
+  {
+   "match": "(?i)\\b(?:intersect|distinct|between|escape|exists|minus|prior|union|like|some|all|and|any|not|out|in|or)\\b",
+   "name": "vim.Statement.sqlOperator"
+  },
+  {
+   "match": "(?i)\\b(?:savepoint|rollback|truncate|analyze|comment|execute|explain|noaudit|commit|delete|rename|revoke|audit|grant|drop|lock|set)\\b",
+   "name": "vim.Statement.sqlStatement"
+  },
+  {
+   "match": "(?i)\\b(?:character|nvarchar2|precision|timestamp|datetime|mlslabel|smallint|varchar2|boolean|decimal|integer|numeric|varchar|number|urowid|varray|bfile|float|nchar|nclob|rowid|blob|char|clob|date|long|real|dec|int|raw)\\b",
+   "name": "vim.Type.sqlType"
+  }
+ ]
+}

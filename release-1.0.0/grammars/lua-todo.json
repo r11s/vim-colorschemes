@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.lua-todo",
+ "injectionSelector": "L:source.lua comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|TODO|XXX)\\b",
+   "name": "vim.Todo.luaTodo"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "scopeName": "vim.injection.lua",
+ "injectionSelector": "L:source.lua -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true|nil)\\b",
+   "name": "vim.Constant.luaConstant"
+  },
+  {
+   "match": "\\b(?:elseif|until|else|then|end|in)\\b",
+   "name": "vim.Error.luaError"
+  },
+  {
+   "match": "\\b(?:__metatable|__newindex|__tostring|__concat|__index|__pairs|__band|__bnot|__bxor|__call|__idiv|__mode|__name|__add|__bor|__div|__len|__mod|__mul|__pow|__shl|__shr|__sub|__unm|__eq|__gc|__le|__lt)\\b",
+   "name": "vim.Function.luaMetaMethod"
+  },
+  {
+   "match": "\\b(?:collectgarbage|getmetatable|setmetatable|_VERSION|loadfile|rawequal|tonumber|tostring|require|assert|dofile|ipairs|rawget|rawlen|rawset|select|xpcall|error|pairs|pcall|print|_ENV|load|next|self|type|_G)\\b",
+   "name": "vim.Identifier.luaFunc"
+  },
+  {
+   "match": "\\b(?:and|not|or)\\b",
+   "name": "vim.Operator.luaOperator"
+  },
+  {
+   "match": "\\b(?:return|break|local|goto)\\b",
+   "name": "vim.Statement.luaStatement"
+  }
+ ]
+}

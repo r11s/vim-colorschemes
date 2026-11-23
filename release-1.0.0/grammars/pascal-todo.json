@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.pascal-todo",
+ "injectionSelector": "L:source.pascal comment",
+ "patterns": [
+  {
+   "match": "\\b(?:DEBUG|FIXME|NOTE|TODO|XXX)\\b",
+   "name": "vim.Todo.pascalTodo"
+  }
+ ]
+}

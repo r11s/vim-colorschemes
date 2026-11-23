@@ -1,0 +1,78 @@
+
+--- Syntax items ---
+javaScriptCommentTodo xxx contained TBD TODO XXX FIXME
+                   links to Todo
+javaScriptLineComment xxx match +\/\/.*+  contains=@Spell,javaScriptCommentTodo 
+                   links to Comment
+javaScriptCommentSkip xxx match /^[ \t]*\*\($\|[ \t]\+\)/  
+javaScriptComment xxx start=+/\*+ end=+\*/+  contains=@Spell,javaScriptCommentTodo 
+                   links to Comment
+javaScriptSpecial xxx match /\\\d\d\d\|\\./  
+                   links to Special
+javaScriptStringD xxx start=/"/ skip=/\\\\\|\\"/ end=/"\|$/  contains=javaScriptSpecial,@htmlPreproc 
+                   links to String
+javaScriptStringS xxx start=/'/ skip=/\\\\\|\\'/ end=/'\|$/  contains=javaScriptSpecial,@htmlPreproc 
+                   links to String
+javaScriptEmbed xxx start=/${/ end=/}/  contains=@javaScriptEmbededExpr 
+                   links to Special
+javaScriptStringT xxx start=/`/ skip=/\\\\\|\\`/ end=/`/  contains=javaScriptSpecial,javaScriptEmbed,@htmlPreproc 
+                   links to String
+javaScriptSpecialCharacter xxx match /'\\.'/  
+                   links to javaScriptSpecial
+javaScriptNumber xxx match /\<0[bB][0-1]\+\(_[0-1]\+\)*\>/  
+                   match /\<0[oO][0-7]\+\(_[0-7]\+\)*\>/  
+                   match /\<0\([0-7]\+\(_[0-7]\+\)*\)\?\>/  
+                   match /\<0[xX][0-9a-fA-F]\+\(_[0-9a-fA-F]\+\)*\>/  
+                   match /\<\d\+\(_\d\+\)*[eE][+-]\?\d\+\>/  
+                   match /\<[1-9]\d*\(_\d\+\)*\(\.\(\d\+\(_\d\+\)*\([eE][+-]\?\d\+\)\?\)\?\)\?\>/  
+                   match /\<\(\d\+\(_\d\+\)*\)\?\.\d\+\(_\d\+\)*\([eE][+-]\?\d\+\)\?\>/  
+                   match /\<\d\+\(_\d\+\)*\.\(\d\+\(_\d\+\)*\([eE][+-]\?\d\+\)\?\)\?\>/  
+                   links to Number
+javaScriptRegexpString xxx start=-[,(=+]\s*/[^/*]-ms=e-1,me=e-1 skip=+\\\\\|\\/+ end==/[gimuys]\{0,2\}\s\+\/=me=e-1 end==/[gimuys]\{0,2\}\s*[+;.,)\]}]=me=e-1 end=+/[gimuys]\{0,2\}\s*$+  oneline contains=@htmlPreproc,javaScriptComment 
+                   links to String
+javaScriptConditional xxx else switch if
+                   links to Conditional
+javaScriptRepeat xxx of for while in do
+                   links to Repeat
+javaScriptBranch xxx continue break
+                   links to Conditional
+javaScriptOperator xxx delete typeof new instanceof
+                   links to Operator
+javaScriptType xxx Function Date Array RegExp String Number Object Boolean
+                   links to Type
+javaScriptStatement xxx return await yield with
+                   links to Statement
+javaScriptBoolean xxx true false
+                   links to Boolean
+javaScriptNull xxx null undefined
+                   links to Keyword
+javaScriptIdentifier xxx this arguments
+                   links to Identifier
+javaScriptLabel xxx default case
+                   links to Label
+javaScriptException xxx finally catch try throw
+                   links to Exception
+javaScriptMessage xxx status prompt alert confirm
+                   links to Keyword
+javaScriptGlobal xxx window self top parent
+                   links to Keyword
+javaScriptMember xxx document location event
+                   links to Keyword
+javaScriptDeprecated xxx escape unescape
+                   links to Exception
+javaScriptReserved xxx long transient float async synchronized protected
+                   interface private const final implements from import goto
+                   export volatile class double short boolean char native as
+                   var throws enum public int byte debugger package let using
+                   abstract extends super
+                   links to Keyword
+javaScriptModifier xxx static
+                   links to StorageClass
+javaScriptFunction xxx function
+                   links to Keyword
+javaScriptBraces xxx match /[{}\[\]]/  
+                   links to Function
+javaScriptParens xxx match /[()]/  
+Spell          cluster=NONE
+htmlPreproc    cluster=NONE
+javaScriptEmbededExpr cluster=javaScriptBoolean,javaScriptNull,javaScriptIdentifier,javaScriptStringD,javaScriptStringS,javaScriptStringT 

@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.kotlin-todo",
+ "injectionSelector": "L:source.kotlin comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|TODO|XXX)\\b",
+   "name": "vim.Todo.ktTodo"
+  }
+ ]
+}

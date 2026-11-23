@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.perl-todo",
+ "injectionSelector": "L:source.perl comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|NOTE|TODO|TBD|XXX)\\b",
+   "name": "vim.Todo.perlTodo"
+  }
+ ]
+}

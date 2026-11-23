@@ -1,0 +1,40 @@
+{
+ "scopeName": "vim.injection.ini-struct",
+ "injectionSelector": "L:source.ini",
+ "patterns": [
+  {
+   "match": "^[#;].*$",
+   "name": "vim.Comment.dosiniComment"
+  },
+  {
+   "match": "^\\s*\\[[^\\]]*\\]",
+   "name": "vim.Special.dosiniHeader"
+  },
+  {
+   "match": "^(.*?)(\\s*=)(\\s*(?:\\d+|\\d*\\.\\d+|\\d+[eE][+-]?\\d+)\\s*)$",
+   "captures": {
+    "1": {
+     "name": "vim.Type.dosiniLabel"
+    },
+    "3": {
+     "name": "vim.Number.dosiniNumber"
+    }
+   }
+  },
+  {
+   "match": "^(.*?)(\\s*=)(.*)$",
+   "captures": {
+    "1": {
+     "name": "vim.Type.dosiniLabel"
+    },
+    "3": {
+     "name": "vim.String.dosiniValue"
+    }
+   }
+  },
+  {
+   "match": "^.+$",
+   "name": "vim.Normal"
+  }
+ ]
+}

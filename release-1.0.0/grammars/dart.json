@@ -1,0 +1,54 @@
+{
+ "scopeName": "vim.injection.dart",
+ "injectionSelector": "L:source.dart -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.dartBoolean"
+  },
+  {
+   "match": "\\b(?:continue|break)\\b",
+   "name": "vim.Conditional.dartBranch"
+  },
+  {
+   "match": "\\b(?:switch|else|if)\\b",
+   "name": "vim.Conditional.dartConditional"
+  },
+  {
+   "match": "\\b(?:finally|rethrow|catch|throw|try)\\b",
+   "name": "vim.Exception.dartException"
+  },
+  {
+   "match": "\\b(?:covariant|Function|abstract|deferred|operator|dynamic|factory|typedef|static|part|this|var)\\b",
+   "name": "vim.Identifier.dartIdentifier"
+  },
+  {
+   "match": "\\b(?:null)\\b",
+   "name": "vim.Keyword.dartNull"
+  },
+  {
+   "match": "\\b(?:implements|interface|external|extends|library|assert|export|import|async|await|class|const|final|mixin|super|yield|hide|show|sync|on)\\b",
+   "name": "vim.Keyword.dartReserved"
+  },
+  {
+   "match": "\\b(?:default|case)\\b",
+   "name": "vim.Label.dartLabel"
+  },
+  {
+   "match": "\\b(?:new|is)\\b",
+   "name": "vim.Operator.dartOperator"
+  },
+  {
+   "match": "\\b(?:while|for|do|in)\\b",
+   "name": "vim.Repeat.dartRepeat"
+  },
+  {
+   "match": "\\b(?:return|with)\\b",
+   "name": "vim.Statement.dartStatement"
+  },
+  {
+   "match": "\\b(?:StringBuffer|String|double|bool|enum|void|int)\\b",
+   "name": "vim.Type.dartType"
+  }
+ ]
+}

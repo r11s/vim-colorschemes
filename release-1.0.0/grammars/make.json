@@ -1,0 +1,5 @@
+{
+ "scopeName": "vim.injection.make",
+ "injectionSelector": "L:source.makefile -comment -string",
+ "patterns": []
+}

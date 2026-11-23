@@ -1,0 +1,429 @@
+
+--- Syntax items ---
+rubyConditional xxx match /\<\%(then\|else\|when\)\>/  contained containedin=rubyCaseExpression 
+                   match /\<\%(then\|else\|elsif\)\>/  contained containedin=rubyConditionalExpression 
+                   links to Conditional
+rubyModuleName xxx match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<[[:upper:]]\%(\w\|[^\x00-\x7F]\)*\>\%(\s*(\)\@!/  contained 
+                   links to rubyConstant
+rubyClassName  xxx match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<[[:upper:]]\%(\w\|[^\x00-\x7F]\)*\>\%(\s*(\)\@!/  contained 
+                   links to rubyConstant
+rubySymbolDelimiter xxx match /:/  contained 
+                   links to rubySymbol
+rubyDoubleQuoteSymbolDelimiter xxx match /\"/  contained 
+                   links to rubySymbolDelimiter
+rubySingleQuoteSymbolDelimiter xxx match /'/  contained 
+                   links to rubySymbolDelimiter
+rubyParentheses xxx start=/(/ end=/)/  contained contains=ALLBUT,@rubyNotTop containedin=rubyBlockParameterList 
+rubyEnglishBooleanOperator xxx match /\<\%(and\|or\|not\)\>/  
+                   links to rubyOperator
+rubyBlockParameterList xxx start=/\%(\%(\<do\>\|{\)\_s*\)\@32<=|/ end=/|/  contains=ALLBUT,@rubyNotTop,@rubyProperOperator 
+rubyInterpolationDelimiter xxx match /#\ze[$@]/  display contained 
+                   links to Delimiter
+rubyInterpolation xxx matchgroup=rubyInterpolationDelimiter start=/#{/ end=/}/  contained contains=ALLBUT,@rubyNotTop 
+                   match =#\$\%(-\w\|[!$&"'*+,./0:;<>?@\`~_]\|\w\+\)=  display contained contains=rubyInterpolationDelimiter,@rubyGlobalVariable 
+                   match /#@@\=\w\+/  display contained contains=rubyInterpolationDelimiter,rubyInstanceVariable,rubyClassVariable 
+rubyInstanceVariable xxx match /@\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*/  display 
+                   links to rubyIdentifier
+rubyClassVariable xxx match /@@\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*/  display 
+                   links to rubyIdentifier
+rubyStringEscape xxx match /\\\_./  display contained 
+                   match /\\\o\{1,3}\|\\x\x\{1,2}/  display contained 
+                   match /\\u\%(\x\{4}\|{\x\{1,6}\%(\s\+\x\{1,6}\)*}\)/  display contained 
+                   match /\%(\\M-\\C-\|\\C-\\M-\|\\M-\\c\|\\c\\M-\|\\c\|\\C-\|\\M-\)\%(\\\o\{1,3}\|\\x\x\{1,2}\|\\\=.\)/  display contained 
+                   links to Special
+rubyBackslashEscape xxx match /\\\\/  display contained 
+                   match /\V\\\\/  display contained 
+                   links to rubyStringEscape
+rubyQuoteEscape xxx match /\\'/  display contained 
+                   match /\V\\'/  display contained 
+                   links to rubyStringEscape
+rubySpaceEscape xxx match /\\ /  display contained 
+                   links to rubyStringEscape
+rubyParenthesisEscape xxx match /\\[()]/  display contained 
+                   links to rubyStringEscape
+rubyCurlyBraceEscape xxx match /\\[{}]/  display contained 
+                   links to rubyStringEscape
+rubyAngleBracketEscape xxx match /\\[<>]/  display contained 
+                   links to rubyStringEscape
+rubySquareBracketEscape xxx match /\\[[\]]/  display contained 
+                   links to rubyStringEscape
+rubyNestedParentheses xxx start=/(/ skip=/\\\\\|\\)/ end=/)/  contained transparent 
+rubyNestedCurlyBraces xxx start=/{/ skip=/\\\\\|\\}/ end=/}/  contained transparent 
+rubyNestedAngleBrackets xxx start=/</ skip=/\\\\\|\\>/ end=/>/  contained transparent 
+rubyNestedSquareBrackets xxx start=/\[/ skip=/\\\\\|\\\]/ end=/\]/  contained transparent 
+rubyRegexpSpecial xxx match /\\K/  display contained 
+                   match /|/  display contained 
+                   match /\\[1-9]\d\=\d\@!/  display contained 
+                   match /\\k<\%([a-z_]\w*\|-\=\d\+\)\%([+-]\d\+\)\=>/  display contained 
+                   match /\\k'\%([a-z_]\w*\|-\=\d\+\)\%([+-]\d\+\)\='/  display contained 
+                   match /\\g<\%([a-z_]\w*\|-\=\d\+\)>/  display contained 
+                   match /\\g'\%([a-z_]\w*\|-\=\d\+\)'/  display contained 
+                   links to Special
+rubyRegexpComment xxx matchgroup=rubyRegexpSpecial start=/(?#/ skip=/\\\\\|\\)/ end=/)/  contained 
+                   links to Comment
+rubyRegexpParens xxx matchgroup=rubyRegexpSpecial start=/(\%(?:\|?<\=[=!]\|?>\|?<[a-z_]\w*>\|?[imx]*-[imx]*:\=\|\%(?#\)\@!\)/ skip=/\\\\\|\\)/ end=/)/  contained transparent contains=@rubyRegexpSpecial 
+rubyRegexpCharClass xxx match /\\[DdHhRSsWw]/  display contained 
+                   match /\[:\^\=\%(alnum\|alpha\|ascii\|blank\|cntrl\|digit\|graph\|lower\|print\|punct\|space\|upper\|word\|xdigit\):\]/  contained 
+                   match /\\[pP]{^\=.\{-}}/  display contained 
+                   links to rubyRegexpSpecial
+rubyRegexpBrackets xxx matchgroup=rubyRegexpCharClass start=/\[\^\=/ skip=/\\\\\|\\\]/ end=/\]/  contained oneline transparent contains=rubyRegexpBrackets,rubyStringEscape,rubyRegexpEscape,rubyRegexpCharClass,rubyRegexpIntersection 
+rubyRegexpEscape xxx match =\\[].*?+^$|\\/(){}[]=  contained 
+                   links to rubyRegexpSpecial
+rubyRegexpIntersection xxx match /&&/  display contained 
+                   links to rubyRegexpSpecial
+rubyRegexpQuantifier xxx match /[*?+][?+]\=/  display contained 
+                   match /{\d\+\%(,\d*\)\=}?\=/  display contained 
+                   links to rubyRegexpSpecial
+rubyRegexpAnchor xxx match /[$^]\|\\[ABbGZz]/  display contained 
+                   links to rubyRegexpSpecial
+rubyRegexpDot  xxx match /\.\|\\X/  display contained 
+                   links to rubyRegexpCharClass
+rubyInteger    xxx match /\%(\%(\w\|[^\x00-\x7F]\|[]})\"']\s*\)\@<!-\)\=\<0[xX]\x\+\%(_\x\+\)*r\=i\=\>/  display 
+                   match /\%(\%(\w\|[^\x00-\x7F]\|[]})\"']\s*\)\@<!-\)\=\<\%(0[dD]\)\=\%(0\|[1-9]\d*\%(_\d\+\)*\)r\=i\=\>/  display 
+                   match /\%(\%(\w\|[^\x00-\x7F]\|[]})\"']\s*\)\@<!-\)\=\<0[oO]\=\o\+\%(_\o\+\)*r\=i\=\>/  display 
+                   match /\%(\%(\w\|[^\x00-\x7F]\|[]})\"']\s*\)\@<!-\)\=\<0[bB][01]\+\%(_[01]\+\)*r\=i\=\>/  display 
+                   links to Number
+rubyFloat      xxx match /\%(\%(\w\|[^\x00-\x7F]\|[]})\"']\s*\)\@<!-\)\=\<\%(0\|[1-9]\d*\%(_\d\+\)*\)\.\d\+\%(_\d\+\)*r\=i\=\>/  display 
+                   match /\%(\%(\w\|[^\x00-\x7F]\|[]})\"']\s*\)\@<!-\)\=\<\%(0\|[1-9]\d*\%(_\d\+\)*\)\%(\.\d\+\%(_\d\+\)*\)\=\%([eE][-+]\=\d\+\%(_\d\+\)*\)i\=\>/  display 
+                   links to Float
+rubyConstant   xxx match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<[[:upper:]]\%(\w\|[^\x00-\x7F]\)*\>\%(\s*(\)\@!/  
+                   links to Type
+rubyGlobalVariable xxx match /$\%(\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\|-.\)/  
+                   links to rubyIdentifier
+rubySymbol     xxx match #[]})\"':]\@1<!:\%(\^\|\~@\|\~\|<<\|<=>\|<=\|<\|===\|[=!]=\|[=!]\~\|!@\|!\|>>\|>=\|>\||\|-@\|-\|/\|\[]=\|\[]\|\*\*\|\*\|&\|%\|+@\|+\|`\)#  contains=rubySymbolDelimiter 
+                   match #[]})\"':]\@1<!:\$\%(-.\|[`~<=>_,;:!?/.'"@$*\&+0]\)#  contains=rubySymbolDelimiter 
+                   match /[]})\"':]\@1<!:\%(\$\|@@\=\)\=\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*/  contains=rubySymbolDelimiter 
+                   match /[]})\"':]\@1<!:\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\%([?!=]>\@!\)\=/  contains=rubySymbolDelimiter 
+                   matchgroup=rubySymbolDelimiter start=/[]})\"':]\@1<!:'/ skip=/\\\\\|\\'/ end=/'/  fold contains=rubyQuoteEscape,rubyBackslashEscape 
+                   matchgroup=rubySymbolDelimiter start=/[]})\"':]\@1<!:\"/ skip=/\\\\\|\\\"/ end=/\"/  fold contains=@rubyStringSpecial 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s@/ skip=/\V\\\\\|\\@/ end=/\V@/  fold contains=rubyBackslashEscape,rubyAtEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i@/ skip=/\V\\\\\|\\@/ end=/\V@/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAtEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s\\/ skip=/\V\\\\\|\\\\/ end=/\V\\/  fold contains=rubyBackslashEscape,rubyBackslashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i\\/ skip=/\V\\\\\|\\\\/ end=/\V\\/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBackslashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s^/ skip=/\V\\\\\|\\^/ end=/\V^/  fold contains=rubyBackslashEscape,rubyCaretEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i^/ skip=/\V\\\\\|\\^/ end=/\V^/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyCaretEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s_/ skip=/\V\\\\\|\\_/ end=/\V_/  fold contains=rubyBackslashEscape,rubyUnderscoreEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i_/ skip=/\V\\\\\|\\_/ end=/\V_/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyUnderscoreEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s`/ skip=/\V\\\\\|\\`/ end=/\V`/  fold contains=rubyBackslashEscape,rubyBackQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i`/ skip=/\V\\\\\|\\`/ end=/\V`/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBackQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s!/ skip=/\V\\\\\|\\!/ end=/\V!/  fold contains=rubyBackslashEscape,rubyBangEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i!/ skip=/\V\\\\\|\\!/ end=/\V!/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBangEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s\"/ skip=/\V\\\\\|\\\"/ end=/\V\"/  fold contains=rubyBackslashEscape,rubyDoubleQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i\"/ skip=/\V\\\\\|\\\"/ end=/\V\"/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyDoubleQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s#/ skip=/\V\\\\\|\\#/ end=/\V#/  fold contains=rubyBackslashEscape,rubyHashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i#/ skip=/\V\\\\\|\\#/ end=/\V#/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyHashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s$/ skip=/\V\\\\\|\\$/ end=/\V$/  fold contains=rubyBackslashEscape,rubyDollarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i$/ skip=/\V\\\\\|\\$/ end=/\V$/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyDollarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s%/ skip=/\V\\\\\|\\%/ end=/\V%/  fold contains=rubyBackslashEscape,rubyPercentEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i%/ skip=/\V\\\\\|\\%/ end=/\V%/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyPercentEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s&/ skip=/\V\\\\\|\\&/ end=/\V&/  fold contains=rubyBackslashEscape,rubyAmpersandEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i&/ skip=/\V\\\\\|\\&/ end=/\V&/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAmpersandEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s'/ skip=/\V\\\\\|\\'/ end=/\V'/  fold contains=rubyBackslashEscape,rubyQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i'/ skip=/\V\\\\\|\\'/ end=/\V'/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s*/ skip=/\V\\\\\|\\*/ end=/\V*/  fold contains=rubyBackslashEscape,rubyAsterixEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i*/ skip=/\V\\\\\|\\*/ end=/\V*/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAsterixEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s+/ skip=/\V\\\\\|\\+/ end=/\V+/  fold contains=rubyBackslashEscape,rubyPlusEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i+/ skip=/\V\\\\\|\\+/ end=/\V+/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyPlusEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s,/ skip=/\V\\\\\|\\,/ end=/\V,/  fold contains=rubyBackslashEscape,rubyCommaEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i,/ skip=/\V\\\\\|\\,/ end=/\V,/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyCommaEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s-/ skip=/\V\\\\\|\\-/ end=/\V-/  fold contains=rubyBackslashEscape,rubyDashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i-/ skip=/\V\\\\\|\\-/ end=/\V-/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyDashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s./ skip=/\V\\\\\|\\./ end=/\V./  fold contains=rubyBackslashEscape,rubyPeriodEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i./ skip=/\V\\\\\|\\./ end=/\V./  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyPeriodEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=+\V%s/+ skip=+\V\\\\\|\\/+ end=+\V/+  fold contains=rubyBackslashEscape,rubyForwardSlashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=+\V%i/+ skip=+\V\\\\\|\\/+ end=+\V/+  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyForwardSlashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s:/ skip=/\V\\\\\|\\:/ end=/\V:/  fold contains=rubyBackslashEscape,rubyColonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i:/ skip=/\V\\\\\|\\:/ end=/\V:/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyColonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s;/ skip=/\V\\\\\|\\;/ end=/\V;/  fold contains=rubyBackslashEscape,rubySemicolonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i;/ skip=/\V\\\\\|\\;/ end=/\V;/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubySemicolonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s|/ skip=/\V\\\\\|\\|/ end=/\V|/  fold contains=rubyBackslashEscape,rubyBarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i|/ skip=/\V\\\\\|\\|/ end=/\V|/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s=/ skip=/\V\\\\\|\\=/ end=/\V=/  fold contains=rubyBackslashEscape,rubyEqualsEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i=/ skip=/\V\\\\\|\\=/ end=/\V=/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyEqualsEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s~/ skip=/\V\\\\\|\\~/ end=/\V~/  fold contains=rubyBackslashEscape,rubyTildeEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i~/ skip=/\V\\\\\|\\~/ end=/\V~/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyTildeEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%s?/ skip=/\V\\\\\|\\?/ end=/\V?/  fold contains=rubyBackslashEscape,rubyQuestionMarkEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/\V%i?/ skip=/\V\\\\\|\\?/ end=/\V?/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyQuestionMarkEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%s{/ skip=/\\\\\|\\}/ end=/}/  fold contains=rubyBackslashEscape,rubyCurlyBraceEscape,rubyNestedCurlyBraces 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%s</ skip=/\\\\\|\\>/ end=/>/  fold contains=rubyBackslashEscape,rubyAngleBracketEscape,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%s\[/ skip=/\\\\\|\\\]/ end=/\]/  fold contains=rubyBackslashEscape,rubySquareBracketEscape,rubyNestedSquareBrackets 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%s(/ skip=/\\\\\|\\)/ end=/)/  fold contains=rubyBackslashEscape,rubyParenthesisEscape,rubyNestedParentheses 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%i{/ skip=/\\\\\|\\}/ end=/}/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyCurlyBraceEscape,rubyNestedCurlyBraces 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%i</ skip=/\\\\\|\\>/ end=/>/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAngleBracketEscape,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%i\[/ skip=/\\\\\|\\\]/ end=/\]/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubySquareBracketEscape,rubyNestedSquareBrackets 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%i(/ skip=/\\\\\|\\)/ end=/)/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyParenthesisEscape,rubyNestedParentheses 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%I\z([~`!@#$%^&*_\-+=|\:;"',.?/]\)/ skip=/\\\\\|\\\z1/ end=/\z1/  fold contains=@rubyStringSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%I{/ skip=/\\\\\|\\}/ end=/}/  fold contains=@rubyStringSpecial,rubyNestedCurlyBraces 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%I</ skip=/\\\\\|\\>/ end=/>/  fold contains=@rubyStringSpecial,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%I\[/ skip=/\\\\\|\\\]/ end=/\]/  fold contains=@rubyStringSpecial,rubyNestedSquareBrackets 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%I(/ skip=/\\\\\|\\)/ end=/)/  fold contains=@rubyStringSpecial,rubyNestedParentheses 
+                   match /\%(\w\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*[?!]\=::\@!/he=e-1  contained containedin=rubyBlockParameterList,rubyCurlyBlock 
+                   match /[]})\"':]\@1<!\<\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*[!?]\=:[[:space:],;]\@=/he=e-1  
+                   match /[[:space:],{(]\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*[!?]\=:[[:space:],;]\@=/hs=s+1,he=e-1  
+                   match /'\%(\\.\|[^']\)*'::\@!/he=e-1  contains=rubyQuoteEscape,rubyBackslashEscape,rubySingleQuoteSymbolDelimiter 
+                   match /\"\%(\\.\|[^\"]\)*\"::\@!/he=e-1  contains=@rubyStringSpecial,rubyDoubleQuoteSymbolDelimiter 
+                   links to Constant
+rubyCapitalizedMethod xxx match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<\u\%(\w\|[^\x00-\x7F]\)*\>\%(\s*(\)\@=/  
+rubyPredefinedVariable xxx match =$[!$&"'*+,./0:;<>?@\`~]=  
+                   match /$\d\+/  display 
+                   match /$_\>/  display 
+                   match /$-[0FIWadilpvw]\>/  display 
+                   match /$\%(stderr\|stdin\|stdout\)\>/  display 
+                   match /$\%(DEBUG\|FILENAME\|LOADED_FEATURES\|LOAD_PATH\|PROGRAM_NAME\|SAFE\|VERBOSE\)\>/  display 
+                   match /$=/  
+                   match /$-K\>/  display 
+                   match /$\%(deferr\|defout\)\>/  display 
+                   match /$KCODE\>/  display 
+                   links to rubyPredefinedIdentifier
+rubyPredefinedConstant xxx match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<\%(ARGF\|ARGV\|ENV\|DATA\|STDERR\|STDIN\|STDOUT\|TOPLEVEL_BINDING\)\>\%(\s*(\)\@!/  
+                   match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<\%(RUBY_\%(VERSION\|RELEASE_DATE\|PLATFORM\|PATCHLEVEL\|REVISION\|DESCRIPTION\|COPYRIGHT\|ENGINE\)\)\>\%(\s*(\)\@!/  
+                   match /\%(\%(^\|[^.]\)\.\s*\)\@<!\<\%(FALSE\|NIL\|TRUE\)\>\%(\s*(\)\@!/  
+                   links to rubyPredefinedIdentifier
+rubyRegexp     xxx matchgroup=rubyRegexpDelimiter start=#\%(\%(^\|\<\%(and\|or\|while\|until\|unless\|if\|elsif\|when\|not\|then\|else\)\|[;\~=!|&(,{[<>?:*+-]\)\s*\)\@<=/# skip=+\\\\\|\\/+ end=+/[iomxneus]*+  fold contains=@rubyRegexpSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyRegexpDelimiter start=#\%(\%(\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\s\+\)\@<=/\%(=\|\_s\)\@!# skip=+\\\\\|\\/+ end=+/[iomxneus]*+  fold contains=@rubyRegexpSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentRegexpDelimiter start=/%r\z([~`!@#$%^&*_\-+=|\:;"',.?/]\)/ skip=/\\\\\|\\\z1/ end=/\z1[iomxneus]*/  fold contains=@rubyRegexpSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentRegexpDelimiter start=/%r{/ skip=/\\\\\|\\}/ end=/}[iomxneus]*/  fold contains=@rubyRegexpSpecial 
+                   matchgroup=rubyPercentRegexpDelimiter start=/%r</ skip=/\\\\\|\\>/ end=/>[iomxneus]*/  fold contains=@rubyRegexpSpecial,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentRegexpDelimiter start=/%r\[/ skip=/\\\\\|\\\]/ end=/\][iomxneus]*/  fold contains=@rubyRegexpSpecial 
+                   matchgroup=rubyPercentRegexpDelimiter start=/%r(/ skip=/\\\\\|\\)/ end=/)[iomxneus]*/  fold contains=@rubyRegexpSpecial 
+                   matchgroup=rubyPercentRegexpDelimiter start=/%r\z(\s\)/ skip=/\\\\\|\\\z1/ end=/\z1[iomxneus]*/  fold contains=@rubyRegexpSpecial 
+                   links to rubyString
+rubyCharacter  xxx match +\%(\w\|[^\x00-\x7F]\|[]})\"'/]\)\@1<!\%(?\%(\\M-\\C-\|\\C-\\M-\|\\M-\\c\|\\c\\M-\|\\c\|\\C-\|\\M-\)\=\%(\\\o\{1,3}\|\\x\x\{1,2}\|\\[[:space:]]\|\\\=[^[:space:]]\)\)+  
+                   match +\%(\w\|[^\x00-\x7F]\|[]})\"'/]\)\@1<!?\\u\%(\x\{4}\|{\x\{1,6}}\)+  
+                   links to Character
+rubyString     xxx matchgroup=rubyStringDelimiter start=/\"/ skip=/\\\\\|\\\"/ end=/\"/  fold contains=@rubyStringSpecial 
+                   matchgroup=rubyStringDelimiter start=/'/ skip=/\\\\\|\\'/ end=/'/  fold contains=rubyQuoteEscape,rubyBackslashEscape 
+                   matchgroup=rubyStringDelimiter start=/`/ skip=/\\\\\|\\`/ end=/`/  fold contains=@rubyStringSpecial 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q@/ skip=/\V\\\\\|\\@/ end=/\V@/  fold contains=rubyBackslashEscape,rubyAtEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w@/ skip=/\V\\\\\|\\@/ end=/\V@/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAtEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q\\/ skip=/\V\\\\\|\\\\/ end=/\V\\/  fold contains=rubyBackslashEscape,rubyBackslashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w\\/ skip=/\V\\\\\|\\\\/ end=/\V\\/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBackslashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q^/ skip=/\V\\\\\|\\^/ end=/\V^/  fold contains=rubyBackslashEscape,rubyCaretEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w^/ skip=/\V\\\\\|\\^/ end=/\V^/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyCaretEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q_/ skip=/\V\\\\\|\\_/ end=/\V_/  fold contains=rubyBackslashEscape,rubyUnderscoreEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w_/ skip=/\V\\\\\|\\_/ end=/\V_/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyUnderscoreEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q`/ skip=/\V\\\\\|\\`/ end=/\V`/  fold contains=rubyBackslashEscape,rubyBackQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w`/ skip=/\V\\\\\|\\`/ end=/\V`/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBackQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q!/ skip=/\V\\\\\|\\!/ end=/\V!/  fold contains=rubyBackslashEscape,rubyBangEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w!/ skip=/\V\\\\\|\\!/ end=/\V!/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBangEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q\"/ skip=/\V\\\\\|\\\"/ end=/\V\"/  fold contains=rubyBackslashEscape,rubyDoubleQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w\"/ skip=/\V\\\\\|\\\"/ end=/\V\"/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyDoubleQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q#/ skip=/\V\\\\\|\\#/ end=/\V#/  fold contains=rubyBackslashEscape,rubyHashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w#/ skip=/\V\\\\\|\\#/ end=/\V#/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyHashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q$/ skip=/\V\\\\\|\\$/ end=/\V$/  fold contains=rubyBackslashEscape,rubyDollarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w$/ skip=/\V\\\\\|\\$/ end=/\V$/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyDollarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q%/ skip=/\V\\\\\|\\%/ end=/\V%/  fold contains=rubyBackslashEscape,rubyPercentEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w%/ skip=/\V\\\\\|\\%/ end=/\V%/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyPercentEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q&/ skip=/\V\\\\\|\\&/ end=/\V&/  fold contains=rubyBackslashEscape,rubyAmpersandEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w&/ skip=/\V\\\\\|\\&/ end=/\V&/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAmpersandEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q'/ skip=/\V\\\\\|\\'/ end=/\V'/  fold contains=rubyBackslashEscape,rubyQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w'/ skip=/\V\\\\\|\\'/ end=/\V'/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyQuoteEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q*/ skip=/\V\\\\\|\\*/ end=/\V*/  fold contains=rubyBackslashEscape,rubyAsterixEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w*/ skip=/\V\\\\\|\\*/ end=/\V*/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAsterixEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q+/ skip=/\V\\\\\|\\+/ end=/\V+/  fold contains=rubyBackslashEscape,rubyPlusEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w+/ skip=/\V\\\\\|\\+/ end=/\V+/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyPlusEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q,/ skip=/\V\\\\\|\\,/ end=/\V,/  fold contains=rubyBackslashEscape,rubyCommaEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w,/ skip=/\V\\\\\|\\,/ end=/\V,/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyCommaEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q-/ skip=/\V\\\\\|\\-/ end=/\V-/  fold contains=rubyBackslashEscape,rubyDashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w-/ skip=/\V\\\\\|\\-/ end=/\V-/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyDashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q./ skip=/\V\\\\\|\\./ end=/\V./  fold contains=rubyBackslashEscape,rubyPeriodEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w./ skip=/\V\\\\\|\\./ end=/\V./  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyPeriodEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=+\V%q/+ skip=+\V\\\\\|\\/+ end=+\V/+  fold contains=rubyBackslashEscape,rubyForwardSlashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=+\V%w/+ skip=+\V\\\\\|\\/+ end=+\V/+  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyForwardSlashEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q:/ skip=/\V\\\\\|\\:/ end=/\V:/  fold contains=rubyBackslashEscape,rubyColonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w:/ skip=/\V\\\\\|\\:/ end=/\V:/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyColonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q;/ skip=/\V\\\\\|\\;/ end=/\V;/  fold contains=rubyBackslashEscape,rubySemicolonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w;/ skip=/\V\\\\\|\\;/ end=/\V;/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubySemicolonEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q|/ skip=/\V\\\\\|\\|/ end=/\V|/  fold contains=rubyBackslashEscape,rubyBarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w|/ skip=/\V\\\\\|\\|/ end=/\V|/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyBarEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q=/ skip=/\V\\\\\|\\=/ end=/\V=/  fold contains=rubyBackslashEscape,rubyEqualsEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w=/ skip=/\V\\\\\|\\=/ end=/\V=/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyEqualsEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q~/ skip=/\V\\\\\|\\~/ end=/\V~/  fold contains=rubyBackslashEscape,rubyTildeEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w~/ skip=/\V\\\\\|\\~/ end=/\V~/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyTildeEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%q?/ skip=/\V\\\\\|\\?/ end=/\V?/  fold contains=rubyBackslashEscape,rubyQuestionMarkEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/\V%w?/ skip=/\V\\\\\|\\?/ end=/\V?/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyQuestionMarkEscape nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/%q{/ skip=/\\\\\|\\}/ end=/}/  fold contains=rubyBackslashEscape,rubyCurlyBraceEscape,rubyNestedCurlyBraces 
+                   matchgroup=rubyPercentStringDelimiter start=/%q</ skip=/\\\\\|\\>/ end=/>/  fold contains=rubyBackslashEscape,rubyAngleBracketEscape,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentStringDelimiter start=/%q\[/ skip=/\\\\\|\\\]/ end=/\]/  fold contains=rubyBackslashEscape,rubySquareBracketEscape,rubyNestedSquareBrackets 
+                   matchgroup=rubyPercentStringDelimiter start=/%q(/ skip=/\\\\\|\\)/ end=/)/  fold contains=rubyBackslashEscape,rubyParenthesisEscape,rubyNestedParentheses 
+                   matchgroup=rubyPercentStringDelimiter start=/%q\z(\s\)/ skip=/\\\\\|\\\z1/ end=/\z1/  fold contains=rubyBackslashEscape,rubySpaceEscape 
+                   matchgroup=rubyPercentStringDelimiter start=/%w{/ skip=/\\\\\|\\}/ end=/}/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyCurlyBraceEscape,rubyNestedCurlyBraces 
+                   matchgroup=rubyPercentStringDelimiter start=/%w</ skip=/\\\\\|\\>/ end=/>/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyAngleBracketEscape,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentStringDelimiter start=/%w\[/ skip=/\\\\\|\\\]/ end=/\]/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubySquareBracketEscape,rubyNestedSquareBrackets 
+                   matchgroup=rubyPercentStringDelimiter start=/%w(/ skip=/\\\\\|\\)/ end=/)/  fold contains=rubyBackslashEscape,rubySpaceEscape,rubyParenthesisEscape,rubyNestedParentheses 
+                   matchgroup=rubyPercentSymbolDelimiter start=/%s\z(\s\)/ skip=/\\\\\|\\\z1/ end=/\z1/  fold contains=rubyBackslashEscape,rubySpaceEscape 
+                   matchgroup=rubyPercentStringDelimiter start=/\%(\%(\w\|[^\x00-\x7F]\|]\)\s*\)\@<!%=/ skip=/\\\\\|\\=/ end=/=/  fold contains=@rubyStringSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start==%\z([~`!@#$%^&*_\-+|\:;"',.?/]\)= skip=/\\\\\|\\\z1/ end=/\z1/  fold contains=@rubyStringSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/%[QWx]\z([~`!@#$%^&*_\-+=|\:;"',.?/]\)/ skip=/\\\\\|\\\z1/ end=/\z1/  fold contains=@rubyStringSpecial nextgroup=@rubyModifier skipwhite 
+                   matchgroup=rubyPercentStringDelimiter start=/%[QWx]\={/ skip=/\\\\\|\\}/ end=/}/  fold contains=@rubyStringSpecial,rubyNestedCurlyBraces 
+                   matchgroup=rubyPercentStringDelimiter start=/%[QWx]\=</ skip=/\\\\\|\\>/ end=/>/  fold contains=@rubyStringSpecial,rubyNestedAngleBrackets 
+                   matchgroup=rubyPercentStringDelimiter start=/%[QWx]\=\[/ skip=/\\\\\|\\\]/ end=/\]/  fold contains=@rubyStringSpecial,rubyNestedSquareBrackets 
+                   matchgroup=rubyPercentStringDelimiter start=/%[QWx]\=(/ skip=/\\\\\|\\)/ end=/)/  fold contains=@rubyStringSpecial,rubyNestedParentheses 
+                   matchgroup=rubyPercentStringDelimiter start=/%[Qx]\z(\s\)/ skip=/\\\\\|\\\z1/ end=/\z1/  fold contains=@rubyStringSpecial 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<\z(\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+2 matchgroup=rubyHeredocDelimiter end=/^\z1$/  keepend fold contains=rubyHeredocStart,@rubyStringSpecial 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<"\z([^"]*\)"\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+2 matchgroup=rubyHeredocDelimiter end=/^\z1$/  keepend fold contains=rubyHeredocStart,@rubyStringSpecial 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<'\z([^']*\)'\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+2 matchgroup=rubyHeredocDelimiter end=/^\z1$/  keepend fold contains=rubyHeredocStart 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<`\z([^`]*\)`\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+2 matchgroup=rubyHeredocDelimiter end=/^\z1$/  keepend fold contains=rubyHeredocStart,@rubyStringSpecial 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})]\)\s\|\w\)\@<!<<[-~]\z(\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+3 matchgroup=rubyHeredocDelimiter end=/^\s*\zs\z1$/  keepend fold contains=rubyHeredocStart,@rubyStringSpecial 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})]\)\s\|\w\)\@<!<<[-~]"\z([^"]*\)"\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+3 matchgroup=rubyHeredocDelimiter end=/^\s*\zs\z1$/  keepend fold contains=rubyHeredocStart,@rubyStringSpecial 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})]\)\s\|\w\)\@<!<<[-~]'\z([^']*\)'\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+3 matchgroup=rubyHeredocDelimiter end=/^\s*\zs\z1$/  keepend fold contains=rubyHeredocStart 
+                   start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})]\)\s\|\w\)\@<!<<[-~]`\z([^`]*\)`\ze\%(.*<<[-~]\=['`"]\=\h\)\@!/hs=s+3 matchgroup=rubyHeredocDelimiter end=/^\s*\zs\z1$/  keepend fold contains=rubyHeredocStart,@rubyStringSpecial 
+                   links to String
+rubyAtEscape   xxx match /\V\\@/  display contained 
+                   links to rubyStringEscape
+rubyCaretEscape xxx match /\V\\^/  display contained 
+                   links to rubyStringEscape
+rubyUnderscoreEscape xxx match /\V\\_/  display contained 
+                   links to rubyStringEscape
+rubyBackQuoteEscape xxx match /\V\\`/  display contained 
+                   links to rubyStringEscape
+rubyBangEscape xxx match /\V\\!/  display contained 
+                   links to rubyStringEscape
+rubyDoubleQuoteEscape xxx match /\V\\\"/  display contained 
+                   links to rubyStringEscape
+rubyHashEscape xxx match /\V\\#/  display contained 
+                   links to rubyStringEscape
+rubyDollarEscape xxx match /\V\\$/  display contained 
+                   links to rubyStringEscape
+rubyPercentEscape xxx match /\V\\%/  display contained 
+                   links to rubyStringEscape
+rubyAmpersandEscape xxx match /\V\\&/  display contained 
+                   links to rubyStringEscape
+rubyAsterixEscape xxx match /\V\\*/  display contained 
+                   links to rubyStringEscape
+rubyPlusEscape xxx match /\V\\+/  display contained 
+                   links to rubyStringEscape
+rubyCommaEscape xxx match /\V\\,/  display contained 
+                   links to rubyStringEscape
+rubyDashEscape xxx match /\V\\-/  display contained 
+                   links to rubyStringEscape
+rubyPeriodEscape xxx match /\V\\./  display contained 
+                   links to rubyStringEscape
+rubyForwardSlashEscape xxx match +\V\\/+  display contained 
+                   links to rubyStringEscape
+rubyColonEscape xxx match /\V\\:/  display contained 
+                   links to rubyStringEscape
+rubySemicolonEscape xxx match /\V\\;/  display contained 
+                   links to rubyStringEscape
+rubyBarEscape  xxx match /\V\\|/  display contained 
+                   links to rubyStringEscape
+rubyEqualsEscape xxx match /\V\\=/  display contained 
+                   links to rubyStringEscape
+rubyTildeEscape xxx match /\V\\~/  display contained 
+                   links to rubyStringEscape
+rubyQuestionMarkEscape xxx match /\V\\?/  display contained 
+                   links to rubyStringEscape
+rubyHeredocStart xxx matchgroup=rubyHeredocDelimiter start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<[-~]\=\zs\%(\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)/ end=/$/  oneline contains=ALLBUT,@rubyNotTop 
+                   matchgroup=rubyHeredocDelimiter start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<[-~]\=\zs"\%([^"]*\)"/ end=/$/  oneline contains=ALLBUT,@rubyNotTop 
+                   matchgroup=rubyHeredocDelimiter start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<[-~]\=\zs'\%([^']*\)'/ end=/$/  oneline contains=ALLBUT,@rubyNotTop 
+                   matchgroup=rubyHeredocDelimiter start=/\%(\%(class\|::\|\.\@1<!\.\)\_s*\|\%([]})"'`]\)\s\|\w\)\@<!<<[-~]\=\zs`\%([^`]*\)`/ end=/$/  oneline contains=ALLBUT,@rubyNotTop 
+rubyAliasDeclaration2 xxx match /[^[:space:];#.()]\+/  contained contains=rubySymbol,@rubyGlobalVariable 
+rubyAliasDeclaration xxx match /[^[:space:];#.()]\+/  contained contains=rubySymbol,@rubyGlobalVariable nextgroup=rubyAliasDeclaration2 skipwhite 
+rubyBoolean    xxx match /\%#=1\<\%(true\|false\)\>[?!]\@!/  
+                   links to Boolean
+rubyPseudoVariable xxx match /\%#=1\<\%(self\|nil\)\>[?!]\@!/  
+                   match /\%#=1\<__\%(ENCODING\|dir\|FILE\|LINE\|callee\|method\)__\>/  
+                   links to Constant
+rubyMethodDeclaration xxx match /[^[:space:];#(]\+/  contained contains=rubyConstant,rubyBoolean,rubyPseudoVariable,rubyInstanceVariable,rubyClassVariable,rubyGlobalVariable 
+rubyClassDeclaration xxx match /[^[:space:];#<]\+/  contained contains=rubyClassName,rubyScopeOperator nextgroup=rubySuperClassOperator skipwhite 
+rubyModuleDeclaration xxx match /[^[:space:];#<]\+/  contained contains=rubyModuleName,rubyScopeOperator 
+rubyMethodName xxx match /\<\%([_[:alpha:]]\|[^\x00-\x7F]\)\%([_[:alnum:]]\|[^\x00-\x7F]\)*[?!=]\=\%([[:alnum:]_.:?!=]\|[^\x00-\x7F]\)\@!/  contained containedin=rubyMethodDeclaration 
+                   match /\%(\s\|^\)\@1<=\%([_[:alpha:]]\|[^\x00-\x7F]\)\%([_[:alnum:]]\|[^\x00-\x7F]\)*[?!=]\=\%(\s\|$\)\@=/  contained containedin=rubyAliasDeclaration,rubyAliasDeclaration2 
+                   match "\%([[:space:].]\|^\)\@1<=\%(\[\]=\=\|\*\*\|[-+!~]@\=\|[*/%|&^~]\|<<\|>>\|[<>]=\=\|<=>\|===\|[=!]=\|[=!]\~\|!\|`\)\%([[:space:];#(]\|$\)\@="  contained containedin=rubyAliasDeclaration,rubyAliasDeclaration2,rubyMethodDeclaration 
+                   links to rubyFunction
+rubyControl    xxx match /\%#=1\<\%(break\|in\|next\|redo\|retry\|return\)\>/  
+                   match /\%#=1\<\%(abort\|at_exit\|exit\|fork\|loop\|trap\)\>/  
+                   match /\%#=1\<exit!/  display 
+                   links to Statement
+rubyKeyword    xxx match /\%#=1\<\%(super\|yield\)\>/  
+                   match /\%#=1\<\%(callcc\|caller\|lambda\|proc\)\>/  
+                   links to Keyword
+rubyBeginEnd   xxx match /\%#=1\<\%(BEGIN\|END\)\>/  
+                   links to Statement
+rubyDefine     xxx match /\<alias\>/  nextgroup=rubyAliasDeclaration skipwhite skipnl 
+                   match /\<def\>/  nextgroup=rubyMethodDeclaration skipwhite skipnl 
+                   match /\<undef\>/  nextgroup=rubyMethodName skipwhite skipnl 
+                   match /\<def\s\+\ze[^[:space:];#(]\+\%(\s\+\|\s*(.*)\s*\)=/  nextgroup=rubyMethodDeclaration skipwhite 
+                   links to Define
+rubyClass      xxx match /\<class\>/  nextgroup=rubyClassDeclaration,rubyEigenClassOperator skipwhite skipnl 
+                   links to rubyDefine
+rubyModule     xxx match /\<module\>/  nextgroup=rubyModuleDeclaration skipwhite skipnl 
+                   links to rubyDefine
+rubyMethodBlock xxx start=/\<def\>/ matchgroup=rubyDefine skip=/\<end:\|\%(\<def\_s\+\)\@<=end\>/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyClassBlock xxx start=/\<class\>/ matchgroup=rubyClass skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyModuleBlock xxx start=/\<module\>/ matchgroup=rubyModule skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyLineContinuation xxx match /\\$/  nextgroup=@rubyModifier skipwhite skipnl 
+rubyConditionalModifier xxx match /\<\%(if\|unless\)\>/  
+                   links to rubyConditional
+rubyRepeatModifier xxx match /\<\%(while\|until\)\>/  
+                   links to rubyRepeat
+rubyRescueModifier xxx match /\<rescue\>/  
+                   links to rubyExceptionHandler
+rubyDoBlock    xxx matchgroup=rubyControl start=/\<do\>/ skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyCurlyBlock xxx matchgroup=rubyCurlyBlockDelimiter start=/{/ end=/}/  fold contains=ALLBUT,@rubyNotTop 
+rubyArrayLiteral xxx matchgroup=rubyArrayDelimiter start=/\%(\%(\w\|[^\x00-\x7F]\)[?!]\=\|[]})]\)\@2<!\[/ end=/]/  fold contains=ALLBUT,@rubyNotTop 
+rubyBlockExpression xxx matchgroup=rubyControl start=/\<begin\>/ skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyCaseExpression xxx matchgroup=rubyConditional start=/\<case\>/ skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyConditionalExpression xxx matchgroup=rubyConditional start=#\%(\%(^\|\.\.\.\=\|[{:,;([<>~\*/%&^|+=-]\|\<then\s\|\%(\<\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\@<![?!]\)\s*\)\@<=\%(if\|unless\)\># skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop 
+rubyExceptionHandler xxx match /\<\%(\%(\%(;\|^\)\s*\)\@<=rescue\|else\|ensure\)\>/  contained containedin=rubyBlockExpression,rubyDoBlock 
+                   links to rubyConditional
+rubyExceptionHandler2 xxx match /\<\%(\%(\%(;\|^\)\s*\)\@<=rescue\|else\|ensure\)\>/  contained containedin=rubyModuleBlock,rubyClassBlock,rubyMethodBlock 
+                   links to rubyDefine
+rubyOptionalDoLine xxx matchgroup=rubyRepeat start=#\%(\%(^\|\.\.\.\=\|[{:,;([<>~\*/%&^|+=-]\|\%(\<\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\@<![!?]\)\s*\)\@<=\<\%(until\|while\)\># start=/\<for\>/ matchgroup=rubyOptionalDo end=/\ze\%(;\|$\)/ end=/\<do\>/  oneline contains=ALLBUT,@rubyNotTop 
+rubyRepeatExpression xxx start=#\%(\%(^\|\.\.\.\=\|[{:,;([<>~\*/%&^|+=-]\|\%(\<\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*\)\@<![!?]\)\s*\)\@<=\<\%(until\|while\)\># start=/\<for\>/ matchgroup=rubyRepeat skip=/\<end:/ end=/\<end\>/  fold contains=ALLBUT,@rubyNotTop nextgroup=rubyOptionalDoLine 
+rubyAccess     xxx match /\<\%(public\|protected\|private\)\>/  
+                   match /\%#=1\<\%(public\|private\)_class_method\>/  
+                   match /\%#=1\<\%(public\|private\)_constant\>/  
+                   match /\%#=1\<module_function\>/  
+                   links to rubyMacro
+rubyAttribute  xxx match /\%#=1\%(\%(^\|;\)\s*\)\@<=attr\>\%(\s*[.=]\)\@!/  
+                   match /\%#=1\<attr_\%(accessor\|reader\|writer\)\>/  
+                   links to rubyMacro
+rubyEval       xxx match /\%#=1\<eval\>/  
+                   match /\%#=1\<\%(class\|instance\|module\)_eval\>/  
+                   links to Statement
+rubyException  xxx match /\%#=1\<\%(raise\|fail\|catch\|throw\)\>/  
+                   links to Exception
+rubyInclude    xxx match /\%#=1\<\%(autoload\|gem\|load\|require\%(_relative\)\=\)\>/  
+                   links to Include
+rubyMacro      xxx match /\%#=1\<\%(extend\|include\|prepend\|refine\|using\)\>/  
+                   match /\%#=1\<\%(alias\|define\|define_singleton\|remove\|undef\)_method\>/  
+                   links to Macro
+rubySharpBang  xxx match /\%^#!.*/  display 
+                   links to PreProc
+rubyTodo       xxx contained OPTIMIZE REVIEW NOTE XXX FIXME todo HACK TODO
+                   links to Todo
+rubyEncoding   xxx match /[[:alnum:]-_]\+/  display contained 
+                   links to Constant
+rubyMagicComment xxx match /\c\%<3l#\s*\zs\%(coding\|encoding\):/  contained nextgroup=rubyEncoding skipwhite 
+                   match /\c\%<10l#\s*\zs\%(frozen[-_]string[-_]literal\|warn[-_]indent\|warn[-_]past[-_]scope\):/  contained nextgroup=rubyBoolean skipwhite 
+                   match /\c\%<10l#\s*\zs\%(shareable[-_]constant[-_]value\):/  contained nextgroup=rubyEncoding skipwhite 
+                   links to SpecialComment
+rubyComment    xxx match /#.*/  contains=@rubyCommentSpecial,rubySpaceError,@Spell 
+                   links to Comment
+rubyMultilineComment xxx start=/^\s*#.*\n\%(^\s*#\)\@=/ end=/^\s*#.*\n\%(^\s*#\)\@!/  keepend transparent fold contains=rubyComment 
+rubyDocumentation xxx start=/^=begin\ze\%(\s.*\)\=$/ end=/^=end\%(\s.*\)\=$/  fold contains=rubySpaceError,rubyTodo,@Spell 
+                   links to Comment
+rubyUselessLineContinuation xxx match /\%([.:,;{([<>~\*%&^|+=-]\|%(\%(\w\|[^\x00-\x7F]\)\@1<![?!]\)\s*\zs\\$/  nextgroup=rubyUselessLineContinuation skipwhite skipempty 
+                   match /\\$/  contained nextgroup=rubyUselessLineContinuation skipwhite skipempty 
+rubyKeywordAsMethod xxx match /\%(\%(\.\@1<!\.\)\|&\.\|::\)\_s*\%([_[:lower:]][_[:alnum:]]*\|\%(BEGIN\|END\)\>\)/  transparent contains=rubyDotOperator,rubyScopeOperator 
+rubyBangPredicateMethod xxx match /\%(\h\|[^\x00-\x7F]\)\%(\w\|[^\x00-\x7F]\)*[?!]/  
+rubyDefinedOperator xxx match /\%#=1\<defined?/  display 
+                   links to rubyOperator
+rubyData       xxx matchgroup=rubyDataDirective start=/^__END__$/ end=/\%$/  fold 
+                   links to Comment
+rubyNotTop     cluster=@rubyCommentNotTop,@rubyStringNotTop,@rubyRegexpSpecial,@rubyDeclaration,@rubyExceptionHandler,@rubyClassOperator,rubyConditional,rubyModuleName,rubyClassName,rubySymbolDelimiter,rubyDoubleQuoteSymbolDelimiter,rubySingleQuoteSymbolDelimiter,rubyParentheses,@Spell 
+rubyCommentNotTop cluster=@rubyCommentSpecial,rubyEncoding 
+rubyStringNotTop cluster=@rubyStringSpecial,@rubyNestedBrackets,@rubySingleCharEscape 
+rubyRegexpSpecial cluster=@rubyStringSpecial,rubyRegexpSpecial,rubyRegexpEscape,rubyRegexpBrackets,rubyRegexpCharClass,rubyRegexpDot,rubyRegexpQuantifier,rubyRegexpAnchor,rubyRegexpParens,rubyRegexpComment,rubyRegexpIntersection 
+rubyDeclaration cluster=rubyAliasDeclaration,rubyAliasDeclaration2,rubyMethodDeclaration,rubyModuleDeclaration,rubyClassDeclaration,rubyMethodName 
+rubyExceptionHandler cluster=rubyExceptionHandler,rubyExceptionHandler2 
+rubyClassOperator cluster=NONE
+Spell          cluster=NONE
+rubyGlobalVariable cluster=rubyGlobalVariable,rubyPredefinedVariable,rubyGlobalVariableError 
+rubySingleCharEscape cluster=rubyBackslashEscape,rubyQuoteEscape,rubySpaceEscape,rubyParenthesisEscape,rubyCurlyBraceEscape,rubyAngleBracketEscape,rubySquareBracketEscape,rubyAtEscape,rubyCaretEscape,rubyUnderscoreEscape,rubyBackQuoteEscape,rubyBangEscape,rubyDoubleQuoteEscape,rubyHashEscape,rubyDollarEscape,rubyPercentEscape,rubyAmpersandEscape,rubyAsterixEscape,rubyPlusEscape,rubyCommaEscape,rubyDashEscape,rubyPeriodEscape,rubyForwardSlashEscape,rubyColonEscape,rubySemicolonEscape,rubyBarEscape,rubyEqualsEscape,rubyTildeEscape,rubyQuestionMarkEscape 
+rubyNestedBrackets cluster=rubyNestedSquareBrackets,rubyNestedAngleBrackets,rubyNestedCurlyBraces,rubyNestedParentheses 
+rubyStringSpecial cluster=rubyInterpolation,rubyStringEscape 
+rubyProperOperator cluster=NONE
+rubyModifier   cluster=rubyConditionalModifier,rubyRepeatModifier,rubyRescueModifier 
+rubyCommentSpecial cluster=rubySharpBang,rubyTodo,rubyMagicComment 

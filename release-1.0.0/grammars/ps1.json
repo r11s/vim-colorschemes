@@ -1,0 +1,22 @@
+{
+ "scopeName": "vim.injection.ps1",
+ "injectionSelector": "L:source.powershell -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:default|elseif|switch|else|if)\\b",
+   "name": "vim.Conditional.ps1Conditional"
+  },
+  {
+   "match": "(?i)\\b(?:inlinescript|parallel|sequence|process|begin|exit|end)\\b",
+   "name": "vim.Exception.ps1Exception"
+  },
+  {
+   "match": "(?i)\\b(?:configuration|dynamicparam|function|workflow|finally|define|filter|return|catch|class|param|throw|using|where|data|enum|from|trap|try|var|in)\\b",
+   "name": "vim.Keyword.ps1Keyword"
+  },
+  {
+   "match": "(?i)\\b(?:continue|foreach|break|until|while|for|do)\\b",
+   "name": "vim.Repeat.ps1Repeat"
+  }
+ ]
+}

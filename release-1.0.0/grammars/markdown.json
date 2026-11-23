@@ -1,0 +1,5 @@
+{
+ "scopeName": "vim.injection.markdown",
+ "injectionSelector": "L:text.html.markdown -comment -string",
+ "patterns": []
+}

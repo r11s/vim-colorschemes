@@ -1,0 +1,14 @@
+{
+ "scopeName": "vim.injection.c-label",
+ "injectionSelector": "L:source.c -comment -string",
+ "patterns": [
+  {
+   "match": "(?:^\\s*|;\\s*)((?!default\\b)[A-Za-z_]\\w*)(?=\\s*:(?!:)(?!\\s*[1-9]))",
+   "captures": {
+    "1": {
+     "name": "vim.Label.cUserLabel"
+    }
+   }
+  }
+ ]
+}

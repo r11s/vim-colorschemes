@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.less",
+ "injectionSelector": "L:source.css.less -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:blockquote|figcaption|colgroup|datalist|fieldset|menuitem|noscript|optgroup|progress|textarea|address|article|caption|command|details|isindex|picture|section|summary|button|canvas|dialog|figure|footer|header|hgroup|iframe|keygen|legend|object|option|output|script|source|strong|aside|audio|embed|input|label|meter|param|small|tbody|tfoot|thead|title|track|video|abbr|area|base|body|cite|code|data|form|head|html|link|main|mark|menu|meta|ruby|samp|span|time|bdi|bdo|col|del|dfn|div|img|ins|kbd|map|nav|pre|sub|sup|svg|var|wbr|br|dd|dl|dt|em|h1|h2|h3|h4|h5|h6|hr|li|ol|rp|rt|td|th|tr|ul|a|b|i|p|q|s|u)\\b(?!\\s*\\()",
+   "name": "vim.Statement.cssTagName"
+  }
+ ]
+}

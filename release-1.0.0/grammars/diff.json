@@ -1,0 +1,5 @@
+{
+ "scopeName": "vim.injection.diff",
+ "injectionSelector": "L:source.diff -comment -string",
+ "patterns": []
+}

@@ -1,0 +1,66 @@
+{
+ "scopeName": "vim.injection.go",
+ "injectionSelector": "L:source.go -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.goBoolean"
+  },
+  {
+   "match": "\\b(?:select|switch|else|if)\\b",
+   "name": "vim.Conditional.goConditional"
+  },
+  {
+   "match": "\\b(?:iota|nil)\\b",
+   "name": "vim.Constant.goPredefinedIdentifiers"
+  },
+  {
+   "match": "\\b(?:complex|println|recover|append|delete|clear|close|panic|print|copy|imag|make|real|cap|len|max|min|new)\\b",
+   "name": "vim.Identifier.goBuiltins"
+  },
+  {
+   "match": "\\b(?:interface|struct)\\b",
+   "name": "vim.Keyword.goDeclType"
+  },
+  {
+   "match": "\\b(?:func|type)\\b",
+   "name": "vim.Keyword.goDeclaration"
+  },
+  {
+   "match": "\\b(?:default|case)\\b",
+   "name": "vim.Label.goLabel"
+  },
+  {
+   "match": "\\b(?:range|for)\\b",
+   "name": "vim.Repeat.goRepeat"
+  },
+  {
+   "match": "\\b(?:package)\\b",
+   "name": "vim.Statement.goPackage"
+  },
+  {
+   "match": "\\b(?:fallthrough|continue|return|break|defer|goto|go)\\b",
+   "name": "vim.Statement.goStatement"
+  },
+  {
+   "match": "\\b(?:complex128|complex64)\\b",
+   "name": "vim.Type.goComplexes"
+  },
+  {
+   "match": "\\b(?:float32|float64)\\b",
+   "name": "vim.Type.goFloats"
+  },
+  {
+   "match": "\\b(?:int16|int32|int64|int8|rune|int)\\b",
+   "name": "vim.Type.goSignedInts"
+  },
+  {
+   "match": "\\b(?:comparable|string|error|bool|chan|any|map)\\b",
+   "name": "vim.Type.goType"
+  },
+  {
+   "match": "\\b(?:uintptr|uint16|uint32|uint64|uint8|byte|uint)\\b",
+   "name": "vim.Type.goUnsignedInts"
+  }
+ ]
+}

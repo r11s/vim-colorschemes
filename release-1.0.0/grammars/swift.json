@@ -1,0 +1,94 @@
+{
+ "scopeName": "vim.injection.swift",
+ "injectionSelector": "L:source.swift -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.swiftBoolean"
+  },
+  {
+   "match": "\\b(?:nil)\\b",
+   "name": "vim.Constant.swiftNil"
+  },
+  {
+   "match": "\\b(?:func)\\b",
+   "name": "vim.Define.swiftFuncDefinition"
+  },
+  {
+   "match": "\\b(?:inout)\\b",
+   "name": "vim.Define.swiftInOutKeyword"
+  },
+  {
+   "match": "\\b(?:typealias)\\b",
+   "name": "vim.Define.swiftTypeAliasDefinition"
+  },
+  {
+   "match": "\\b(?:precedencegroup|operator|class|enum)\\b",
+   "name": "vim.Define.swiftTypeDefinition"
+  },
+  {
+   "match": "\\b(?:let)\\b",
+   "name": "vim.Define.swiftVarDefinition"
+  },
+  {
+   "match": "\\b(?:subscript|deinit)\\b",
+   "name": "vim.Function.swiftFuncKeyword"
+  },
+  {
+   "match": "\\b(?:init)\\b",
+   "name": "vim.Function.swiftFuncKeywordGeneral"
+  },
+  {
+   "match": "\\b(?:associatedtype|extension|protocol|struct|match|self)\\b",
+   "name": "vim.Function.swiftTypeName"
+  },
+  {
+   "match": "\\b(?:metatype|super|Self)\\b",
+   "name": "vim.Identifier.swiftIdentifierKeyword"
+  },
+  {
+   "match": "\\b(?:var)\\b",
+   "name": "vim.Identifier.swiftTypeAliasName"
+  },
+  {
+   "match": "\\b(?:didSet)\\b",
+   "name": "vim.Identifier.swiftVarName"
+  },
+  {
+   "match": "\\b(?:import)\\b",
+   "name": "vim.Include.swiftImport"
+  },
+  {
+   "match": "\\b(?:is)\\b",
+   "name": "vim.Operator.swiftCastOp"
+  },
+  {
+   "match": "\\b(?:convenience|fileprivate|internal|override|required|rethrows|dynamic|private|prefix|public|static|throws|final|lazy|open|weak)\\b",
+   "name": "vim.Operator.swiftDefinitionModifier"
+  },
+  {
+   "match": "\\b(?:willSet|get|set)\\b",
+   "name": "vim.Operator.swiftLabel"
+  },
+  {
+   "match": "\\b(?:autoreleasepool)\\b",
+   "name": "vim.PreProc.swiftScope"
+  },
+  {
+   "match": "\\b(?:fallthrough|continue|default|repeat|return|switch|break|catch|defer|guard|throw|where|while|case|else|for|try|do|if|in)\\b",
+   "name": "vim.Statement.swiftKeyword"
+  },
+  {
+   "match": "\\b(?:mutating)\\b",
+   "name": "vim.Statement.swiftMutating"
+  },
+  {
+   "match": "\\b(?:nonmutating)\\b",
+   "name": "vim.Title.swiftImportModule"
+  },
+  {
+   "match": "\\b(?:AnyObject|Any)\\b",
+   "name": "vim.Type.swiftCoreTypes"
+  }
+ ]
+}

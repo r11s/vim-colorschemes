@@ -1,0 +1,80 @@
+{
+ "scopeName": "vim.injection.dosbatch",
+ "injectionSelector": "L:source.batchfile -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(echo)(\\s+(?:on|off)\\s*$)",
+   "captures": {
+    "1": {
+     "name": "vim.Function.dosbatchImplicit"
+    },
+    "2": {
+     "name": "vim.Operator.dosbatchEchoOperator"
+    }
+   }
+  },
+  {
+   "begin": "(?i)\\b(echo)\\b",
+   "beginCaptures": {
+    "1": {
+     "name": "vim.Function.dosbatchImplicit"
+    }
+   },
+   "end": "(?=[)>|])|$",
+   "contentName": "vim.String.dosbatchString",
+   "patterns": [
+    {
+     "match": "%\\h\\w*%|!\\h\\w*!",
+     "name": "vim.Identifier.dosbatchVariable"
+    },
+    {
+     "match": "(?i)%(?:\\d|\\*)|%%[a-z]\\b|%~[fdpnxsatz]+(?:(?:\\$PATH:)?[a-z]|\\d)\\b",
+     "name": "vim.Identifier.dosBatchArgument"
+    },
+    {
+     "match": "\\^[&|()<>^]|\\$[a-hl-npqstv_$+]|%%",
+     "name": "vim.SpecialChar.dosbatchSpecialChar"
+    }
+   ]
+  },
+  {
+   "match": "(?i)\\b(if)((?:\\s+not)?\\s+(?:exist|defined|errorlevel|cmdextversion))",
+   "captures": {
+    "1": {
+     "name": "vim.Conditional.dosbatchConditional"
+    },
+    "2": {
+     "name": "vim.Operator.dosbatchIfOperator"
+    }
+   }
+  },
+  {
+   "match": "\\s*:\\s*:.*$",
+   "name": "vim.Comment.dosbatchColonComment"
+  },
+  {
+   "match": "^\\s*:\\s*\\h\\w*\\b",
+   "name": "vim.Label.dosbatchLabel"
+  },
+  {
+   "match": "(?i)\\b(?:else|if)\\b",
+   "name": "vim.Conditional.dosbatchConditional"
+  },
+  {
+   "match": "(?i)\\b(?:diskcomp|diskcopy|endlocal|graftabl|setlocal|chkntfs|compact|convert|findstr|recover|replace|restore|append|attrib|chkdsk|doskey|format|prompt|rename|verify|assoc|break|cacls|chdir|color|erase|ftype|label|mkdir|pause|print|pushd|rmdir|shift|start|subst|title|xcopy|chcp|comp|copy|date|echo|find|help|keyb|mode|more|move|path|popd|sort|time|tree|type|cls|cmd|del|dir|rem|ren|set|ver|vol|at|cd|fc|md|rd)\\b",
+   "name": "vim.Function.dosbatchImplicit"
+  },
+  {
+   "match": "\\b(?:EQU|GEQ|GTR|LEQ|LSS|NEQ)\\b",
+   "name": "vim.Operator.dosbatchOperator"
+  },
+  {
+   "match": "(?i)\\b(?:for)\\b",
+   "name": "vim.Repeat.dosbatchRepeat"
+  },
+  {
+   "match": "(?i)\\b(?:call|exit|goto)\\b",
+   "name": "vim.Statement.dosbatchStatement"
+  }
+ ]
+}

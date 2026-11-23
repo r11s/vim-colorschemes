@@ -1,0 +1,174 @@
+{
+ "scopeName": "vim.injection.typescript",
+ "injectionSelector": "source.ts -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.typescriptBoolean"
+  },
+  {
+   "match": "\\b(?:undefined|null)\\b",
+   "name": "vim.Boolean.typescriptNull"
+  },
+  {
+   "match": "\\b(?:continue|break)\\b",
+   "name": "vim.Conditional.typescriptBranch"
+  },
+  {
+   "match": "\\b(?:case)\\b",
+   "name": "vim.Conditional.typescriptCase"
+  },
+  {
+   "match": "\\b(?:switch|if)\\b",
+   "name": "vim.Conditional.typescriptConditional"
+  },
+  {
+   "match": "\\b(?:else)\\b",
+   "name": "vim.Conditional.typescriptConditionalElse"
+  },
+  {
+   "match": "\\b(?:default)\\b",
+   "name": "vim.Conditional.typescriptDefault"
+  },
+  {
+   "match": "\\b(?:finally|catch|throw)\\b",
+   "name": "vim.Exception.typescriptExceptions"
+  },
+  {
+   "match": "\\b(?:try)\\b",
+   "name": "vim.Exception.typescriptTry"
+  },
+  {
+   "match": "\\b(?:abstract)\\b",
+   "name": "vim.Function.typescriptFuncName"
+  },
+  {
+   "match": "\\b(?:beforeEach|afterEach|beforeAll|afterAll|describe|assert|before|expect|after|test|it)\\b",
+   "name": "vim.Function.typescriptTestGlobal"
+  },
+  {
+   "match": "\\b(?:type)\\b",
+   "name": "vim.Keyword.typescriptAliasKeyword"
+  },
+  {
+   "match": "\\b(?:declare)\\b",
+   "name": "vim.Keyword.typescriptAmbientDeclaration"
+  },
+  {
+   "match": "\\b(?:async|await)\\b",
+   "name": "vim.Keyword.typescriptAsyncFuncKeyword"
+  },
+  {
+   "match": "\\b(?:class)\\b",
+   "name": "vim.Keyword.typescriptClassKeyword"
+  },
+  {
+   "match": "\\b(?:export)\\b",
+   "name": "vim.Keyword.typescriptExport"
+  },
+  {
+   "match": "\\b(?:function)\\b",
+   "name": "vim.Keyword.typescriptFuncKeyword"
+  },
+  {
+   "match": "\\b(?:import|from)\\b",
+   "name": "vim.Keyword.typescriptImport"
+  },
+  {
+   "match": "\\b(?:interface)\\b",
+   "name": "vim.Keyword.typescriptInterfaceKeyword"
+  },
+  {
+   "match": "\\b(?:namespace)\\b",
+   "name": "vim.Keyword.typescriptModule"
+  },
+  {
+   "match": "\\b(?:readonly)\\b",
+   "name": "vim.Keyword.typescriptReadonlyArrayKeyword"
+  },
+  {
+   "match": "\\b(?:let|var)\\b",
+   "name": "vim.Keyword.typescriptVariable"
+  },
+  {
+   "match": "\\b(?:delete|typeof|void|new)\\b",
+   "name": "vim.Operator.typescriptOperator"
+  },
+  {
+   "match": "\\b(?:while|for|do)\\b",
+   "name": "vim.Repeat.typescriptRepeat"
+  },
+  {
+   "match": "\\b(?:satisfies|as)\\b",
+   "name": "vim.Special.typescriptCastKeyword"
+  },
+  {
+   "match": "\\b(?:yield|with)\\b",
+   "name": "vim.Statement.typescriptStatementKeyword"
+  },
+  {
+   "match": "\\b(?:RTCPeerConnectionErrorCallback|SVGAnimatedPreserveAspectRatio|RTCSessionDescriptionCallback|DedicatedWorkerGlobalScope|HTMLFormControlsCollection|HTMLTableHeaderCellElement|SVGAnimateTransformElement|DOMImplementationRegistry|SVGTextPositioningElement|XMLHttpRequestEventTarget|CanvasRenderingContext2D|HTMLTableDataCellElement|SVGAnimatedTransformList|SVGFontFaceFormatElement|SVGLinearGradientElement|SVGRadialGradientElement|HTMLTableCaptionElement|HTMLTableSectionElement|SVGAnimateMotionElement|SVGForeignObjectElement|DynamicsCompressorNode|MediaQueryListListener|SVGAnimateColorElement|SVGAnimatedEnumeration|SVGFontFaceNameElement|SVGMissingGlyphElement|SVGPreserveAspectRatio|AudioBufferSourceNode|HTMLOptionsCollection|PerformanceNavigation|ProcessingInstruction|RTCSessionDescription|SVGAnimatedLengthList|SVGAnimatedNumberList|SVGFontFaceSrcElement|SVGFontFaceUriElement|WebGLRenderingContext|AudioDestinationNode|HTMLParagraphElement|HTMLTableCellElement|NavigatorGeolocation|VideoPlaybackQuality|CSSStyleDeclaration|ChannelSplitterNode|DOMHighResTimeStamp|DirectoryReaderSync|HTMLDataListElement|HTMLFieldSetElement|HTMLOptGroupElement|HTMLProgressElement|HTMLTableColElement|HTMLTableRowElement|HTMLTextAreaElement|LocalFileSystemSync|OfflineAudioContext|SVGAnimationElement|ScriptProcessorNode|CameraCapabilities|DeviceAcceleration|DeviceRotationRate|DirectoryEntrySync|HTMLHeadingElement|HTMLUnknownElement|IDBCursorWithValue|IDBEnvironmentSync|IDBObjectStoreSync|IDBTransactionSync|PermissionSettings|SVGAnimatedBoolean|SVGAnimatedInteger|SVGClipPathElement|SVGFontFaceElement|SVGGradientElement|SVGPolylineElement|CanvasImageSource|ChannelMergerNode|DOMImplementation|HTMLAnchorElement|HTMLButtonElement|HTMLCanvasElement|HTMLIFrameElement|HTMLKeygenElement|HTMLLegendElement|HTMLObjectElement|HTMLOptionElement|HTMLOutputElement|HTMLScriptElement|HTMLSelectElement|HTMLSourceElement|NavigatorLanguage|PerformanceTiming|RTCPeerConnection|SVGAnimateElement|SVGAnimatedLength|SVGAnimatedNumber|SVGAnimatedPoints|SVGAnimatedString|SVGEllipseElement|SVGPatternElement|SVGPolygonElement|Uint8ClampedArray|BiquadFilterNode|BluetoothAdapter|BluetoothManager|CSSConditionRule|CSSKeyframesRule|CSSNamespaceRule|DocumentFragment|HTMLAudioElement|HTMLDListElement|HTMLEmbedElement|HTMLImageElement|HTMLInputElement|HTMLLabelElement|HTMLMediaElement|HTMLMeterElement|HTMLOListElement|HTMLParamElement|HTMLQuoteElement|HTMLStyleElement|HTMLTableElement|HTMLTitleElement|HTMLTrackElement|HTMLUListElement|HTMLVideoElement|IDBOpenDBRequest|MediaStreamTrack|MutationObserver|NavigatorPlugins|RTCConfiguration|SVGAnimatedAngle|SVGCircleElement|SVGCursorElement|SVGFilterElement|SVGScriptElement|SVGSwitchElement|SVGSymbolElement|SVGTransformList|SVGTransformable|URLUtilsReadOnly|AbortController|ArrayBufferView|BluetoothDevice|CSSGroupingRule|CSSKeyframeRule|CSSSupportsRule|DirectoryReader|HTMLAreaElement|HTMLBaseElement|HTMLBodyElement|HTMLDataElement|HTMLFormElement|HTMLHeadElement|HTMLHtmlElement|HTMLLinkElement|HTMLMetaElement|HTMLSpanElement|HTMLTimeElement|IDBDatabaseSync|LocalFileSystem|NavigatorOnLine|PositionOptions|PromiseResolver|SVGAnimatedRect|SVGGlyphElement|SVGHKernElement|SVGImageElement|SVGMPathElement|SVGStyleElement|SVGTSpanElement|SVGTitleElement|SVGVKernElement|SettingsManager|TCPServerSocket|URLSearchParams|WorkerNavigator|AbstractWorker|BatteryManager|CanvasGradient|ContactManager|DirectoryEntry|HTMLCollection|HTMLDivElement|HTMLMapElement|HTMLModElement|HTMLPreElement|IDBEnvironment|IDBFactorySync|IDBObjectStore|IDBTransaction|MediaQueryList|OscillatorNode|SVGDefsElement|SVGDescElement|SVGFontElement|SVGLineElement|SVGMaskElement|SVGPathElement|SVGRectElement|SVGStopElement|SVGTRefElement|SVGTextElement|SVGViewElement|StyleSheetList|WaveShaperNode|WorkerLocation|XDomainRequest|AudioListener|CSSStyleSheet|CameraControl|CameraManager|CanvasPattern|CaretPosition|CharacterData|ConvolverNode|DOMStringList|DeviceStorage|DocumentTouch|FileException|GamepadButton|HTMLBRElement|HTMLHRElement|HTMLLIElement|IDBCursorSync|MediaRecorder|PositionError|SVGLengthList|SVGNumberList|SVGSVGElement|SVGSetElement|SVGStringList|SVGUseElement|TelephonyCall|ValidityState|WorkerConsole|AnalyserNode|AudioContext|CDATASection|CSSMediaRule|CSSStyleRule|ChromeWorker|DOMException|DOMStringMap|DOMTimeStamp|DOMTokenList|DataTransfer|DocumentType|Float32Array|Float64Array|HTMLDocument|IDBIndexSync|NodeIterator|Notification|PowerManager|SVGTransform|SettingsLock|SharedWorker|Transferable|WebBluetooth|ArrayBuffer|AudioBuffer|CSSPageRule|CSSRuleList|Coordinates|HTMLElement|IDBDatabase|IDBKeyRange|MediaSource|MediaStream|NavigatorID|Performance|Permissions|PluginArray|PushManager|SVGAElement|SVGGElement|SVGStylable|TextMetrics|Uint16Array|Uint32Array|WifiManager|XMLDocument|AudioParam|Connection|DOMRequest|Extensions|IDBFactory|IDBRequest|Int16Array|Int32Array|LockedFile|NodeFilter|PannerNode|ParentNode|SVGElement|StyleSheet|TimeRanges|TreeWalker|Uint8Array|AudioNode|ChildNode|DOMCursor|DOMString|DelayNode|EntrySync|IDBCursor|ImageData|IndexedDB|Int8Array|LinkStyle|Navigator|SVGLength|SVGMatrix|SVGNumber|Selection|TCPSocket|Telephony|TouchList|WebSocket|Contacts|DOMError|DataView|Document|FormData|GainNode|IDBIndex|Location|NodeList|Position|SVGAngle|SVGPoint|SVGTests|CSSRule|Comment|Console|Element|FMRadio|Gamepad|History|SVGRect|Plugin|WebSMS|WebVTT|Window|Worker|Entry|Range|Touch|Apps|Attr|L10n|Node|Text|App|CSS)\\b",
+   "name": "vim.Structure.typescriptBOM"
+  },
+  {
+   "match": "\\b(?:QueryInterface|XMLSerializer|DOMParser)\\b",
+   "name": "vim.Structure.typescriptBOMWindowCons"
+  },
+  {
+   "match": "\\b(?:getAttentionWithCycleCount|getDefaulComputedStyle|removeEventListener|getComputedStyle|showModalDialog|clearImmediate|updateCommands|clearInterval|dispatchEvent|scrollByLines|scrollByPages|sizeToContent|clearTimeout|getAttention|getSelection|setImmediate|setResizable|postMessage|setInterval|matchMedia|openDialog|setTimeout|setCursor|maximize|resizeBy|resizeTo|scrollBy|scrollTo|confirm|restore|moveBy|moveTo|prompt|scroll|alert|close|focus|print|atob|blur|btoa|find|open|stop)\\b",
+   "name": "vim.Structure.typescriptBOMWindowMethod"
+  },
+  {
+   "match": "\\b(?:applicationCache|dialogArguments|messageManager|visualViewport|frameElement|controllers|innerHeight|locationbar|outerHeight|pageXOffset|pageYOffset|performance|personalbar|returnValue|Components|fullScreen|innerWidth|outerWidth|scrollMaxX|scrollMaxY|scrollbars|navigator|statusbar|document|location|history|menubar|screenX|screenY|scrollX|scrollY|sidebar|toolbar|closed|frames|length|opener|parent|screen|status|window|name|self|top)\\b",
+   "name": "vim.Structure.typescriptBOMWindowProp"
+  },
+  {
+   "match": "\\b(?:crypto)\\b",
+   "name": "vim.Structure.typescriptCryptoGlobal"
+  },
+  {
+   "match": "\\b(?:OfflineAudioCompletionEvent|RTCPeerConnectionIceEvent|EditingBeforeInputEvent|DeviceOrientationEvent|IDBVersionChangeEvent|AudioProcessingEvent|CSSFontFaceLoadEvent|DeviceProximityEvent|DOMTransactionEvent|PageTransitionEvent|UserProximityEvent|BeforeUnloadEvent|DeviceMotionEvent|BeforeInputEvent|CompositionEvent|DeviceLightEvent|MediaStreamEvent|HashChangeEvent|TransitionEvent|AnimationEvent|ClipboardEvent|KeyboardEvent|MutationEvent|PopStateEvent|ProgressEvent|GamepadEvent|MessageEvent|PointerEvent|RelatedEvent|SVGZoomEvent|StorageEvent|CustomEvent|SensorEvent|CloseEvent|ErrorEvent|FocusEvent|MouseEvent|TouchEvent|TrackEvent|WheelEvent|BlobEvent|DragEvent|TimeEvent|SVGEvent|UIEvent)\\b",
+   "name": "vim.Structure.typescriptDOMEventCons"
+  },
+  {
+   "match": "\\b(?:TextDecoder|TextEncoder)\\b",
+   "name": "vim.Structure.typescriptEncodingGlobal"
+  },
+  {
+   "match": "\\b(?:NetworkInformation|FileReaderSync|PaymentRequest|ReferenceError|InternalError|ParallelArray|StopIteration|BlobBuilder|Geolocation|SyntaxError|FileReader|RangeError|EvalError|Generator|TypeError|arguments|Function|Iterator|Response|URIError|URLUtils|Boolean|Headers|Promise|Reflect|Request|WeakMap|WeakSet|console|Number|Object|RegExp|String|Symbol|Array|Cache|Error|Proxy|Blob|Date|File|Intl|JSON|Math|Map|Set|URL)\\b",
+   "name": "vim.Structure.typescriptGlobal"
+  },
+  {
+   "match": "\\b(?:decodeURIComponent|encodeURIComponent|parseFloat|decodeURI|encodeURI|isFinite|parseInt|uneval|fetch|isNaN|eval)\\b",
+   "name": "vim.Structure.typescriptGlobalMethod"
+  },
+  {
+   "match": "\\b(?:super|this)\\b",
+   "name": "vim.Structure.typescriptIdentifier"
+  },
+  {
+   "match": "\\b(?:exports|process|Buffer|global|module)\\b",
+   "name": "vim.Structure.typescriptNodeGlobal"
+  },
+  {
+   "match": "\\b(?:XMLHttpRequest)\\b",
+   "name": "vim.Structure.typescriptXHRGlobal"
+  },
+  {
+   "match": "\\b(?:FIXME|TODO|TBD|XXX)\\b",
+   "name": "vim.Todo.typescriptCommentTodo"
+  },
+  {
+   "match": "\\b(?:prototype)\\b",
+   "name": "vim.Type.typescriptPrototype"
+  },
+  {
+   "match": "\\b(?:debugger)\\b",
+   "name": "vim.typescriptDebugger.typescriptDebugger"
+  },
+  {
+   "match": "\\b(?:const|using)\\b",
+   "name": "vim.typescriptVariableDeclaration.typescriptVariableDeclaration"
+  }
+ ]
+}

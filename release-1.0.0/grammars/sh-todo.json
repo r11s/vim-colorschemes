@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.sh-todo",
+ "injectionSelector": "L:source.shell comment",
+ "patterns": [
+  {
+   "match": "\\b(?:COMBAK|FIXME|TODO|XXX)\\b",
+   "name": "vim.Todo.shTodo"
+  }
+ ]
+}

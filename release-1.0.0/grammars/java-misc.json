@@ -1,0 +1,18 @@
+{
+ "scopeName": "vim.injection.java-misc",
+ "injectionSelector": "L:source.java -comment -string",
+ "patterns": [
+  {
+   "match": "^\\s*(?!default\\b)([A-Za-z_$][\\w$]*)\\s*(?=:(?!:))",
+   "captures": {
+    "1": {
+     "name": "vim.Label.javaUserLabel"
+    }
+   }
+  },
+  {
+   "match": "(?:(?<=\\bbreak[ \\t])|(?<=\\bcontinue[ \\t]))[A-Za-z_$][\\w$]*",
+   "name": "vim.Label.javaUserLabelRef"
+  }
+ ]
+}

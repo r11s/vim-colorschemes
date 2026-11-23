@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.toml",
+ "injectionSelector": "L:source.toml -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.tomlBoolean"
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "scopeName": "vim.injection.cs",
+ "injectionSelector": "L:source.cs -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.csBoolean"
+  },
+  {
+   "match": "\\b(?:switch|else|if)\\b",
+   "name": "vim.Conditional.csConditional"
+  },
+  {
+   "match": "\\b(?:null)\\b",
+   "name": "vim.Constant.csNull"
+  },
+  {
+   "match": "\\b(?:match)\\b",
+   "name": "vim.Error.csTypeOfError"
+  },
+  {
+   "match": "\\b(?:finally|catch|throw|when|try)\\b",
+   "name": "vim.Exception.csException"
+  },
+  {
+   "match": "\\b(?:base)\\b",
+   "name": "vim.Keyword.csAccess"
+  },
+  {
+   "match": "\\b(?:await)\\b",
+   "name": "vim.Keyword.csAsyncOperator"
+  },
+  {
+   "match": "\\b(?:as|is)\\b",
+   "name": "vim.Keyword.csIsAs"
+  },
+  {
+   "match": "\\b(?:typeof)\\b",
+   "name": "vim.Keyword.csTypeOf"
+  },
+  {
+   "match": "\\b(?:explicit|implicit)\\b",
+   "name": "vim.Keyword.csUnspecifiedKeyword"
+  },
+  {
+   "match": "\\b(?:default|case)\\b",
+   "name": "vim.Label.csLabel"
+  },
+  {
+   "match": "\\b(?:continue|foreach|return|break|while|goto|for|do)\\b",
+   "name": "vim.Repeat.csRepeat"
+  },
+  {
+   "match": "\\b(?:descending|ascending|orderby|equals|select|group|where|from|into|join|let|by|on)\\b",
+   "name": "vim.Statement.csLinq"
+  },
+  {
+   "match": "\\b(?:lock)\\b",
+   "name": "vim.Statement.csStatement"
+  },
+  {
+   "match": "\\b(?:stackalloc|nameof|params|sizeof|using|out|ref|in)\\b",
+   "name": "vim.Statement.csUnspecifiedStatement"
+  },
+  {
+   "match": "\\b(?:value)\\b",
+   "name": "vim.Statement.csUnsupportedStatement"
+  },
+  {
+   "match": "\\b(?:protected|internal|private|public)\\b",
+   "name": "vim.StorageClass.csAccessModifier"
+  },
+  {
+   "match": "\\b(?:async)\\b",
+   "name": "vim.StorageClass.csAsyncModifier"
+  },
+  {
+   "match": "\\b(?:abstract|operator|override|readonly|volatile|virtual|extern|sealed|static|unsafe|const|event|fixed|this)\\b",
+   "name": "vim.StorageClass.csModifier"
+  },
+  {
+   "match": "\\b(?:interface|namespace|delegate|struct|enum)\\b",
+   "name": "vim.Structure.csStorage"
+  },
+  {
+   "match": "\\b(?:decimal|dynamic|double|object|string|ushort|float|nuint|sbyte|short|ulong|bool|byte|char|long|nint|uint|void|int|var|T)\\b",
+   "name": "vim.Type.csType"
+  }
+ ]
+}

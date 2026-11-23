@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.cs-todo",
+ "injectionSelector": "L:source.cs comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|HACK|NOTE|TODO|TBD|XXX)\\b",
+   "name": "vim.Todo.csTodo"
+  }
+ ]
+}

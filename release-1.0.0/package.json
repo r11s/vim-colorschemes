@@ -1,0 +1,778 @@
+{
+  "name": "vim-colorschemes",
+  "displayName": "Vim Colorschemes",
+  "description": "The color schemes of Vim 9.2 for VS Code and VSCodium, generated automatically from Vim",
+  "version": "1.0.0",
+  "publisher": "r11s",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Vim: Blue",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-blue-color-theme.json"
+      },
+      {
+        "label": "Vim: Catppuccin (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-catppuccin-dark-color-theme.json"
+      },
+      {
+        "label": "Vim: Catppuccin (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/vim-catppuccin-light-color-theme.json"
+      },
+      {
+        "label": "Vim: Darkblue",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-darkblue-color-theme.json"
+      },
+      {
+        "label": "Vim: Default",
+        "uiTheme": "vs",
+        "path": "./themes/vim-default-color-theme.json"
+      },
+      {
+        "label": "Vim: Delek",
+        "uiTheme": "vs",
+        "path": "./themes/vim-delek-color-theme.json"
+      },
+      {
+        "label": "Vim: Desert",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-desert-color-theme.json"
+      },
+      {
+        "label": "Vim: Elflord",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-elflord-color-theme.json"
+      },
+      {
+        "label": "Vim: Evening",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-evening-color-theme.json"
+      },
+      {
+        "label": "Vim: Habamax",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-habamax-color-theme.json"
+      },
+      {
+        "label": "Vim: Industry",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-industry-color-theme.json"
+      },
+      {
+        "label": "Vim: Koehler",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-koehler-color-theme.json"
+      },
+      {
+        "label": "Vim: Lunaperche (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-lunaperche-dark-color-theme.json"
+      },
+      {
+        "label": "Vim: Lunaperche (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/vim-lunaperche-light-color-theme.json"
+      },
+      {
+        "label": "Vim: Morning",
+        "uiTheme": "vs",
+        "path": "./themes/vim-morning-color-theme.json"
+      },
+      {
+        "label": "Vim: Murphy",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-murphy-color-theme.json"
+      },
+      {
+        "label": "Vim: Pablo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-pablo-color-theme.json"
+      },
+      {
+        "label": "Vim: Peachpuff",
+        "uiTheme": "vs",
+        "path": "./themes/vim-peachpuff-color-theme.json"
+      },
+      {
+        "label": "Vim: Quiet (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-quiet-dark-color-theme.json"
+      },
+      {
+        "label": "Vim: Quiet (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/vim-quiet-light-color-theme.json"
+      },
+      {
+        "label": "Vim: Retrobox (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-retrobox-dark-color-theme.json"
+      },
+      {
+        "label": "Vim: Retrobox (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/vim-retrobox-light-color-theme.json"
+      },
+      {
+        "label": "Vim: Ron",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-ron-color-theme.json"
+      },
+      {
+        "label": "Vim: Shine",
+        "uiTheme": "vs",
+        "path": "./themes/vim-shine-color-theme.json"
+      },
+      {
+        "label": "Vim: Slate",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-slate-color-theme.json"
+      },
+      {
+        "label": "Vim: Sorbet",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-sorbet-color-theme.json"
+      },
+      {
+        "label": "Vim: Torte",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-torte-color-theme.json"
+      },
+      {
+        "label": "Vim: Unokai",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-unokai-color-theme.json"
+      },
+      {
+        "label": "Vim: Wildcharm (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-wildcharm-dark-color-theme.json"
+      },
+      {
+        "label": "Vim: Wildcharm (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/vim-wildcharm-light-color-theme.json"
+      },
+      {
+        "label": "Vim: Zaibatsu",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vim-zaibatsu-color-theme.json"
+      },
+      {
+        "label": "Vim: Zellner",
+        "uiTheme": "vs",
+        "path": "./themes/vim-zellner-color-theme.json"
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "vim.injection.dosbatch",
+        "path": "./grammars/dosbatch.json",
+        "injectTo": [
+          "source.batchfile"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.dosbatch-todo",
+        "path": "./grammars/dosbatch-todo.json",
+        "injectTo": [
+          "source.batchfile"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c",
+        "path": "./grammars/c.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-todo",
+        "path": "./grammars/c-todo.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-define",
+        "path": "./grammars/c-define.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-precond",
+        "path": "./grammars/c-precond.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-char",
+        "path": "./grammars/c-char.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-label",
+        "path": "./grammars/c-label.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-comment-block",
+        "path": "./grammars/c-comment-block.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.c-comment-line",
+        "path": "./grammars/c-comment-line.json",
+        "injectTo": [
+          "source.c"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.cobol",
+        "path": "./grammars/cobol.json",
+        "injectTo": [
+          "source.cobol"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.cpp",
+        "path": "./grammars/cpp.json",
+        "injectTo": [
+          "source.cpp"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.cs",
+        "path": "./grammars/cs.json",
+        "injectTo": [
+          "source.cs"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.cs-todo",
+        "path": "./grammars/cs-todo.json",
+        "injectTo": [
+          "source.cs"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.css",
+        "path": "./grammars/css.json",
+        "injectTo": [
+          "source.css"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.less",
+        "path": "./grammars/less.json",
+        "injectTo": [
+          "source.css.less"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.less-todo",
+        "path": "./grammars/less-todo.json",
+        "injectTo": [
+          "source.css.less"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.scss",
+        "path": "./grammars/scss.json",
+        "injectTo": [
+          "source.css.scss"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.scss-customprop",
+        "path": "./grammars/scss-customprop.json",
+        "injectTo": [
+          "source.css.scss"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.scss-var",
+        "path": "./grammars/scss-var.json",
+        "injectTo": [
+          "source.css.scss"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.dart",
+        "path": "./grammars/dart.json",
+        "injectTo": [
+          "source.dart"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.dart-todo",
+        "path": "./grammars/dart-todo.json",
+        "injectTo": [
+          "source.dart"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.diff",
+        "path": "./grammars/diff.json",
+        "injectTo": [
+          "source.diff"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.dockerfile",
+        "path": "./grammars/dockerfile.json",
+        "injectTo": [
+          "source.dockerfile"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.go",
+        "path": "./grammars/go.json",
+        "injectTo": [
+          "source.go"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.go-rune",
+        "path": "./grammars/go-rune.json",
+        "injectTo": [
+          "source.go"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.go-todo",
+        "path": "./grammars/go-todo.json",
+        "injectTo": [
+          "source.go"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.dosini",
+        "path": "./grammars/dosini.json",
+        "injectTo": [
+          "source.ini"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.ini-struct",
+        "path": "./grammars/ini-struct.json",
+        "injectTo": [
+          "source.ini"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.java",
+        "path": "./grammars/java.json",
+        "injectTo": [
+          "source.java"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.java-todo",
+        "path": "./grammars/java-todo.json",
+        "injectTo": [
+          "source.java"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.java-doc",
+        "path": "./grammars/java-doc.json",
+        "injectTo": [
+          "source.java"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.java-misc",
+        "path": "./grammars/java-misc.json",
+        "injectTo": [
+          "source.java"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.javascript",
+        "path": "./grammars/javascript.json",
+        "injectTo": [
+          "source.js"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.javascript-todo",
+        "path": "./grammars/javascript-todo.json",
+        "injectTo": [
+          "source.js"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.js-embed",
+        "path": "./grammars/js-embed.json",
+        "injectTo": [
+          "source.js"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.js-misc",
+        "path": "./grammars/js-misc.json",
+        "injectTo": [
+          "source.js"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.js-esc",
+        "path": "./grammars/js-esc.json",
+        "injectTo": [
+          "source.js"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.json",
+        "path": "./grammars/json.json",
+        "injectTo": [
+          "source.json"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.kotlin",
+        "path": "./grammars/kotlin.json",
+        "injectTo": [
+          "source.kotlin"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.kotlin-todo",
+        "path": "./grammars/kotlin-todo.json",
+        "injectTo": [
+          "source.kotlin"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.lua",
+        "path": "./grammars/lua.json",
+        "injectTo": [
+          "source.lua"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.lua-todo",
+        "path": "./grammars/lua-todo.json",
+        "injectTo": [
+          "source.lua"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.make",
+        "path": "./grammars/make.json",
+        "injectTo": [
+          "source.makefile"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.make-todo",
+        "path": "./grammars/make-todo.json",
+        "injectTo": [
+          "source.makefile"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.perl",
+        "path": "./grammars/perl.json",
+        "injectTo": [
+          "source.perl"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.perl-todo",
+        "path": "./grammars/perl-todo.json",
+        "injectTo": [
+          "source.perl"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.php",
+        "path": "./grammars/php.json",
+        "injectTo": [
+          "source.php"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.ps1",
+        "path": "./grammars/ps1.json",
+        "injectTo": [
+          "source.powershell"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.ps1-todo",
+        "path": "./grammars/ps1-todo.json",
+        "injectTo": [
+          "source.powershell"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.python",
+        "path": "./grammars/python.json",
+        "injectTo": [
+          "source.python"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.python-todo",
+        "path": "./grammars/python-todo.json",
+        "injectTo": [
+          "source.python"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.py-doctest",
+        "path": "./grammars/py-doctest.json",
+        "injectTo": [
+          "source.python"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.py-regexp",
+        "path": "./grammars/py-regexp.json",
+        "injectTo": [
+          "source.python"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.py-fstr",
+        "path": "./grammars/py-fstr.json",
+        "injectTo": [
+          "source.python"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.r",
+        "path": "./grammars/r.json",
+        "injectTo": [
+          "source.r"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.r-todo",
+        "path": "./grammars/r-todo.json",
+        "injectTo": [
+          "source.r"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.ruby",
+        "path": "./grammars/ruby.json",
+        "injectTo": [
+          "source.ruby"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.ruby-todo",
+        "path": "./grammars/ruby-todo.json",
+        "injectTo": [
+          "source.ruby"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.rust",
+        "path": "./grammars/rust.json",
+        "injectTo": [
+          "source.rust"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.rust-todo",
+        "path": "./grammars/rust-todo.json",
+        "injectTo": [
+          "source.rust"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.scala",
+        "path": "./grammars/scala.json",
+        "injectTo": [
+          "source.scala"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.sh",
+        "path": "./grammars/sh.json",
+        "injectTo": [
+          "source.shell"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.sh-todo",
+        "path": "./grammars/sh-todo.json",
+        "injectTo": [
+          "source.shell"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.sql",
+        "path": "./grammars/sql.json",
+        "injectTo": [
+          "source.sql"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.swift",
+        "path": "./grammars/swift.json",
+        "injectTo": [
+          "source.swift"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.swift-todo",
+        "path": "./grammars/swift-todo.json",
+        "injectTo": [
+          "source.swift"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.toml",
+        "path": "./grammars/toml.json",
+        "injectTo": [
+          "source.toml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.toml-todo",
+        "path": "./grammars/toml-todo.json",
+        "injectTo": [
+          "source.toml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.typescript",
+        "path": "./grammars/typescript.json",
+        "injectTo": [
+          "source.ts"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.ts-doc",
+        "path": "./grammars/ts-doc.json",
+        "injectTo": [
+          "source.ts"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.vim",
+        "path": "./grammars/vim.json",
+        "injectTo": [
+          "source.viml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.vim-todo",
+        "path": "./grammars/vim-todo.json",
+        "injectTo": [
+          "source.viml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.yaml",
+        "path": "./grammars/yaml.json",
+        "injectTo": [
+          "source.yaml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.yaml-todo",
+        "path": "./grammars/yaml-todo.json",
+        "injectTo": [
+          "source.yaml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.html",
+        "path": "./grammars/html.json",
+        "injectTo": [
+          "text.html.basic"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.markdown",
+        "path": "./grammars/markdown.json",
+        "injectTo": [
+          "text.html.markdown"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.xml",
+        "path": "./grammars/xml.json",
+        "injectTo": [
+          "text.xml"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.xml-todo",
+        "path": "./grammars/xml-todo.json",
+        "injectTo": [
+          "text.xml"
+        ]
+      },
+      {
+        "language": "pascal",
+        "scopeName": "source.pascal",
+        "path": "./grammars/pascal.tmLanguage.json"
+      },
+      {
+        "scopeName": "vim.injection.pascal",
+        "path": "./grammars/pascal.json",
+        "injectTo": [
+          "source.pascal"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.pascal-todo",
+        "path": "./grammars/pascal-todo.json",
+        "injectTo": [
+          "source.pascal"
+        ]
+      }
+    ],
+    "languages": [
+      {
+        "id": "pascal",
+        "aliases": [
+          "Pascal",
+          "pascal"
+        ],
+        "extensions": [
+          ".pas",
+          ".pp",
+          ".p",
+          ".inc",
+          ".dpr",
+          ".dpk",
+          ".lpr",
+          ".lpk"
+        ],
+        "configuration": "./pascal-language-configuration.json"
+      }
+    ]
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "vim",
+    "colorscheme",
+    "theme",
+    "gvim"
+  ]
+}

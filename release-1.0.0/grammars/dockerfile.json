@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.dockerfile",
+ "injectionSelector": "L:source.dockerfile -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:match)\\b",
+   "name": "vim.dockerfileInstruction.dockerfileInstruction"
+  }
+ ]
+}

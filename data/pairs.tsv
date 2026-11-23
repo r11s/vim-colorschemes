@@ -1,0 +1,1119 @@
+lang	vim_group	vim_trans	tm_scopes	chars
+go/words	goPackage	Statement	source.go keyword.package.go	7
+go/words	goDeclaration	Keyword	source.go keyword.function.go	4
+go/words	goDeclaration	Keyword	source.go keyword.type.go	4
+go/words	goStatement	Statement	source.go keyword.control.go	41
+go/words	goConditional	Conditional	source.go keyword.control.go	18
+go/words	goLabel	Label	source.go keyword.control.go	11
+go/words	goRepeat	Repeat	source.go keyword.control.go	8
+go/words	goType	Type	source.go entity.name.type.any.go	3
+go/words	goType	Type	source.go keyword.map.go	3
+go/words	goType	Type	source.go storage.type.string.go	6
+go/words	goType	Type	source.go storage.type.boolean.go	4
+go/words	goType	Type	source.go keyword.channel.go	4
+go/words	goType	Type	source.go entity.name.type.comparable.go	10
+go/words	goType	Type	source.go storage.type.error.go	5
+go/words	goSignedInts	Type	source.go storage.type.numeric.go	22
+go/words	goSignedInts	Type	source.go storage.type.rune.go	4
+go/words	goUnsignedInts	Type	source.go storage.type.numeric.go	27
+go/words	goUnsignedInts	Type	source.go storage.type.uintptr.go	7
+go/words	goUnsignedInts	Type	source.go storage.type.byte.go	4
+go/words	goFloats	Type	source.go storage.type.numeric.go	14
+go/words	goComplexes	Type	source.go storage.type.numeric.go	19
+go/words	goBuiltins	Identifier	source.go variable.other.go	84
+go/words	goBoolean	Boolean	source.go constant.language.boolean.go	9
+go/words	goPredefinedIdentifiers	Constant	source.go constant.language.null.go	3
+go/words	goPredefinedIdentifiers	Constant	source.go constant.language.iota.go	4
+go/words	goDeclType	Keyword	source.go keyword.struct.go	6
+go/words	goDeclType	Keyword	source.go keyword.interface.go	9
+go/ctx	goPackageComment	Comment	source.go comment.line.double-slash.go punctuation.definition.comment.go	2
+go/ctx	goPackageComment	Comment	source.go comment.line.double-slash.go	33
+go/ctx	goPackage	Statement	source.go keyword.package.go	7
+go/ctx		None	source.go entity.name.type.package.go	4
+go/ctx	goImport	Statement	source.go keyword.control.import.go	6
+go/ctx		None	source.go punctuation.definition.imports.begin.bracket.round.go	1
+go/ctx	goImportString	String	source.go string.quoted.double.go punctuation.definition.string.begin.go	3
+go/ctx	goImportString	String	source.go string.quoted.double.go entity.name.import.go	15
+go/ctx	goImportString	String	source.go string.quoted.double.go punctuation.definition.string.end.go	3
+go/ctx		None	source.go variable.other.import.go	4
+go/ctx		None	source.go punctuation.definition.imports.end.bracket.round.go	1
+go/ctx	goComment	Comment	source.go comment.block.go punctuation.definition.comment.go	4
+go/ctx	goComment	Comment	source.go comment.block.go	24
+go/ctx	goConst	Keyword	source.go keyword.const.go	10
+go/ctx		None	source.go punctuation.definition.begin.bracket.round.go	26
+go/ctx		None	source.go variable.other.constant.go	37
+go/ctx		None	source.go keyword.operator.assignment.go	46
+go/ctx	goFloat	Float	source.go constant.numeric.decimal.go	9
+go/ctx	goFloat	Float	source.go constant.numeric.decimal.point.go	2
+go/ctx	goDecimalInt	Number	source.go constant.numeric.decimal.go	25
+go/ctx	goDecimalInt	Number	source.go constant.numeric.decimal.go punctuation.separator.constant.numeric.go	2
+go/ctx	goHexadecimalInt	Number	source.go keyword.other.unit.hexadecimal.go	2
+go/ctx	goHexadecimalInt	Number	source.go constant.numeric.hexadecimal.go	4
+go/ctx	goHexadecimalInt	Number	source.go constant.numeric.hexadecimal.go punctuation.separator.constant.numeric.go	1
+go/ctx	goOctalInt	Number	source.go keyword.other.unit.octal.go	2
+go/ctx	goOctalInt	Number	source.go constant.numeric.octal.go	3
+go/ctx	goBinaryInt	Number	source.go keyword.other.unit.binary.go	2
+go/ctx	goBinaryInt	Number	source.go constant.numeric.binary.go	4
+go/ctx	goImaginaryDecimal	Number	source.go constant.numeric.decimal.go	2
+go/ctx	goImaginaryDecimal	Number	source.go keyword.other.unit.imaginary.go	2
+go/ctx	goFloat	Float	source.go keyword.other.unit.exponent.decimal.go	1
+go/ctx	goFloat	Float	source.go keyword.operator.minus.exponent.decimal.go	1
+go/ctx	goFloat	Float	source.go constant.numeric.exponent.decimal.go	1
+go/ctx	goBoolean	Boolean	source.go constant.language.boolean.go	4
+go/ctx	goPredefinedIdentifiers	Constant	source.go constant.language.null.go	9
+go/ctx		None	source.go punctuation.definition.end.bracket.round.go	26
+go/ctx	goPredefinedIdentifiers	Constant	source.go constant.language.iota.go	4
+go/ctx	goVar	Keyword	source.go keyword.var.go	12
+go/ctx		None	source.go variable.other.assignment.go	45
+go/ctx	goSignedInts	Type	source.go storage.type.numeric.go	24
+go/ctx		None	source.go punctuation.definition.begin.bracket.square.go	7
+go/ctx		None	source.go punctuation.definition.end.bracket.square.go	7
+go/ctx	goType	Type	source.go storage.type.string.go	24
+go/ctx		None	source.go punctuation.definition.begin.bracket.curly.go	19
+go/ctx	goString	String	source.go string.quoted.double.go punctuation.definition.string.begin.go	9
+go/ctx	goString	String	source.go string.quoted.double.go	21
+go/ctx	goString	String	source.go string.quoted.double.go punctuation.definition.string.end.go	9
+go/ctx		None	source.go punctuation.other.comma.go	24
+go/ctx		None	source.go punctuation.definition.end.bracket.curly.go	19
+go/ctx	goType	Type	source.go keyword.map.go	3
+go/ctx		None	source.go punctuation.other.colon.go	10
+go/ctx	goDeclaration	Keyword	source.go keyword.type.go	16
+go/ctx		None	source.go entity.name.type.go	52
+go/ctx	goDeclType	Keyword	source.go keyword.interface.go	27
+go/ctx		None	source.go entity.name.function.support.go	29
+go/ctx	goFloats	Type	source.go storage.type.numeric.go	14
+go/ctx		None	source.go punctuation.other.period.go	9
+go/ctx	goDeclType	Keyword	source.go keyword.struct.go	6
+go/ctx		None	source.go variable.other.property.go	8
+go/ctx	goRawString	String	source.go string.quoted.raw.go punctuation.definition.string.begin.go	2
+go/ctx	goRawString	String	source.go string.quoted.raw.go	29
+go/ctx	goRawString	String	source.go string.quoted.raw.go punctuation.definition.string.end.go	2
+go/ctx		None	source.go keyword.operator.arithmetic.bitwise.go	3
+go/ctx	goDeclaration	Keyword	source.go keyword.function.go	24
+go/ctx		None	source.go variable.parameter.go	14
+go/ctx		None	source.go keyword.operator.address.go	4
+go/ctx		None	source.go entity.name.function.go	16
+go/ctx	goType	Type	source.go storage.type.error.go	5
+go/ctx		None	source.go variable.other.go	62
+go/ctx	goStatement	Statement	source.go keyword.control.go	42
+go/ctx	goType	Type	source.go entity.name.type.any.go	6
+go/ctx	goBuiltins	Identifier	source.go entity.name.function.support.builtin.go	27
+go/ctx	goRepeat	Repeat	source.go keyword.control.go	11
+go/ctx	goEscapeC	Special	source.go string.quoted.double.go constant.character.escape.go	10
+go/ctx	goEscapeX	Special	source.go string.quoted.double.go constant.character.escape.go	4
+go/ctx	goCharacter	Character	source.go string.quoted.rune.go punctuation.definition.string.begin.go	2
+go/ctx	goCharacter	Character	source.go string.quoted.rune.go constant.other.rune.go	1
+go/ctx	goCharacter	Character	source.go string.quoted.rune.go punctuation.definition.string.end.go	2
+go/ctx	goEscapeC	Special	source.go string.quoted.rune.go constant.other.rune.go	2
+go/ctx	goType	Type	source.go keyword.channel.go	4
+go/ctx		None	source.go keyword.operator.channel.go	4
+go/ctx	goConditional	Conditional	source.go keyword.control.go	26
+go/ctx	goLabel	Label	source.go keyword.control.go	23
+go/ctx		None	source.go variable.other.label.go	21
+go/ctx		None	source.go punctuation.terminator.go	3
+go/ctx		None	source.go keyword.operator.comparison.go	9
+go/ctx		None	source.go keyword.operator.increment.go	2
+go/ctx		None	source.go keyword.operator.arithmetic.go	3
+go/ctx		None	source.go keyword.operator.logical.go	5
+go/ctx	goType	Type	source.go variable.other.assignment.go	3
+go/ctx	goComment	Comment	source.go comment.line.double-slash.go punctuation.definition.comment.go	2
+go/ctx	goTodo	Todo	source.go comment.line.double-slash.go	4
+go/ctx	goComment	Comment	source.go comment.line.double-slash.go	10
+go/ctx	goVarArgs	goVarArgs	source.go keyword.operator.ellipsis.go	3
+go/ctx	goEscapeBigU	Special	source.go string.quoted.double.go constant.character.escape.go	10
+go/ctx	goEscapeOctal	Special	source.go string.quoted.double.go constant.character.escape.go	4
+go/ctx	goHexadecimalFloat	Float	source.go keyword.other.unit.hexadecimal.go	2
+go/ctx	goHexadecimalFloat	Float	source.go constant.numeric.hexadecimal.go	1
+go/ctx	goHexadecimalFloat	Float	source.go keyword.other.unit.exponent.hexadecimal.go	1
+go/ctx	goHexadecimalFloat	Float	source.go keyword.operator.minus.exponent.hexadecimal.go	1
+go/ctx	goHexadecimalFloat	Float	source.go constant.numeric.exponent.hexadecimal.go	1
+go/ctx	goImaginaryBinary	Number	source.go keyword.other.unit.binary.go	2
+go/ctx	goImaginaryBinary	Number	source.go constant.numeric.binary.go	1
+go/ctx	goImaginaryBinary	Number	source.go keyword.other.unit.imaginary.go	1
+go/ctx	goImaginaryOctal	Number	source.go keyword.other.unit.octal.go	2
+go/ctx	goImaginaryOctal	Number	source.go constant.numeric.octal.go	1
+go/ctx	goImaginaryOctal	Number	source.go keyword.other.unit.imaginary.go	1
+go/ctx	goFormatSpecifier	Special	source.go string.quoted.double.go constant.other.placeholder.go	11
+python/words	pythonBoolean	Function	source.python constant.language.python	9
+python/words	pythonConstant	Function	source.python support.variable.magic.python	9
+python/words	pythonConstant	Function	source.python constant.language.python	26
+python/words	pythonStatement	Statement	source.python keyword.control.flow.python	41
+python/words	pythonStatement	Statement	source.python keyword.control.import.python	2
+python/words	pythonStatement	Statement	source.python storage.type.function.lambda.python	6
+python/words	pythonStatement	Statement	source.python storage.type.function.python	3
+python/words	pythonStatement	Statement	source.python storage.type.class.python	5
+python/words	pythonStatement	Statement	source.python storage.modifier.declaration.python	14
+python/words	pythonConditional	Conditional	source.python keyword.control.flow.python	10
+python/words	pythonRepeat	Repeat	source.python keyword.control.flow.python	8
+python/words	pythonOperator	Operator	source.python keyword.operator.logical.python	12
+python/words	pythonException	Exception	source.python keyword.control.flow.python	21
+python/words	pythonInclude	Include	source.python keyword.control.flow.python	4
+python/words	pythonInclude	Include	source.python keyword.control.import.python	6
+python/words	pythonAsync	Statement	source.python keyword.control.flow.python	10
+python/words	pythonClassVar	Identifier	source.python variable.language.special.self.python	4
+python/words	pythonClassVar	Identifier	source.python variable.language.special.cls.python	3
+python/words	pythonBuiltin	Function	source.python support.type.python	108
+python/words	pythonBuiltin	Function	source.python support.function.builtin.python	289
+python/words		None	source.python keyword.control.flow.python	5
+python/words	pythonExceptions	Structure	source.python support.type.exception.python	943
+python/ctx	pythonComment	Comment	source.python comment.line.number-sign.python punctuation.definition.comment.python	3
+python/ctx	pythonComment	Comment	source.python comment.line.number-sign.python	55
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.docstring.multi.python punctuation.definition.string.begin.python	9
+python/ctx	pythonString	String	source.python string.quoted.docstring.multi.python	44
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.docstring.multi.python punctuation.definition.string.end.python	9
+python/ctx	pythonInclude	Include	source.python keyword.control.import.python	26
+python/ctx		None	source.python support.variable.magic.python	18
+python/ctx		None	source.python	119
+python/ctx		None	source.python punctuation.separator.element.python	20
+python/ctx	pythonStatement	Statement	source.python keyword.control.import.python	2
+python/ctx	pythonTodo	Todo	source.python comment.line.number-sign.python keyword.codetag.notation.python	4
+python/ctx		None	source.python constant.other.caps.python	35
+python/ctx		None	source.python keyword.operator.assignment.python	26
+python/ctx	pythonNumber	Number	source.python constant.numeric.dec.python	25
+python/ctx	pythonNumber	Number	source.python constant.numeric.hex.python storage.type.number.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.hex.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.oct.python storage.type.number.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.oct.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.bin.python storage.type.number.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.bin.python	3
+python/ctx	pythonNumber	Number	source.python constant.numeric.float.python	8
+python/ctx	pythonNumber	Number	source.python constant.numeric.dec.python storage.type.imaginary.number.python	1
+python/ctx		None	source.python punctuation.parenthesis.begin.python	3
+python/ctx	pythonBoolean	Function	source.python constant.language.python	14
+python/ctx	pythonConstant	Function	source.python constant.language.python	12
+python/ctx		None	source.python punctuation.parenthesis.end.python	3
+python/ctx	pythonDecorator	Define	source.python meta.function.decorator.python entity.name.function.decorator.python punctuation.definition.decorator.python	3
+python/ctx	pythonDecoratorName	Function	source.python meta.function.decorator.python entity.name.function.decorator.python	9
+python/ctx		None	source.python meta.function.decorator.python punctuation.definition.arguments.begin.python	1
+python/ctx		None	source.python meta.function.decorator.python meta.function-call.arguments.python variable.parameter.function-call.python	3
+python/ctx		None	source.python meta.function.decorator.python meta.function-call.arguments.python keyword.operator.assignment.python	1
+python/ctx	pythonNumber	Number	source.python meta.function.decorator.python meta.function-call.arguments.python constant.numeric.dec.python	1
+python/ctx		None	source.python meta.function.decorator.python punctuation.definition.arguments.end.python	1
+python/ctx	pythonStatement	Statement	source.python meta.function.python storage.type.function.python	15
+python/ctx	pythonFunction	Function	source.python meta.function.python entity.name.function.python	21
+python/ctx		None	source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.begin.python	5
+python/ctx		None	source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python	16
+python/ctx		None	source.python meta.function.python meta.function.parameters.python punctuation.separator.annotation.python	2
+python/ctx	pythonBuiltin	Function	source.python meta.function.python meta.function.parameters.python support.type.python	6
+python/ctx		None	source.python meta.function.python meta.function.parameters.python punctuation.separator.parameters.python	4
+python/ctx		None	source.python meta.function.python meta.function.parameters.python keyword.operator.assignment.python	1
+python/ctx	pythonQuotes	String	source.python meta.function.python meta.function.parameters.python string.quoted.single.python punctuation.definition.string.begin.python	1
+python/ctx	pythonString	String	source.python meta.function.python meta.function.parameters.python string.quoted.single.python	1
+python/ctx	pythonQuotes	String	source.python meta.function.python meta.function.parameters.python string.quoted.single.python punctuation.definition.string.end.python	1
+python/ctx		None	source.python meta.function.python meta.function.parameters.python keyword.operator.unpacking.parameter.python	3
+python/ctx		None	source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.end.python	5
+python/ctx		None	source.python meta.function.python punctuation.separator.annotation.result.python	2
+python/ctx		None	source.python meta.function.python meta.item-access.python meta.indexed-name.python	8
+python/ctx		None	source.python meta.function.python meta.item-access.python punctuation.definition.arguments.begin.python	1
+python/ctx	pythonBuiltin	Function	source.python meta.function.python meta.item-access.python meta.item-access.arguments.python support.type.python	3
+python/ctx		None	source.python meta.function.python meta.item-access.python punctuation.definition.arguments.end.python	1
+python/ctx		None	source.python meta.function.python punctuation.section.function.begin.python	5
+python/ctx	pythonStatement	Statement	source.python storage.modifier.declaration.python	6
+python/ctx	pythonConditional	Conditional	source.python keyword.control.flow.python	31
+python/ctx		None	source.python keyword.operator.comparison.python	6
+python/ctx		None	source.python keyword.operator.arithmetic.python	5
+python/ctx	pythonStatement	Statement	source.python meta.lambda-function.python storage.type.function.lambda.python	6
+python/ctx		None	source.python meta.lambda-function.python meta.function.lambda.parameters.python variable.parameter.function.language.python	1
+python/ctx		None	source.python meta.lambda-function.python punctuation.section.function.lambda.begin.python	1
+python/ctx	pythonQuotes	String	source.python string.quoted.single.python punctuation.definition.string.begin.python	7
+python/ctx	pythonString	String	source.python string.quoted.single.python	37
+python/ctx	pythonEscape	Special	source.python string.quoted.single.python constant.character.escape.python	12
+python/ctx	pythonQuotes	String	source.python string.quoted.single.python punctuation.definition.string.end.python	7
+python/ctx	pythonQuotes	String	source.python string.regexp.quoted.single.python storage.type.string.python	3
+python/ctx	pythonQuotes	String	source.python string.regexp.quoted.single.python punctuation.definition.string.begin.python	2
+python/ctx	pythonRawString	String	source.python string.regexp.quoted.single.python	3
+python/ctx	pythonRawString	String	source.python string.regexp.quoted.single.python support.other.escape.special.regexp	2
+python/ctx	pythonRawString	String	source.python string.regexp.quoted.single.python keyword.operator.quantifier.regexp	1
+python/ctx	pythonQuotes	String	source.python string.regexp.quoted.single.python punctuation.definition.string.end.python	2
+python/ctx	pythonQuotes	String	source.python string.quoted.binary.single.python storage.type.string.python	1
+python/ctx	pythonQuotes	String	source.python string.quoted.binary.single.python punctuation.definition.string.begin.python	1
+python/ctx	pythonBytes	String	source.python string.quoted.binary.single.python	5
+python/ctx	pythonEscape	Special	source.python string.quoted.binary.single.python constant.character.escape.python	4
+python/ctx	pythonQuotes	String	source.python string.quoted.binary.single.python punctuation.definition.string.end.python	1
+python/ctx	pythonQuotes	String	source.python meta.fstring.python string.interpolated.python string.quoted.single.python storage.type.string.python	1
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.begin.python string.interpolated.python string.quoted.single.python	1
+python/ctx	pythonFString	String	source.python meta.fstring.python string.interpolated.python string.quoted.single.python	17
+python/ctx	pythonFStringDelimiter	Special	source.python meta.fstring.python constant.character.format.placeholder.other.python	4
+python/ctx	pythonFStringField	pythonFStringField	source.python meta.fstring.python	1
+python/ctx	pythonFStringDelimiter	Special	source.python meta.fstring.python storage.type.format.python	6
+python/ctx	pythonFString	String	source.python meta.fstring.python constant.character.escape.python	4
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.end.python string.interpolated.python string.quoted.single.python	1
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.multi.python punctuation.definition.string.begin.python	3
+python/ctx	pythonString	String	source.python string.quoted.multi.python	12
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.multi.python punctuation.definition.string.end.python	3
+python/ctx		None	source.python punctuation.definition.dict.begin.python	2
+python/ctx		None	source.python punctuation.separator.dict.python	2
+python/ctx		None	source.python punctuation.definition.list.begin.python	2
+python/ctx		None	source.python punctuation.definition.list.end.python	2
+python/ctx		None	source.python punctuation.definition.dict.end.python	2
+python/ctx	pythonOperator	Operator	source.python keyword.operator.logical.python	15
+python/ctx	pythonStatement	Statement	source.python keyword.control.flow.python	67
+python/ctx		None	source.python meta.item-access.python meta.indexed-name.python	1
+python/ctx		None	source.python meta.item-access.python punctuation.definition.arguments.begin.python	1
+python/ctx	pythonQuotes	String	source.python meta.item-access.python meta.item-access.arguments.python string.quoted.single.python punctuation.definition.string.begin.python	1
+python/ctx	pythonString	String	source.python meta.item-access.python meta.item-access.arguments.python string.quoted.single.python	1
+python/ctx	pythonQuotes	String	source.python meta.item-access.python meta.item-access.arguments.python string.quoted.single.python punctuation.definition.string.end.python	1
+python/ctx		None	source.python meta.item-access.python punctuation.definition.arguments.end.python	1
+python/ctx	pythonBuiltin	Function	source.python meta.function-call.python support.function.builtin.python	22
+python/ctx		None	source.python meta.function-call.python punctuation.definition.arguments.begin.python	8
+python/ctx	pythonQuotes	String	source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.begin.python	2
+python/ctx	pythonString	String	source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python	4
+python/ctx	pythonQuotes	String	source.python meta.function-call.python meta.function-call.arguments.python string.quoted.single.python punctuation.definition.string.end.python	2
+python/ctx		None	source.python meta.function-call.python punctuation.definition.arguments.end.python	8
+python/ctx		None	source.python punctuation.separator.colon.python	14
+python/ctx		None	source.python meta.member.access.python punctuation.separator.period.python	4
+python/ctx		None	source.python meta.member.access.python meta.function-call.python meta.function-call.generic.python	4
+python/ctx		None	source.python meta.member.access.python meta.function-call.python punctuation.definition.arguments.begin.python	2
+python/ctx		None	source.python meta.member.access.python meta.function-call.python punctuation.definition.arguments.end.python	2
+python/ctx	pythonException	Exception	source.python keyword.control.flow.python	21
+python/ctx	pythonExceptions	Structure	source.python meta.function-call.python support.type.exception.python	10
+python/ctx	pythonInclude	Include	source.python keyword.control.flow.python	4
+python/ctx	pythonExceptions	Structure	source.python support.type.exception.python	18
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python	13
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python punctuation.separator.arguments.python	3
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python variable.parameter.function-call.python	4
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python keyword.operator.assignment.python	1
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python meta.member.access.python punctuation.separator.period.python	1
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python meta.member.access.python meta.attribute.python	6
+python/ctx	pythonRepeat	Repeat	source.python keyword.control.flow.python	8
+python/ctx	pythonOperator	Operator	source.python keyword.control.flow.python	2
+python/ctx	pythonNumber	Number	source.python meta.function-call.python meta.function-call.arguments.python constant.numeric.dec.python	2
+python/ctx	pythonStatement	Statement	source.python meta.class.python storage.type.class.python	10
+python/ctx	pythonClass	Structure	source.python meta.class.python entity.name.type.class.python	9
+python/ctx		None	source.python meta.class.python meta.class.inheritance.python punctuation.definition.inheritance.begin.python	2
+python/ctx	pythonBuiltin	Function	source.python meta.class.python meta.class.inheritance.python support.type.python	6
+python/ctx		None	source.python meta.class.python meta.class.inheritance.python punctuation.definition.inheritance.end.python	2
+python/ctx		None	source.python meta.class.python punctuation.section.class.begin.python	2
+python/ctx	pythonBuiltin	Function	source.python support.type.python	6
+python/ctx	pythonFunction	Function	source.python meta.function.python support.function.magic.python	8
+python/ctx	pythonClassVar	Identifier	source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python variable.parameter.function.language.special.self.python	8
+python/ctx	pythonClassVar	Identifier	source.python variable.language.special.self.python	8
+python/ctx		None	source.python meta.member.access.python meta.attribute.python	8
+python/ctx	pythonBuiltin	Function	source.python meta.function-call.python support.type.python	5
+python/ctx		None	source.python meta.member.access.python meta.function-call.python support.function.magic.python	8
+python/ctx	pythonDecoratorName	Function	source.python meta.function.decorator.python support.type.python	20
+python/ctx	pythonAsync	Statement	source.python meta.function.python storage.type.function.async.python	5
+python/ctx	pythonAsync	Statement	source.python keyword.control.flow.python	5
+python/ctx		None	source.python meta.function-call.python meta.function-call.generic.python	9
+python/ctx		None	source.python meta.class.python meta.class.inheritance.python entity.other.inherited-class.python	8
+python/ctx		None	source.python meta.class.python meta.class.inheritance.python punctuation.separator.inheritance.python	1
+python/ctx		None	source.python meta.class.python meta.class.inheritance.python support.type.metaclass.python	9
+python/ctx		None	source.python meta.class.python meta.class.inheritance.python keyword.operator.assignment.python	1
+python/ctx	pythonBuiltin	Function	source.python meta.function-call.python meta.function-call.arguments.python meta.function-call.python support.function.builtin.python	10
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python meta.function-call.python punctuation.definition.arguments.begin.python	1
+python/ctx	pythonNumber	Number	source.python meta.function-call.python meta.function-call.arguments.python meta.function-call.python meta.function-call.arguments.python constant.numeric.dec.python	1
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python meta.function-call.python meta.function-call.arguments.python punctuation.separator.arguments.python	1
+python/ctx	pythonBuiltin	Function	source.python meta.function-call.python meta.function-call.arguments.python meta.function-call.python meta.function-call.arguments.python support.type.python	3
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python meta.function-call.python punctuation.definition.arguments.end.python	1
+python/ctx	pythonConstant	Function	source.python meta.function-call.python meta.function-call.arguments.python constant.language.python	14
+python/ctx		None	source.python meta.function-call.python meta.function-call.arguments.python support.variable.magic.python	8
+python/ctx	pythonStatement	Statement	source.python support.type.python	4
+python/ctx	pythonType	Type	source.python	5
+python/ctx	pythonEllipsis	Function	source.python constant.other.ellipsis.python	3
+python/ctx	pythonRawBytes	String	source.python string.regexp.quoted.single.python	8
+python/ctx	pythonRawBytes	String	source.python string.regexp.quoted.single.python constant.character.escape.regexp	4
+python/ctx	pythonQuotes	String	source.python meta.fstring.python string.interpolated.python string.quoted.raw.single.python storage.type.string.python	2
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.begin.python string.quoted.raw.single.python	1
+python/ctx	pythonRawFString	String	source.python meta.fstring.python string.interpolated.python string.quoted.raw.single.python	4
+python/ctx	pythonFStringField	pythonFStringField	source.python meta.fstring.python constant.other.caps.python	5
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.end.python string.interpolated.python string.quoted.raw.single.python	1
+python/ctx	pythonUnicodeEscape	Special	source.python string.quoted.single.python constant.character.escape.python	20
+python/ctx	pythonDoctest	Special	source.python string.quoted.docstring.multi.python keyword.control.flow.python	3
+python/ctx	pythonDoctest	Special	source.python string.quoted.docstring.multi.python	10
+python/ctx	pythonFStringFieldSkip	pythonFStringFieldSkip	source.python string.quoted.docstring.multi.python	2
+python/ctx	pythonDoctestValue	Define	source.python string.quoted.docstring.multi.python	2
+c/words	cStatement	Statement	source.c keyword.control.c	23
+c/words	cStatement	Statement	source.c meta.asm.c storage.type.asm.c	3
+c/words	cLabel	Label	source.c	11
+c/words	cConditional	Conditional	source.c meta.block.switch.c meta.head.switch.c keyword.control.switch.c	6
+c/words	cConditional	Conditional	source.c keyword.control.c	6
+c/words	cRepeat	Repeat	source.c keyword.control.c	10
+c/words		None	source.c	25
+c/words	cOperator	Operator	source.c	69
+c/words	cOperator	Operator	source.c keyword.operator.sizeof.c	6
+c/words	cType	Type	source.c support.type.posix-reserved.c	134
+c/words	cType	Type	source.c storage.type.built-in.c	941
+c/words	cType	Type	source.c storage.type.built-in.primitive.c	54
+c/words	cType	Type	source.c	75
+c/words	cTypedef	Structure	source.c keyword.other.typedef.c	7
+c/words	cStructure	Structure	source.c storage.type.union.c	5
+c/words	cStructure	Structure	source.c storage.type.struct.c	6
+c/words	cStructure	Structure	source.c storage.type.enum.c	4
+c/words	cStorageClass	StorageClass	source.c storage.modifier.c	47
+c/words	cStorageClass	StorageClass	source.c	68
+c/words	cConstant	Constant	source.c	2700
+c/words	cConstant	Constant	source.c constant.language.c	13
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_MB_MIGHT_NEQ_WC.c	24
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.NDEBUG.c	6
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__FILE__.c	8
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.VA_ARGS.c	11
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_EMBED_EMPTY.c	20
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_ANALYZABLE.c	19
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__STDC_NO_COMPLEX__.c	19
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_EMBED_NOT_FOUND.c	24
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__STDC_VERSION__.c	16
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_NO_ATOMICS.c	19
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__DATE__.c	8
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_NO_THREADS.c	19
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_NO_VLA.c	15
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__LINE__.c	8
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__TIME__.c	8
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__STDC__.c	8
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.probably.STDC_EMBED_FOUND.c	20
+c/words	cConstant	Constant	source.c entity.name.other.preprocessor.macro.predefined.__STDC_HOSTED__.c	15
+c/ctx	cCommentStart	Comment	source.c comment.block.c punctuation.definition.comment.begin.c	2
+c/ctx	cComment	Comment	source.c comment.block.c	12
+c/ctx	cCommentStart	Comment	source.c comment.block.c punctuation.definition.comment.end.c	2
+c/ctx	cCommentL	Comment	source.c comment.line.double-slash.c punctuation.definition.comment.c	2
+c/ctx	cCommentL	Comment	source.c comment.line.double-slash.c	17
+c/ctx	cTodo	Todo	source.c comment.line.double-slash.c	4
+c/ctx	cInclude	Include	source.c meta.preprocessor.include.c keyword.control.directive.include.c punctuation.definition.directive.c	2
+c/ctx	cInclude	Include	source.c meta.preprocessor.include.c keyword.control.directive.include.c	14
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.other.lt-gt.include.c punctuation.definition.string.begin.c	1
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.other.lt-gt.include.c	7
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.other.lt-gt.include.c punctuation.definition.string.end.c	1
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.double.include.c punctuation.definition.string.begin.c	1
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.double.include.c	7
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.double.include.c punctuation.definition.string.end.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c keyword.control.directive.define.c punctuation.definition.directive.c	4
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c keyword.control.directive.define.c	24
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c entity.name.function.preprocessor.c	16
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.definition.parameters.begin.c	3
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c variable.parameter.preprocessor.c	4
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.separator.parameters.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.definition.parameters.end.c	3
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.section.parens.begin.bracket.round.c	5
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c	4
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.section.parens.end.bracket.round.c	5
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c keyword.operator.comparison.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c keyword.operator.ternary.c	2
+c/ctx	cNumber	Number	source.c meta.preprocessor.macro.c constant.numeric.decimal.c	1
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c punctuation.definition.directive.c	2
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c	21
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c entity.name.function.preprocessor.c	22
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c meta.function.c entity.name.function.c	6
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c meta.function.c punctuation.section.arguments.begin.bracket.round.c	1
+c/ctx	cCppString	String	source.c meta.preprocessor.macro.c meta.function.c string.quoted.double.c punctuation.definition.string.begin.c	1
+c/ctx	cFormat	SpecialChar	source.c meta.preprocessor.macro.c meta.function.c string.quoted.double.c constant.other.placeholder.c	2
+c/ctx	cSpecial	SpecialChar	source.c meta.preprocessor.macro.c meta.function.c string.quoted.double.c constant.character.escape.c	2
+c/ctx	cCppString	String	source.c meta.preprocessor.macro.c meta.function.c string.quoted.double.c punctuation.definition.string.end.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c meta.function.c punctuation.separator.delimiter.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c meta.function.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c meta.function.c punctuation.section.arguments.end.bracket.round.c	1
+c/ctx	cPreConditMatch	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c punctuation.definition.directive.c	3
+c/ctx	cPreConditMatch	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c	14
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c punctuation.section.parens.begin.bracket.round.c	2
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c punctuation.section.parens.end.bracket.round.c	2
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c keyword.operator.logical.c	3
+c/ctx	cPreProc	PreProc	source.c meta.preprocessor.pragma.c keyword.control.directive.pragma.c punctuation.definition.directive.c	1
+c/ctx	cPreProc	PreProc	source.c meta.preprocessor.pragma.c keyword.control.directive.pragma.c	6
+c/ctx	cPreProc	PreProc	source.c meta.preprocessor.pragma.c entity.other.attribute-name.pragma.preprocessor.c	4
+c/ctx	cTypedef	Structure	source.c keyword.other.typedef.c	14
+c/ctx	cType	Type	source.c storage.type.built-in.primitive.c	59
+c/ctx		None	source.c support.type.posix-reserved.c	13
+c/ctx		None	source.c punctuation.terminator.statement.c	12
+c/ctx	cStructure	Structure	source.c storage.type.struct.c	6
+c/ctx		None	source.c	48
+c/ctx		None	source.c meta.block.c punctuation.section.block.begin.bracket.curly.c	13
+c/ctx	cType	Type	source.c meta.block.c storage.type.built-in.primitive.c	26
+c/ctx		None	source.c meta.block.c	48
+c/ctx		None	source.c meta.block.c punctuation.terminator.statement.c	20
+c/ctx	cStructure	Structure	source.c meta.block.c storage.type.struct.c	6
+c/ctx		None	source.c meta.block.c keyword.operator.c	4
+c/ctx	cNumber	Number	source.c meta.block.c constant.numeric.decimal.c	4
+c/ctx		None	source.c meta.block.c punctuation.section.block.end.bracket.curly.c	13
+c/ctx	cStructure	Structure	source.c storage.type.enum.c	4
+c/ctx		None	source.c meta.block.c punctuation.separator.delimiter.c	7
+c/ctx		None	source.c meta.block.c keyword.operator.assignment.c	7
+c/ctx	cStructure	Structure	source.c storage.type.union.c	5
+c/ctx	cStorageClass	StorageClass	source.c storage.modifier.c	37
+c/ctx		None	source.c keyword.operator.c	1
+c/ctx		None	source.c storage.modifier.array.bracket.square.c	2
+c/ctx		None	source.c keyword.operator.assignment.c	14
+c/ctx	cCppString	String	source.c meta.block.c string.quoted.double.c punctuation.definition.string.begin.c	5
+c/ctx	cCppString	String	source.c meta.block.c string.quoted.double.c	11
+c/ctx	cCppString	String	source.c meta.block.c string.quoted.double.c punctuation.definition.string.end.c	5
+c/ctx	cSpecial	SpecialChar	source.c meta.block.c string.quoted.double.c constant.character.escape.c	12
+c/ctx	cNumber	Number	source.c constant.numeric.decimal.c	10
+c/ctx		None	source.c punctuation.separator.delimiter.c	7
+c/ctx	cNumber	Number	source.c keyword.other.unit.hexadecimal.c	2
+c/ctx	cNumber	Number	source.c constant.numeric.hexadecimal.c	2
+c/ctx	cOctal	Number	source.c keyword.other.unit.octal.c	1
+c/ctx	cOctal	Number	source.c constant.numeric.octal.c	3
+c/ctx	cNumber	Number	source.c keyword.other.unit.binary.c	2
+c/ctx	cNumber	Number	source.c constant.numeric.binary.c	3
+c/ctx	cNumber	Number	source.c keyword.other.unit.suffix.integer.c	3
+c/ctx	cFloat	Float	source.c constant.numeric.decimal.c	7
+c/ctx	cFloat	Float	source.c constant.numeric.decimal.point.c	3
+c/ctx	cFloat	Float	source.c keyword.other.unit.exponent.decimal.c	1
+c/ctx	cFloat	Float	source.c keyword.operator.minus.exponent.decimal.c	1
+c/ctx	cFloat	Float	source.c constant.numeric.exponent.decimal.c	1
+c/ctx	cFloat	Float	source.c keyword.other.unit.suffix.floating-point.c	1
+c/ctx	cCharacter	Character	source.c string.quoted.single.c punctuation.definition.string.begin.c	1
+c/ctx	cCharacter	Character	source.c string.quoted.single.c	1
+c/ctx	cCharacter	Character	source.c string.quoted.single.c punctuation.definition.string.end.c	1
+c/ctx	cSpecialCharacter	SpecialChar	source.c string.quoted.single.c punctuation.definition.string.begin.c	2
+c/ctx	cSpecialCharacter	SpecialChar	source.c string.quoted.single.c constant.character.escape.c	4
+c/ctx	cSpecialCharacter	SpecialChar	source.c string.quoted.single.c punctuation.definition.string.end.c	2
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c entity.name.function.c	7
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c punctuation.section.parameters.begin.bracket.round.c	2
+c/ctx	cType	Type	source.c meta.function.c meta.function.definition.parameters.c storage.type.built-in.primitive.c	13
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c variable.parameter.probably.c	10
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c punctuation.separator.delimiter.c	2
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c punctuation.section.parameters.end.bracket.round.c	2
+c/ctx	cStatement	Statement	source.c meta.block.c keyword.control.c	29
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c keyword.operator.c	2
+c/ctx	cConstant	Constant	source.c meta.block.c constant.language.c	8
+c/ctx		None	source.c meta.block.c support.type.posix-reserved.c	6
+c/ctx	cType	Type	source.c meta.block.c storage.type.built-in.c	6
+c/ctx	cOperator	Operator	source.c meta.block.c keyword.operator.sizeof.c	6
+c/ctx		None	source.c meta.block.c meta.parens.block.c punctuation.section.parens.begin.bracket.round.c	7
+c/ctx		None	source.c meta.block.c meta.parens.block.c support.type.posix-reserved.c	6
+c/ctx		None	source.c meta.block.c meta.parens.block.c punctuation.section.parens.end.bracket.round.c	7
+c/ctx	cRepeat	Repeat	source.c meta.block.c keyword.control.c	15
+c/ctx		None	source.c meta.block.c meta.parens.block.c	17
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.assignment.c	1
+c/ctx	cNumber	Number	source.c meta.block.c meta.parens.block.c constant.numeric.decimal.c	6
+c/ctx		None	source.c meta.block.c meta.parens.block.c punctuation.terminator.statement.c	2
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.comparison.c	7
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.increment.c	2
+c/ctx	cConditional	Conditional	source.c meta.block.c keyword.control.c	12
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.c	3
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.logical.c	5
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c variable.object.c	4
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c punctuation.definition.begin.bracket.square.c	1
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c	1
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c punctuation.definition.end.bracket.square.c	1
+c/ctx	cConstant	Constant	source.c meta.block.c meta.parens.block.c constant.language.c	4
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.decrement.c	2
+c/ctx		None	source.c meta.block.c keyword.operator.assignment.compound.bitwise.c	3
+c/ctx	cConditional	Conditional	source.c meta.block.c meta.block.switch.c meta.head.switch.c keyword.control.switch.c	6
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c meta.conditional.switch.c punctuation.section.parens.begin.bracket.round.conditional.switch.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c meta.conditional.switch.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c meta.conditional.switch.c punctuation.section.parens.end.bracket.round.conditional.switch.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c punctuation.section.block.begin.bracket.curly.switch.c	1
+c/ctx	cLabel	Label	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c keyword.control.case.c	4
+c/ctx	cNumber	Number	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c constant.numeric.decimal.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c punctuation.separator.colon.case.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c	3
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.operator.assignment.compound.bitwise.c	3
+c/ctx	cNumber	Number	source.c meta.block.c meta.block.switch.c meta.body.switch.c constant.numeric.decimal.c	2
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c punctuation.terminator.statement.c	3
+c/ctx	cStatement	Statement	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.control.c	5
+c/ctx	cLabel	Label	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c keyword.control.default.c	7
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c punctuation.separator.colon.case.default.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.operator.assignment.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.operator.c	2
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c punctuation.section.block.end.bracket.curly.switch.c	1
+c/ctx		None	source.c meta.block.c variable.other.object.access.c	1
+c/ctx		None	source.c meta.block.c punctuation.separator.dot-access.c	1
+c/ctx		None	source.c meta.block.c variable.other.member.c	4
+c/ctx	cStructure	Structure	source.c meta.block.c meta.parens.block.c storage.type.struct.c	6
+c/ctx		None	source.c meta.block.c meta.function-call.c entity.name.function.c	18
+c/ctx		None	source.c meta.block.c meta.function-call.c punctuation.section.arguments.begin.bracket.round.c	4
+c/ctx		None	source.c meta.block.c meta.function-call.c	3
+c/ctx		None	source.c meta.block.c meta.function-call.c punctuation.section.arguments.end.bracket.round.c	4
+c/ctx	cString	String	source.c meta.block.c meta.function-call.c string.quoted.double.c punctuation.definition.string.begin.c	2
+c/ctx	cFormat	SpecialChar	source.c meta.block.c meta.function-call.c string.quoted.double.c constant.other.placeholder.c	6
+c/ctx	cSpecial	SpecialChar	source.c meta.block.c meta.function-call.c string.quoted.double.c constant.character.escape.c	2
+c/ctx	cString	String	source.c meta.block.c meta.function-call.c string.quoted.double.c punctuation.definition.string.end.c	2
+c/ctx		None	source.c meta.block.c meta.function-call.c punctuation.separator.delimiter.c	3
+c/ctx		None	source.c meta.block.c meta.function-call.c keyword.operator.c	1
+c/ctx		None	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c variable.object.c	4
+c/ctx		None	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c punctuation.definition.begin.bracket.square.c	1
+c/ctx	cNumber	Number	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c constant.numeric.decimal.c	1
+c/ctx		None	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c punctuation.definition.end.bracket.square.c	1
+c/ctx	cString	String	source.c meta.block.c meta.function-call.c string.quoted.double.c	4
+c/ctx	cUserLabel	Label	source.c meta.block.c	4
+c/ctx	cUserCont	cUserCont	source.c meta.block.c	1
+c/ctx	cNumber	Number	source.c meta.block.c meta.function-call.c constant.numeric.decimal.c	2
+c/ctx		None	source.c meta.block.c keyword.operator.ternary.c	2
+c/ctx	cConstant	Constant	source.c meta.block.c	24
+java/words	javaError	Error	source.java keyword.reserved.java	9
+java/words		None	source.java	140
+java/words	javaExternal	Include	source.java storage.modifier.java	6
+java/words	javaExternal	Include	source.java meta.package.java keyword.other.package.java	7
+java/words	javaConditional	Conditional	source.java keyword.control.java	12
+java/words	javaRepeat	Repeat	source.java keyword.control.java	10
+java/words	javaBoolean	Boolean	source.java constant.language.java	9
+java/words	javaConstant	Constant	source.java constant.language.java	4
+java/words	javaTypedef	Typedef	source.java variable.language.this.java	4
+java/words	javaTypedef	Typedef	source.java variable.language.java	5
+java/words	javaOperator	Operator	source.java keyword.control.new.java	3
+java/words	javaOperator	Operator	source.java keyword.operator.instanceof.java	10
+java/words	javaType	Type	source.java storage.type.primitive.java	42
+java/words	javaStatement	Statement	source.java keyword.control.java	6
+java/words	javaStorageClass	StorageClass	source.java storage.modifier.java	43
+java/words	javaExceptions	Exception	source.java meta.finally.java keyword.control.finally.java	7
+java/words	javaExceptions	Exception	source.java meta.catch.java keyword.control.catch.java	5
+java/words	javaExceptions	Exception	source.java meta.try.java keyword.control.try.java	3
+java/words	javaExceptions	Exception	source.java keyword.control.throw.java	5
+java/words	javaAssert	Statement	source.java meta.declaration.assertion.java keyword.control.assert.java	6
+java/words	javaMethodDecl	StorageClass	source.java	6
+java/words	javaClassDecl	StorageClass	source.java	30
+java/words	javaBranch	Conditional	source.java keyword.control.java	13
+java/words	javaScopeDecl	StorageClass	source.java storage.modifier.java	22
+java/words	javaConceptKind	StorageClass	source.java storage.modifier.java	13
+java/ctx	javaCommentStart	Comment	source.java comment.block.java punctuation.definition.comment.java	4
+java/ctx	javaComment	Comment	source.java comment.block.java	13
+java/ctx	javaExternal	Include	source.java meta.package.java keyword.other.package.java	7
+java/ctx		None	source.java meta.package.java storage.modifier.package.java	14
+java/ctx		None	source.java meta.package.java storage.modifier.package.java punctuation.separator.java	2
+java/ctx		None	source.java meta.package.java punctuation.terminator.java	1
+java/ctx	javaExternal	Include	source.java meta.import.java keyword.other.import.java	18
+java/ctx		None	source.java meta.import.java storage.modifier.import.java	35
+java/ctx		None	source.java meta.import.java storage.modifier.import.java punctuation.separator.java	7
+java/ctx		None	source.java meta.import.java punctuation.terminator.java	3
+java/ctx	javaExternal	Include	source.java meta.import.java storage.modifier.java	6
+java/ctx		None	source.java meta.import.java storage.modifier.import.java variable.language.wildcard.java	1
+java/ctx	javaDocComment	Comment	source.java comment.block.javadoc.java punctuation.definition.comment.java	5
+java/ctx	javaCommentStar	Comment	source.java comment.block.javadoc.java	1
+java/ctx	javaCommentTitle	SpecialComment	source.java comment.block.javadoc.java	18
+java/ctx	javaDocLinkTag	Special	source.java comment.block.javadoc.java	11
+java/ctx	javaDocComment	Comment	source.java comment.block.javadoc.java	22
+java/ctx	javaDocParamTag	Special	source.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	6
+java/ctx	javaDocParam	Function	source.java comment.block.javadoc.java variable.parameter.java	3
+java/ctx	javaDocAuthorTag	Special	source.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	7
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java punctuation.definition.annotation.java	1
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java storage.type.annotation.java	16
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java punctuation.definition.annotation-arguments.begin.bracket.round.java	1
+java/ctx	javaString	String	source.java meta.declaration.annotation.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.declaration.annotation.java string.quoted.double.java	9
+java/ctx	javaString	String	source.java meta.declaration.annotation.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java punctuation.definition.annotation-arguments.end.bracket.round.java	1
+java/ctx	javaScopeDecl	StorageClass	source.java meta.class.java storage.modifier.java	6
+java/ctx	javaConceptKind	StorageClass	source.java meta.class.java storage.modifier.java	8
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.identifier.java storage.modifier.java	5
+java/ctx		None	source.java meta.class.java meta.class.identifier.java entity.name.type.class.java	4
+java/ctx		None	source.java meta.class.java punctuation.bracket.angle.java	4
+java/ctx		None	source.java meta.class.java storage.type.generic.java	2
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java storage.modifier.extends.java	7
+java/ctx		None	source.java meta.class.java storage.type.java	10
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.definition.class.inherited.classes.java storage.modifier.extends.java	7
+java/ctx		None	source.java meta.class.java meta.definition.class.inherited.classes.java entity.other.inherited-class.java	4
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.definition.class.implemented.interfaces.java storage.modifier.implements.java	10
+java/ctx		None	source.java meta.class.java meta.definition.class.implemented.interfaces.java entity.other.inherited-class.java	17
+java/ctx		None	source.java meta.class.java meta.definition.class.implemented.interfaces.java punctuation.separator.delimiter.java	1
+java/ctx	javaBlockOtherStart	javaBlockOtherStart	source.java meta.class.java punctuation.section.class.begin.bracket.curly.java	1
+java/ctx	javaLineComment	Comment	source.java meta.class.java meta.class.body.java comment.line.double-slash.java punctuation.definition.comment.java	2
+java/ctx	javaLineComment	Comment	source.java meta.class.java meta.class.body.java comment.line.double-slash.java	17
+java/ctx	javaTodo	Todo	source.java meta.class.java meta.class.body.java comment.line.double-slash.java	4
+java/ctx	javaScopeDecl	StorageClass	source.java meta.class.java meta.class.body.java storage.modifier.java	23
+java/ctx	javaStorageClass	StorageClass	source.java meta.class.java meta.class.body.java storage.modifier.java	23
+java/ctx	javaConceptKind	StorageClass	source.java meta.class.java meta.class.body.java storage.modifier.java	5
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.definition.variable.java storage.type.primitive.java	32
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java variable.other.definition.java	34
+java/ctx		None	source.java meta.class.java meta.class.body.java keyword.operator.assignment.java	17
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.decimal.java	23
+java/ctx		None	source.java meta.class.java meta.class.body.java punctuation.terminator.java	11
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.hex.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java punctuation.separator.delimiter.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java	14
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.octal.java	3
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.binary.java	5
+java/ctx	javaCharacter	Character	source.java meta.class.java meta.class.body.java string.quoted.single.java punctuation.definition.string.begin.java	3
+java/ctx	javaCharacter	Character	source.java meta.class.java meta.class.body.java string.quoted.single.java	2
+java/ctx	javaCharacter	Character	source.java meta.class.java meta.class.body.java string.quoted.single.java punctuation.definition.string.end.java	3
+java/ctx	javaSpecialChar	SpecialChar	source.java meta.class.java meta.class.body.java string.quoted.single.java constant.character.escape.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java storage.type.java	22
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.double.java	10
+java/ctx	javaSpecialChar	SpecialChar	source.java meta.class.java meta.class.body.java string.quoted.double.java constant.character.escape.java	8
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java string.quoted.triple.java punctuation.definition.string.begin.java	3
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.triple.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java string.quoted.triple.java punctuation.definition.string.end.java	3
+java/ctx	javaBoolean	Boolean	source.java meta.class.java meta.class.body.java constant.language.java	9
+java/ctx	javaConstant	Constant	source.java meta.class.java meta.class.body.java constant.language.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java punctuation.bracket.angle.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java storage.type.generic.java	6
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java keyword.control.new.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java storage.type.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java punctuation.bracket.angle.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java punctuation.bracket.round.java	2
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.enum.java storage.modifier.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.enum.java entity.name.type.enum.java	5
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.enum.java punctuation.section.enum.begin.bracket.curly.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.enum.java constant.other.enum.java	8
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.enum.java punctuation.separator.delimiter.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.enum.java punctuation.section.enum.end.bracket.curly.java	1
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.class.java meta.class.identifier.java storage.modifier.java	14
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.identifier.java entity.name.type.class.java	9
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java punctuation.section.class.begin.bracket.curly.java	1
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.return-type.java storage.type.primitive.java	10
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java entity.name.function.java	10
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.begin.bracket.round.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.end.bracket.round.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java punctuation.terminator.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java punctuation.section.class.end.bracket.curly.java	1
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java storage.modifier.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java entity.name.type.record.java	5
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java punctuation.definition.parameters.begin.bracket.round.java	1
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java storage.type.primitive.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java punctuation.separator.delimiter.java	1
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java punctuation.definition.parameters.end.bracket.round.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.record.java meta.record.body.java punctuation.section.class.begin.bracket.curly.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.record.java punctuation.section.class.end.bracket.curly.java	1
+java/ctx	javaAnnotation	PreProc	source.java meta.class.java meta.class.body.java meta.declaration.annotation.java punctuation.definition.annotation.java	1
+java/ctx	javaAnnotation	PreProc	source.java meta.class.java meta.class.body.java meta.declaration.annotation.java storage.type.annotation.java	8
+java/ctx	javaScopeDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java storage.modifier.java	6
+java/ctx	javaStorageClass	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java storage.modifier.java	12
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.method.java meta.method.return-type.java storage.type.primitive.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java entity.name.function.java	3
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.begin.bracket.round.java	1
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.end.bracket.round.java	1
+java/ctx	javaMethodDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java meta.throwables.java storage.modifier.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.throwables.java storage.type.java	20
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java punctuation.section.method.begin.bracket.curly.java	1
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java storage.type.primitive.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java variable.other.definition.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.assignment.java	10
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java constant.numeric.decimal.java	11
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.terminator.java	19
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.local.java storage.type.local.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.local.java variable.other.definition.java	5
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.new.java	6
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.type.primitive.array.java	3
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.bracket.square.java	2
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.array-initializer.java punctuation.section.array-initializer.begin.bracket.curly.java	1
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.array-initializer.java constant.numeric.decimal.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.array-initializer.java punctuation.separator.delimiter.java	2
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.array-initializer.java punctuation.section.array-initializer.end.bracket.curly.java	1
+java/ctx	javaRepeat	Repeat	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	18
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.bracket.round.java	22
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java	54
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.comparison.java	10
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.other.object.java	17
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.separator.period.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.other.object.property.java	12
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.increment-decrement.java	6
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.section.block.begin.bracket.curly.java	10
+java/ctx	javaConditional	Conditional	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	20
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.arithmetic.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.logical.java	5
+java/ctx	javaBranch	Conditional	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	13
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.section.block.end.bracket.curly.java	10
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.assignment.arithmetic.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java storage.type.java	28
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.ternary.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java punctuation.separator.period.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java entity.name.function.java	14
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java punctuation.definition.parameters.begin.bracket.round.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java punctuation.definition.parameters.end.bracket.round.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.bitwise.java	2
+java/ctx	javaLabel	Label	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	11
+java/ctx	javaLabelNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java constant.numeric.decimal.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.type.function.arrow.java	6
+java/ctx	javaExceptions	Exception	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.throw.java	5
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java entity.name.function.java	31
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java punctuation.definition.parameters.begin.bracket.round.java	3
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java string.quoted.double.java	3
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java punctuation.definition.parameters.end.bracket.round.java	3
+java/ctx	javaExceptions	Exception	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java keyword.control.try.java	3
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java punctuation.section.try.begin.bracket.curly.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java variable.other.object.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java meta.method-call.java punctuation.separator.period.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java meta.method-call.java entity.name.function.java	5
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java meta.method-call.java punctuation.definition.parameters.begin.bracket.round.java	1
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java meta.method-call.java constant.numeric.decimal.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java meta.method-call.java punctuation.definition.parameters.end.bracket.round.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java meta.try.body.java punctuation.terminator.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.try.java punctuation.section.try.end.bracket.curly.java	1
+java/ctx	javaExceptions	Exception	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java keyword.control.catch.java	5
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java punctuation.definition.parameters.begin.bracket.round.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java meta.catch.parameters.java storage.type.java	36
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java meta.catch.parameters.java punctuation.catch.separator.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java meta.catch.parameters.java variable.parameter.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java punctuation.definition.parameters.end.bracket.round.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java punctuation.section.catch.begin.bracket.curly.java	1
+java/ctx	javaExceptions	Exception	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java meta.catch.body.java keyword.control.throw.java	5
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java meta.catch.body.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java meta.catch.body.java punctuation.terminator.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.catch.java punctuation.section.catch.end.bracket.curly.java	1
+java/ctx	javaExceptions	Exception	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java keyword.control.finally.java	7
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java punctuation.section.finally.begin.bracket.curly.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java meta.finally.body.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java meta.finally.body.java keyword.operator.assignment.java	1
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java meta.finally.body.java constant.numeric.decimal.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java meta.finally.body.java punctuation.terminator.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.finally.java punctuation.section.finally.end.bracket.curly.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java string.quoted.double.java	6
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java punctuation.bracket.angle.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java storage.type.generic.java	13
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java punctuation.separator.delimiter.java	1
+java/ctx	javaTypedef	Typedef	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.language.this.java	8
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.instanceof.java	10
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.type.java	5
+java/ctx	javaAssert	Statement	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.declaration.assertion.java keyword.control.assert.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.declaration.assertion.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.declaration.assertion.java keyword.operator.comparison.java	2
+java/ctx	javaConstant	Constant	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.declaration.assertion.java constant.language.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.declaration.assertion.java punctuation.terminator.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.declaration.assertion.java	1
+java/ctx	javaStorageClass	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.modifier.java	12
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java constant.numeric.decimal.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java punctuation.separator.delimiter.java	1
+java/ctx	javaScopeDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.modifier.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java storage.type.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java	2
+java/ctx	javaStatement	Statement	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	6
+java/ctx	javaBlockOtherStart	javaBlockOtherStart	source.java meta.class.java meta.class.body.java meta.method.java punctuation.section.method.end.bracket.curly.java	1
+java/ctx	javaDocComment	Comment	source.java meta.class.java meta.class.body.java comment.block.javadoc.java punctuation.definition.comment.java	5
+java/ctx	javaCommentStar	Comment	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	1
+java/ctx	javaCommentTitle	SpecialComment	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	16
+java/ctx	javaDocComment	Comment	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	51
+java/ctx	javaDocParamTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	6
+java/ctx	javaDocParam	Function	source.java meta.class.java meta.class.body.java comment.block.javadoc.java variable.parameter.java	2
+java/ctx	javaDocReturnTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	7
+java/ctx	javaDocThrowsTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	7
+java/ctx	javaDocParam	Function	source.java meta.class.java meta.class.body.java comment.block.javadoc.java entity.name.type.class.java	21
+java/ctx	javaDocSeeTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	4
+java/ctx	javaDocSeeTag3	Function	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	10
+java/ctx	javaDocSinceTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	6
+java/ctx	javaDocParam	Function	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	3
+java/ctx	javaDocDeprecatedTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	11
+java/ctx	javaDocVersionTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java keyword.other.documentation.javadoc.java	8
+java/ctx	javaDocCodeTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	13
+java/ctx	javaDocLiteralTag	Special	source.java meta.class.java meta.class.body.java comment.block.javadoc.java	14
+java/ctx	javaBlockOtherStart	javaBlockOtherStart	source.java meta.class.java meta.class.body.java meta.class.java punctuation.section.class.begin.bracket.curly.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java storage.type.java	6
+java/ctx	javaVarArg	Function	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.varargs.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java variable.parameter.java	4
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java punctuation.section.method.begin.bracket.curly.java	1
+java/ctx	javaUserLabel	Label	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java	5
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.ternary.java	3
+java/ctx	javaRepeat	Repeat	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	3
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.bracket.round.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.terminator.java	5
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.section.block.begin.bracket.curly.java	2
+java/ctx	javaBranch	Conditional	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	15
+java/ctx	javaUserLabelRef	Label	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java	5
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.section.block.end.bracket.curly.java	2
+java/ctx	javaConditional	Conditional	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.other.object.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.separator.period.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.other.object.property.java	6
+java/ctx	javaLabel	Label	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	11
+java/ctx	javaLabelNumber	Number	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java constant.numeric.decimal.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java punctuation.section.method.end.bracket.curly.java	1
+java/ctx	javaBlockOtherStart	javaBlockOtherStart	source.java meta.class.java meta.class.body.java meta.class.java punctuation.section.class.end.bracket.curly.java	1
+javascript/words		None	source.js variable.other.readwrite.js	5
+javascript/words	javaScriptConditional	Conditional	source.js keyword.control.conditional.js	6
+javascript/words	javaScriptConditional	Conditional	source.js keyword.control.switch.js	6
+javascript/words	javaScriptRepeat	Repeat	source.js keyword.operator.expression.of.js	2
+javascript/words	javaScriptRepeat	Repeat	source.js variable.other.readwrite.js	3
+javascript/words	javaScriptRepeat	Repeat	source.js keyword.control.loop.js	7
+javascript/words	javaScriptRepeat	Repeat	source.js keyword.operator.expression.in.js	2
+javascript/words	javaScriptBranch	Conditional	source.js keyword.control.loop.js	13
+javascript/words	javaScriptOperator	Operator	source.js keyword.operator.expression.delete.js	6
+javascript/words	javaScriptOperator	Operator	source.js keyword.operator.expression.typeof.js	6
+javascript/words	javaScriptOperator	Operator	source.js new.expr.js keyword.operator.new.js	3
+javascript/words	javaScriptOperator	Operator	source.js keyword.operator.expression.instanceof.js	10
+javascript/words	javaScriptType	Type	source.js variable.other.readwrite.js	48
+javascript/words	javaScriptStatement	Statement	source.js keyword.control.flow.js	16
+javascript/words	javaScriptStatement	Statement	source.js keyword.control.with.js	4
+javascript/words	javaScriptBoolean	Boolean	source.js constant.language.boolean.true.js	4
+javascript/words	javaScriptBoolean	Boolean	source.js constant.language.boolean.false.js	5
+javascript/words	javaScriptNull	Keyword	source.js constant.language.null.js	4
+javascript/words	javaScriptNull	Keyword	source.js constant.language.undefined.js	9
+javascript/words	javaScriptIdentifier	Identifier	source.js variable.language.this.js	4
+javascript/words	javaScriptIdentifier	Identifier	source.js variable.language.arguments.js	9
+javascript/words	javaScriptLabel	Label	source.js keyword.control.switch.js	11
+javascript/words	javaScriptException	Exception	source.js keyword.control.trycatch.js	20
+javascript/words	javaScriptMessage	Keyword	source.js variable.other.readwrite.js	24
+javascript/words	javaScriptGlobal	Keyword	source.js variable.other.readwrite.js	19
+javascript/words	javaScriptMember	Keyword	source.js variable.other.readwrite.js	21
+javascript/words	javaScriptDeprecated	Exception	source.js variable.other.readwrite.js	14
+javascript/words	javaScriptReserved	Keyword	source.js variable.other.readwrite.js	149
+javascript/words	javaScriptReserved	Keyword	source.js meta.interface.js storage.type.interface.js	9
+javascript/words	javaScriptReserved	Keyword	source.js meta.var.expr.js storage.type.js	11
+javascript/words	javaScriptReserved	Keyword	source.js meta.import.js keyword.control.import.js	6
+javascript/words	javaScriptReserved	Keyword	source.js keyword.control.loop.js	4
+javascript/words	javaScriptReserved	Keyword	source.js storage.modifier.js	6
+javascript/words	javaScriptReserved	Keyword	source.js meta.class.js storage.type.class.js	5
+javascript/words	javaScriptReserved	Keyword	source.js keyword.control.as.js	2
+javascript/words	javaScriptReserved	Keyword	source.js keyword.other.debugger.js	8
+javascript/words	javaScriptReserved	Keyword	source.js keyword.control.js	7
+javascript/words	javaScriptReserved	Keyword	source.js variable.language.super.js	5
+javascript/words	javaScriptModifier	StorageClass	source.js variable.other.readwrite.js	6
+javascript/words	javaScriptFunction	Keyword	source.js meta.function.js storage.type.function.js	8
+javascript/ctx		None	source.js comment.line.shebang.js punctuation.definition.comment.js	2
+javascript/ctx		None	source.js comment.line.shebang.js	16
+javascript/ctx	javaScriptStringS	String	source.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js string.quoted.single.js	9
+javascript/ctx	javaScriptStringS	String	source.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx		None	source.js punctuation.terminator.statement.js	13
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.js punctuation.definition.comment.js	4
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.js	12
+javascript/ctx	javaScriptLineComment	Comment	source.js comment.line.double-slash.js punctuation.definition.comment.js	2
+javascript/ctx	javaScriptLineComment	Comment	source.js comment.line.double-slash.js	17
+javascript/ctx	javaScriptCommentTodo	Todo	source.js comment.line.double-slash.js	4
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js punctuation.definition.comment.js	5
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js	5
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js storage.type.class.jsdoc punctuation.definition.block.tag.jsdoc	1
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js storage.type.class.jsdoc	5
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js entity.name.type.instance.jsdoc punctuation.definition.bracket.curly.begin.jsdoc	1
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js entity.name.type.instance.jsdoc	6
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js entity.name.type.instance.jsdoc punctuation.definition.bracket.curly.end.jsdoc	1
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js variable.other.jsdoc	4
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.import.js keyword.control.import.js	12
+javascript/ctx		None	source.js meta.import.js variable.other.readwrite.alias.js	6
+javascript/ctx		None	source.js meta.import.js punctuation.separator.comma.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.import.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx		None	source.js meta.import.js meta.block.js variable.other.readwrite.js	8
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.import.js meta.block.js keyword.control.as.js	2
+javascript/ctx		None	source.js meta.import.js meta.block.js variable.other.readwrite.alias.js	2
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.import.js keyword.control.from.js	8
+javascript/ctx	javaScriptStringS	String	source.js meta.import.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.import.js string.quoted.single.js	2
+javascript/ctx	javaScriptStringS	String	source.js meta.import.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx		None	source.js meta.import.js constant.language.import-export-all.js	1
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.import.js keyword.control.as.js	2
+javascript/ctx	javaScriptStringD	String	source.js meta.import.js string.quoted.double.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringD	String	source.js meta.import.js string.quoted.double.js	4
+javascript/ctx	javaScriptStringD	String	source.js meta.import.js string.quoted.double.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.export.default.js keyword.control.export.js	6
+javascript/ctx	javaScriptLabel	Label	source.js meta.export.default.js keyword.control.default.js	7
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.export.default.js meta.class.js storage.type.class.js	5
+javascript/ctx		None	source.js meta.export.default.js meta.class.js entity.name.type.class.js	5
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.export.default.js meta.class.js storage.modifier.js	7
+javascript/ctx		None	source.js meta.export.default.js meta.class.js entity.other.inherited-class.js	4
+javascript/ctx	javaScriptBraces	Function	source.js meta.export.default.js meta.class.js punctuation.definition.block.js	2
+javascript/ctx	javaScriptModifier	StorageClass	source.js meta.export.default.js meta.class.js storage.modifier.js	6
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.field.declaration.js meta.definition.property.js variable.object.property.js	12
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.field.declaration.js keyword.operator.assignment.js	2
+javascript/ctx	javaScriptNumber	Number	source.js meta.export.default.js meta.class.js meta.field.declaration.js constant.numeric.decimal.js	2
+javascript/ctx		None	source.js meta.export.default.js meta.class.js punctuation.terminator.statement.js	2
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js storage.type.js	11
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.begin.js	4
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js variable.parameter.js	11
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.separator.parameter.js	1
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js keyword.operator.rest.js	3
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.end.js	4
+javascript/ctx	javaScriptBraces	Function	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.definition.block.js	8
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js variable.language.super.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.brace.round.js	4
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.readwrite.js	8
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.terminator.statement.js	6
+javascript/ctx	javaScriptIdentifier	Identifier	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.language.this.js	12
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js punctuation.accessor.js	3
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js variable.other.property.js	6
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.assignment.js	1
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js storage.type.property.js	3
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.definition.method.js entity.name.function.js	11
+javascript/ctx	javaScriptStatement	Statement	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.control.flow.js	17
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js keyword.operator.arithmetic.js	1
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.export.default.js meta.class.js meta.method.declaration.js storage.modifier.async.js	5
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js storage.type.js	5
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js	3
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js keyword.operator.assignment.js	1
+javascript/ctx	javaScriptStatement	Statement	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js keyword.control.flow.js	5
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js meta.function-call.js entity.name.function.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js meta.brace.round.js	2
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.var.expr.js variable.other.readwrite.js	3
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js variable.other.object.js	3
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js punctuation.accessor.js	1
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js meta.function-call.js entity.name.function.js	4
+javascript/ctx		None	source.js meta.export.default.js meta.class.js meta.method.declaration.js keyword.generator.asterisk.js	1
+javascript/ctx	javaScriptNumber	Number	source.js meta.export.default.js meta.class.js meta.method.declaration.js meta.block.js constant.numeric.decimal.js	1
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.var.expr.js storage.type.js	32
+javascript/ctx		None	source.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js	30
+javascript/ctx		None	source.js meta.var.expr.js keyword.operator.assignment.js	21
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js constant.numeric.decimal.js	14
+javascript/ctx		None	source.js meta.var.expr.js punctuation.separator.comma.js	13
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js constant.numeric.hex.js	4
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js constant.numeric.octal.js	4
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js constant.numeric.binary.js	5
+javascript/ctx		None	source.js meta.var.expr.js constant.numeric.decimal.js	2
+javascript/ctx		None	source.js meta.var.expr.js constant.numeric.decimal.js storage.type.numeric.bigint.js	1
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js constant.numeric.decimal.js meta.delimiter.decimal.period.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.readwrite.js	28
+javascript/ctx	javaScriptStringS	String	source.js meta.var.expr.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.var.expr.js string.quoted.single.js	7
+javascript/ctx	javaScriptSpecial	Special	source.js meta.var.expr.js string.quoted.single.js constant.character.escape.js	6
+javascript/ctx	javaScriptStringS	String	source.js meta.var.expr.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptStringD	String	source.js meta.var.expr.js string.quoted.double.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringD	String	source.js meta.var.expr.js string.quoted.double.js	7
+javascript/ctx	javaScriptSpecial	Special	source.js meta.var.expr.js string.quoted.double.js constant.character.escape.js	2
+javascript/ctx	javaScriptStringD	String	source.js meta.var.expr.js string.quoted.double.js constant.character.escape.js	2
+javascript/ctx	javaScriptStringD	String	source.js meta.var.expr.js string.quoted.double.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptStringT	String	source.js meta.var.expr.js string.template.js punctuation.definition.string.template.begin.js	1
+javascript/ctx	javaScriptStringT	String	source.js meta.var.expr.js string.template.js	15
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js punctuation.definition.template-expression.begin.js	4
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js variable.other.readwrite.js	3
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js keyword.operator.arithmetic.js	1
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js constant.numeric.decimal.js	1
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js punctuation.definition.template-expression.end.js	2
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js meta.function-call.js variable.other.object.js	2
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js meta.function-call.js punctuation.accessor.js	1
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js meta.function-call.js entity.name.function.js	11
+javascript/ctx	javaScriptEmbed	Special	source.js meta.var.expr.js string.template.js meta.template.expression.js meta.embedded.line.js meta.brace.round.js	2
+javascript/ctx	javaScriptStringT	String	source.js meta.var.expr.js string.template.js punctuation.definition.string.template.end.js	1
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js	3
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js keyword.operator.quantifier.regexp	1
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js constant.other.character-class.regexp	2
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js constant.other.character-class.set.regexp punctuation.definition.character-class.regexp	2
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js constant.other.character-class.set.regexp constant.other.character-class.range.regexp	3
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptRegexpString	String	source.js meta.var.expr.js string.regexp.js keyword.other.js	2
+javascript/ctx	javaScriptBoolean	Boolean	source.js meta.var.expr.js constant.language.boolean.true.js	4
+javascript/ctx	javaScriptNull	Keyword	source.js meta.var.expr.js constant.language.null.js	4
+javascript/ctx	javaScriptNull	Keyword	source.js meta.var.expr.js constant.language.undefined.js	9
+javascript/ctx		None	source.js meta.var.expr.js constant.language.nan.js	3
+javascript/ctx		None	source.js meta.var.expr.js constant.language.infinity.js	8
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js meta.array.literal.js constant.numeric.decimal.js	3
+javascript/ctx		None	source.js meta.var.expr.js meta.array.literal.js punctuation.separator.comma.js	2
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.objectliteral.js punctuation.definition.block.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js punctuation.separator.key-value.js	4
+javascript/ctx	javaScriptNumber	Number	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js constant.numeric.decimal.js	4
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js punctuation.separator.comma.js	4
+javascript/ctx	javaScriptStringS	String	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js string.quoted.single.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js meta.array.literal.js variable.other.readwrite.js	3
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js meta.method.declaration.js meta.definition.method.js entity.name.function.js	6
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.objectliteral.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.objectliteral.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.objectliteral.js meta.method.declaration.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js entity.name.function.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.objectliteral.js meta.object.member.js meta.arrow.js storage.type.function.arrow.js	2
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.object-binding-pattern-variable.js punctuation.definition.binding-pattern.object.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.object-binding-pattern-variable.js meta.definition.variable.js variable.other.constant.js	14
+javascript/ctx		None	source.js meta.var.expr.js meta.object-binding-pattern-variable.js punctuation.separator.comma.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.object-binding-pattern-variable.js variable.object.property.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.object-binding-pattern-variable.js punctuation.destructuring.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.object-binding-pattern-variable.js keyword.operator.rest.js	3
+javascript/ctx		None	source.js meta.var.expr.js variable.other.readwrite.js	3
+javascript/ctx	javaScriptFunction	Keyword	source.js meta.function.js storage.type.function.js	8
+javascript/ctx		None	source.js meta.function.js meta.definition.function.js entity.name.function.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx		None	source.js meta.function.js meta.parameters.js variable.parameter.js	2
+javascript/ctx		None	source.js meta.function.js meta.parameters.js punctuation.separator.parameter.js	1
+javascript/ctx		None	source.js meta.function.js meta.parameters.js keyword.operator.assignment.js	1
+javascript/ctx	javaScriptNumber	Number	source.js meta.function.js meta.parameters.js constant.numeric.decimal.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.function.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx	javaScriptConditional	Conditional	source.js meta.function.js meta.block.js keyword.control.conditional.js	8
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.js meta.block.js meta.brace.round.js	20
+javascript/ctx		None	source.js meta.function.js meta.block.js variable.other.readwrite.js	30
+javascript/ctx		None	source.js meta.function.js meta.block.js keyword.operator.comparison.js	3
+javascript/ctx		None	source.js meta.function.js meta.block.js keyword.operator.logical.js	5
+javascript/ctx	javaScriptBraces	Function	source.js meta.function.js meta.block.js meta.block.js punctuation.definition.block.js	22
+javascript/ctx	javaScriptStatement	Statement	source.js meta.function.js meta.block.js meta.block.js keyword.control.flow.js	6
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js punctuation.terminator.statement.js	11
+javascript/ctx		None	source.js meta.function.js meta.block.js keyword.operator.relational.js	3
+javascript/ctx	javaScriptNumber	Number	source.js meta.function.js meta.block.js constant.numeric.decimal.js	4
+javascript/ctx	javaScriptException	Exception	source.js meta.function.js meta.block.js meta.block.js keyword.control.trycatch.js	5
+javascript/ctx	javaScriptOperator	Operator	source.js meta.function.js meta.block.js meta.block.js new.expr.js keyword.operator.new.js	6
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js new.expr.js meta.function-call.js entity.name.function.js	12
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.js meta.block.js meta.block.js new.expr.js meta.brace.round.js	6
+javascript/ctx	javaScriptStringD	String	source.js meta.function.js meta.block.js meta.block.js new.expr.js string.quoted.double.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringD	String	source.js meta.function.js meta.block.js meta.block.js new.expr.js string.quoted.double.js	3
+javascript/ctx	javaScriptStringD	String	source.js meta.function.js meta.block.js meta.block.js new.expr.js string.quoted.double.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptRepeat	Repeat	source.js meta.function.js meta.block.js keyword.control.loop.js	24
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.function.js meta.block.js meta.var.expr.js storage.type.js	13
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.readwrite.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.var.expr.js keyword.operator.assignment.js	1
+javascript/ctx	javaScriptNumber	Number	source.js meta.function.js meta.block.js meta.var.expr.js constant.numeric.decimal.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js punctuation.terminator.statement.js	6
+javascript/ctx		None	source.js meta.function.js meta.block.js keyword.operator.increment.js	2
+javascript/ctx	javaScriptBranch	Conditional	source.js meta.function.js meta.block.js meta.block.js keyword.control.loop.js	13
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js	2
+javascript/ctx	javaScriptRepeat	Repeat	source.js meta.function.js meta.block.js keyword.operator.expression.in.js	4
+javascript/ctx	javaScriptOperator	Operator	source.js meta.function.js meta.block.js meta.block.js keyword.operator.expression.delete.js	6
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js variable.other.readwrite.js	10
+javascript/ctx	javaScriptBraces	Function	source.js meta.function.js meta.block.js meta.block.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js meta.array.literal.js variable.other.readwrite.js	1
+javascript/ctx	javaScriptRepeat	Repeat	source.js meta.function.js meta.block.js keyword.operator.expression.of.js	2
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js keyword.operator.expression.void.js	4
+javascript/ctx		None	source.js meta.function.js meta.block.js keyword.operator.decrement.js	2
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js keyword.operator.assignment.compound.bitwise.js	3
+javascript/ctx	javaScriptNumber	Number	source.js meta.function.js meta.block.js meta.block.js constant.numeric.decimal.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js keyword.operator.increment.js	2
+javascript/ctx	javaScriptConditional	Conditional	source.js meta.function.js meta.block.js switch-statement.expr.js switch-expression.expr.js keyword.control.switch.js	6
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.js meta.block.js switch-statement.expr.js switch-expression.expr.js meta.brace.round.js	2
+javascript/ctx	javaScriptOperator	Operator	source.js meta.function.js meta.block.js switch-statement.expr.js switch-expression.expr.js keyword.operator.expression.typeof.js	6
+javascript/ctx		None	source.js meta.function.js meta.block.js switch-statement.expr.js switch-expression.expr.js variable.other.readwrite.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js punctuation.definition.block.js	1
+javascript/ctx	javaScriptLabel	Label	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js case-clause.expr.js keyword.control.switch.js	11
+javascript/ctx	javaScriptStringS	String	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js case-clause.expr.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js case-clause.expr.js string.quoted.single.js	6
+javascript/ctx	javaScriptStringS	String	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js case-clause.expr.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js case-clause.expr.js punctuation.definition.section.case-statement.js	2
+javascript/ctx	javaScriptBranch	Conditional	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js keyword.control.loop.js	5
+javascript/ctx		None	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js punctuation.terminator.statement.js	2
+javascript/ctx		None	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js variable.other.readwrite.js	2
+javascript/ctx		None	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js keyword.operator.assignment.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js keyword.operator.logical.js	2
+javascript/ctx	javaScriptNumber	Number	source.js meta.function.js meta.block.js switch-statement.expr.js switch-block.expr.js constant.numeric.decimal.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.function.js meta.block.js switch-statement.expr.js punctuation.definition.block.js	1
+javascript/ctx	javaScriptException	Exception	source.js meta.function.js meta.block.js keyword.control.trycatch.js	15
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js meta.function-call.js variable.other.constant.object.js	4
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js meta.function-call.js punctuation.accessor.js	2
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js meta.function-call.js entity.name.function.js	10
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.js meta.block.js meta.block.js meta.brace.round.js	4
+javascript/ctx	javaScriptStringD	String	source.js meta.function.js meta.block.js meta.block.js string.quoted.double.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringD	String	source.js meta.function.js meta.block.js meta.block.js string.quoted.double.js	2
+javascript/ctx	javaScriptStringD	String	source.js meta.function.js meta.block.js meta.block.js string.quoted.double.js punctuation.definition.string.end.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js meta.function-call.js variable.other.object.js	7
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js keyword.operator.assignment.js	1
+javascript/ctx	javaScriptType	Type	source.js meta.function.js meta.block.js meta.block.js new.expr.js meta.function-call.js entity.name.function.js	4
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js new.expr.js meta.function-call.js punctuation.accessor.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js entity.name.label.js	5
+javascript/ctx		None	source.js meta.function.js meta.block.js punctuation.separator.label.js	1
+javascript/ctx		None	source.js meta.function.js meta.block.js meta.block.js entity.name.label.js	5
+javascript/ctx	javaScriptStatement	Statement	source.js meta.function.js meta.block.js keyword.control.flow.js	6
+javascript/ctx	javaScriptOperator	Operator	source.js meta.function.js meta.block.js keyword.operator.expression.instanceof.js	10
+javascript/ctx	javaScriptType	Type	source.js meta.function.js meta.block.js entity.name.type.js	6
+javascript/ctx		None	source.js meta.function.js meta.block.js keyword.operator.ternary.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.var-single-variable.expr.js meta.definition.variable.js variable.other.constant.js entity.name.function.js	5
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.var.expr.js meta.arrow.js storage.modifier.async.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js meta.parameters.js variable.parameter.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js storage.type.function.arrow.js	2
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.arrow.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx	javaScriptStatement	Statement	source.js meta.var.expr.js meta.arrow.js meta.block.js keyword.control.flow.js	5
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js meta.block.js meta.function-call.js support.class.promise.js	7
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js meta.block.js meta.function-call.js punctuation.accessor.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js meta.block.js meta.function-call.js entity.name.function.js	3
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.var.expr.js meta.arrow.js meta.block.js meta.brace.round.js	2
+javascript/ctx	javaScriptBraces	Function	source.js meta.var.expr.js meta.arrow.js meta.block.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js meta.block.js meta.array.literal.js variable.other.readwrite.js	1
+javascript/ctx		None	source.js meta.var.expr.js meta.arrow.js meta.block.js punctuation.terminator.statement.js	1
+javascript/ctx	javaScriptMember	Keyword	source.js meta.function-call.js variable.other.object.js	8
+javascript/ctx		None	source.js meta.function-call.js punctuation.accessor.js	2
+javascript/ctx		None	source.js meta.function-call.js entity.name.function.js	30
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.brace.round.js	4
+javascript/ctx	javaScriptStringD	String	source.js string.quoted.double.js punctuation.definition.string.begin.js	2
+javascript/ctx	javaScriptStringD	String	source.js string.quoted.double.js	7
+javascript/ctx	javaScriptStringD	String	source.js string.quoted.double.js punctuation.definition.string.end.js	2
+javascript/ctx		None	source.js punctuation.separator.comma.js	1
+javascript/ctx	javaScriptFunction	Keyword	source.js meta.function.expression.js storage.type.function.js	8
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.expression.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.expression.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.function.expression.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx	javaScriptGlobal	Keyword	source.js meta.function.expression.js meta.block.js meta.function-call.js variable.other.object.js	6
+javascript/ctx		None	source.js meta.function.expression.js meta.block.js meta.function-call.js punctuation.accessor.js	1
+javascript/ctx	javaScriptMessage	Keyword	source.js meta.function.expression.js meta.block.js meta.function-call.js entity.name.function.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.function.expression.js meta.block.js meta.brace.round.js	2
+javascript/ctx	javaScriptIdentifier	Identifier	source.js meta.function.expression.js meta.block.js variable.language.this.js	4
+javascript/ctx		None	source.js meta.function.expression.js meta.block.js punctuation.terminator.statement.js	1
+javascript/ctx		None	source.js support.type.object.module.js	13
+javascript/ctx		None	source.js punctuation.accessor.js	1
+javascript/ctx		None	source.js keyword.operator.assignment.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.objectliteral.js punctuation.definition.block.js	2
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js variable.other.readwrite.js	10
+javascript/ctx		None	source.js meta.objectliteral.js punctuation.separator.comma.js	1

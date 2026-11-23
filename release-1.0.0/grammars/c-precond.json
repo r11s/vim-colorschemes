@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.c-precond",
+ "injectionSelector": "L:meta.preprocessor.c -comment -string",
+ "patterns": [
+  {
+   "match": "[A-Za-z_]\\w*|[^\\s\\w\"\\'/]|/(?![/*])",
+   "name": "vim.PreCondit.cPreCondit"
+  }
+ ]
+}

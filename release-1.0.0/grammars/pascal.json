@@ -1,0 +1,58 @@
+{
+ "scopeName": "vim.injection.pascal",
+ "injectionSelector": "L:source.pascal -comment -string",
+ "patterns": [
+  {
+   "match": "(?i)\\b(?:false|true)\\b",
+   "name": "vim.Boolean.pascalBoolean"
+  },
+  {
+   "match": "(?i)\\b(?:else|then|if)\\b",
+   "name": "vim.Conditional.pascalConditional"
+  },
+  {
+   "match": "(?i)\\b(?:textrecnamelength|textrecbufsize|lightmagenta|screenheight|screenwidth|fauxiliary|lightgreen|directory|foverflow|lightblue|lightcyan|lightgray|darkgray|fmclosed|fmoutput|lightred|volumeid|anyfile|archive|fminout|fminput|fparity|magenta|sysfile|fcarry|hidden|maxint|yellow|black|blink|brown|fsign|fzero|green|white|blue|bw40|bw80|co40|co80|cyan|mono|nil|red)\\b",
+   "name": "vim.Constant.pascalConstant"
+  },
+  {
+   "match": "(?i)\\b(?:getdefaultpalette|installuserdriver|registerbgidriver|getfillsettings|getlinesettings|gettextsettings|getviewsettings|installuserfont|registerbgifont|setgraphbufsize|setusercharsize|getaspectratio|getfillpattern|getpalettesize|restorecrtmode|setallpallette|setaspectratio|setfillpattern|settextjustify|textbackground|clearviewport|getdrivername|graphdefaults|grapherrormsg|setactivepage|setrgbpalette|setvisualpage|getarccoords|getgraphmode|getmoderange|setfillstyle|setgraphmode|setlinestyle|settextstyle|setwritemode|cleardevice|detectgraph|dosexitcode|fillellipse|getmaxcolor|getmodename|graphresult|setviewport|swapvectors|blockwrite|closegraph|dosversion|getbkcolor|getmaxmode|getpalette|keypressed|paramcount|setbkcolor|setpalette|settextbuf|strbufsize|strdispose|textheight|unpacktime|assigncrt|bigcursor|blockread|cursoroff|findclose|findfirst|floodfill|getcbreak|getintvec|getverify|highvideo|imagesize|initgraph|normvideo|outtextxy|randomize|rectangle|setcbreak|setintvec|setverify|strlicomp|strplcopy|textcolor|textwidth|assigned|continue|cursoron|diskfree|disksize|drawpoly|envcount|filesize|fillchar|fillpoly|findnext|getcolor|getfattr|getftime|getimage|getpixel|ioresult|lowvideo|maxavail|memavail|packtime|paramstr|pieslice|putimage|putpixel|runerror|seekeoln|setcolor|setfattr|setftime|stralloc|strecopy|stricomp|strlcomp|strlcopy|strlower|strpcopy|strrscan|strupper|textmode|truncate|adddisk|delline|dispose|ellipse|exclude|filepos|freemem|fsearch|getdate|getmaxx|getmaxy|gettime|include|insline|linerel|moverel|nosound|outtext|readkey|rewrite|seekeof|setdate|settime|strcomp|strcopy|strlcat|strlfmt|strmove|strscan|writeln|append|arctan|assign|circle|clreol|clrscr|concat|delete|envstr|expand|fsplit|getdir|getenv|getmem|gotoxy|insert|length|lineto|moveto|random|readln|rename|sector|sizeof|strcat|strend|strfmt|strlen|strnew|strpas|strpos|typeof|unpack|upcase|wherex|wherey|window|bar3d|break|chdir|close|delay|erase|flush|mkdir|msdos|reset|rmdir|round|sound|trunc|write|addr|copy|cseg|dseg|eoln|exec|exit|frac|getx|gety|halt|high|intr|keep|line|move|pack|pred|read|seek|sptr|sqrt|sseg|succ|swap|abs|arc|bar|chr|cos|dec|eof|exp|inc|int|low|new|odd|ofs|ord|pos|ptr|seg|sin|sqr|str|val|hi|ln|lo|pi)\\b",
+   "name": "vim.Function.pascalFunction"
+  },
+  {
+   "match": "(?i)\\b(?:label|case|goto)\\b",
+   "name": "vim.Label.pascalLabel"
+  },
+  {
+   "match": "(?i)\\b(?:downto|packed|and|div|mod|not|shl|shr|xor|in|of|or)\\b",
+   "name": "vim.Operator.pascalOperator"
+  },
+  {
+   "match": "(?i)\\b(?:repeat|until|while|for|do|to)\\b",
+   "name": "vim.Repeat.pascalRepeat"
+  },
+  {
+   "match": "(?i)\\b(?:private|public|strict)\\b",
+   "name": "vim.Statement.pascalAccess"
+  },
+  {
+   "match": "(?i)\\b(?:ovrdoshandle|ovremshandle|directvideo|ovrcodelist|ovrdebugptr|ovrheapsize|ovrloadlist|selectorinc|checkbreak|ovrheapend|ovrheaporg|ovrheapptr|stacklimit|checksnow|erroraddr|heaperror|prefixseg|saveint00|saveint02|saveint1b|saveint21|saveint23|saveint24|saveint34|saveint35|saveint36|saveint37|saveint38|saveint39|saveint3a|saveint3b|saveint3c|saveint3d|saveint3e|saveint3f|saveint75|checkeof|doserror|exitcode|exitproc|filemode|freelist|freezero|inoutres|lastmode|randseed|test8087|textattr|textchar|heapend|heaporg|heapptr|sega000|segb000|segb800|windmax|windmin|output|result|input|self)\\b",
+   "name": "vim.Statement.pascalPredefined"
+  },
+  {
+   "match": "(?i)\\b(?:implementation|constructor|destructor|inherited|interface|procedure|function|program|begin|const|type|unit|uses|with|end|var)\\b",
+   "name": "vim.Statement.pascalStatement"
+  },
+  {
+   "match": "(?i)\\b(?:object|record)\\b",
+   "name": "vim.Statement.pascalStruct"
+  },
+  {
+   "match": "(?i)\\b(?:assembler|interrupt|absolute|external|forward|virtual|inline|near|far)\\b",
+   "name": "vim.Type.pascalModifier"
+  },
+  {
+   "match": "(?i)\\b(?:fillsettingstype|linesettingstype|textsettingstype|fillpatterntype|arccoordstype|viewporttype|palettetype|pointtype|registers|searchrec|bytebool|cardinal|datetime|extended|longbool|longword|shortint|wordbool|boolean|filerec|integer|longint|namestr|pathstr|pointer|textbuf|textrec|variant|comstr|dirstr|double|extstr|single|string|array|pchar|byte|char|comp|file|real|text|word|set)\\b",
+   "name": "vim.Type.pascalType"
+  }
+ ]
+}

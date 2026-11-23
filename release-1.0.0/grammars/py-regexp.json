@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.py-regexp",
+ "injectionSelector": "L:string.regexp.quoted.single.python, L:string.regexp.quoted.multi.python",
+ "patterns": [
+  {
+   "match": "(?:\\\\.|[^\\s\\\\\\'\"])+",
+   "name": "vim.String"
+  }
+ ]
+}

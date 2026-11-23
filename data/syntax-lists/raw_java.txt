@@ -1,0 +1,939 @@
+
+--- Syntax items ---
+javaError      xxx const const goto goto
+                   match /[\\@`]/  
+                   match +<<<\|\.\.\|=>\|||=\|&&=\|\*\/+  
+                   match /[\\@`]/  
+                   match +<<<\|\.\.\|=>\|||=\|&&=\|\*\/+  
+                   links to Error
+javaError2     xxx match /#\|=</  
+                   match /#\|=</  
+                   links to javaError
+javaExternal   xxx native native package package
+                   match /\<import\>\%(\s\+static\>\)\=/  
+                   match /\<import\s\+module\>/  contains=javaModuleImport 
+                   match /\<import\>\%(\s\+static\>\)\=/  
+                   match /\<import\s\+module\>/  contains=javaModuleImport 
+                   links to Include
+javaConditional xxx else else switch switch if if
+                   links to Conditional
+javaRepeat     xxx for for while while do do
+                   links to Repeat
+javaBoolean    xxx true true false false
+                   links to Boolean
+javaConstant   xxx null null
+                   links to Constant
+javaTypedef    xxx this this super super
+                   match /\.\s*\<class\>/ms=s+1  
+                   match /\.\s*\<class\>/ms=s+1  
+                   links to Typedef
+javaOperator   xxx new new instanceof instanceof
+                   match /\<var\>\%(\s*(\)\@!/  
+                   match /\%(\%(::\|\.\)[[:space:]\n]*\)\@80<!\<yield\>/  
+                   match /\<var\>\%(\s*(\)\@!/  
+                   match /\%(\%(::\|\.\)[[:space:]\n]*\)\@80<!\<yield\>/  
+                   links to Operator
+javaModuleImport xxx contained module module
+                   links to Statement
+javaComment    xxx matchgroup=javaCommentStart start=+/\*+ end=+\*/+  fold contains=@javaCommentSpecial,javaTodo,javaCommentError,javaSpaceError,@Spell 
+                   matchgroup=javaCommentStart start=+/\*+ end=+\*/+  fold contains=@javaCommentSpecial,javaTodo,javaCommentError,javaSpaceError,@Spell 
+                   match +/\*\*/+  
+                   links to Comment
+javaLineComment xxx match +//.*+  contains=@javaCommentSpecial2,javaTodo,javaCommentMarkupTag,javaSpaceError,@Spell 
+                   match +//.*+  contains=@javaCommentSpecial2,javaTodo,javaCommentMarkupTag,javaSpaceError,@Spell 
+                   links to Comment
+javaImportDeclBlock xxx start=/\<import\s\+\K/ skip=/\<import\s\+\K/ end=/^/  transparent fold contains=javaExternal,@javaClasses,javaComment,javaLineComment 
+                   start=/\<import\s\+\K/ skip=/\<import\s\+\K/ end=/^/  transparent fold contains=javaExternal,@javaClasses,javaComment,javaLineComment 
+javaType       xxx float float boolean boolean long long void void double
+                   double short short char char byte byte int int
+                   links to Type
+javaStatement  xxx return return
+                   links to Statement
+javaStorageClass xxx transient transient strictfp strictfp synchronized
+                   synchronized static static volatile volatile
+                   links to StorageClass
+javaExceptions xxx finally finally catch catch try try throw throw
+                   links to Exception
+javaAssert     xxx assert assert
+                   links to Statement
+javaMethodDecl xxx throws throws
+                   links to javaStorageClass
+javaClassDecl  xxx interface interface implements implements enum enum extends
+                   extends
+                   match /\<permits\>\%(\s*(\)\@!/  
+                   match /\<record\>\%(\s*(\)\@!/  
+                   match /^class\>/  
+                   match /[^.]\s*\<class\>/ms=s+1  
+                   match /@interface\>/  
+                   match /\<permits\>\%(\s*(\)\@!/  
+                   match /\<record\>\%(\s*(\)\@!/  
+                   match /^class\>/  
+                   match /[^.]\s*\<class\>/ms=s+1  
+                   match /@interface\>/  
+                   links to javaStorageClass
+javaAnnotation xxx match /@\%(\K\k*\.\)*\K\k*\>/  
+                   matchgroup=javaAnnotationStart start=/@\%(\K\k*\.\)*\K\k*(/ skip=+\/\*.\{-}\*\/\|\/\/.*$+ end=/)/  transparent contains=javaAnnotation,javaParenT,javaBlock,javaString,javaBoolean,javaNumber,javaTypedef,javaComment,javaLineComment 
+                   match /@\%(\K\k*\.\)*\K\k*\>/  
+                   matchgroup=javaAnnotationStart start=/@\%(\K\k*\.\)*\K\k*(/ skip=+\/\*.\{-}\*\/\|\/\/.*$+ end=/)/  transparent contains=javaAnnotation,javaParenT,javaBlock,javaString,javaBoolean,javaNumber,javaTypedef,javaComment,javaLineComment 
+                   links to PreProc
+javaParenT     xxx matchgroup=javaParen start=/(/ end=/)/  transparent contains=@javaTop,javaInParen,javaParenT1 
+                   matchgroup=javaParen start=/\[/ end=/\]/  transparent contains=@javaTop,javaParenT1 
+javaBlock      xxx matchgroup=javaBlockStart start=/\%(^\|^\S[^:]\+\)\@120<!{/ end=/}/  transparent fold 
+javaString     xxx start=/"/ end=/$/ end=/"/  contains=javaSpecialChar,javaSpecialError,@Spell 
+                   start=/"""[ \t\x0c\r]*$/hs=e+1 end=/"""/he=s-1  contains=javaSpecialChar,javaSpecialError,javaTextBlockError,@Spell 
+                   links to String
+javaNumber     xxx 0 0L 0l
+                   match /\<\%(0\%([xX]\x\%(_*\x\)*\|_*\o\%(_*\o\)*\|[bB][01]\%(_*[01]\)*\)\|[1-9]\%(_*\d\)*\)[lL]\=\>/  
+                   match /\<\d\%(_*\d\)*\./  
+                   match /\%(\<\d\%(_*\d\)*\.\%(\d\%(_*\d\)*\)\=\|\.\d\%(_*\d\)*\)\%([eE][-+]\=\d\%(_*\d\)*\)\=[fFdD]\=\>/  
+                   match /\<\d\%(_*\d\)*[eE][-+]\=\d\%(_*\d\)*[fFdD]\=\>/  
+                   match /\<\d\%(_*\d\)*\%([eE][-+]\=\d\%(_*\d\)*\)\=[fFdD]\>/  
+                   match /\<0[xX]\%(\x\%(_*\x\)*\.\=\|\%(\x\%(_*\x\)*\)\=\.\x\%(_*\x\)*\)[pP][-+]\=\d\%(_*\d\)*[fFdD]\=\>/  
+                   links to Number
+javaBranch     xxx nextgroup=javaUserLabelRef  skipwhite continue
+                   nextgroup=javaUserLabelRef  skipwhite continue
+                   nextgroup=javaUserLabelRef  skipwhite break
+                   nextgroup=javaUserLabelRef  skipwhite break
+                   links to Conditional
+javaUserLabelRef xxx match /\k\+/  contained 
+                   match /\k\+/  contained 
+                   links to javaUserLabel
+javaVarArg     xxx match /\.\.\./  
+                   match /\.\.\./  
+                   links to Function
+javaScopeDecl  xxx protected protected private private public public
+                   links to javaStorageClass
+javaConceptKind xxx final final abstract abstract
+                   match /\<non-sealed\>/  
+                   match /\<sealed\>\%(\s*(\)\@!/  
+                   match /\<default\>\%(\s*\%(:\|->\)\)\@!/  
+                   match /\<non-sealed\>/  
+                   match /\<sealed\>\%(\s*(\)\@!/  
+                   match /\<default\>\%(\s*\%(:\|->\)\)\@!/  
+                   links to javaStorageClass
+javaDocParam   xxx match /\s\zs\S\+/  contained 
+                   links to Function
+javaUserLabel  xxx match /^\s*\<\K\k*\>\%(\<default\>\)\@7<!\s*::\@!/he=e-1  
+                   match /^\s*\<\K\k*\>\%(\<default\>\)\@7<!\s*::\@!/he=e-1  
+                   links to Label
+javaCharacter  xxx match /'[^']*'/  contains=javaSpecialChar,javaSpecialCharError 
+                   match /'\\''/  contains=javaSpecialChar 
+                   match /'[^\\]'/  
+                   links to Character
+javaLabelDefault xxx contained default default
+                   links to javaLabel
+javaLabelVarType xxx contained var var
+                   links to javaOperator
+javaLabelWhenClause xxx matchgroup=javaLabel start=/\<when\>/ matchgroup=NONE end=/->/me=e-2 end=/:/me=e-1  contained transparent contains=TOP,javaImportDeclBlock,javaExternal,javaLambdaDef 
+                   matchgroup=javaLabel start=/\<when\>/ matchgroup=NONE end=/->/me=e-2 end=/:/me=e-1  contained transparent contains=TOP,javaImportDeclBlock,javaExternal,javaLambdaDef 
+javaLabelCastType xxx contained short short char char byte byte int int
+                   links to javaType
+javaLabelNumber xxx match /\<0\>[lL]\@!/  contained 
+                   match /\<\%(0\%([xX]\x\%(_*\x\)*\|_*\o\%(_*\o\)*\|[bB][01]\%(_*[01]\)*\)\|[1-9]\%(_*\d\)*\)\>[lL]\@!/  contained 
+                   match /\<0\>[lL]\@!/  contained 
+                   match /\<\%(0\%([xX]\x\%(_*\x\)*\|_*\o\%(_*\o\)*\|[bB][01]\%(_*[01]\)*\)\|[1-9]\%(_*\d\)*\)\>[lL]\@!/  contained 
+                   links to javaNumber
+javaLabelRegion xxx matchgroup=javaLabel start=/\<case\>/ matchgroup=NONE end=/:\|->/  transparent contains=javaLabelCastType,javaLabelNumber,javaCharacter,javaString,javaConstant,@javaClasses,javaGenerics,javaLabelDefault,javaLabelVarType,javaLabelWhenClause 
+                   matchgroup=javaLabel start=/\<default\>\%(\s*\%(:\|->\)\)\@=/ matchgroup=NONE end=/:\|->/  oneline transparent 
+                   matchgroup=javaLabel start=/\<case\>/ matchgroup=NONE end=/:\|->/  transparent contains=javaLabelCastType,javaLabelNumber,javaCharacter,javaString,javaConstant,@javaClasses,javaGenerics,javaLabelDefault,javaLabelVarType,javaLabelWhenClause 
+                   matchgroup=javaLabel start=/\<default\>\%(\s*\%(:\|->\)\)\@=/ matchgroup=NONE end=/:\|->/  oneline transparent 
+javaTodo       xxx contained TODO TODO XXX XXX FIXME FIXME
+                   links to Todo
+javaSpecial    xxx match /\\u\x\x\x\x/  
+                   links to Special
+javaCommentStar xxx match +^\s*\*[^/]+me=e-1  contained 
+                   match /^\s*\*$/  contained 
+                   match +^\s*\*[^/]+me=e-1  contained 
+                   match /^\s*\*$/  contained 
+                   links to javaComment
+javaSpecialChar xxx match /\\\%(u\x\x\x\x\|[0-3]\o\o\|\o\o\=\|[bstnfr"'\\]\)/  contained 
+                   links to SpecialChar
+javaSpecialError xxx match /\\./  contained 
+                   links to Error
+javaTextBlockError xxx match /"""\s*"""/  
+                   links to Error
+javaCommentError xxx match +/\*+me=e-1  display contained 
+                   match +/\*+me=e-1  display contained 
+                   links to javaError
+javaCommentMarkupTag xxx match /@\%(end\|highlight\|link\|replace\|start\)\>/  contained nextgroup=javaCommentMarkupTagAttr,javaSpaceError skipwhite 
+                   match /@\%(end\|highlight\|link\|replace\|start\)\>/  contained nextgroup=javaCommentMarkupTagAttr,javaSpaceError skipwhite 
+javaCommentMarkupTagAttr xxx match /\<region\>/  contained nextgroup=javaCommentMarkupTagAttr,javaSpaceError skipwhite 
+                   matchgroup=javaHtmlArg start=/\<\%(re\%(gex\|gion\|placement\)\|substring\|t\%(arget\|ype\)\)\%(\s*=\)\@=/ matchgroup=javaHtmlString end=/\%(=\s*\)\@80<=\%("[^"]\+"\|'[^']\+'\|\%([.-]\|\k\)\+\)/  contained oneline transparent nextgroup=javaCommentMarkupTagAttr,javaSpaceError skipwhite 
+                   match /\<region\>/  contained nextgroup=javaCommentMarkupTagAttr,javaSpaceError skipwhite 
+                   matchgroup=javaHtmlArg start=/\<\%(re\%(gex\|gion\|placement\)\|substring\|t\%(arget\|ype\)\)\%(\s*=\)\@=/ matchgroup=javaHtmlString end=/\%(=\s*\)\@80<=\%("[^"]\+"\|'[^']\+'\|\%([.-]\|\k\)\+\)/  contained oneline transparent nextgroup=javaCommentMarkupTagAttr,javaSpaceError skipwhite 
+                   links to javaHtmlArg
+htmlComment    xxx start=/<!/ end=/>/  contained keepend contains=htmlCommentError 
+                   matchgroup=htmlComment start=/<!--\%(-\?>\)\@!/ end=/--!\?>/  contained keepend contains=htmlCommentNested,@htmlPreproc,@Spell 
+                   start=/<!DOCTYPE/ end=/>/  contained keepend 
+                   start=/<!/ end=/>/  contained keepend contains=htmlCommentError 
+                   matchgroup=htmlComment start=/<!--\%(-\?>\)\@!/ end=/--!\?>/  contained keepend contains=htmlCommentNested,@htmlPreproc,@Spell 
+                   start=/<!/ end=/>/  contained keepend contains=htmlCommentError 
+                   matchgroup=htmlComment start=/<!--\%(-\?>\)\@!/ end=/--!\?>/  contained keepend contains=htmlCommentNested,@htmlPreproc,@Spell 
+                   start=/<!DOCTYPE/ end=/>/  contained keepend 
+                   start=/<!/ end=/>/  contained keepend contains=htmlCommentError 
+                   matchgroup=htmlComment start=/<!--\%(-\?>\)\@!/ end=/--!\?>/  contained keepend contains=htmlCommentNested,@htmlPreproc,@Spell 
+                   links to Special
+htmlArg        xxx contained below below below below role role role role
+                   contained blocking blocking blocking blocking color color
+                   contained color color list list list list name name name
+                   contained name loading loading loading loading hreflang
+                   contained hreflang hreflang hreflang span span span span
+                   contained async async async async placeholder placeholder
+                   contained placeholder placeholder noresize noresize noresize
+                   contained noresize alt alt alt alt marginheight marginheight
+                   contained marginheight marginheight target target target
+                   contained target contenteditable contenteditable
+                   contained contenteditable contenteditable rows rows rows
+                   contained rows srcdoc srcdoc srcdoc srcdoc optimum optimum
+                   contained optimum optimum bgcolor bgcolor bgcolor bgcolor
+                   contained ismap ismap ismap ismap cellspacing cellspacing
+                   contained cellspacing cellspacing ping ping ping ping object
+                   contained object object object method method method method
+                   contained autofocus autofocus autofocus autofocus frame
+                   contained frame frame frame noshade noshade noshade noshade
+                   contained itemprop itemprop itemprop itemprop data data data
+                   contained data for for for for bordercolor bordercolor
+                   contained bordercolor bordercolor accept accept accept
+                   contained accept minlength minlength minlength minlength
+                   contained rowspan rowspan rowspan rowspan contextmenu
+                   contained contextmenu contextmenu contextmenu itemtype
+                   contained itemtype itemtype itemtype high high high high
+                   contained dropzone dropzone dropzone dropzone defer defer
+                   contained defer defer shape shape shape shape class class
+                   contained class class inputmode inputmode inputmode
+                   contained inputmode usemap usemap usemap usemap rules rules
+                   contained rules rules slot slot slot slot sandbox sandbox
+                   contained sandbox sandbox itemid itemid itemid itemid
+                   contained enterkeyhint enterkeyhint enterkeyhint
+                   contained enterkeyhint checked checked checked checked
+                   contained cellpadding cellpadding cellpadding cellpadding
+                   contained multiple multiple multiple multiple start start
+                   contained start start selected selected selected selected
+                   contained language language language language summary
+                   contained summary summary summary hspace hspace hspace
+                   contained hspace lowsrc lowsrc lowsrc lowsrc icon icon icon
+                   contained icon controls controls controls controls min min
+                   contained min min imagesrcset imagesrcset imagesrcset
+                   contained imagesrcset itemref itemref itemref itemref type
+                   contained type type type valign valign valign valign default
+                   contained default default default loop loop loop loop inert
+                   contained inert inert inert gutter gutter gutter gutter
+                   contained sizes sizes sizes sizes autocapitalize
+                   contained autocapitalize autocapitalize autocapitalize
+                   contained classid classid classid classid scheme scheme
+                   contained scheme scheme formnovalidate formnovalidate
+                   contained formnovalidate formnovalidate visibility
+                   contained visibility visibility visibility srcset srcset
+                   contained srcset srcset pagex pagex pagex pagex pagey pagey
+                   contained pagey pagey title title title title title title
+                   contained srclang srclang srclang srclang headers headers
+                   contained headers headers decoding decoding decoding
+                   contained decoding scrolling scrolling scrolling scrolling
+                   contained crossorigin crossorigin crossorigin crossorigin
+                   contained clear clear clear clear charset charset charset
+                   contained charset novalidate novalidate novalidate
+                   contained novalidate allowfullscreen allowfullscreen
+                   contained allowfullscreen allowfullscreen id id id id id id
+                   contained id id declare declare declare declare vspace
+                   contained vspace vspace vspace integrity integrity integrity
+                   contained integrity is is is is code code code code muted
+                   contained muted muted muted formaction formaction formaction
+                   contained formaction nonce nonce nonce nonce standby standby
+                   contained standby standby version version version version
+                   contained link link link link profile profile profile
+                   contained profile clip clip clip clip max max max max
+                   contained autoplay autoplay autoplay autoplay coords coords
+                   contained coords coords compact compact compact compact
+                   contained pattern pattern pattern pattern background
+                   contained background background background codebase codebase
+                   contained codebase codebase wrap wrap wrap wrap tabindex
+                   contained tabindex tabindex tabindex allow allow allow allow
+                   contained width width width width alink alink alink alink
+                   contained marginwidth marginwidth marginwidth marginwidth
+                   contained above above above above reversed reversed reversed
+                   contained reversed content content content content label
+                   contained label border border border border poster poster
+                   contained poster poster itemscope itemscope itemscope
+                   contained itemscope maxlength maxlength maxlength maxlength
+                   contained top top top top prompt prompt prompt prompt dir
+                   contained dir dir dir typemustmatch typemustmatch
+                   contained typemustmatch typemustmatch href href value value
+                   contained value value nomodule nomodule nomodule nomodule
+                   contained challenge challenge challenge challenge as as as
+                   contained as charoff charoff charoff charoff hidden hidden
+                   contained hidden hidden formtarget formtarget formtarget
+                   contained formtarget height height height height translate
+                   contained translate translate translate draggable draggable
+                   contained draggable draggable longdesc longdesc longdesc
+                   contained longdesc nowrap nowrap nowrap nowrap step step
+                   contained step step accesskey accesskey accesskey accesskey
+                   contained cols cols cols cols cite cite cite cite rel rel
+                   contained rel rel formmethod formmethod formmethod
+                   contained formmethod rev rev rev rev style style style style
+                   contained keytype keytype keytype keytype codetype codetype
+                   contained codetype codetype download download download
+                   contained download form form form form size size size size
+                   contained axis axis axis axis referrerpolicy referrerpolicy
+                   contained referrerpolicy referrerpolicy vlink vlink vlink
+                   contained vlink valuetype valuetype valuetype valuetype
+                   contained colspan colspan colspan colspan nohref nohref
+                   contained nohref nohref playsinline playsinline playsinline
+                   contained playsinline face face face face lang lang lang
+                   contained lang frameborder frameborder frameborder
+                   contained frameborder dirname dirname dirname dirname
+                   contained enctype enctype enctype enctype readonly readonly
+                   contained readonly readonly action action action action
+                   contained spellcheck spellcheck spellcheck spellcheck left
+                   contained left left left text text text text autocomplete
+                   contained autocomplete autocomplete autocomplete url url url
+                   contained url char char char char align align align align
+                   contained scope scope scope scope disabled disabled disabled
+                   contained disabled abbr abbr abbr abbr radiogroup radiogroup
+                   contained radiogroup radiogroup preload preload preload
+                   contained preload open open open open required required
+                   contained required required low low low low imagesizes
+                   contained imagesizes imagesizes imagesizes src src src src
+                   contained kind kind kind kind datetime datetime datetime
+                   contained datetime formenctype formenctype formenctype
+                   contained formenctype archive archive archive archive
+                   match /\<\%(http-equiv\|href\|title\)=/me=e-1  contained 
+                   match /\%#=1\<aria-\%(activedescendant\|atomic\|autocomplete\|braillelabel\|brailleroledescription\|busy\|checked\|colcount\|colindex\|colindextext\|colspan\|controls\|current\|describedby\|description\|details\|disabled\|errormessage\|expanded\|flowto\|haspopup\|hidden\|invalid\|keyshortcuts\|label\|labelledby\|level\|live\|modal\|multiline\|multiselectable\|orientation\|owns\|placeholder\|posinset\|pressed\|readonly\|relevant\|required\|roledescription\|rowcount\|rowindex\|rowindextext\|rowspan\|selected\|setsize\|sort\|valuemax\|valuemin\|valuenow\|valuetext\|dropeffect\|grabbed\)\>/  contained 
+                   match /\<z-index\>/  contained 
+                   match /\<\%(accept-charset\|label\)\>/  contained 
+                   match /\<data-\h\%(\w\|[-.]\)*\%(\_s*=\)\@=/  contained 
+                   match /\<http-equiv=/me=e-1  contained 
+                   match /\%#=1\<aria-\%(activedescendant\|atomic\|autocomplete\|braillelabel\|brailleroledescription\|busy\|checked\|colcount\|colindex\|colindextext\|colspan\|controls\|current\|describedby\|description\|details\|disabled\|errormessage\|expanded\|flowto\|haspopup\|hidden\|invalid\|keyshortcuts\|label\|labelledby\|level\|live\|modal\|multiline\|multiselectable\|orientation\|owns\|placeholder\|posinset\|pressed\|readonly\|relevant\|required\|roledescription\|rowcount\|rowindex\|rowindextext\|rowspan\|selected\|setsize\|sort\|valuemax\|valuemin\|valuenow\|valuetext\|dropeffect\|grabbed\)\>/  contained 
+                   match /\<z-index\>/  contained 
+                   match /\<accept-charset\>/  contained 
+                   match /\<data-\h\%(\w\|[-.]\)*\%(\_s*=\)\@=/  contained 
+                   match /\<\%(http-equiv\|href\|title\)=/me=e-1  contained 
+                   match /\%#=1\<aria-\%(activedescendant\|atomic\|autocomplete\|braillelabel\|brailleroledescription\|busy\|checked\|colcount\|colindex\|colindextext\|colspan\|controls\|current\|describedby\|description\|details\|disabled\|errormessage\|expanded\|flowto\|haspopup\|hidden\|invalid\|keyshortcuts\|label\|labelledby\|level\|live\|modal\|multiline\|multiselectable\|orientation\|owns\|placeholder\|posinset\|pressed\|readonly\|relevant\|required\|roledescription\|rowcount\|rowindex\|rowindextext\|rowspan\|selected\|setsize\|sort\|valuemax\|valuemin\|valuenow\|valuetext\|dropeffect\|grabbed\)\>/  contained 
+                   match /\<z-index\>/  contained 
+                   match /\<\%(accept-charset\|label\)\>/  contained 
+                   match /\<data-\h\%(\w\|[-.]\)*\%(\_s*=\)\@=/  contained 
+                   match /\<http-equiv=/me=e-1  contained 
+                   match /\%#=1\<aria-\%(activedescendant\|atomic\|autocomplete\|braillelabel\|brailleroledescription\|busy\|checked\|colcount\|colindex\|colindextext\|colspan\|controls\|current\|describedby\|description\|details\|disabled\|errormessage\|expanded\|flowto\|haspopup\|hidden\|invalid\|keyshortcuts\|label\|labelledby\|level\|live\|modal\|multiline\|multiselectable\|orientation\|owns\|placeholder\|posinset\|pressed\|readonly\|relevant\|required\|roledescription\|rowcount\|rowindex\|rowindextext\|rowspan\|selected\|setsize\|sort\|valuemax\|valuemin\|valuenow\|valuetext\|dropeffect\|grabbed\)\>/  contained 
+                   match /\<z-index\>/  contained 
+                   match /\<accept-charset\>/  contained 
+                   match /\<data-\h\%(\w\|[-.]\)*\%(\_s*=\)\@=/  contained 
+                   links to Type
+htmlString     xxx start=/"/ end=/"/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/'/ end=/'/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/"/ end=/"/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/'/ end=/'/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/"/ end=/"/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/'/ end=/'/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/"/ end=/"/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/'/ end=/'/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   links to String
+markdownCode   xxx matchgroup=markdownCodeDelimiter start=/\z(`\+\) \=/ end=/ \=\z1/  contained keepend contains=markdownLineStart,javaMarkdownCommentMask 
+                   links to Special
+markdownCodeBlock xxx start=+^\s*///\%( \{4,}\|\t\)+ end=+^\ze\s*///\%(\s*$\| \{,3}\S\)+  contained keepend contains=javaMarkdownCommentMask 
+                   start==^\s*/// \{,3}\z(```\+\)\%(.\{-}[^`]`\)\@!= end=+^\s*/// \{,3}\z1`*+  contained keepend contains=javaMarkdownCommentMask 
+                   start==^\s*/// \{,3}\z(\~\~\~\+\)= end=+^\s*/// \{,3}\z1\~*+  contained keepend contains=javaMarkdownCommentMask 
+                   links to Special
+xmlError       xxx match /[<&]/  contained 
+                   match /[<&]/  contained 
+                   match /[<&]/  contained 
+                   links to Error
+xmlEntity      xxx match /&[^; \t]*;/  contained contains=xmlEntityPunct 
+                   match /&[^; \t]*;/  contained contains=xmlEntityPunct 
+                   match /&[^; \t]*;/  contained contains=xmlEntityPunct 
+                   links to Statement
+xmlString      xxx start=/"/ end=/"/  display contained contains=xmlEntity,@Spell 
+                   start=/'/ end=/'/  display contained contains=xmlEntity,@Spell 
+                   start=/"/ end=/"/  display contained contains=xmlEntity,@Spell 
+                   start=/'/ end=/'/  display contained contains=xmlEntity,@Spell 
+                   start=/"/ end=/"/  display contained contains=xmlEntity,@Spell 
+                   start=/'/ end=/'/  display contained contains=xmlEntity,@Spell 
+                   links to String
+xmlAttribPunct xxx match /[:.]/  display contained 
+                   match /[:.]/  display contained 
+                   match /[:.]/  display contained 
+                   links to Comment
+xmlEqual       xxx match /=/  display contained 
+                   match /=/  display contained 
+                   match /=/  display contained 
+xmlAttrib      xxx match /[-'"<]\@1<!\<[a-zA-Z:_][-.0-9a-zA-Z:_]*\>\%(['"]\@!\|$\)/  display contained contains=xmlAttribPunct,@xmlAttribHook 
+                   match /[-'"<]\@1<!\<[a-zA-Z:_][-.0-9a-zA-Z:_]*\>\%(['"]\@!\|$\)/  display contained contains=xmlAttribPunct,@xmlAttribHook 
+                   match /[-'"<]\@1<!\<[a-zA-Z:_][-.0-9a-zA-Z:_]*\>\%(['"]\@!\|$\)/  display contained contains=xmlAttribPunct,@xmlAttribHook 
+                   links to Type
+xmlNamespace   xxx match -\(<\|</\)\@2<=[^ /!?<>"':]\+[:]\@=-  display contained contains=@xmlNamespaceHook 
+                   match -\(<\|</\)\@2<=[^ /!?<>"':]\+[:]\@=-  display contained contains=@xmlNamespaceHook 
+                   match -\(<\|</\)\@2<=[^ /!?<>"':]\+[:]\@=-  display contained contains=@xmlNamespaceHook 
+                   links to Tag
+xmlTagName     xxx match -\%(<\|</\)\@2<=[^ /!?<>"']\+-  display contained contains=xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   match -\%(<\|</\)\@2<=[^ /!?<>"']\+-  display contained contains=xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   match -\%(<\|</\)\@2<=[^ /!?<>"']\+-  display contained contains=xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   links to Function
+xmlTag         xxx matchgroup=xmlTag start=+<[^ /!?<>"']\@=+ end=/>/  contained contains=xmlError,xmlTagName,xmlAttrib,xmlEqual,xmlString,@xmlStartTagHook 
+                   matchgroup=xmlTag start=+<[^ /!?<>"']\@=+ end=/>/  contained contains=xmlError,xmlTagName,xmlAttrib,xmlEqual,xmlString,@xmlStartTagHook 
+                   matchgroup=xmlTag start=+<[^ /!?<>"']\@=+ end=/>/  contained contains=xmlError,xmlTagName,xmlAttrib,xmlEqual,xmlString,@xmlStartTagHook 
+                   links to Function
+xmlEndTag      xxx matchgroup=xmlTag start=+</[^ /!?<>"']\@=+ end=/>/  contained contains=xmlTagName,xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   matchgroup=xmlTag start=+</[^ /!?<>"']\@=+ end=/>/  contained contains=xmlTagName,xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   matchgroup=xmlTag start=+</[^ /!?<>"']\@=+ end=/>/  contained contains=xmlTagName,xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   links to Identifier
+xmlCdata       xxx start=/<!\[CDATA\[/ end=/]]>/  contained keepend extend contains=xmlCdataStart,xmlCdataEnd,@xmlCdataHook,@Spell 
+                   start=/<!\[CDATA\[/ end=/]]>/  contained keepend extend contains=xmlCdataStart,xmlCdataEnd,@xmlCdataHook,@Spell 
+                   start=/<!\[CDATA\[/ end=/]]>/  contained keepend extend contains=xmlCdataStart,xmlCdataEnd,@xmlCdataHook,@Spell 
+                   links to String
+xmlComment     xxx start=/<!/ end=/>/  contained extend contains=xmlCommentStart,xmlCommentError 
+                   start=/<!/ end=/>/  contained extend contains=xmlCommentStart,xmlCommentError 
+                   start=/<!/ end=/>/  contained extend contains=xmlCommentStart,xmlCommentError 
+                   links to Comment
+xmlProcessing  xxx matchgroup=xmlProcessingDelim start=/<?/ end=/?>/  contained contains=xmlAttrib,xmlEqual,xmlString 
+                   matchgroup=xmlProcessingDelim start=/<?/ end=/?>/  contained contains=xmlAttrib,xmlEqual,xmlString 
+                   matchgroup=xmlProcessingDelim start=/<?/ end=/?>/  contained contains=xmlAttrib,xmlEqual,xmlString 
+                   links to Type
+xmlEntityPunct xxx match /[&.;]/  contained 
+                   match /[&.;]/  contained 
+                   match /[&.;]/  contained 
+                   links to Type
+xmlCommentStart xxx match /<!/  contained nextgroup=xmlCommentPart 
+                   match /<!/  contained nextgroup=xmlCommentPart 
+                   match /<!/  contained nextgroup=xmlCommentPart 
+                   links to xmlComment
+xmlCommentError xxx match /[^><!]/  contained 
+                   match /[^><!]/  contained 
+                   match /[^><!]/  contained 
+                   links to Error
+xmlCommentPart xxx start=/--/ end=/--/  contained contains=xmlTodo,@xmlCommentHook,@Spell 
+                   start=/--/ end=/--/  contained contains=xmlTodo,@xmlCommentHook,@Spell 
+                   start=/--/ end=/--/  contained contains=xmlTodo,@xmlCommentHook,@Spell 
+                   links to Comment
+xmlTodo        xxx contained TODO TODO TODO XXX XXX XXX FIXME FIXME FIXME
+                   links to Todo
+xmlCdataStart  xxx match /<!\[CDATA\[/  contained contains=xmlCdataCdata 
+                   match /<!\[CDATA\[/  contained contains=xmlCdataCdata 
+                   match /<!\[CDATA\[/  contained contains=xmlCdataCdata 
+                   links to Type
+xmlCdataEnd    xxx match /]]>/  contained 
+                   match /]]>/  contained 
+                   match /]]>/  contained 
+                   links to Type
+xmlCdataCdata  xxx contained CDATA CDATA CDATA
+                   links to Statement
+xmlDocTypeKeyword xxx contained SYSTEM SYSTEM SYSTEM PUBLIC PUBLIC PUBLIC
+                   contained DOCTYPE DOCTYPE DOCTYPE
+                   links to Statement
+xmlInlineDTD   xxx matchgroup=xmlDocTypeDecl start=/\[/ end=/]/  contained contains=@xmlDTD 
+                   matchgroup=xmlDocTypeDecl start=/\[/ end=/]/  contained contains=@xmlDTD 
+                   matchgroup=xmlDocTypeDecl start=/\[/ end=/]/  contained contains=@xmlDTD 
+                   links to Function
+xmlDocType     xxx matchgroup=xmlDocTypeDecl start=/<!DOCTYPE/he=s+2,rs=s+2 end=/>/  contained contains=xmlDocTypeKeyword,xmlInlineDTD,xmlString 
+                   matchgroup=xmlDocTypeDecl start=/<!DOCTYPE/he=s+2,rs=s+2 end=/>/  contained contains=xmlDocTypeKeyword,xmlInlineDTD,xmlString 
+                   matchgroup=xmlDocTypeDecl start=/<!DOCTYPE/he=s+2,rs=s+2 end=/>/  contained contains=xmlDocTypeKeyword,xmlInlineDTD,xmlString 
+htmlError      xxx match /[<>&]/  contained 
+                   match /[<>&]/  contained 
+                   match /[<>&]/  contained 
+                   match /[<>&]/  contained 
+                   links to Error
+htmlSpecialChar xxx match /&#\=[0-9A-Za-z]\{1,32};/  contained 
+                   match /&#\=[0-9A-Za-z]\{1,32};/  contained 
+                   match /&#\=[0-9A-Za-z]\{1,32};/  contained 
+                   match /&#\=[0-9A-Za-z]\{1,32};/  contained 
+                   links to Special
+htmlValue      xxx match /=[\t ]*[^'" \t>][^ \t>]*/hs=s+1  contained contains=javaScriptExpression,@htmlPreproc 
+                   match /=[\t ]*[^'" \t>][^ \t>]*/hs=s+1  contained contains=javaScriptExpression,@htmlPreproc 
+                   match /=[\t ]*[^'" \t>][^ \t>]*/hs=s+1  contained contains=javaScriptExpression,@htmlPreproc 
+                   match /=[\t ]*[^'" \t>][^ \t>]*/hs=s+1  contained contains=javaScriptExpression,@htmlPreproc 
+                   links to String
+htmlTagN       xxx match /<\s*[-a-zA-Z0-9]\+/hs=s+1  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match =</\s*[-a-zA-Z0-9]\+=hs=s+2  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match /<\s*[-a-zA-Z0-9]\+/hs=s+1  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match =</\s*[-a-zA-Z0-9]\+=hs=s+2  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match /<\s*[-a-zA-Z0-9]\+/hs=s+1  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match =</\s*[-a-zA-Z0-9]\+=hs=s+2  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match /<\s*[-a-zA-Z0-9]\+/hs=s+1  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match =</\s*[-a-zA-Z0-9]\+=hs=s+2  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+htmlTagError   xxx match /[^>]</ms=s+1  contained 
+                   match /[^>]</ms=s+1  contained 
+                   match /[^>]</ms=s+1  contained 
+                   match /[^>]</ms=s+1  contained 
+                   links to htmlError
+htmlEndTag     xxx start=+</+ end=/>/  contained contains=htmlTagN,htmlTagError 
+                   start=+</+ end=/>/  contained contains=htmlTagN,htmlTagError 
+                   start=+</+ end=/>/  contained contains=htmlTagN,htmlTagError 
+                   start=+</+ end=/>/  contained contains=htmlTagN,htmlTagError 
+                   links to Identifier
+htmlTag        xxx start=+<[^/]+ end=/>/  contained fold contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster 
+                   start=+<[^/]+ end=/>/  contained fold contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster 
+                   start=+<[^/]+ end=/>/  contained fold contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster 
+                   start=+<[^/]+ end=/>/  contained fold contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster 
+                   links to Function
+htmlTagName    xxx contained marquee marquee marquee marquee hgroup hgroup
+                   contained hgroup hgroup span span span span meter meter
+                   contained meter meter ol ol ol ol embed embed embed embed
+                   contained thead thead thead thead em em pre pre pre pre
+                   contained blink blink blink blink tbody tbody tbody tbody a
+                   contained a a a b b i i p p p p q q q q s s s s u u object
+                   contained object object object legend legend legend legend
+                   contained details details details details frame frame frame
+                   contained frame acronym acronym acronym acronym noframes
+                   contained noframes noframes noframes blockquote blockquote
+                   contained blockquote blockquote canvas canvas canvas canvas
+                   contained section section section section data data data
+                   contained data var var var var table table table table rtc
+                   contained rtc rtc rtc aside aside aside aside input input
+                   contained input input button button button button bdi bdi
+                   contained bdi bdi output output output output slot slot slot
+                   contained slot bdo bdo bdo bdo caption caption caption
+                   contained caption sub sub sub sub del del del del sup sup
+                   contained sup sup col col col col summary summary summary
+                   contained summary basefont basefont basefont basefont xmp
+                   contained xmp xmp xmp iframe iframe iframe iframe h1 h1 h2
+                   contained h2 h3 h3 h4 h4 h5 h5 h6 h6 rb rb rb rb rp rp rp rp
+                   contained rt rt rt rt dfn dfn dfn dfn mark mark mark mark hr
+                   contained hr hr hr font font font font html html html html
+                   contained title title meta meta meta meta datalist datalist
+                   contained datalist datalist nobr nobr nobr nobr template
+                   contained template template template wbr wbr wbr wbr
+                   contained optgroup optgroup optgroup optgroup option option
+                   contained option option code code code code main main main
+                   contained main applet applet applet applet nav nav nav nav
+                   contained link link link link map map map map layer layer
+                   contained layer layer fieldset fieldset fieldset fieldset td
+                   contained td td td th th th th tr tr tr tr tt tt tt tt
+                   contained figcaption figcaption figcaption figcaption param
+                   contained param param param center center center center area
+                   contained area area area address address address address
+                   contained small small small small frameset frameset frameset
+                   contained frameset label label label label video video video
+                   contained video article article article article time time
+                   contained time time footer footer footer footer ul ul ul ul
+                   contained dir dir dir dir div div div div audio audio audio
+                   contained audio kbd kbd kbd kbd source source source source
+                   contained cite cite cite cite big big big big figure figure
+                   contained figure figure header header header header li li li
+                   contained li form form form form head head dd dd dd dd
+                   contained textarea textarea textarea textarea base base base
+                   contained base tfoot tfoot tfoot tfoot search search search
+                   contained search br br br br body body strike strike strike
+                   contained strike samp samp samp samp ruby ruby ruby ruby
+                   contained menuitem menuitem menuitem menuitem dl dl dl dl
+                   contained dialog dialog dialog dialog menu menu menu menu
+                   contained colgroup colgroup colgroup colgroup img img img
+                   contained img picture picture picture picture strong strong
+                   contained nolayer nolayer nolayer nolayer spacer spacer
+                   contained spacer spacer progress progress progress progress
+                   contained ilayer ilayer ilayer ilayer keygen keygen keygen
+                   contained keygen abbr abbr abbr abbr isindex isindex isindex
+                   contained isindex track track track track ins ins ins ins
+                   contained select select select select dt dt dt dt noscript
+                   contained noscript noscript noscript
+                   match /\<\%(b\|i\|u\|h[1-6]\|em\|strong\|head\|body\|title\)\>/  contained 
+                   match /\<\%(b\|i\|u\|h[1-6]\|em\|strong\|head\|body\|title\)\>/  contained 
+                   links to htmlStatement
+htmlSpecialTagName xxx contained script script script script style style style
+                   contained style
+                   links to Exception
+htmlMathTagName xxx contained math math math math
+                   links to htmlTagName
+htmlSvgTagName xxx contained svg svg svg svg
+                   links to htmlTagName
+htmlMath       xxx start=/<math>/ end=+</math>+  contained keepend transparent contains=@htmlXml 
+                   start=/<math>/ end=+</math>+  contained keepend transparent contains=@htmlXml 
+                   start=/<math>/ end=+</math>+  contained keepend transparent contains=@htmlXml 
+                   start=/<math>/ end=+</math>+  contained keepend transparent contains=@htmlXml 
+htmlSvg        xxx start=/<svg>/ end=+</svg>+  contained keepend transparent contains=@htmlXml 
+                   start=/<svg>/ end=+</svg>+  contained keepend transparent contains=@htmlXml 
+                   start=/<svg>/ end=+</svg>+  contained keepend transparent contains=@htmlXml 
+                   start=/<svg>/ end=+</svg>+  contained keepend transparent contains=@htmlXml 
+htmlCommentError xxx match /[^><!]/  contained 
+                   match /[^><!]/  contained 
+                   match /[^><!]/  contained 
+                   match /[^><!]/  contained 
+                   links to htmlError
+htmlCommentNested xxx match /<!-->\@!/  contained 
+                   match /<!-->\@!/  contained 
+                   match /<!-->\@!/  contained 
+                   match /<!-->\@!/  contained 
+                   links to htmlError
+htmlPreStmt    xxx match /<!--#\%(config\|echo\|exec\|fsize\|flastmod\|include\|printenv\|set\|if\|elif\|else\|endif\|geoguide\)\>/  contained 
+                   match /<!--#\%(config\|echo\|exec\|fsize\|flastmod\|include\|printenv\|set\|if\|elif\|else\|endif\|geoguide\)\>/  contained 
+                   match /<!--#\%(config\|echo\|exec\|fsize\|flastmod\|include\|printenv\|set\|if\|elif\|else\|endif\|geoguide\)\>/  contained 
+                   match /<!--#\%(config\|echo\|exec\|fsize\|flastmod\|include\|printenv\|set\|if\|elif\|else\|endif\|geoguide\)\>/  contained 
+                   links to PreProc
+htmlPreError   xxx match /<!--#\S*/ms=s+4  contained 
+                   match /<!--#\S*/ms=s+4  contained 
+                   match /<!--#\S*/ms=s+4  contained 
+                   match /<!--#\S*/ms=s+4  contained 
+                   links to Error
+htmlPreAttr    xxx match /\w\+=[^"]\S\+/  contained contains=htmlPreProcAttrError,htmlPreProcAttrName 
+                   start=/\w\+="/ skip=/\\\\\|\\"/ end=/"/  contained keepend contains=htmlPreProcAttrName 
+                   match /\w\+=[^"]\S\+/  contained contains=htmlPreProcAttrError,htmlPreProcAttrName 
+                   start=/\w\+="/ skip=/\\\\\|\\"/ end=/"/  contained keepend contains=htmlPreProcAttrName 
+                   match /\w\+=[^"]\S\+/  contained contains=htmlPreProcAttrError,htmlPreProcAttrName 
+                   start=/\w\+="/ skip=/\\\\\|\\"/ end=/"/  contained keepend contains=htmlPreProcAttrName 
+                   match /\w\+=[^"]\S\+/  contained contains=htmlPreProcAttrError,htmlPreProcAttrName 
+                   start=/\w\+="/ skip=/\\\\\|\\"/ end=/"/  contained keepend contains=htmlPreProcAttrName 
+                   links to String
+htmlPreProc    xxx start=/<!--#/ end=/-->/  contained contains=htmlPreStmt,htmlPreError,htmlPreAttr 
+                   start=/<!--#/ end=/-->/  contained contains=htmlPreStmt,htmlPreError,htmlPreAttr 
+                   start=/<!--#/ end=/-->/  contained contains=htmlPreStmt,htmlPreError,htmlPreAttr 
+                   start=/<!--#/ end=/-->/  contained contains=htmlPreStmt,htmlPreError,htmlPreAttr 
+                   links to PreProc
+htmlPreProcAttrError xxx match /\w\+=/he=e-1  contained 
+                   match /\w\+=/he=e-1  contained 
+                   match /\w\+=/he=e-1  contained 
+                   match /\w\+=/he=e-1  contained 
+                   links to Error
+htmlPreProcAttrName xxx match /\%(expr\|errmsg\|sizefmt\|timefmt\|var\|cgi\|cmd\|file\|virtual\|value\)=/he=e-1  contained 
+                   match /\%(expr\|errmsg\|sizefmt\|timefmt\|var\|cgi\|cmd\|file\|virtual\|value\)=/he=e-1  contained 
+                   match /\%(expr\|errmsg\|sizefmt\|timefmt\|var\|cgi\|cmd\|file\|virtual\|value\)=/he=e-1  contained 
+                   match /\%(expr\|errmsg\|sizefmt\|timefmt\|var\|cgi\|cmd\|file\|virtual\|value\)=/he=e-1  contained 
+                   links to PreProc
+htmlLink       xxx start=/<a\>\_[^>]*\<href\>/ end=+</a\_s*>+me=s-1  contained contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLeadingSpace,javaScript,@htmlPreproc 
+                   start=/<a\>\_[^>]*\<href\>/ end=+</a\_s*>+me=s-1  contained contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLeadingSpace,javaScript,htmlVbScript,@htmlPreproc 
+                   start=/<a\>\_[^>]*\<href\>/ end=+</a\_s*>+me=s-1  contained contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLeadingSpace,javaScript,@htmlPreproc 
+                   start=/<a\>\_[^>]*\<href\>/ end=+</a\_s*>+me=s-1  contained contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLeadingSpace,javaScript,htmlVbScript,@htmlPreproc 
+                   links to Underlined
+htmlStrike     xxx start=/<del\>/ end=+</del\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<s\>/ end=+</s\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strike\>/ end=+</strike\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<del\>/ end=+</del\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<s\>/ end=+</s\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strike\>/ end=+</strike\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<del\>/ end=+</del\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<s\>/ end=+</s\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strike\>/ end=+</strike\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<del\>/ end=+</del\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<s\>/ end=+</s\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strike\>/ end=+</strike\_s*>+me=s-1  contained contains=@htmlTop 
+htmlBoldUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+htmlBoldItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+htmlBold       xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+htmlBoldUnderlineItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+htmlBoldItalicUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   links to htmlBoldUnderlineItalic
+htmlUnderlineBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   links to htmlBoldUnderline
+htmlUnderlineItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+htmlUnderline  xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBold,htmlUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBold,htmlUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBold,htmlUnderlineItalic 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBold,htmlUnderlineItalic 
+htmlUnderlineBoldItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlUnderlineItalicBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlItalicBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   links to htmlBoldItalic
+htmlItalicUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicUnderlineBold 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicUnderlineBold 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicUnderlineBold 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicUnderlineBold 
+                   links to htmlUnderlineItalic
+htmlItalic     xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBold,htmlItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBold,htmlItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBold,htmlItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBold,htmlItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+htmlItalicBoldUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlItalicUnderlineBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlLeadingSpace xxx match /^\s\+/  contained 
+                   match /^\s\+/  contained 
+                   match /^\s\+/  contained 
+                   match /^\s\+/  contained 
+                   links to None
+htmlH1         xxx start=/<h1\>/ end=+</h1\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h1\>/ end=+</h1\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h1\>/ end=+</h1\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h1\>/ end=+</h1\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to Title
+htmlH2         xxx start=/<h2\>/ end=+</h2\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h2\>/ end=+</h2\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h2\>/ end=+</h2\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h2\>/ end=+</h2\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlH1
+htmlH3         xxx start=/<h3\>/ end=+</h3\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h3\>/ end=+</h3\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h3\>/ end=+</h3\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h3\>/ end=+</h3\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlH2
+htmlH4         xxx start=/<h4\>/ end=+</h4\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h4\>/ end=+</h4\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h4\>/ end=+</h4\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h4\>/ end=+</h4\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlH3
+htmlH5         xxx start=/<h5\>/ end=+</h5\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h5\>/ end=+</h5\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h5\>/ end=+</h5\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h5\>/ end=+</h5\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlH4
+htmlH6         xxx start=/<h6\>/ end=+</h6\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h6\>/ end=+</h6\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h6\>/ end=+</h6\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<h6\>/ end=+</h6\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlH5
+htmlTitle      xxx start=/<title\>/ end=+</title\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,@htmlPreproc 
+                   start=/<title\>/ end=+</title\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,htmlVbScript,@htmlPreproc 
+                   start=/<title\>/ end=+</title\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,@htmlPreproc 
+                   start=/<title\>/ end=+</title\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,htmlVbScript,@htmlPreproc 
+                   links to Title
+htmlHead       xxx start=/<head\>/ end=/<h[1-6]\>/me=s-1 end=/<body\>/me=s-1 end=+</head\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,htmlTitle,javaScript,cssStyle,@htmlPreproc 
+                   start=/<head\>/ end=/<h[1-6]\>/me=s-1 end=/<body\>/me=s-1 end=+</head\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,htmlTitle,javaScript,htmlVbScript,cssStyle,@htmlPreproc 
+                   start=/<head\>/ end=/<h[1-6]\>/me=s-1 end=/<body\>/me=s-1 end=+</head\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,htmlTitle,javaScript,cssStyle,@htmlPreproc 
+                   start=/<head\>/ end=/<h[1-6]\>/me=s-1 end=/<body\>/me=s-1 end=+</head\_s*>+me=s-1  contained contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,htmlTitle,javaScript,htmlVbScript,cssStyle,@htmlPreproc 
+                   links to PreProc
+htmlDoctype    xxx start=/<!DOCTYPE/ end=/>/  contained keepend 
+                   start=/<!DOCTYPE/ end=/>/  contained keepend 
+                   links to htmlComment
+markdownValid  xxx match +[<>]\c[a-z/$!]\@!+  contained transparent contains=None 
+                   match /&\%(#\=\w*;\)\@!/  contained transparent contains=None 
+markdownLineStart xxx match +^\s*///\s*[<@]\@!+  contained contains=@markdownBlock,javaMarkdownCommentTitle,javaMarkdownCommentMask nextgroup=@markdownBlock,htmlSpecialChar 
+markdownH1     xxx match -^\s*/// \{,3}.\+\r\=\n\s*/// \{,3}=\+\s*$-  contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink,javaMarkdownCommentMask 
+                   matchgroup=markdownH1Delimiter start=/ \{,3}#\s/ end=/#*\s*$/  contained oneline keepend contains=@markdownInline,markdownAutomaticLink 
+                   links to htmlH1
+markdownH2     xxx match #^\s*/// \{,3}.\+\r\=\n\s*/// \{,3}-\+\s*$#  contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink,javaMarkdownCommentMask 
+                   matchgroup=markdownH2Delimiter start=/ \{,3}##\s/ end=/#*\s*$/  contained oneline keepend contains=@markdownInline,markdownAutomaticLink 
+                   links to htmlH2
+markdownH3     xxx matchgroup=markdownH3Delimiter start=/ \{,3}###\s/ end=/#*\s*$/  contained oneline keepend contains=@markdownInline,markdownAutomaticLink 
+                   links to htmlH3
+markdownH4     xxx matchgroup=markdownH4Delimiter start=/ \{,3}####\s/ end=/#*\s*$/  contained oneline keepend contains=@markdownInline,markdownAutomaticLink 
+                   links to htmlH4
+markdownH5     xxx matchgroup=markdownH5Delimiter start=/ \{,3}#####\s/ end=/#*\s*$/  contained oneline keepend contains=@markdownInline,markdownAutomaticLink 
+                   links to htmlH5
+markdownH6     xxx matchgroup=markdownH6Delimiter start=/ \{,3}######\s/ end=/#*\s*$/  contained oneline keepend contains=@markdownInline,markdownAutomaticLink 
+                   links to htmlH6
+markdownBlockquote xxx match />\%(\s\|$\)/  contained nextgroup=@markdownBlock 
+                   links to Comment
+markdownListMarker xxx match /\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=/  contained 
+                   links to htmlTagName
+markdownOrderedListMarker xxx match /\%(\t\| \{0,4}\)\<\d\+\.\%(\s\+\S\)\@=/  contained 
+                   links to markdownListMarker
+markdownRule   xxx match =^\s*/// \{,3}\*\s*\*\%(\s*\*\)\+\s*$=  contained contains=javaMarkdownCommentMask 
+                   match =^\s*/// \{,3}_\s*_\%(\s*_\)\+\s*$=  contained contains=javaMarkdownCommentMask 
+                   match =^\s*/// \{,3}-\s*-\%(\s*-\)\+\s*$=  contained contains=javaMarkdownCommentMask 
+                   links to PreProc
+markdownLineBreak xxx match / \{2,\}$/  contained 
+markdownLinkText xxx matchgroup=markdownLinkTextDelimiter start=/!\=\[\%(\_[^][]*\%(\[\_[^][]*\]\_[^][]*\)*]\%( \=[[(]\)\)\@=/ end=/\]\%( \=[[(]\)\@=/  contained contains=@markdownInline,markdownLineStart nextgroup=markdownLink,markdownId skipwhite 
+                   links to htmlLink
+markdownItalic xxx matchgroup=markdownItalicDelimiter start=/\*\S\@=/ skip=/\\\*/ end=/\S\@<=\*\|^$/  contained concealends contains=markdownLineStart,@Spell 
+                   matchgroup=markdownItalicDelimiter start=/\w\@<!_\S\@=/ skip=/\\_/ end=/\S\@<=_\w\@!\|^$/  contained concealends contains=markdownLineStart,@Spell 
+                   links to htmlItalic
+markdownBold   xxx matchgroup=markdownBoldDelimiter start=/\*\*\S\@=/ skip=/\\\*/ end=/\S\@<=\*\*\|^$/  contained concealends contains=markdownLineStart,markdownItalic,@Spell 
+                   matchgroup=markdownBoldDelimiter start=/\w\@<!__\S\@=/ skip=/\\_/ end=/\S\@<=__\w\@!\|^$/  contained concealends contains=markdownLineStart,markdownItalic,@Spell 
+                   links to htmlBold
+markdownEscape xxx match /\\[][\\`*_{}()<>#+.!-]/  contained 
+                   links to Special
+markdownError  xxx match /\w\@<=_\w\@=/  contained 
+                   links to Error
+markdownHeadingRule xxx match #^\s*/// \{,3}[=-]\+\s*$#  contained contains=javaMarkdownCommentMask 
+                   links to markdownRule
+markdownAutomaticLink xxx matchgroup=markdownUrlDelimiter start=/<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=/ end=/>/  contained oneline keepend 
+                   links to markdownUrl
+markdownUrl    xxx match /\S\+/  contained nextgroup=markdownUrlTitle skipwhite 
+                   matchgroup=markdownUrlDelimiter start=/</ end=/>/  contained oneline keepend nextgroup=markdownUrlTitle skipwhite 
+                   links to Float
+markdownIdDeclaration xxx matchgroup=markdownLinkDelimiter start=+^\s*/// \{,3\}!\=\[+ end=/\]:/  contained oneline keepend contains=javaMarkdownCommentMask nextgroup=markdownUrl skipwhite 
+                   links to Typedef
+markdownUrlTitle xxx matchgroup=markdownUrlTitleDelimiter start=/"/ end=/"/  contained keepend 
+                   matchgroup=markdownUrlTitleDelimiter start=/'/ end=/'/  contained keepend 
+                   matchgroup=markdownUrlTitleDelimiter start=/(/ end=/)/  contained keepend 
+                   links to String
+markdownLink   xxx matchgroup=markdownLinkDelimiter start=/(/ end=/)/  contained keepend contains=markdownUrl 
+markdownId     xxx matchgroup=markdownIdDelimiter start=/\[\%([\t ]\]\)\@!/ end=/\]/  contained contains=javaMarkdownSkipBrackets,javaMarkdownCommentMask 
+                   links to Type
+markdownBoldItalic xxx matchgroup=markdownBoldItalicDelimiter start=/\*\*\*\S\@=/ skip=/\\\*/ end=/\S\@<=\*\*\*\|^$/  contained concealends contains=markdownLineStart,@Spell 
+                   matchgroup=markdownBoldItalicDelimiter start=/\w\@<!___\S\@=/ skip=/\\_/ end=/\S\@<=___\w\@!\|^$/  contained concealends contains=markdownLineStart,@Spell 
+                   links to htmlBoldItalic
+markdownStrike xxx matchgroup=markdownStrikeDelimiter start=/\~\~\S\@=/ end=/\S\@<=\~\~\|^$/  contained concealends contains=markdownLineStart,@Spell 
+                   links to htmlStrike
+javaMarkdownCommentTitle xxx matchgroup=javaMarkdownComment start=+\%(///.*\r\=\n\s*\)\@120<!///+ matchgroup=javaMarkdownCommentTitle end=+\%(^\s*///\s*\)\@120<=@+me=s-2,he=s-1 end=+\n\%(\s*///\s*$\)\@=+ end=/\.[ \t\r]\@=/ end=/\.$/  contained contains=javaMarkdownShortcutLink,@javaMarkdown,javaMarkdownCommentMask,javaTodo,@Spell,@javaDocTags 
+                   matchgroup=javaMarkdownComment start=+\%(///.*\r\=\n\s*\)\@120<!///\s*\%({@return\>\)\@=+ matchgroup=javaMarkdownCommentTitle end=/}\%(\s*\.*\)*/  contained contains=javaMarkdownShortcutLink,@javaMarkdown,javaMarkdownCommentMask,javaTodo,@Spell,@javaDocTags,javaTitleSkipBlock 
+                   matchgroup=javaMarkdownComment start=+\%(///.*\r\=\n\s*\)\@120<!///\s*\%({@summary\>\)\@=+ matchgroup=javaMarkdownCommentTitle end=/}/  contained contains=javaMarkdownShortcutLink,@javaMarkdown,javaMarkdownCommentMask,javaTodo,@Spell,@javaDocTags,javaTitleSkipBlock 
+                   links to SpecialComment
+javaMarkdownShortcutLink xxx matchgroup=markdownLinkTextDelimiter start=/!\=\[^\@!\%(\_[^][]*\%(\[\_[^][]*\]\_[^][]*\)*]\%([[(]\)\@!\)\@=/ end=/\]\%([[(]\)\@!/  contained contains=@markdownInline,markdownLineStart,javaMarkdownSkipBrackets,javaMarkdownCommentMask nextgroup=markdownLink,markdownId skipwhite 
+                   links to htmlLink
+javaMarkdownComment xxx start=+///+ skip=+^\s*///.*$+ end=/^/  keepend fold contains=javaMarkdownCommentTitle,javaMarkdownShortcutLink,@javaMarkdown,@javaDocTags,javaTodo,@Spell nextgroup=javaMarkdownCommentTitle 
+                   links to Comment
+javaMarkdownCommentMask xxx match +^\s*///+  contained 
+                   links to javaMarkdownComment
+javaTitleSkipBlock xxx start=/{\%(@\%(return\|summary\)\>\)\@!/ end=/}/  contained transparent 
+javaMarkdownSkipBrackets xxx match /\\\[\|\\\]/  contained transparent 
+javaCommentTitle xxx matchgroup=javaDocComment start=+/\*\*+ matchgroup=javaCommentTitle end=+\*/+me=s-1,he=s-1 end=/\%(^\s*\**\s*\)\@120<=@/me=s-2,he=s-1 end=/\.[ \t\r]\@=/ end=/\.$/  contained contains=@javaHtml,javaCommentStar,javaTodo,javaCommentError,javaSpaceError,@Spell,@javaDocTags 
+                   matchgroup=javaDocComment start=+/\*\*\s*\r\=\n\=\s*\**\s*\%({@return\>\)\@=+ matchgroup=javaCommentTitle end=/}\%(\s*\.*\)*/  contained contains=@javaHtml,javaCommentStar,javaTodo,javaCommentError,javaSpaceError,@Spell,@javaDocTags,javaTitleSkipBlock 
+                   matchgroup=javaDocComment start=+/\*\*\s*\r\=\n\=\s*\**\s*\%({@summary\>\)\@=+ matchgroup=javaCommentTitle end=/}/  contained contains=@javaHtml,javaCommentStar,javaTodo,javaCommentError,javaSpaceError,@Spell,@javaDocTags,javaTitleSkipBlock 
+                   links to SpecialComment
+javaDocComment xxx start=+/\*\*+ end=+\*/+  keepend fold contains=javaCommentTitle,@javaHtml,@javaDocTags,javaTodo,javaCommentError,javaSpaceError,@Spell 
+                   links to Comment
+javaDocAuthorTag xxx match /@author\>/  contained 
+                   links to Special
+javaDocDeprecatedTag xxx match /@deprecated\>/  contained 
+                   links to Special
+javaDocExceptionTag xxx match /@exception\s\+\S\+/  contained contains=javaDocParam 
+                   links to Special
+javaDocParamTag xxx match /@param\s\+\S\+/  contained contains=javaDocParam 
+                   links to Special
+javaDocReturnTag xxx match /@return\>/  contained 
+                   links to Special
+javaDocSeeTag  xxx match /@see\>\s*/  contained nextgroup=javaDocSeeTag1,javaDocSeeTag2,javaDocSeeTag3,javaDocSeeTag4,javaDocSeeTagStar,javaDocSeeTagSlash skipwhite skipempty 
+                   links to Special
+javaDocVersionTag xxx match /@version\>/  contained 
+                   links to Special
+javaDocSinceTag xxx match /@since\s\+\S\+/  contained contains=javaDocParam 
+                   links to Special
+javaDocLinkTag xxx start=/{@link\>/ end=/}/  contained contains=javaDocLinkTag,javaLinkSkipBlock 
+                   links to Special
+javaDocSerialTag xxx match /@serial\>/  contained 
+                   links to Special
+javaDocSerialDataTag xxx match /@serialData\>/  contained 
+                   links to Special
+javaDocSerialFieldTag xxx match /@serialField\>/  contained 
+                   links to Special
+javaDocThrowsTag xxx match /@throws\s\+\S\+/  contained contains=javaDocParam 
+                   links to Special
+javaDocDocRootTag xxx match /{@docRoot}/  contained 
+                   links to Special
+javaDocInheritDocTag xxx match /{@inheritDoc}/  contained 
+                   links to Special
+javaDocLinkplainTag xxx start=/{@linkplain\>/ end=/}/  contained contains=javaDocLinkplainTag,javaLinkplainSkipBlock 
+                   links to Special
+javaDocValueTag xxx start=/{@value\>/ end=/}/  contained contains=javaDocValueTag,javaValueSkipBlock 
+                   links to Special
+javaDocCodeTag xxx start=/{@code\>/ end=/}/  contained contains=javaDocCodeTag,javaCodeSkipBlock 
+                   links to Special
+javaDocLiteralTag xxx start=/{@literal\>/ end=/}/  contained contains=javaDocLiteralTag,javaLiteralSkipBlock 
+                   links to Special
+javaDocHiddenTag xxx match /@hidden\>/  contained 
+                   links to Special
+javaDocIndexTag xxx start=/{@index\>/ end=/}/  contained contains=javaDocIndexTag,javaIndexSkipBlock 
+                   links to Special
+javaDocSystemPropertyTag xxx start=/{@systemProperty\>/ end=/}/  contained contains=javaDocSystemPropertyTag,javaSystemPropertySkipBlock 
+                   links to Special
+javaDocSnippetTag xxx start=/{@snippet\>/ end=/}/  contained contains=javaDocSnippetTag,javaSnippetSkipBlock,javaDocSnippetTagAttr,javaCommentMarkupTag 
+                   links to Special
+javaDocSpecTag xxx match /@spec\_s\+\S\+\ze\_s\+\S\+/  contained contains=javaDocParam 
+                   links to Special
+javaIndexSkipBlock xxx start=/{\%(@index\>\)\@!/ end=/}/  contained transparent contains=javaIndexSkipBlock,javaDocIndexTag 
+javaLinkSkipBlock xxx start=/{\%(@link\>\)\@!/ end=/}/  contained transparent contains=javaLinkSkipBlock,javaDocLinkTag 
+javaLinkplainSkipBlock xxx start=/{\%(@linkplain\>\)\@!/ end=/}/  contained transparent contains=javaLinkplainSkipBlock,javaDocLinkplainTag 
+javaLiteralSkipBlock xxx start=/{\%(@literal\>\)\@!/ end=/}/  contained transparent contains=javaLiteralSkipBlock,javaDocLiteralTag 
+javaSystemPropertySkipBlock xxx start=/{\%(@systemProperty\>\)\@!/ end=/}/  contained transparent contains=javaSystemPropertySkipBlock,javaDocSystemPropertyTag 
+javaValueSkipBlock xxx start=/{\%(@value\>\)\@!/ end=/}/  contained transparent contains=javaValueSkipBlock,javaDocValueTag 
+javaDocSeeTag1 xxx match /"\_[^"]\+"/  contained 
+                   links to String
+javaDocSeeTag2 xxx match =<a\s\+\_.\{-}</a>=  contained extend contains=@javaHtml 
+                   links to Special
+javaDocSeeTag3 xxx match -[["< \t]\@!\%(\k\|[/.]\)*\%(##\=\k\+\%((\_[^)]*)\)\=\)\=-  contained nextgroup=javaDocSeeTag3Label skipwhite skipempty 
+                   links to Function
+javaDocSeeTagStar xxx match -^\s*\*\+\%(\s*{\=@\|/\|$\)\@!-  contained nextgroup=javaDocSeeTag1,javaDocSeeTag2,javaDocSeeTag3,javaDocSeeTag4 skipwhite skipempty 
+                   links to javaDocComment
+javaDocSeeTagSlash xxx match +^\s*///\%(\s*{\=@\|$\)\@!+  contained nextgroup=javaDocSeeTag1,javaDocSeeTag2,javaDocSeeTag3,javaDocSeeTag4 skipwhite skipempty 
+                   links to javaMarkdownComment
+javaDocSeeTag3Label xxx match /\k\%(\k\+\s*\)*$/  contained 
+javaCodeSkipBlock xxx start=/{\%(@code\>\)\@!/ end=/}/  contained transparent contains=javaCodeSkipBlock,javaDocCodeTag 
+javaDocSnippetTagAttr xxx matchgroup=javaHtmlArg start=/\<\%(class\|file\|id\|lang\|region\)\%(\s*=\)\@=/ matchgroup=javaHtmlString end=#\%(=\s*\)\@80<=\%("[^"]\+"\|'[^']\+'\|\%([.\\/-]\|\k\)\+\)# end=/:$/  contained transparent nextgroup=javaDocSnippetTagAttr skipwhite skipnl 
+javaSnippetSkipBlock xxx start=/{\%(@snippet\>\)\@!/ end=/}/  contained transparent contains=javaSnippetSkipBlock,javaDocSnippetTag,javaCommentMarkupTag 
+javaSpecialCharError xxx match /[^']/  contained 
+                   links to Error
+javaBlockOther xxx matchgroup=javaBlockOtherStart start=/{/ end=/}/  transparent 
+javaParenT1    xxx matchgroup=javaParen1 start=/(/ end=/)/  contained transparent contains=@javaTop,javaInParen,javaParenT2 
+                   matchgroup=javaParen1 start=/\[/ end=/\]/  contained transparent contains=@javaTop,javaParenT2 
+javaParenT2    xxx matchgroup=javaParen2 start=/(/ end=/)/  contained transparent contains=@javaTop,javaInParen,javaParenT 
+                   matchgroup=javaParen2 start=/\[/ end=/\]/  contained transparent contains=@javaTop,javaParenT 
+javaParenError xxx match /)/  
+                   match /\]/  
+                   links to javaError
+javaClasses    cluster=NONE
+javaCommentSpecial cluster=NONE
+Spell          cluster=NONE
+javaCommentSpecial2 cluster=NONE
+javaHtml       cluster=htmlComment,htmlError,htmlSpecialChar,htmlEndTag,htmlTag,htmlMath,htmlSvg,htmlPreProc,htmlLink,htmlStrike,htmlBold,htmlUnderline,htmlItalic,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,htmlTitle,htmlHead,htmlDoctype 
+htmlXml        cluster=xmlError,xmlEntity,xmlEqual,xmlTag,xmlEndTag,xmlCdata,xmlComment,xmlProcessing,xmlDocType,xmlSyncComment 
+xmlAttribHook  cluster=NONE
+xmlNamespaceHook cluster=NONE
+xmlTagHook     cluster=htmlMathTagName,htmlSvgTagName 
+xmlStartTagHook cluster=NONE
+xmlCommentHook cluster=NONE
+xmlCdataHook   cluster=NONE
+xmlDTD         cluster=NONE
+htmlPreproc    cluster=NONE
+htmlArgCluster cluster=NONE
+htmlTagNameCluster cluster=NONE
+htmlTop        cluster=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,javaScript,htmlVbScript,@htmlPreproc 
+htmlJavaScript cluster=@htmlPreproc 
+javaMarkdown   cluster=htmlComment,markdownCode,markdownCodeBlock,htmlError,htmlSpecialChar,htmlEndTag,htmlTag,htmlMath,htmlSvg,htmlPreProc,htmlLink,htmlStrike,htmlBold,htmlUnderline,htmlItalic,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,htmlTitle,htmlHead,htmlDoctype,markdownValid,markdownLineStart,markdownLineBreak,markdownLinkText,markdownItalic,markdownBold,markdownEscape,markdownError,markdownAutomaticLink,markdownIdDeclaration,markdownBoldItalic,markdownStrike,markdownFootnote,markdownFootnoteDefinition 
+markdownBlock  cluster=markdownH1,markdownH2,markdownH3,markdownH4,markdownH5,markdownH6,markdownBlockquote,markdownListMarker,markdownOrderedListMarker,markdownCodeBlock,markdownRule 
+markdownInline cluster=markdownLineBreak,markdownLinkText,markdownItalic,markdownBold,markdownCode,markdownEscape,@htmlTop,markdownError,markdownValid 
+javaDocTags    cluster=javaDocAuthorTag,javaDocDeprecatedTag,javaDocExceptionTag,javaDocParamTag,javaDocReturnTag,javaDocSeeTag,javaDocVersionTag,javaDocSinceTag,javaDocLinkTag,javaDocSerialTag,javaDocSerialDataTag,javaDocSerialFieldTag,javaDocThrowsTag,javaDocDocRootTag,javaDocInheritDocTag,javaDocLinkplainTag,javaDocValueTag,javaDocCodeTag,javaDocLiteralTag,javaDocHiddenTag,javaDocIndexTag,javaDocProvidesTag,javaDocUsesTag,javaDocSystemPropertyTag,javaDocSnippetTag,javaDocSpecTag 
+javaTop        cluster=TOP,javaTopEnumDeclaration 

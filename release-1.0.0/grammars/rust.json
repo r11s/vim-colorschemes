@@ -1,0 +1,74 @@
+{
+ "scopeName": "vim.injection.rust",
+ "injectionSelector": "L:source.rust -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.rustBoolean"
+  },
+  {
+   "match": "\\b(?:match|else|if)\\b",
+   "name": "vim.Conditional.rustConditional"
+  },
+  {
+   "match": "\\b(?:while|loop|for|in)\\b",
+   "name": "vim.Conditional.rustRepeat"
+  },
+  {
+   "match": "\\b(?:None|Some|Err|Ok)\\b",
+   "name": "vim.Constant.rustEnumVariant"
+  },
+  {
+   "match": "\\b(?:self)\\b",
+   "name": "vim.Constant.rustSelf"
+  },
+  {
+   "match": "\\b(?:abstract|override|unsized|virtual|become|typeof|final|priv|do)\\b",
+   "name": "vim.Error.rustReservedKeyword"
+  },
+  {
+   "match": "\\b(?:unsafe)\\b",
+   "name": "vim.Exception.rustUnsafeKeyword"
+  },
+  {
+   "match": "\\b(?:struct|box|as|fn)\\b",
+   "name": "vim.Identifier.rustIdentifier"
+  },
+  {
+   "match": "\\b(?:await)\\b",
+   "name": "vim.Keyword.rustAwait"
+  },
+  {
+   "match": "\\b(?:continue|extern|return|break|crate|macro|trait|where|yield|impl|let|mod|pub|use)\\b",
+   "name": "vim.Keyword.rustKeyword"
+  },
+  {
+   "match": "\\b(?:enum)\\b",
+   "name": "vim.Keyword.rustStructure"
+  },
+  {
+   "match": "\\b(?:super)\\b",
+   "name": "vim.Keyword.rustSuper"
+  },
+  {
+   "match": "\\b(?:type)\\b",
+   "name": "vim.Keyword.rustTypedef"
+  },
+  {
+   "match": "\\b(?:static|const|move|mut|ref)\\b",
+   "name": "vim.StorageClass.rustStorage"
+  },
+  {
+   "match": "\\b(?:Option|Result)\\b",
+   "name": "vim.Type.rustEnum"
+  },
+  {
+   "match": "\\b(?:DoubleEndedIterator|ExactSizeIterator|SliceConcatExt|IntoIterator|PartialOrd|PartialEq|Iterator|ToString|Default|ToOwned|Extend|FnOnce|String|AsMut|AsRef|Clone|FnMut|Sized|Copy|Drop|From|Into|Send|Sync|Box|Ord|Vec|Eq|Fn)\\b",
+   "name": "vim.Type.rustTrait"
+  },
+  {
+   "match": "\\b(?:isize|usize|Self|bool|char|i128|u128|f32|f64|i16|i32|i64|str|u16|u32|u64|i8|u8)\\b",
+   "name": "vim.Type.rustType"
+  }
+ ]
+}

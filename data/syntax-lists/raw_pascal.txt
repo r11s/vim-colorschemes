@@ -1,0 +1,117 @@
+
+--- Syntax items ---
+pascalBoolean  xxx true false
+                   links to Boolean
+pascalConditional xxx if else then
+                   links to Conditional
+pascalConstant xxx yellow fcarry bw80 textrecbufsize lightblue mono co40
+                   directory lightred foverflow cyan fparity fauxiliary nil
+                   anyfile black darkgray hidden lightmagenta fsign
+                   screenheight fmoutput white blink volumeid fminout co80 blue
+                   magenta brown bw40 maxint lightgray green fzero red fminput
+                   textrecnamelength lightcyan sysfile screenwidth fmclosed
+                   lightgreen archive
+                   links to Constant
+pascalLabel    xxx label goto case
+                   links to Label
+pascalOperator xxx of or and in xor downto packed div not mod shl shr
+                   links to Operator
+pascalRepeat   xxx for repeat while until to do do
+                   links to Repeat
+pascalStatement xxx var unit program type const constructor interface begin end
+                   procedure uses inherited destructor implementation with
+                   function
+                   links to Statement
+pascalStruct   xxx object record
+                   links to pascalStatement
+pascalType     xxx single filerec arccoordstype textrec string textsettingstype
+                   longint palettetype longword fillpatterntype cardinal dirstr
+                   pchar linesettingstype extstr textbuf real pointtype namestr
+                   word file pathstr searchrec wordbool bytebool boolean
+                   variant integer set viewporttype comstr extended pointer
+                   shortint longbool comp registers fillsettingstype double
+                   text char array byte datetime
+                   links to Type
+pascalTodo     xxx contained note xxx todo fixme debug
+                   links to Todo
+pascalString   xxx matchgroup=pascalString start=/'/ end=/'/  contains=pascalStringEscape 
+                   links to String
+pascalStringEscape xxx match /''/  contained 
+                   links to Special
+pascalStringEscapeGPC xxx match /""/  contained 
+                   links to Special
+pascalStringError xxx matchgroup=pascalStringError start=/"/ end=/"/  contains=pascalStringEscape 
+                   links to Error
+pascalNumber   xxx match /-\=\<\d\+\>/  
+                   links to Number
+pascalHexNumber xxx match /\$\x\+\>/  
+                   links to pascalNumber
+pascalFloat    xxx match /-\=\<\d\+\.\d\+\>/  
+                   match /-\=\<\d\+\.\d\+[eE]-\=\d\+\>/  
+                   links to Float
+pascalControlCharacter xxx match /#\%([01]\=\d\=\d\|2[0-4]\d\|25[0-5]\)\>/  
+                   links to Character
+pascalComment  xxx start=/(\*\|{/ end=/\*)\|}/  contains=pascalTodo,pascalSpaceError 
+                   links to Comment
+pascalFunction xxx clearviewport getintvec dseg eoln getcbreak continue strnew
+                   gety freemem getenv succ addr textbackground setftime
+                   findfirst readkey fsearch flush getdrivername setrgbpalette
+                   insline setfillstyle randomize abs strbufsize strlen
+                   putpixel exp window halt ellipse upcase getfillsettings
+                   registerbgifont ord copy strfmt filepos delline assigncrt
+                   clreol unpack wherex findclose pi dosversion diskfree
+                   getpixel floodfill closegraph truncate strlcopy
+                   setgraphbufsize str moverel val strcat getlinesettings
+                   readln grapherrormsg memavail stralloc sector eof bar
+                   settime high getcolor pieslice setfattr getverify move
+                   sizeof getpalette getmaxmode ioresult gettextsettings strend
+                   seekeoln erase dec strlcat trunc putimage cursoron
+                   setwritemode adddisk ptr imagesize cos read
+                   registerbgidriver sseg settextstyle delete sound blockread
+                   line pack gettime getfillpattern graphdefaults hi
+                   getviewsettings rename seekeof setlinestyle exit normvideo
+                   textwidth setgraphmode strupper stricomp paramcount
+                   getdefaultpalette outtextxy clrscr moveto bar3d fillchar
+                   fsplit nosound strlfmt strplcopy installuserdriver circle
+                   linerel intr getmaxx rectangle typeof writeln dispose
+                   getmaxy gotoxy installuserfont outtext textheight getx sin
+                   reset fillpoly fillellipse restorecrtmode random setpalette
+                   strpas getbkcolor delay disksize detectgraph getdir chr
+                   assigned getgraphmode swapvectors lowvideo drawpoly
+                   setaspectratio setcolor getimage append getmodename keep
+                   textmode strpcopy runerror getpalettesize paramstr strlicomp
+                   strlower arc setintvec keypressed textcolor write cursoroff
+                   concat seg setviewport insert sqrt rmdir assign getfattr
+                   strecopy strcomp length envcount envstr odd setbkcolor
+                   expand graphresult lineto setdate arctan ln lo getarccoords
+                   settextjustify getftime setallpallette strmove exclude swap
+                   cleardevice msdos pos setusercharsize settextbuf maxavail
+                   close dosexitcode strcopy blockwrite getmem round wherey
+                   seek include setverify strlcomp cseg getmoderange break
+                   bigcursor sqr highvideo initgraph new pred getdate strscan
+                   filesize setvisualpage strdispose sptr chdir setactivepage
+                   strpos packtime getmaxcolor setcbreak ofs inc low unpacktime
+                   getaspectratio frac setfillpattern int mkdir exec rewrite
+                   strrscan findnext
+                   links to Function
+pascalPredefined xxx windmin heapptr textattr saveint75 textchar sega000
+                   exitproc stacklimit ovrheapptr exitcode ovremshandle
+                   checkeof input output saveint3b randseed checksnow result
+                   ovrdoshandle saveint00 saveint02 ovrcodelist test8087
+                   checkbreak segb000 inoutres heaperror doserror saveint1b
+                   self saveint21 saveint23 saveint24 filemode directvideo
+                   ovrloadlist lastmode selectorinc freelist saveint34
+                   saveint35 saveint37 saveint38 saveint39 ovrheapsize
+                   saveint3a saveint3c saveint3d saveint3e saveint3f prefixseg
+                   erroraddr heapend freezero heaporg windmax ovrdebugptr
+                   segb800 ovrheapend ovrheaporg saveint36
+                   links to pascalStatement
+pascalModifier xxx inline external absolute assembler near forward far virtual
+                   interrupt
+                   links to Type
+pascalAccess   xxx strict private public
+                   links to pascalStatement
+pascalPreProc  xxx start=/(\*\$/ end=/\*)/  contains=pascalTodo 
+                   start=/{\$/ end=/}/  
+                   links to PreProc
+pascalAsm      xxx matchgroup=pascalAsmKey start=/\<asm\>/ end=/\<end\>/  contains=pascalComment,pascalPreProc 

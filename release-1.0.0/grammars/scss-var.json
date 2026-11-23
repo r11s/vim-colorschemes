@@ -1,0 +1,60 @@
+{
+ "scopeName": "vim.injection.scss-var",
+ "injectionSelector": "L:source.css.scss -comment -string -vim.Function",
+ "patterns": [
+  {
+   "begin": "\\b(var)\\s*(\\()",
+   "end": "\\)",
+   "beginCaptures": {
+    "1": {
+     "name": "vim.Function.cssFunctionName"
+    },
+    "2": {
+     "name": "vim.Function.cssFunctionName"
+    }
+   },
+   "endCaptures": {
+    "0": {
+     "name": "vim.Function.cssFunctionName"
+    }
+   },
+   "patterns": [
+    {
+     "include": "#v"
+    },
+    {
+     "match": "(?<![\\w$@-])--[\\w-]+",
+     "name": "vim.Special.cssCustomProp"
+    }
+   ]
+  }
+ ],
+ "repository": {
+  "v": {
+   "begin": "\\b(var)\\s*(\\()",
+   "end": "\\)",
+   "beginCaptures": {
+    "1": {
+     "name": "vim.Function.cssFunctionName"
+    },
+    "2": {
+     "name": "vim.Function.cssFunctionName"
+    }
+   },
+   "endCaptures": {
+    "0": {
+     "name": "vim.Function.cssFunctionName"
+    }
+   },
+   "patterns": [
+    {
+     "include": "#v"
+    },
+    {
+     "match": "(?<![\\w$@-])--[\\w-]+",
+     "name": "vim.Special.cssCustomProp"
+    }
+   ]
+  }
+ }
+}

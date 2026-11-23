@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.swift-todo",
+ "injectionSelector": "L:source.swift comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|MARK|TODO)\\b",
+   "name": "vim.Todo.swiftTodo"
+  }
+ ]
+}

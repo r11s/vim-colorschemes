@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.less-todo",
+ "injectionSelector": "L:source.css.less comment",
+ "patterns": [
+  {
+   "match": "\\b(?:OPTIMIZE|FIXME|NOTE|TODO|XXX)\\b",
+   "name": "vim.Todo.lessTodo"
+  }
+ ]
+}

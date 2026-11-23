@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.ruby-todo",
+ "injectionSelector": "L:source.ruby comment",
+ "patterns": [
+  {
+   "match": "\\b(?:OPTIMIZE|REVIEW|FIXME|HACK|NOTE|TODO|XXX)\\b",
+   "name": "vim.Todo.rubyTodo"
+  }
+ ]
+}

@@ -1,0 +1,116 @@
+
+--- Syntax items ---
+goPackage      xxx package
+                   links to Statement
+goImport       xxx contained import
+                   start=/import (/ end=/)/  transparent fold contains=goImport,goImportString,goComment 
+                   match /^import ()/  transparent fold contains=goImport 
+                   links to Statement
+goVar          xxx contained var
+                   start=/var (/ end=/^\s*)$/  transparent fold contains=ALLBUT,goParen,goBlock,goFunction,goTypeName,goReceiverType,goReceiverVar,goParamName,goParamType,goSimpleParams,goPointerOperator 
+                   match /var ()/  transparent fold contains=goVar 
+                   links to Keyword
+goConst        xxx contained const
+                   start=/const (/ end=/^\s*)$/  transparent fold contains=ALLBUT,goParen,goBlock,goFunction,goTypeName,goReceiverType,goReceiverVar,goParamName,goParamType,goSimpleParams,goPointerOperator 
+                   match /const ()/  transparent fold contains=goConst 
+                   links to Keyword
+goDeclaration  xxx func type
+                   links to Keyword
+goStatement    xxx go return continue goto break defer fallthrough
+                   links to Statement
+goConditional  xxx else switch if select
+                   links to Conditional
+goLabel        xxx default case
+                   links to Label
+goRepeat       xxx range for
+                   links to Repeat
+goType         xxx any map string bool chan comparable error
+                   links to Type
+goSignedInts   xxx int64 int16 int8 int rune int32
+                   links to Type
+goUnsignedInts xxx uint32 uint uint64 uint8 uint16 uintptr byte
+                   links to Type
+goFloats       xxx float32 float64
+                   links to Type
+goComplexes    xxx complex64 complex128
+                   links to Type
+goBuiltins     xxx max print real min close delete recover imag copy append
+                   complex new cap make clear panic len println
+                   links to Identifier
+goBoolean      xxx false true
+                   links to Boolean
+goPredefinedIdentifiers xxx nil iota
+                   links to Constant
+goTodo         xxx contained NOTE TODO XXX BUG FIXME
+                   links to Todo
+goComment      xxx start=+//+ end=/$/  contains=goGenerate,@goCommentGroup,@Spell 
+                   start=+/\*+ end=+\*/+  contains=@goCommentGroup,@Spell 
+                   links to Comment
+goEscapeOctal  xxx match /\\[0-7]\{3}/  display contained 
+                   links to goSpecialString
+goEscapeC      xxx match /\\[abfnrtv\\'"]/  display contained 
+                   links to goSpecialString
+goEscapeX      xxx match /\\x\x\{2}/  display contained 
+                   links to goSpecialString
+goEscapeU      xxx match /\\u\x\{4}/  display contained 
+                   links to goSpecialString
+goEscapeBigU   xxx match /\\U\x\{8}/  display contained 
+                   links to goSpecialString
+goEscapeError  xxx match /\\[^0-7xuUabfnrtv\\'"]/  display contained 
+                   links to Error
+goString       xxx start=/"/ skip=/\\\\\|\\"/ end=/"/  contains=@goStringGroup,@Spell 
+                   links to String
+goRawString    xxx start=/`/ end=/`/  contains=@Spell 
+                   links to String
+goImportString xxx match /^\%(\s\+\|import \)\(\h\w* \)\?\zs"[^"]\+"/  contained containedin=goImport 
+                   links to String
+goFormatSpecifier xxx match /\%([^%]\%(%%\)*\)\@<=%[-#0 +]*\%(\%(\%(\[\d\+\]\)\=\*\)\|\d\+\)\=\%(\.\%(\%(\%(\[\d\+\]\)\=\*\)\|\d\+\)\=\)\=\%(\[\d\+\]\)\=[vTtbcdoqxXUeEfFgGspw]/  contained containedin=goString,goRawString 
+                   links to goSpecialString
+goCharacter    xxx start=/'/ skip=/\\\\\|\\'/ end=/'/  contains=@goCharacterGroup 
+                   links to Character
+goParen        xxx start=/(/ end=/)/  transparent 
+goBlock        xxx start=/{/ end=/}/  transparent fold 
+goSingleDecl   xxx match /\%(import\|var\|const\) [^(]\@=/  contains=goImport,goVar,goConst 
+goDecimalInt   xxx match /\<-\=\%(0\|\%(\d\|\d_\d\)\+\)\>/  
+                   links to Integer
+goHexadecimalInt xxx match /\<-\=0[xX]_\?\%(\x\|\x_\x\)\+\>/  
+                   links to Integer
+goOctalInt     xxx match /\<-\=0[oO]\?_\?\%(\o\|\o_\o\)\+\>/  
+                   links to Integer
+goBinaryInt    xxx match /\<-\=0[bB]_\?\%([01]\|[01]_[01]\)\+\>/  
+                   links to Integer
+goFloat        xxx match /\<-\=\%(0\|\%(\d\|\d_\d\)\+\)\.\%(\%(\%(\d\|\d_\d\)\+\)\=\%([Ee][-+]\=\%(\d\|\d_\d\)\+\)\=\>\)\=/  
+                   match /\s\zs-\=\.\%(\d\|\d_\d\)\+\%(\%([Ee][-+]\=\%(\d\|\d_\d\)\+\)\>\)\=/  
+                   match /\<-\=\%(0\|\%(\d\|\d_\d\)\+\)[Ee][-+]\=\%(\d\|\d_\d\)\+\>/  
+                   links to Float
+goHexadecimalFloat xxx match /\<-\=0[xX]\%(_\x\|\x\)\+\.\%(\%(\x\|\x_\x\)\+\)\=\%([Pp][-+]\=\%(\d\|\d_\d\)\+\)\=\>/  
+                   match /\<-\=0[xX]\.\%(\x\|\x_\x\)\+\%([Pp][-+]\=\%(\d\|\d_\d\)\+\)\=\>/  
+                   match /\<-\=0[xX]\%(_\x\|\x\)\+[Pp][-+]\=\%(\d\|\d_\d\)\+\>/  
+                   links to Float
+goImaginaryDecimal xxx match /\<-\=\%(0\|\%(\d\|\d_\d\)\+\)i\>/  
+                   links to Number
+goImaginaryHexadecimal xxx match /\<-\=0[xX]_\?\%(\x\|\x_\x\)\+i\>/  
+                   links to Number
+goImaginaryOctal xxx match /\<-\=0[oO]\?_\?\%(\o\|\o_\o\)\+i\>/  
+                   links to Number
+goImaginaryBinary xxx match /\<-\=0[bB]_\?\%([01]\|[01]_[01]\)\+i\>/  
+                   links to Number
+goImaginaryFloat xxx match /\<-\=\%(0\|\%(\d\|\d_\d\)\+\)\.\%(\%(\%(\d\|\d_\d\)\+\)\=\%([Ee][-+]\=\%(\d\|\d_\d\)\+\)\=\)\=i\>/  
+                   match /\s\zs-\=\.\%(\d\|\d_\d\)\+\%([Ee][-+]\=\%(\d\|\d_\d\)\+\)\=i\>/  
+                   match /\<-\=\%(0\|\%(\d\|\d_\d\)\+\)[Ee][-+]\=\%(\d\|\d_\d\)\+i\>/  
+                   links to Float
+goImaginaryHexadecimalFloat xxx match /\<-\=0[xX]\%(_\x\|\x\)\+\.\%(\%(\x\|\x_\x\)\+\)\=\%([Pp][-+]\=\%(\d\|\d_\d\)\+\)\=i\>/  
+                   match /\<-\=0[xX]\.\%(\x\|\x_\x\)\+\%([Pp][-+]\=\%(\d\|\d_\d\)\+\)\=i\>/  
+                   match /\<-\=0[xX]\%(_\x\|\x\)\+[Pp][-+]\=\%(\d\|\d_\d\)\+i\>/  
+                   links to Float
+goVarArgs      xxx match /\.\.\./  
+goDeclType     xxx struct interface
+                   links to Keyword
+goTypeParams   xxx match /\[\%(\w\+\s\+\%(\~\?\%(\[]\)\?\w\%(\w\||\)\)*\%(,\s*\)\?\)\+\]/  contained nextgroup=goSimpleParams,goDeclType 
+goPackageComment xxx start==\v(\/\/.*\n)+\s*package\s= end=/\v\n\s*package\s/me=e-8,he=e-8,re=e-8  fold contains=@goCommentGroup,@Spell 
+                   start=+\v^\s*\/\*.*\n(.*\n)*\s*\*\/\npackage\s+ end=+\v\*\/\n\s*package\s+me=e-8,he=e-8,re=e-8  fold contains=@goCommentGroup,@Spell 
+                   links to Comment
+goCommentGroup cluster=goTodo 
+Spell          cluster=NONE
+goStringGroup  cluster=goEscapeOctal,goEscapeC,goEscapeX,goEscapeU,goEscapeBigU,goEscapeError 
+goCharacterGroup cluster=goEscapeOctal,goEscapeC,goEscapeX,goEscapeU,goEscapeBigU 

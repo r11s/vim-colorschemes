@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.python-todo",
+ "injectionSelector": "L:source.python comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|NOTE|NOTES|TODO|XXX)\\b",
+   "name": "vim.Todo.pythonTodo"
+  }
+ ]
+}

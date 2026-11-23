@@ -1,0 +1,1024 @@
+
+--- Syntax items ---
+xmlError       xxx match /[<&]/  contained 
+                   links to Error
+xmlEntity      xxx match /&[^; \t]*;/  contained contains=xmlEntityPunct 
+                   links to Statement
+xmlString      xxx start=/"/ end=/"/  display contained contains=xmlEntity,@Spell 
+                   start=/'/ end=/'/  display contained contains=xmlEntity,@Spell 
+                   links to String
+xmlAttribPunct xxx match /[:.]/  display contained 
+                   links to Comment
+xmlEqual       xxx match /=/  display contained 
+xmlAttrib      xxx match /[-'"<]\@1<!\<[a-zA-Z:_][-.0-9a-zA-Z:_]*\>\%(['"]\@!\|$\)/  display contained contains=xmlAttribPunct,@xmlAttribHook 
+                   links to Type
+xmlNamespace   xxx match -\(<\|</\)\@2<=[^ /!?<>"':]\+[:]\@=-  display contained contains=@xmlNamespaceHook 
+                   links to Tag
+xmlTagName     xxx match -\%(<\|</\)\@2<=[^ /!?<>"']\+-  display contained contains=xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   links to Function
+xmlTag         xxx matchgroup=xmlTag start=+<[^ /!?<>"']\@=+ end=/>/  contained contains=xmlError,xmlTagName,xmlAttrib,xmlEqual,xmlString,@xmlStartTagHook 
+                   links to Function
+xmlEndTag      xxx matchgroup=xmlTag start=+</[^ /!?<>"']\@=+ end=/>/  contained contains=xmlTagName,xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   links to Identifier
+xmlCdata       xxx start=/<!\[CDATA\[/ end=/]]>/  contained keepend extend contains=xmlCdataStart,xmlCdataEnd,@xmlCdataHook,@Spell 
+                   links to String
+xmlComment     xxx start=/<!/ end=/>/  contained extend contains=xmlCommentStart,xmlCommentError 
+                   links to Comment
+xmlProcessing  xxx matchgroup=xmlProcessingDelim start=/<?/ end=/?>/  contained contains=xmlAttrib,xmlEqual,xmlString 
+                   links to Type
+xmlEntityPunct xxx match /[&.;]/  contained 
+                   links to Type
+xmlCommentStart xxx match /<!/  contained nextgroup=xmlCommentPart 
+                   links to xmlComment
+xmlCommentError xxx match /[^><!]/  contained 
+                   links to Error
+xmlCommentPart xxx start=/--/ end=/--/  contained contains=xmlTodo,@xmlCommentHook,@Spell 
+                   links to Comment
+xmlTodo        xxx contained TODO XXX FIXME
+                   links to Todo
+xmlCdataStart  xxx match /<!\[CDATA\[/  contained contains=xmlCdataCdata 
+                   links to Type
+xmlCdataEnd    xxx match /]]>/  contained 
+                   links to Type
+xmlCdataCdata  xxx contained CDATA
+                   links to Statement
+xmlDocTypeKeyword xxx contained PUBLIC SYSTEM DOCTYPE
+                   links to Statement
+xmlInlineDTD   xxx matchgroup=xmlDocTypeDecl start=/\[/ end=/]/  contained contains=@xmlDTD 
+                   links to Function
+xmlDocType     xxx matchgroup=xmlDocTypeDecl start=/<!DOCTYPE/he=s+2,rs=s+2 end=/>/  contained contains=xmlDocTypeKeyword,xmlInlineDTD,xmlString 
+htmlError      xxx match /[<>&]/  
+                   links to Error
+htmlSpecialChar xxx match /&#\=[0-9A-Za-z]\{1,32};/  
+                   links to Special
+javaScriptExpression xxx start=/&{/ end=/};/  contained keepend contains=@htmlJavaScript,@htmlPreproc 
+                   links to javaScript
+htmlString     xxx start=/"/ end=/"/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   start=/'/ end=/'/  contained contains=htmlSpecialChar,javaScriptExpression,@htmlPreproc 
+                   links to String
+htmlValue      xxx match /=[\t ]*[^'" \t>][^ \t>]*/hs=s+1  contained contains=javaScriptExpression,@htmlPreproc 
+                   links to String
+htmlTagN       xxx match /<\s*[-a-zA-Z0-9]\+/hs=s+1  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+                   match =</\s*[-a-zA-Z0-9]\+=hs=s+2  contained contains=htmlTagName,htmlSpecialTagName,@htmlTagNameCluster 
+htmlTagError   xxx match /[^>]</ms=s+1  contained 
+                   links to htmlError
+htmlEndTag     xxx start=+</+ end=/>/  contains=htmlTagN,htmlTagError 
+                   links to Identifier
+htmlArg        xxx contained blocking async nonce charoff draggable target
+                   contained bgcolor kind bordercolor high defer shape usemap
+                   contained multiple language lowsrc min itemref imagesizes
+                   contained loading preload autocapitalize scheme
+                   contained formnovalidate headers decoding crossorigin
+                   contained novalidate declare poster itemtype above maxlength
+                   contained nomodule challenge translate nowrap title style
+                   contained autoplay form vlink colspan nohref left align
+                   contained scope code disabled open src color span classid
+                   contained alt marginheight contenteditable cellspacing data
+                   contained cellpadding inputmode enterkeyhint step controls
+                   contained gutter url class loop scrolling formaction standby
+                   contained link accept minlength coords codebase wrap alink
+                   contained reversed content itemscope as longdesc cols rel
+                   contained rev size playsinline lang action spellcheck
+                   contained required datetime archive below role list name
+                   contained media noresize srcdoc optimum ping object frame
+                   contained readonly itemprop contextmenu rowspan dropzone
+                   contained sandbox itemid checked start selected hspace type
+                   contained inert hreflang sizes visibility charset id id
+                   contained integrity is keytype version srcset background
+                   contained vspace slot width compact border dirname top dir
+                   contained height accesskey cite formmethod codetype axis
+                   contained valuetype frameborder enctype summary imagesrcset
+                   contained autocomplete char abbr low formenctype for rows
+                   contained ismap method noshade placeholder rules valign text
+                   contained icon pagex pagey srclang clear allowfullscreen
+                   contained tabindex muted clip max pattern profile allow
+                   contained marginwidth prompt typemustmatch value hidden
+                   contained autofocus formtarget download referrerpolicy face
+                   contained default radiogroup
+                   match /\<\%(http-equiv\|href\|title\)=/me=e-1  contained 
+                   match /\%#=1\<aria-\%(activedescendant\|atomic\|autocomplete\|braillelabel\|brailleroledescription\|busy\|checked\|colcount\|colindex\|colindextext\|colspan\|controls\|current\|describedby\|description\|details\|disabled\|errormessage\|expanded\|flowto\|haspopup\|hidden\|invalid\|keyshortcuts\|label\|labelledby\|level\|live\|modal\|multiline\|multiselectable\|orientation\|owns\|placeholder\|posinset\|pressed\|readonly\|relevant\|required\|roledescription\|rowcount\|rowindex\|rowindextext\|rowspan\|selected\|setsize\|sort\|valuemax\|valuemin\|valuenow\|valuetext\|dropeffect\|grabbed\)\>/  contained 
+                   match /\<z-index\>/  contained 
+                   match /\<\%(accept-charset\|label\)\>/  contained 
+                   match /\<data-\h\%(\w\|[-.]\)*\%(\_s*=\)\@=/  contained 
+                   links to Type
+htmlEvent      xxx start=/\<on\a\+\s*=[\t ]*'/ end=/'/  contained keepend contains=htmlEventSQ 
+                   start=/\<on\a\+\s*=[\t ]*"/ end=/"/  contained keepend contains=htmlEventDQ 
+                   links to javaScript
+htmlCssDefinition xxx matchgroup=htmlArg start=/style="/ matchgroup=htmlString end=/"/  keepend contains=cssRenderAttr,cssTransformAttr,cssSpeechAttr,cssRubyAttr,cssPagedMediaAttr,cssPaddingAttr,cssMarqueeAttr,cssMarginAttr,cssLineboxAttr,cssHyerlinkAttr,cssGridAttr,cssDimensionAttr,cssContentForPagedMediaAttr,cssAttr,cssFontDescriptorAttr,cssMediaAttr,cssAuralAttr,cssIEUIAttr,cssUIAttr,cssTransitionAttr,cssTextAttr,cssTableAttr,cssPrintAttr,cssPositioningAttr,cssObjectAttr,cssListAttr,cssGeneratedContentAttr,cssInteractAttr,cssMultiColumnAttr,cssFontAttr,cssFlexibleBoxAttr,cssCascadeAttr,cssOverflowAttr,cssBoxAttr,cssBorderAttr,cssBackgroundAttr,cssAnimationAttr,cssCommonAttr,cssGradientAttr,cssRenderProp,cssSpeechProp,cssRubyProp,cssPrintProp,cssPagedMediaProp,cssMarqueeProp,cssLineboxProp,cssContentForPagedMediaProp,cssProp,cssFontDescriptorProp,cssPageProp,cssPageMarginProp,cssKeyFrameProp,cssMediaProp,cssMobileTextProp,cssAuralProp,cssIEUIProp,cssUIProp,cssTransitionProp,cssTransformProp,cssTextProp,cssTableProp,cssPositioningProp,cssObjectProp,cssListProp,cssHyerlinkProp,cssGridProp,cssGeneratedContentProp,cssInteractProp,cssMultiColumnProp,cssFontProp,cssFlexibleBoxProp,cssDimensionProp,cssColorProp,cssCascadeProp,cssOverflowProp,cssBoxProp,cssBorderProp,cssBackgroundProp,cssAnimationProp,cssCustomProp,cssComment,cssLength,cssColor,cssURL,cssImportant,cssError,cssString,@htmlPreproc 
+                   links to Special
+htmlTag        xxx start=+<[^/]+ end=/>/  fold contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent,htmlCssDefinition,@htmlPreproc,@htmlArgCluster 
+                   links to Function
+htmlTagName    xxx contained marquee thead a p q s noframes blockquote table
+                   contained input button caption mark meta nobr param center
+                   contained address article layer form base tfoot search samp
+                   contained ruby img ilayer code ins span meter details data
+                   contained var font nolayer sub sup col fieldset optgroup
+                   contained option applet nav link figcaption frameset figure
+                   contained br select dialog picture dd dl dt noscript hgroup
+                   contained object kbd frame canvas section bdi bdo del xmp
+                   contained iframe dfn hr html slot area small time dir div
+                   contained audio source cite big li strike colgroup summary
+                   contained progress keygen abbr isindex ol embed pre blink
+                   contained tbody legend acronym rtc output wbr basefont
+                   contained header rb rp spacer rt datalist template main map
+                   contained td th tr tt label video footer ul aside track
+                   contained textarea menuitem menu
+                   match /\<\%(b\|i\|u\|h[1-6]\|em\|strong\|head\|body\|title\)\>/  contained 
+                   links to htmlStatement
+htmlSpecialTagName xxx contained style script
+                   links to Exception
+htmlMathTagName xxx contained math
+                   links to htmlTagName
+htmlSvgTagName xxx contained svg
+                   links to htmlTagName
+htmlMath       xxx start=/<math>/ end=+</math>+  keepend transparent contains=@htmlXml 
+htmlSvg        xxx start=/<svg>/ end=+</svg>+  keepend transparent contains=@htmlXml 
+htmlCommentError xxx match /[^><!]/  contained 
+                   links to htmlError
+htmlComment    xxx start=/<!/ end=/>/  keepend contains=htmlCommentError 
+                   matchgroup=htmlComment start=/<!--\%(-\?>\)\@!/ end=/--!\?>/  keepend contains=htmlCommentNested,@htmlPreproc,@Spell 
+                   start=/<!DOCTYPE/ end=/>/  keepend 
+                   links to Comment
+htmlCommentNested xxx match /<!-->\@!/  contained 
+                   links to htmlError
+htmlPreStmt    xxx match /<!--#\%(config\|echo\|exec\|fsize\|flastmod\|include\|printenv\|set\|if\|elif\|else\|endif\|geoguide\)\>/  contained 
+                   links to PreProc
+htmlPreError   xxx match /<!--#\S*/ms=s+4  contained 
+                   links to Error
+htmlPreAttr    xxx match /\w\+=[^"]\S\+/  contained contains=htmlPreProcAttrError,htmlPreProcAttrName 
+                   start=/\w\+="/ skip=/\\\\\|\\"/ end=/"/  contained keepend contains=htmlPreProcAttrName 
+                   links to String
+htmlPreProc    xxx start=/<!--#/ end=/-->/  contains=htmlPreStmt,htmlPreError,htmlPreAttr 
+                   links to PreProc
+htmlPreProcAttrError xxx match /\w\+=/he=e-1  contained 
+                   links to Error
+htmlPreProcAttrName xxx match /\%(expr\|errmsg\|sizefmt\|timefmt\|var\|cgi\|cmd\|file\|virtual\|value\)=/he=e-1  contained 
+                   links to PreProc
+htmlLink       xxx start=/<a\>\_[^>]*\<href\>/ end=+</a\_s*>+me=s-1  contains=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLeadingSpace,javaScript,@htmlPreproc 
+                   links to Underlined
+javaScript     xxx start=/<script\>\_[^>]*>/ end=+</script\_[^>]*>+me=s-1  keepend contains=@htmlJavaScript,htmlCssStyleComment,htmlScriptTag,@htmlPreproc 
+                   start=/<script \_[^>]*language *=\_[^>]*vbscript\_[^>]*>/ end=+</script\_[^>]*>+me=s-1  keepend contains=@htmlVbScript,htmlCssStyleComment,htmlScriptTag,@htmlPreproc 
+                   links to Special
+htmlStrike     xxx start=/<del\>/ end=+</del\_s*>+me=s-1  contains=@htmlTop 
+                   start=/<s\>/ end=+</s\_s*>+me=s-1  contains=@htmlTop 
+                   start=/<strike\>/ end=+</strike\_s*>+me=s-1  contains=@htmlTop 
+htmlBoldUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+htmlBoldItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldItalicUnderline 
+htmlBold       xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contains=@htmlTop,htmlBoldUnderline,htmlBoldItalic 
+htmlBoldUnderlineItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+htmlBoldItalicUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlBoldUnderlineItalic 
+                   links to htmlBoldUnderlineItalic
+htmlUnderlineBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineBoldItalic 
+                   links to htmlBoldUnderline
+htmlUnderlineItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop,htmlUnderlineItalicBold 
+htmlUnderline  xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contains=@htmlTop,htmlUnderlineBold,htmlUnderlineItalic 
+htmlUnderlineBoldItalic xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlUnderlineItalicBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlItalicBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicBoldUnderline 
+                   links to htmlBoldItalic
+htmlItalicUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop,htmlItalicUnderlineBold 
+                   links to htmlUnderlineItalic
+htmlItalic     xxx start=/<i\>/ end=+</i\_s*>+me=s-1  contains=@htmlTop,htmlItalicBold,htmlItalicUnderline 
+                   start=/<em\>/ end=+</em\_s*>+me=s-1  contains=@htmlTop 
+htmlItalicBoldUnderline xxx start=/<u\>/ end=+</u\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlItalicUnderlineBold xxx start=/<b\>/ end=+</b\_s*>+me=s-1  contained contains=@htmlTop 
+                   start=/<strong\>/ end=+</strong\_s*>+me=s-1  contained contains=@htmlTop 
+                   links to htmlBoldUnderlineItalic
+htmlLeadingSpace xxx match /^\s\+/  contained 
+                   links to None
+htmlH1         xxx start=/<h1\>/ end=+</h1\_s*>+me=s-1  contains=@htmlTop 
+                   links to Title
+htmlH2         xxx start=/<h2\>/ end=+</h2\_s*>+me=s-1  contains=@htmlTop 
+                   links to htmlH1
+htmlH3         xxx start=/<h3\>/ end=+</h3\_s*>+me=s-1  contains=@htmlTop 
+                   links to htmlH2
+htmlH4         xxx start=/<h4\>/ end=+</h4\_s*>+me=s-1  contains=@htmlTop 
+                   links to htmlH3
+htmlH5         xxx start=/<h5\>/ end=+</h5\_s*>+me=s-1  contains=@htmlTop 
+                   links to htmlH4
+htmlH6         xxx start=/<h6\>/ end=+</h6\_s*>+me=s-1  contains=@htmlTop 
+                   links to htmlH5
+htmlTitle      xxx start=/<title\>/ end=+</title\_s*>+me=s-1  contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,javaScript,@htmlPreproc 
+                   links to Title
+cssStyle       xxx start=/<style/ end=+</style>+  keepend contains=@htmlCss,htmlTag,htmlEndTag,htmlCssStyleComment,@htmlPreproc 
+htmlHead       xxx start=/<head\>/ end=/<h[1-6]\>/me=s-1 end=/<body\>/me=s-1 end=+</head\_s*>+me=s-1  contains=htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,htmlTitle,javaScript,cssStyle,@htmlPreproc 
+                   links to PreProc
+javaScriptCommentTodo xxx contained tbd todo xxx fixme
+                   links to Todo
+javaScriptLineComment xxx match +\/\/.*+  contained contains=@Spell,javaScriptCommentTodo 
+                   links to Comment
+javaScriptCommentSkip xxx match /^[ \t]*\*\($\|[ \t]\+\)/  contained 
+javaScriptComment xxx start=+/\*+ end=+\*/+  contained contains=@Spell,javaScriptCommentTodo 
+                   links to Comment
+javaScriptSpecial xxx match /\\\d\d\d\|\\./  contained 
+                   links to Special
+javaScriptStringD xxx start=/"/ skip=/\\\\\|\\"/ end=/"\|$/  contained contains=javaScriptSpecial,@htmlPreproc 
+                   links to String
+javaScriptStringS xxx start=/'/ skip=/\\\\\|\\'/ end=/'\|$/  contained contains=javaScriptSpecial,@htmlPreproc 
+                   links to String
+javaScriptEmbed xxx start=/${/ end=/}/  contained contains=@javaScriptEmbededExpr 
+                   links to Special
+javaScriptStringT xxx start=/`/ skip=/\\\\\|\\`/ end=/`/  contained contains=javaScriptSpecial,javaScriptEmbed,@htmlPreproc 
+                   links to String
+javaScriptSpecialCharacter xxx match /'\\.'/  contained 
+                   links to javaScriptSpecial
+javaScriptNumber xxx match /\<0[bB][0-1]\+\(_[0-1]\+\)*\>/  contained 
+                   match /\<0[oO][0-7]\+\(_[0-7]\+\)*\>/  contained 
+                   match /\<0\([0-7]\+\(_[0-7]\+\)*\)\?\>/  contained 
+                   match /\<0[xX][0-9a-fA-F]\+\(_[0-9a-fA-F]\+\)*\>/  contained 
+                   match /\<\d\+\(_\d\+\)*[eE][+-]\?\d\+\>/  contained 
+                   match /\<[1-9]\d*\(_\d\+\)*\(\.\(\d\+\(_\d\+\)*\([eE][+-]\?\d\+\)\?\)\?\)\?\>/  contained 
+                   match /\<\(\d\+\(_\d\+\)*\)\?\.\d\+\(_\d\+\)*\([eE][+-]\?\d\+\)\?\>/  contained 
+                   match /\<\d\+\(_\d\+\)*\.\(\d\+\(_\d\+\)*\([eE][+-]\?\d\+\)\?\)\?\>/  contained 
+                   links to Number
+javaScriptRegexpString xxx start=-[,(=+]\s*/[^/*]-ms=e-1,me=e-1 skip=+\\\\\|\\/+ end==/[gimuys]\{0,2\}\s\+\/=me=e-1 end==/[gimuys]\{0,2\}\s*[+;.,)\]}]=me=e-1 end=+/[gimuys]\{0,2\}\s*$+  contained oneline contains=@htmlPreproc,javaScriptComment 
+                   links to String
+javaScriptConditional xxx contained switch else if
+                   links to Conditional
+javaScriptRepeat xxx contained while do in of for
+                   links to Repeat
+javaScriptBranch xxx contained continue break
+                   links to Conditional
+javaScriptOperator xxx contained instanceof new delete typeof
+                   links to Operator
+javaScriptType xxx contained regexp number date array object function string
+                   contained boolean
+                   links to Type
+javaScriptStatement xxx contained await with yield return
+                   links to Statement
+javaScriptBoolean xxx contained true false
+                   links to Boolean
+javaScriptNull xxx contained null undefined
+                   links to Keyword
+javaScriptIdentifier xxx contained this arguments
+                   links to Identifier
+javaScriptLabel xxx contained case default
+                   links to Label
+javaScriptException xxx contained catch finally try throw
+                   links to Exception
+javaScriptMessage xxx contained status alert prompt confirm
+                   links to Keyword
+javaScriptGlobal xxx contained window self parent top
+                   links to Keyword
+javaScriptMember xxx contained location event document
+                   links to Keyword
+javaScriptDeprecated xxx contained escape unescape
+                   links to Exception
+javaScriptReserved xxx contained async import super protected export public
+                   contained enum debugger int implements var extends long
+                   contained const class transient as native synchronized
+                   contained double let package using private from volatile
+                   contained char final goto boolean float interface abstract
+                   contained short throws byte
+                   links to Keyword
+javaScriptModifier xxx contained static
+                   links to StorageClass
+javaScriptFunction xxx contained function
+                   links to Keyword
+javaScriptBraces xxx match /[{}\[\]]/  contained 
+                   links to Function
+javaScriptParens xxx match /[()]/  contained 
+htmlCssStyleComment xxx match /\%(<!--\|-->\)/  contained 
+                   links to Comment
+htmlScriptTag  xxx start=/<script/ end=/>/  contained fold contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent 
+                   links to htmlTag
+htmlEventSQ    xxx start=/'/ms=s+1 end=/'/me=s-1  contained contains=@htmlJavaScript 
+                   links to htmlEvent
+htmlEventDQ    xxx start=/"/ms=s+1 end=/"/me=s-1  contained contains=@htmlJavaScript 
+                   links to htmlEvent
+vbConditional  xxx contained elseif else select if case then
+                   links to Conditional
+vbOperator     xxx contained addressof imp mod like and eqv or is xor in not
+                   contained byval to byref
+                   match #[()+.,\-/*=&]#  contained 
+                   match /[<>]=\=/  contained 
+                   match /<>/  contained 
+                   match /\s\+_$/  contained 
+                   links to Operator
+vbBoolean      xxx contained true false
+                   links to Boolean
+vbConst        xxx contained null nothing
+                   links to Constant
+vbRepeat       xxx contained until step wend loop while do foreach next for to
+                   links to Repeat
+vbEvents       xxx contained decommandpropertychanged plotactivated
+                   contained devicequeryremovefailed done compare nodeclick
+                   contained buttonclick queryclose seriesselected
+                   contained requestchangefilename afterupdate deactivate paint
+                   contained afterremovefile itemclick endrequest itemremoved
+                   contained connectionrequest pointlabelupdated gotfocus
+                   contained dataupdated sendcomplete editquery keydown
+                   contained leavecell accesskeypress writeproperties
+                   contained begintrans devmodechange dataarrival splitchange
+                   contained linkclose axisupdated axisselected unboundreaddata
+                   contained callbackkeydown dblclick beginrequest
+                   contained axistitleselected afterwritefile expand resize
+                   contained dissociate onaddnew close displaychanged
+                   contained editproperty axislabelupdated seriesupdated
+                   contained rowresize pointlabelselected itemactivated
+                   contained processingtimeout afterinsert oledragdrop
+                   contained buttondropdown disconnect initproperties entercell
+                   contained currentrecordchanged rollbacktrans querytimeout
+                   contained chartselected buttonlostfocus olesetdata
+                   contained footnoteselected seriesactivated powersuspend
+                   contained titleselected mousemove validationerror
+                   contained beforeupdate willchangedata deviceremovecomplete
+                   contained unboundadddata willupdaterows afteraddfile
+                   contained beforeconnect scroll datachanged change
+                   contained powerstatuschanged querycompleted keyup
+                   contained devicearrival oncomm donepainting buttongotfocus
+                   contained axislabelselected decommandremoved retainedproject
+                   contained willassociate rowcurrencychange asyncreadcomplete
+                   contained titleactivated patternchange beforecoledit
+                   contained formatsize updated sendprogress dragover
+                   contained titleupdated mousedown dragdrop axistitleupdated
+                   contained itemrenamed beforeinsert lostfocus
+                   contained repeatedcontrolunloaded pathchange beforeclick
+                   contained linkerror axislabelactivated visiblerecordchanged
+                   contained afterchangefilename aftercolupdate
+                   contained selectionchanged repeatedcontrolloaded upclick
+                   contained axisactivated settingchanged olegivefeedback
+                   contained deconnectionpropertychanged axistitleactivated
+                   contained applychanges unformat linkexecute afterlabeledit
+                   contained start changed plotselected paneldblclick timer
+                   contained configchanged itemadded activerowchanged
+                   contained dogetnewfilename headclick configchangedcancelled
+                   contained pointupdated legendactivated afterdelete
+                   contained initialize queryunload chartupdated reposition
+                   contained configchagecancelled selchange requestwritefile
+                   contained processtag columnclick pointactivated
+                   contained buttoncompleted footnoteupdated show
+                   contained resultschanged statechanged itemreloaded
+                   contained syscolorschanged panelclick heightchanged
+                   contained olestartdrag objectmove infomessage
+                   contained asyncreadprogress readproperties dateclicked
+                   contained powerquerysuspend chartactivated legendselected
+                   contained beforecolupdate linkopen
+                   contained unboundgetrelativebookmark deconnectionremoved
+                   contained pointselected unboundwritedata beforelabeledit
+                   contained mouseup plotupdated devicequeryremove
+                   contained asyncprogress aftercoledit iniproperties
+                   contained closequery downclick collapse deconnectionadded
+                   contained querychangeconfig powerresume click
+                   contained pointlabelactivated rowcolchange exitfocus
+                   contained deviceotherevent userevent oledragover
+                   contained willdissociate afterclosefile keypress
+                   contained beforedelete closeup linknotify timechanged
+                   contained nodecheck connect unbounddeleterow
+                   contained footnoteactivated committrans itemseletected
+                   contained dropdown terminate willexecute itemcheck activate
+                   contained enterfocus rowstatuschanged unload colresize
+                   contained associate querycomplete statusupdate objectevent
+                   contained deviceremovepending ambientchanged olecompletedrag
+                   contained beforeloadfile validate coledit hide legendupdated
+                   contained fontchanged decommandadded format load
+                   links to Special
+vbFunction     xxx contained clng vartype mirr abs doevents isnull isdate space
+                   contained weekdayname msgbox isobject input hour cdate month
+                   contained second getallstrings mid min ltrim ascb ascw sln
+                   contained year cvdate join sin chrb chrw createobject chr
+                   contained switch ipmt ucase spc loadresstring ubound minute
+                   contained left monthname int timevalue round loadpicture
+                   contained inputbox formatcurrency dateadd str date val var
+                   contained eof command rtrim getobject getautoserversettings
+                   contained tan sqr sum cos array ismissing dateserial environ
+                   contained leftb lenb strcomp asc csng tab inputb strconv atn
+                   contained filedatetime day stdevp rgb syd curdir len instr
+                   contained partition cbyte avg iserror instrb exp cstr hex
+                   contained cint fileattr ddb datepart fv freefile typename
+                   contained error timer split cvar datevalue qbcolor
+                   contained getsetting count fix rnd time cverr dir midb nper
+                   contained choose iif isarray datediff cdbl weekday imestatus
+                   contained stdev now cbool loc lof log pmt npv formatdatetime
+                   contained string pv formatnumber isempty filelen replace
+                   contained lbound bof rate lcase filterfix loadresdata cdec
+                   contained callbyname strreverse max oct formatpercent rightb
+                   contained shell loadrespicture getattr varp ccur ppmt
+                   contained isnumeric seek right sgn trim timeserial format
+                   links to Identifier
+vbMethods      xxx contained getselectedpart releaseinstance skip quit
+                   contained appendappendchunk cancelasyncread beginqueryedit
+                   contained createtoolwindow addfromfile getfile movenext idle
+                   contained getchunk selectall enddoc writeline goback
+                   contained folderexists move showwhatsthis
+                   contained removeaddinfromtoolbar deletefile savetoolbar
+                   contained navigateto add layout copyfolder removeitem
+                   contained restoretoolbar getclipstring resync clone
+                   contained insertrows reload import paste overlay
+                   contained updatecontrols finditem begintrans findprevious
+                   contained todefaults onstartupcomplete clearstructure
+                   contained registerdatabase cancelupdate fetchverbs
+                   contained appendchunk updaterow showprinter clearfields
+                   contained lines writeproperty remove aboutbox keys
+                   contained fileexists export append forward writetemplate
+                   contained drag draw getabsolutepathname insert clearselcols
+                   contained copy createrelation expand openresultset
+                   contained deleterows refill insertlines establishconnection
+                   contained loadresstring print onconnection removeall
+                   contained writeblanklines newpassword close oledrag showfont
+                   contained insertrowlabels pset driveexists getvisiblecount
+                   contained captureimage getdata randomfillcolumns getfolder
+                   contained editcopy render open signon rollbacktrans cls
+                   contained createfield span scale createtextfile createlink
+                   contained getselection opendatabase resolvename printreport
+                   contained addfromtemplate additem logevent cancel addcustom
+                   contained showopen holdfields read makereplica reply
+                   contained canpropertychange populatepartial showhelp
+                   contained createpreparedstatement asyncread whatsthismode
+                   contained ondisconnection printform scroll selprint
+                   contained pastspecialdlg urlfor customize scaley
+                   contained readfromfile getspecialfolder propertychanged
+                   contained repairdatabase addfromguid line arrange accept
+                   contained movefile createfolder createembed exists bind
+                   contained replyall nextrecordset createindex insertfile send
+                   contained stop goforward randomdatafill deleterowlabels save
+                   contained readproperty rowbookmark getdrive readall
+                   contained colcontaining startlabeledit createdatabase
+                   contained setdata moveprevious startlogging size
+                   contained deletecolumns peekdata clearsel cut addfile
+                   contained linkrequest paintpicture savetofile
+                   contained twipstochartpart trace typebycharttype openurl
+                   contained rebind makecompilefile getparentfoldername
+                   contained setfocus updaterecord point readline
+                   contained createworkspace ensurevisible rowtop signoff
+                   contained showsave getnumticks openastextstream
+                   contained rowcontaining replaceline textwidth scalex
+                   contained linkexecute setoption selectpart refreshlink
+                   contained delete setsize split movedata saveas
+                   contained resetcustomlabel addtoaddintoolbar
+                   contained initializelabels popupmenu newpage creategroup
+                   contained createquerydef synchronize getfilename fetch
+                   contained loadfile circle savetoole1file getheader addnew
+                   contained insertcolumnlabels doverb splitcontaining
+                   contained compactdatabase celltext rollback count
+                   contained cancelbatch deselectall rdocreateenvironment
+                   contained zorder getlinefromchar show play settext
+                   contained getdrivename refresh columnsize getrows fillcache
+                   contained setautoserversettings makecompiledfile collapseall
+                   contained deletecolumnlabels gettempname insertobjdlg
+                   contained textheight findlast linksend findfirst
+                   contained openquerydef getformat rdoregisterdatasource
+                   contained setselection validatecontrols copyfile extracticon
+                   contained senddata deletelines getbasename buildpath upto
+                   contained requery createuser hittest designerwindow
+                   contained addfromstring copyquerydef showcolor resetcustom
+                   contained movefirst onaddinsupdate getbookmark deletefolder
+                   contained loadresdata clear listen editpaste movelast tag
+                   contained randomfillrows find batchupdate edit cellvalue
+                   contained files exportreport createdragimage gettext
+                   contained addtoolboxprogid connect createpropery compose
+                   contained raise findnext execute value skipline committrans
+                   contained openrecordset getfirstvisible setviewport assert
+                   contained set loadrespicture item activate savefile write
+                   contained createquery movefolder insertcolumns
+                   contained createtabledef openconnection linkpoke hide update
+                   contained moreresults killdoc
+                   links to PreProc
+vbStatement    xxx contained defint get lset filecopy defsng mid exit put
+                   contained onerror declare setattr public until elseif base
+                   contained close defstr open enum deftype randomize
+                   contained implements end date event erase sub gosub gosub
+                   contained step explicit const wend defvar loop while redim
+                   contained redim option defcur stop chdir defdbl as
+                   contained raiseevent with mkdir deletesetting property alias
+                   contained defdec let do name lib savepicture error private
+                   contained preserve type lock reset foreach deflng defbool
+                   contained width chdrive sendkeys sendkeys time rmdir
+                   contained function next return for on goto kill call beep
+                   contained defobj defdate static begin savesetting resume
+                   contained appactivate set rset write unload seek lineinput
+                   contained each dim defbyte unlock load
+                   links to Statement
+vbKeyword      xxx contained empty get input publicnotcreateable mid
+                   contained insameprocessmultiuse public paramarray print
+                   contained onnewprocesssingleuse globalmultiuse null date
+                   contained step nothing option as property new len optional
+                   contained error private lock is time withevents me binary on
+                   contained string byval static resume set friend byref seek
+                   links to Statement
+vbTodo         xxx contained todo
+                   links to Todo
+vbTypes        xxx contained currency empty decimal date long variant double
+                   contained single object string boolean integer byte
+                   links to Type
+vbDefine       xxx contained vbminimizednofocus vbred dbmemo vbfriday vbcr
+                   contained vbinformation dbboolean dbsingle vbkeytab
+                   contained vbkeyback vbretry vbwide vbyesno vbimedisable
+                   contained vbcyan vbkeyf13 vbcurrency vbinactivetitlebar
+                   contained vbkeyf14 vbhidden vbbuttonface vbyellow vbokcancel
+                   contained vbmsgboxright vbkeyf10 vbkeyf11 vbkeyf16
+                   contained vbfirstfourdays vbhide vbnormal vbmonday vbkeyend
+                   contained vbfirstfullweek vbdecimal vbkeyseparator vbcalgreg
+                   contained vbkey1 vbkey2 vbkey3 vbkey4 vbkey5 vbkey7 vbkey9
+                   contained vbkeya vbkeyb vbkeyc vbkeyd vbkeye vbkeyh vbkeyj
+                   contained vbkeyk vbkeyl vbkeym vbkeyn vbkeyr vbkeys vbkeyt
+                   contained vbkeyu vbkeyv vbkeyw vbkeyx vbkeyy vbdesktop
+                   contained vberror dbfloat vbmsgboxtext vbwhite vbkeyinsert
+                   contained vbblack vbinactiveborder dbdate vbformcontrolmenu
+                   contained vbkeymenu vbkeyexecute vbyesnocancel
+                   contained vbabortretryignore vbtitlebartext vbtextcompare
+                   contained vbvolume dbdouble dblong vbmsgboxsetforeground
+                   contained vbunicode dbbinary vbminimizedfocus vblf vbgreen
+                   contained vbnull vbimekatakanasng vbarchive vbkeynumlock
+                   contained vbactiveborder vbinteger vbkeysubtract
+                   contained vbimemodekatakanahalf vbkeyshift
+                   contained vbmsgboxhelpbutton vbkeycancel vbkeyi
+                   contained vbimemodehangulfull vb3dhighlight vbkeypagedown
+                   contained vbno vbarray dbnumeric vbimemodeoff vbimeoff
+                   contained dbguid vbok vbokonly vbimealphadbl dbbyte
+                   contained vbkeymbutton vbsunday vbimealphasng
+                   contained vbapplicationworkspace vb3ddkshadow
+                   contained vbimemodedisable vb3dshadow vbkeyhome vbkeyescape
+                   contained vbobjecterror vbkeyup vbimemodekatakana
+                   contained vbimemodealphafull vbkey6 vbexclamation vbimeon
+                   contained vbkeyhelp vbmsgboxrtlreading vbkeydivide vbimenoop
+                   contained vbkeydown vbwindowframe vbnormalfocus vbsystem
+                   contained vbhiragana vbusesystem vbkeyf1 vbkeyf5 vbcalhijri
+                   contained vbboolean vbkeyf7 vbkeycontrol vbkatakana
+                   contained vbthursday vbwindowbackground vbnullchar
+                   contained vbinfobackground vb3dlight vbmenutext vbkeyright
+                   contained dbtimestamp dbtime vbkeyf15 vbdataobject vbkeyp
+                   contained vbimemodenocontrol vbsystemmodal vbformcode
+                   contained vbkeyf2 vbkeyf6 vbfirstjan1 vbkeyf8 vbkeyf9
+                   contained vbreadonly vbkeynumpad0 vbkeynumpad1 vbkeynumpad2
+                   contained vbkeynumpad3 vbkeynumpad4 vbkeynumpad5
+                   contained vbkeynumpad6 vbkeynumpad7 vbkeynumpad8
+                   contained vbkeynumpad9 vbuppercase vbempty vbdouble
+                   contained vbkeyspace dbchar vbappwindows vbimekatakanadbl
+                   contained vbkeypause vbyes vbmsgbox vbactivetitlebar
+                   contained vbsingle vbvariant vbabort vbformfeed vbmenubar
+                   contained vbkeyclear vbapptaskmanager vbkeydecimal vbobject
+                   contained vbalias dbcurrency vbscrollbars vbnullstring
+                   contained vbkeyf4 vbmaximizedfocus vbnarrow vbimemodealpha
+                   contained vbgraytext vbwindowtext dbvarbinary
+                   contained vbdatabasecompare vbimehiragana vbinfotext
+                   contained vbwednesday vbusesystemdayofweek vbkeyleft vbdate
+                   contained vbhighlight vbpropercase vbfromunicode vbkeyselect
+                   contained vbkeysnapshot vbkeymultiply vbkeyreturn
+                   contained vbnormalnofocus vbhighlighttext vbmagenta
+                   contained vbkeyprint vbblue vbtuesday vbback vbretrycancel
+                   contained vbkeylbutton vbkey8 vbkeyrbutton vbdefaultbutton1
+                   contained vbdefaultbutton3 vbdefaultbutton4 vbkeydelete
+                   contained dbinteger vbapplicationmodal vbcancel vbdirectory
+                   contained vbdefaultbutton2 vbimemodehangul vbimemodeon
+                   contained vbbuttonshadow vblowercase vbkeyf3 dbdecimal
+                   contained vbkeyf vbbuttontext vbkeyg vbbinarycompare
+                   contained vbformmdiform dbtext vbkeyo vbkeyq vbtab vbcrlf
+                   contained vblong vbsaturday vbkeycapital vbkey0 vbcritical
+                   contained vbkeyadd vbinactivecaptiontext dblongbinary
+                   contained vbkeyf12 vbstring vbverticaltab vbnewline dbbigint
+                   contained vbignore vbkeyz vbquestion vbbyte vbkeypageup
+                   contained vb3dface vbimemodehiragana
+                   links to Constant
+vbNumber       xxx match /\<\d\+\>/  contained 
+                   match /\<\d\+\.\d*\>/  contained 
+                   match /\.\d\+\>/  contained 
+                   links to Number
+vbFloat        xxx match /[-+]\=\<\d\+[eE][\-+]\=\d\+/  contained 
+                   match /[-+]\=\<\d\+\.\d*\([eE][\-+]\=\d\+\)\=/  contained 
+                   match /[-+]\=\<\.\d\+\([eE][\-+]\=\d\+\)\=/  contained 
+                   links to Float
+vbString       xxx start=/"/ end=/"\|$/  contained 
+                   links to String
+vbComment      xxx start=/\(^\|\s\)REM\s/ end=/$/  contained contains=vbTodo 
+                   start=/\(^\|\s\)\'/ end=/$/  contained contains=vbTodo 
+                   links to Comment
+vbLineLabel    xxx match /^\h\w\+:/  contained 
+                   links to Comment
+vbLineNumber   xxx match /^\d\+\(:\|\s\|$\)/  contained 
+                   links to Comment
+vbTypeSpecifier xxx match /\<\a\w*[@\$%&!#]/ms=s+1  contained 
+                   match /#[a-zA-Z0-9]/me=e-1  contained 
+                   links to Type
+vbPreProc      xxx match /^#const\>/  contained 
+                   matchgroup=PreProc start=/^#if\>/ end=/\<then\>/  contained transparent contains=TOP 
+                   matchgroup=PreProc start=/^#elseif\>/ end=/\<then\>/  contained transparent contains=TOP 
+                   match /^#else\>/  contained 
+                   match /^#end\s*if\>/  contained 
+                   links to PreProc
+cssTagName     xxx contained thead b a p q s u blockquote input button caption
+                   contained mark meta em param address i article title form
+                   contained base tfoot samp ruby img code ins span meter
+                   contained details data var command sub sup col svg fieldset
+                   contained optgroup option nav link figcaption h5 figure br
+                   contained dialog h4 picture dd dl dt noscript hgroup script
+                   contained object kbd canvas section bdi bdo del iframe h1 h2
+                   contained h3 h6 dfn hr html area small time div audio source
+                   contained cite li body colgroup strong summary progress
+                   contained keygen abbr isindex ol embed pre tbody legend
+                   contained output wbr header rp rt datalist main map td th tr
+                   contained label video footer ul aside track head textarea
+                   contained menuitem menu
+                   match /\<select\>\|\<style\>\|\<table\>/  contained 
+                   match /\*/  contained 
+                   links to Statement
+cssSelectorOp  xxx match /[,>+~]/  contained 
+                   links to Special
+cssSelectorOp2 xxx match /[~|^$*]\?=/  contained 
+                   links to Special
+cssUnicodeEscape xxx match /\\\x\{1,6}\s\?/  contained 
+                   links to Special
+cssStringQ     xxx start=/'/ skip=/\\\\\|\\'/ end=/'/  contained contains=cssUnicodeEscape,cssSpecialCharQ 
+                   links to String
+cssStringQQ    xxx start=/"/ skip=/\\\\\|\\"/ end=/"/  contained contains=cssUnicodeEscape,cssSpecialCharQQ 
+                   links to String
+cssAttributeSelector xxx matchgroup=cssSelectorOp start=/\[/ end=/]/  contained contains=cssUnicodeEscape,cssSelectorOp2,cssStringQ,cssStringQQ 
+                   links to String
+cssClassNameDot xxx match /\./  contained 
+                   links to Function
+cssClassName   xxx match /\.-\=[A-Za-z_][A-Za-z0-9_-]*/  contained contains=cssClassNameDot 
+                   links to Function
+cssIdentifier  xxx match /#[A-Za-zÃ~@-Ã¿_@][A-Za-zÃ~@-Ã¿0-9_@-]*/  contained 
+                   links to Function
+cssUnitDecorators xxx match /\%(#\|-\|+\|%\|mm\|cm\|in\|pt\|pc\|em\|ex\|px\|ch\|rem\|vh\|vw\|vmin\|vmax\|dpi\|dppx\|dpcm\|Hz\|kHz\|s\|ms\|deg\|grad\|rad\)/  contained 
+                   links to Number
+cssValueInteger xxx match /[-+]\=\d\+/  contained contains=cssUnitDecorators 
+                   links to Number
+cssValueNumber xxx match /[-+]\=\d\+\%(\.\d*\)\=/  contained contains=cssUnitDecorators 
+                   links to Number
+cssValueLength xxx match /[-+]\=\d\+\%(\.\d*\)\=\%(mm\|cm\|in\|pt\|pc\|px\|dpi\|dppx\|dpcm\|fr\|Q\|x\)\>/  contained contains=cssUnitDecorators 
+                   match /[-+]\=\d\+\%(\.\d*\)\=r\=\%(em\|ex\|cap\|lh\|ch\|ic\)\>/  contained contains=cssUnitDecorators 
+                   match /[-+]\=\d\+\%(\.\d*\)\=[dls]\=\%(vb\|vh\|vi\|vmax\|vmin\|vw\)\>/  contained contains=cssUnitDecorators 
+                   match /[-+]\=\d\+\%(\.\d*\)\=%/  contained contains=cssUnitDecorators 
+                   links to Number
+cssValueAngle  xxx match /[-+]\=\d\+\%(\.\d*\)\=\%(deg\|grad\|rad\|turn\)\>/  contained contains=cssUnitDecorators 
+                   links to Number
+cssValueTime   xxx match /+\=\d\+\%(\.\d*\)\=\%(ms\|s\)\>/  contained contains=cssUnitDecorators 
+                   links to Number
+cssValueFrequency xxx match /+\=\d\+\%(\.\d*\)\=\%(Hz\|kHz\)\>/  contained contains=cssUnitDecorators 
+                   links to Number
+cssColor       xxx contained ButtonHighlight ActiveBorder ThreeDFace
+                   contained ThreeDLightShadow WindowFrame Scrollbar
+                   contained ThreeDDarkShadow HighlightText MenuText Highlight
+                   contained ThreeDHighlight InfoBackground InactiveCaption
+                   contained ButtonFace InfoText AppWorkspace Background
+                   contained WindowText Menu ThreeDShadow CaptionText
+                   contained ButtonText GrayText InactiveCaptionText
+                   contained InactiveBorder Window ButtonShadow ActiveCaption
+                   contained indianred saddlebrown lavender steelblue
+                   contained lemonchiffon cyan dimgray linen coral lime
+                   contained cornflowerblue orange brown plum dimgrey crimson
+                   contained pink springgreen midnightblue burlywood maroon tan
+                   contained lawngreen hotpink mintcream magenta chartreuse
+                   contained yellowgreen purple teal ghostwhite red sandybrown
+                   contained floralwhite slateblue deepskyblue rebeccapurple
+                   contained moccasin salmon blanchedalmond thistle yellow
+                   contained aliceblue azure peachpuff blueviolet goldenrod
+                   contained aqua limegreen black silver slategray snow
+                   contained papayawhip blue orchid skyblue peru slategrey
+                   contained fuchsia gainsboro chocolate powderblue cornsilk
+                   contained seashell gold tomato navy bisque honeydew
+                   contained whitesmoke green ivory gray indigo olive wheat
+                   contained cadetblue antiquewhite beige greenyellow
+                   contained lavenderblush violet sienna oldlace seagreen grey
+                   contained firebrick aquamarine orangered olivedrab turquoise
+                   contained deeppink rosybrown forestgreen khaki royalblue
+                   contained dodgerblue navajowhite mistyrose
+                   match /\<dark\%(blue\|cyan\|goldenrod\|gray\|green\|grey\|khaki\)\>/  contained 
+                   match /\<dark\%(magenta\|olivegreen\|orange\|orchid\|red\|salmon\|seagreen\)\>/  contained 
+                   match /\<darkslate\%(blue\|gray\|grey\)\>/  contained 
+                   match /\<dark\%(turquoise\|violet\)\>/  contained 
+                   match /\<light\%(blue\|coral\|cyan\|goldenrodyellow\|gray\|green\)\>/  contained 
+                   match /\<light\%(grey\|pink\|salmon\|seagreen\|skyblue\|yellow\)\>/  contained 
+                   match /\<light\%(slategray\|slategrey\|steelblue\)\>/  contained 
+                   match /\<medium\%(aquamarine\|blue\|orchid\|purple\|seagreen\)\>/  contained 
+                   match /\<medium\%(slateblue\|springgreen\|turquoise\|violetred\)\>/  contained 
+                   match /\<pale\%(goldenrod\|green\|turquoise\|violetred\)\>/  contained 
+                   match /\<transparent\>/  contained 
+                   match /\<currentColor\>/  contained 
+                   match /\<white\>/  contained 
+                   match /#\x\{3,4\}\>/  contained contains=cssUnitDecorators 
+                   match /#\x\{6\}\>/  contained contains=cssUnitDecorators 
+                   match /#\x\{8\}\>/  contained contains=cssUnitDecorators 
+                   links to Constant
+cssImportant   xxx match /!\s*important\>/  contained 
+                   links to Special
+cssCustomProp  xxx match /\<--[a-zA-Z0-9-_]*\>/  contained 
+                   links to Special
+cssURL         xxx matchgroup=cssFunctionName start=/\<\%(uri\|url\|local\|format\)\s*(/ end=/)/  contained oneline contains=cssStringQ,cssStringQQ 
+                   links to String
+cssFunction    xxx matchgroup=cssFunctionName start=/\<\%(var\|calc\)\s*(/ end=/)/  contained oneline contains=cssCustomProp,cssValueFrequency,cssValueTime,cssValueAngle,cssValueLength,cssValueNumber,cssValueInteger,cssFunction,cssURL,cssColor,cssStringQ,cssStringQQ 
+                   matchgroup=cssFunctionName start=/\<\%(rgb\|clip\|attr\|counter\|rect\|cubic-bezier\|steps\)\s*(/ end=/)/  contained oneline contains=cssValueInteger,cssValueNumber,cssValueLength,cssFunctionComma 
+                   matchgroup=cssFunctionName start=/\<\%(rgba\|hsl\|hsla\|color-stop\|from\|to\)\s*(/ end=/)/  contained oneline contains=cssColor,cssValueInteger,cssValueNumber,cssValueLength,cssFunctionComma,cssFunction 
+                   matchgroup=cssFunctionName start=/\<\%(linear-\|radial-\|conic-\)\=\gradient\s*(/ end=/)/  contained oneline contains=cssColor,cssValueInteger,cssValueNumber,cssValueLength,cssFunction,cssGradientAttr,cssFunctionComma 
+                   matchgroup=cssFunctionName start=/\<\%(matrix\%(3d\)\=\|scale\%(3d\|X\|Y\|Z\)\=\|translate\%(3d\|X\|Y\|Z\)\=\|skew\%(X\|Y\)\=\|rotate\%(3d\|X\|Y\|Z\)\=\|perspective\)\s*(/ end=/)/  contained oneline contains=cssValueInteger,cssValueNumber,cssValueLength,cssValueAngle,cssFunctionComma 
+                   matchgroup=cssFunctionName start=/\<\%(blur\|brightness\|contrast\|drop-shadow\|grayscale\|hue-rotate\|invert\|opacity\|saturate\|sepia\)\s*(/ end=/)/  contained oneline contains=cssValueInteger,cssValueNumber,cssValueLength,cssValueAngle,cssFunctionComma 
+                   links to Constant
+cssMathGroup   xxx matchgroup=cssMathParens start=/(/ end=/)/  contained oneline contains=cssCustomProp,cssValueFrequency,cssValueTime,cssValueAngle,cssValueLength,cssValueNumber,cssValueInteger,cssFunction,cssColor,cssStringQ,cssStringQQ containedin=cssFunction,cssMathGroup 
+cssFunctionComma xxx match /,/  contained 
+                   links to Function
+cssGradientAttr xxx contained center left at top middle ellipse bottom cover
+                   contained right
+                   links to cssAttr
+cssCommonAttr  xxx contained normal visible center stretch none all top inherit
+                   contained bottom hidden auto default
+                   match /\<\%(max-\|min-\|fit-\)content\>/  contained 
+                   links to cssAttr
+cssAnimationProp xxx match /\<animation\%(-\%(delay\|direction\|duration\|fill-mode\|name\|play-state\|timing-function\|iteration-count\)\)\=\>/  contained 
+                   links to cssProp
+cssAnimationAttr xxx contained reverse infinite both backwards running
+                   contained alternate paused forwards
+                   match /\<alternate-reverse\>/  contained 
+                   links to cssAttr
+cssBackgroundProp xxx match /\<background\%(-\%(attachment\|clip\|color\|image\|origin\|position\|repeat\|size\)\)\=\>/  contained 
+                   links to cssProp
+cssBackgroundAttr xxx contained center left contain scroll local fixed top
+                   contained bottom cover right
+                   match /\<no-repeat\>/  contained 
+                   match /\<repeat\%(-[xy]\)\=\>/  contained 
+                   links to cssAttr
+cssBorderProp  xxx match /\<border\%(-\%(top\|right\|bottom\|left\)\)\=\%(-\%(width\|color\|style\)\)\=\>/  contained 
+                   match /\<border\%(-\%(top\|bottom\)-\%(left\|right\)\)\=-radius\>/  contained 
+                   match /\<border-\%(inline\|block\)\%(-\%(start\|end\)\)\=\%(-\%(style\|width\|color\)\)\=\>/  contained 
+                   match /\<border-\%(start\|end\)-\%(start\|end\)-radius\>/  contained 
+                   match /\<border-image\%(-\%(outset\|repeat\|slice\|source\|width\)\)\=\>/  contained 
+                   match /\<box-decoration-break\>/  contained 
+                   match /\<box-shadow\>/  contained 
+                   links to cssProp
+cssBorderAttr  xxx contained thick clone inset thin round stretch solid outset
+                   contained ridge double groove fill slice dotted medium
+                   contained dashed
+                   links to cssAttr
+cssBoxProp     xxx match /\<padding\%(-\%(top\|right\|bottom\|left\)\)\=\>/  contained 
+                   match /\<margin\%(-\%(top\|right\|bottom\|left\)\)\=\>/  contained 
+                   match /\<\%(margin\|padding\)\%(-\%(inline\|block\)\%(-\%(start\|end\)\)\=\)\=\>/  contained 
+                   match /\<rotation\%(-point\)\=\>/  contained 
+                   links to cssProp
+cssBoxAttr     xxx contained visible scroll hidden auto
+                   match /\<no-\%(display\|content\)\>/  contained 
+                   links to cssAttr
+cssOverflowProp xxx match /\<overflow-clip-margin\>/  contained 
+                   match /\<text-overflow\>/  contained 
+                   match /\<overflow\%(-\%(x\|y\|inline\|block\)\)\=\>/  contained 
+                   match /\<scrollbar-gutter\>/  contained 
+                   match /\<scroll-behavior\>/  contained 
+                   links to cssProp
+cssOverflowAttr xxx contained visible stable both-edges scroll ellipsis smooth
+                   contained clip clip hidden auto auto auto
+cssCascadeProp xxx contained all
+                   links to cssProp
+cssCascadeAttr xxx contained initial unset revert
+                   links to cssAttr
+cssColorProp   xxx contained opacity
+                   match /\<color-profile\>/  contained 
+                   match /\<rendering-intent\>/  contained 
+                   links to cssProp
+cssDimensionProp xxx contained width height
+                   match /\<\%(min\|max\)-\%(width\|height\)\>/  contained 
+                   links to cssProp
+cssFlexibleBoxProp xxx contained order
+                   match /\<flex\%(-\%(direction\|wrap\|flow\|grow\|shrink\|basis\)\)\=\>/  contained 
+                   match /\<\%(align\|justify\)\%(-\%(items\|self\|content\)\)\=\>/  contained 
+                   links to cssProp
+cssFlexibleBoxAttr xxx contained baseline center nowrap stretch
+                   match /\<\%(row\|column\|wrap\)\%(-reverse\)\=\>/  contained 
+                   match /\<flex\%(-\%(start\|end\)\)\=\>/  contained 
+                   match /\<space\%(-\%(between\|around\|evenly\)\)\=\>/  contained 
+                   links to cssAttr
+cssFontProp    xxx match /\<font\%(-\%(display\|family\|feature-settings\|kerning\|language-override\|size\%(-adjust\)\=\|stretch\|style\|synthesis\|variant\%(-\%(alternates\|caps\|east-asian\|ligatures\|numeric\|position\)\)\=\|weight\)\)\=\>/  contained 
+                   match /\<font-smooth\>/  contained 
+                   links to cssProp
+cssFontAttr    xxx contained caption style weight fantasy bolder oblique
+                   contained optional cursive serif lighter monospace swap
+                   contained sans-serif smaller on fallback block icon bold
+                   contained italic auto menu larger off
+                   match /\<message-box\>/  contained 
+                   match /\<status-bar\>/  contained 
+                   match /\<\%(x\{1,2\}-\)\=\%(large\|small\)\>/  contained 
+                   match /\<small-\%(caps\|caption\)\>/  contained 
+                   match /\<\%(\%(ultra\|extra\|semi\)-\)\=\%(condensed\|expanded\)\>/  contained 
+                   match /\<\%(subpixel-\)\=\antialiased\>/  contained 
+                   links to cssAttr
+cssMultiColumnProp xxx contained columns
+                   match /\<break-\%(after\|before\|inside\)\>/  contained 
+                   match /\<column-\%(count\|fill\|gap\|rule\%(-\%(color\|style\|width\)\)\=\|span\|width\)\>/  contained 
+                   match /\<page\%(-break-\%(before\|after\|inside\)\)\=\>/  contained 
+                   links to cssProp
+cssMultiColumnAttr xxx contained left column balance always page medium right
+                   match /\<avoid\%(-\%(page\|column\)\)\=\>/  contained 
+                   links to cssAttr
+cssInteractProp xxx match /\<pointer-events\>/  contained 
+                   links to cssProp
+cssInteractAttr xxx match /\<\%(visible\)\=\%(Painted\|Fill\|Stroke\)\=\>/  contained 
+                   links to cssAttr
+cssGeneratedContentProp xxx contained quotes crop
+                   match /\<counter-\%(reset\|increment\)\>/  contained 
+                   match /\<move-to\>/  contained 
+                   match /\<page-policy\>/  contained 
+                   links to cssProp
+cssGeneratedContentAttr xxx match /\<\%(no-\)\=\%(open\|close\)-quote\>/  contained 
+                   links to cssAttr
+cssGridProp    xxx match /\<grid\>/  contained 
+                   match /\<grid-template\%(-\%(columns\|rows\|areas\)\)\=\>/  contained 
+                   match /\<\%(grid-\)\=\%(column\|row\)\%(-\%(start\|end\|gap\)\)\=\>/  contained 
+                   match /\<grid-\%(area\|gap\)\>/  contained 
+                   match /\<gap\>/  contained 
+                   match /\<grid-auto-\%(flow\|rows\|columns\)\>/  contained 
+                   links to cssProp
+cssHyerlinkProp xxx match /\<target\%(-\%(name\|new\|position\)\)\=\>/  contained 
+                   links to cssProp
+cssListProp    xxx match /\<list-style\%(-\%(type\|position\|image\)\)\=\>/  contained 
+                   links to cssProp
+cssListAttr    xxx contained disc hebrew armenian square circle outside inside
+                   contained georgian
+                   match /\<\%(lower\|upper\)-\%(roman\|alpha\|greek\|latin\)\>/  contained 
+                   match /\<\%(hiragana\|katakana\)\%(-iroha\)\=\>/  contained 
+                   match /\<\%(decimal\%(-leading-zero\)\=\|cjk-ideographic\)\>/  contained 
+                   links to cssAttr
+cssObjectProp  xxx match /\<object-\%(fit\|position\)\>/  contained 
+                   links to cssProp
+cssObjectAttr  xxx contained contain scale-down fill cover
+                   links to cssAttr
+cssPositioningProp xxx contained display left position visibility top bottom
+                   contained clear float clip right
+                   match /\<z-index\>/  contained 
+                   links to cssProp
+cssPositioningAttr xxx contained both left absolute relative subgrid fixed
+                   contained compact block static sticky right grid
+                   match /\<table\%(-\%(row-group\|\%(header\|footer\)-group\|row\|column\%(-group\)\=\|cell\|caption\)\)\=\>/  contained 
+                   match /\<list-item\>/  contained 
+                   match /\<inline\%(-\%(block\|box\|table\|grid\|flex\)\)\=\>/  contained 
+                   match /\<flow\%(-root\)\=\>/  contained 
+                   links to cssAttr
+cssPrintAttr   xxx contained landscape cross always portrait crop
+                   links to cssAttr
+cssTableProp   xxx match /\<\%(caption-side\|table-layout\|border-collapse\|border-spacing\|empty-cells\)\>/  contained 
+                   links to cssProp
+cssTableAttr   xxx contained once separate always fixed show collapse hide
+                   links to cssAttr
+cssTextProp    xxx contained direction color hyphens
+                   match /\<\%(\%(word\|letter\)-spacing\|text\%(-\%(decoration\|transform\|align\|index\|shadow\)\)\=\|vertical-align\|unicode-bidi\|line-height\)\>/  contained 
+                   match /\<text-\%(justify\|outline\|warp\|align-last\|size-adjust\|rendering\|stroke\|indent\)\>/  contained 
+                   match /\<\%(word\|line\)-break\|\%(overflow\|word\)-wrap\>/  contained 
+                   match /\<white-space\>/  contained 
+                   match /\<hanging-punctuation\>/  contained 
+                   match /\<tab-size\>/  contained 
+                   match /\<punctuation-trim\>/  contained 
+                   links to cssProp
+cssTextAttr    xxx contained distribute baseline capitalize super super
+                   contained suppress nowrap first justify geometricprecision
+                   contained end sub sub lowercase optimizelegibility start
+                   contained last kashida ellipsis manual adjacent
+                   contained optimizespeed underline middle embed unrestricted
+                   contained blink rtl overline ltr uppercase clip
+                   match /\<line-through\>/  contained 
+                   match /\<\%(text-\)\=\%(top\|bottom\)\>/  contained 
+                   match /\<pre\%(-\%(line\|wrap\)\)\=\>/  contained 
+                   match /\<\%(allow\|force\)-end\>/  contained 
+                   match /\<inter-\%(word\|ideographic\|cluster\)\>/  contained 
+                   match /\<break-all\>/  contained 
+                   match /\<break-word\>/  contained 
+                   match /\<bidi-override\>/  contained 
+                   links to cssAttr
+cssTransformProp xxx match /\<transform\%(-\%(origin\|style\)\)\=\>/  contained 
+                   match /\<perspective\%(-origin\)\=\>/  contained 
+                   match /\<backface-visibility\>/  contained 
+                   links to cssProp
+cssTransitionProp xxx match /\<transition\%(-\%(delay\|duration\|property\|timing-function\)\)\=\>/  contained 
+                   links to cssProp
+cssTransitionAttr xxx match /\<linear\%(-gradient\)\@!\>/  contained 
+                   match /\<ease\%(-\%(in-out\|out\|in\)\)\=\>/  contained 
+                   match /\<step\%(-start\|-end\)\=\>/  contained 
+                   links to cssAttr
+cssUIProp      xxx contained resize appearance icon cursor
+                   match /\<box-sizing\>/  contained 
+                   match /\<ime-mode\>/  contained 
+                   match /\<nav-\%(down\|index\|left\|right\|up\)\=\>/  contained 
+                   match /\<outline\%(-\%(width\|style\|color\|offset\)\)\=\>/  contained 
+                   match /\<image-rendering\>/  contained 
+                   match /\<\%(tap-highlight-color\|user-select\|touch-callout\)\>/  contained 
+                   links to cssProp
+cssUIAttr      xxx contained button move move both pointer window copy vertical
+                   contained help disabled wait field document alias cell
+                   contained ellipsis inactive progress invert horizontal text
+                   contained active crosshair icon clip menu pixellated
+                   match /\<\%(content\|padding\|border\)\%(-box\)\=\>/  contained 
+                   match /\<\%(\%([ns]\=[ew]\=\)\|col\|row\|nesw\|nwse\)-resize\>/  contained 
+                   match /\<context-menu\>/  contained 
+                   match /\<no-drop\>/  contained 
+                   match /\<not-allowed\>/  contained 
+                   match /\<all-scroll\>/  contained 
+                   match /\<\%(vertical-\)\=text\>/  contained 
+                   match /\<zoom\%(-in\|-out\)\=\>/  contained 
+                   match /\<crisp-edges\>/  contained 
+                   match /\<preserve-3d\>/  contained 
+                   links to cssAttr
+cssIEUIAttr    xxx match /\<bicubic\>/  contained 
+                   links to cssAttr
+cssIEUIProp    xxx match /\<\%(interpolation-mode\|zoom\|filter\)\>/  contained 
+                   links to cssProp
+cssAuralProp   xxx contained volume richness during stress azimuth elevation
+                   match /\<\%(pause\|cue\)\%(-\%(before\|after\)\)\=\>/  contained 
+                   match /\<\%(play-during\|speech-rate\|voice-family\|pitch\%(-range\)\=\|speak\%(-\%(punctuation\|numeral\|header\)\)\=\)\>/  contained 
+                   links to cssProp
+cssAuralAttr   xxx contained above continuous rightwards code behind mix silent
+                   contained below child male non lower higher digits slower
+                   contained faster level leftwards female
+                   match /\<\%(x-\)\=\%(soft\|loud\)\>/  contained 
+                   match /\<spell-out\>/  contained 
+                   match /\<\%(left\|right\)-side\>/  contained 
+                   match /\<\%(far\|center\)-\%(left\|center\|right\)\>/  contained 
+                   match /\<\%(x-\)\=\%(slow\|fast\|low\|high\)\>/  contained 
+                   links to cssAttr
+cssMobileTextProp xxx match /\<text-size-adjust\>/  contained 
+                   links to cssProp
+cssMediaProp   xxx contained color-gamut pointer orientation width height
+                   contained any-hover hover any-pointer scan grid update
+                   match /\<\%(\%(max\|min\)-\)\=\%(\%(device\)-\)\=aspect-ratio\>/  contained 
+                   match /\<\%(\%(max\|min\)-\)\=device-pixel-ratio\>/  contained 
+                   match /\<\%(\%(max\|min\)-\)\=device-\%(height\|width\)\>/  contained 
+                   match /\<\%(\%(max\|min\)-\)\=\%(height\|width\|resolution\|monochrome\|color\%(-index\)\=\)\>/  contained 
+                   links to cssProp
+cssMediaAttr   xxx contained srgb paged infinite interlace coarse landscape
+                   contained fast scroll fine rec2020 slow hover p3 portrait
+                   contained progressive
+                   links to cssAttr
+cssDefinition  xxx matchgroup=cssBraces start=/{/ end=/}/  contained transparent fold contains=cssTagName,cssAttributeSelector,cssClassName,cssIdentifier,cssAtRule,cssAttrRegion,cssFontDescriptorProp,cssPageProp,cssPageMarginProp,cssKeyFrameProp,cssMediaProp,cssMobileTextProp,cssAuralProp,cssIEUIProp,cssUIProp,cssTransitionProp,cssTransformProp,cssTextProp,cssTableProp,cssPositioningProp,cssObjectProp,cssListProp,cssHyerlinkProp,cssGridProp,cssGeneratedContentProp,cssInteractProp,cssMultiColumnProp,cssFontProp,cssFlexibleBoxProp,cssDimensionProp,cssColorProp,cssCascadeProp,cssOverflowProp,cssBoxProp,cssBorderProp,cssBackgroundProp,cssAnimationProp,cssCustomProp,cssComment,cssValueFrequency,cssValueTime,cssValueAngle,cssValueLength,cssValueNumber,cssValueInteger,cssColor,cssURL,cssImportant,cssCustomProp,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssVendor,cssDefinition,cssHacks,cssNoise 
+cssKeyFrameProp xxx match /\%(\d\+\%(\.\d\+\)\?%\|\%(\<from\|to\>\)\)/  contained nextgroup=cssDefinition 
+                   links to Constant
+cssPageMarginProp xxx match /@\%(\%(top\|left\|right\|bottom\)-\%(left\|center\|right\|middle\|bottom\)\)\%(-corner\)\=/  contained nextgroup=cssDefinition 
+                   links to cssAtKeyword
+cssPageProp    xxx contained widows content size orphans
+                   links to cssProp
+cssFontDescriptorProp xxx contained src
+                   match /\<unicode-range\>/  contained 
+                   links to cssProp
+cssFontDescriptorAttr xxx match /U+[0-9A-Fa-f?]\+/  contained 
+                   match /U+\x\+-\x\+/  contained 
+                   links to cssAttr
+cssBraces      xxx match /[{}]/  contained 
+                   links to Function
+cssError       xxx match /{@<>/  contained 
+                   links to Error
+cssAtRule      xxx start=/@media\>/ end=/\ze{/  contained contains=cssMediaProp,cssValueLength,cssAtRuleLogical,cssValueInteger,cssMediaAttr,cssVendor,cssMediaType,cssComment,cssCustomProp,cssFunctionName nextgroup=cssDefinition skipwhite skipnl 
+                   start=/@page\>/ end=/\ze{/  contained contains=cssPagePseudo,cssComment nextgroup=cssDefinition skipwhite skipnl 
+                   start=/@\%(-[a-z]\+-\)\=keyframes\>/ end=/\ze{/  contained contains=cssVendor,cssComment nextgroup=cssDefinition skipwhite skipnl 
+                   start=/@import\>/ end=/\ze;/  contained contains=cssStringQ,cssStringQQ,cssUnicodeEscape,cssComment,cssAtKeyword,cssURL,cssMediaProp,cssValueLength,cssAtRuleLogical,cssValueInteger,cssMediaAttr,cssMediaType 
+                   start=/@charset\>/ end=/\ze;/  contained contains=cssStringQ,cssStringQQ,cssUnicodeEscape,cssComment,cssAtKeyword 
+                   start=/@namespace\>/ end=/\ze;/  contained contains=cssStringQ,cssStringQQ,cssUnicodeEscape,cssComment,cssAtKeyword 
+                   start=/@supports\>/ end=/\ze{/  contained contains=cssAtRuleLogical,cssAttrRegion,cssFontDescriptorProp,cssPageProp,cssPageMarginProp,cssKeyFrameProp,cssMediaProp,cssMobileTextProp,cssAuralProp,cssIEUIProp,cssUIProp,cssTransitionProp,cssTransformProp,cssTextProp,cssTableProp,cssPositioningProp,cssObjectProp,cssListProp,cssHyerlinkProp,cssGridProp,cssGeneratedContentProp,cssInteractProp,cssMultiColumnProp,cssFontProp,cssFlexibleBoxProp,cssDimensionProp,cssColorProp,cssCascadeProp,cssOverflowProp,cssBoxProp,cssBorderProp,cssBackgroundProp,cssAnimationProp,cssCustomProp,cssValueFrequency,cssValueTime,cssValueAngle,cssValueLength,cssValueNumber,cssValueInteger,cssVendor,cssAtKeyword,cssComment nextgroup=cssDefinition skipwhite skipnl 
+                   links to Include
+cssAttrRegion  xxx start=/:/ end=/\ze\%(;\|)\|}\|{\)/  contained contains=cssPseudoClassId,cssFontDescriptorAttr,cssMediaAttr,cssAuralAttr,cssIEUIAttr,cssUIAttr,cssTransitionAttr,cssTextAttr,cssTableAttr,cssPrintAttr,cssPositioningAttr,cssObjectAttr,cssListAttr,cssGeneratedContentAttr,cssInteractAttr,cssMultiColumnAttr,cssFontAttr,cssFlexibleBoxAttr,cssCascadeAttr,cssOverflowAttr,cssBoxAttr,cssBorderAttr,cssBackgroundAttr,cssAnimationAttr,cssCommonAttr,cssGradientAttr,cssColor,cssImportant,cssValueFrequency,cssValueTime,cssValueAngle,cssValueLength,cssValueNumber,cssValueInteger,cssFunction,cssStringQQ,cssStringQ,cssURL,cssComment,cssUnicodeEscape,cssVendor,cssError,cssAttrComma,cssNoise 
+                   start=/transition\s*:/ end=/\ze\%(;\|)\|}\)/  contained contains=cssFontDescriptorProp,cssPageProp,cssPageMarginProp,cssKeyFrameProp,cssMediaProp,cssMobileTextProp,cssAuralProp,cssIEUIProp,cssUIProp,cssTransitionProp,cssTransformProp,cssTextProp,cssTableProp,cssPositioningProp,cssObjectProp,cssListProp,cssHyerlinkProp,cssGridProp,cssGeneratedContentProp,cssInteractProp,cssMultiColumnProp,cssFontProp,cssFlexibleBoxProp,cssDimensionProp,cssColorProp,cssCascadeProp,cssOverflowProp,cssBoxProp,cssBorderProp,cssBackgroundProp,cssAnimationProp,cssCustomProp,cssFontDescriptorAttr,cssMediaAttr,cssAuralAttr,cssIEUIAttr,cssUIAttr,cssTransitionAttr,cssTextAttr,cssTableAttr,cssPrintAttr,cssPositioningAttr,cssObjectAttr,cssListAttr,cssGeneratedContentAttr,cssInteractAttr,cssMultiColumnAttr,cssFontAttr,cssFlexibleBoxAttr,cssCascadeAttr,cssOverflowAttr,cssBoxAttr,cssBorderAttr,cssBackgroundAttr,cssAnimationAttr,cssCommonAttr,cssGradientAttr,cssColor,cssImportant,cssValueFrequency,cssValueTime,cssValueAngle,cssValueLength,cssValueNumber,cssValueInteger,cssFunction,cssStringQQ,cssStringQ,cssURL,cssComment,cssUnicodeEscape,cssVendor,cssError,cssAttrComma,cssNoise 
+cssComment     xxx start=+/\*+ end=+\*/+  contained fold contains=@Spell 
+                   links to Comment
+cssVendor      xxx match /-\%(webkit\|moz\|o\|ms\)-/  contained 
+                   links to Comment
+cssHacks       xxx match /\%(_\|*\)/  contained 
+                   links to Comment
+cssNoise       xxx match +\%(:\|;\|\/\)+  contained 
+                   links to Noise
+cssBraceError  xxx match /}/  contained 
+                   links to Error
+cssAttrComma   xxx match /,/  contained 
+                   links to Special
+cssPseudoClassId xxx contained empty target host before left disabled invalid
+                   contained after link checked root enabled hover visited
+                   contained slotted active right
+                   match /\<first-\%(line\|letter\)\>/  contained 
+                   match /\<\%(first\|last\|only\)-\%(of-type\|child\)\>/  contained 
+                   match /\<focus\%(-within\|-visible\)\=\>/  contained 
+                   match /\<selection\>/  contained 
+                   match /\<\%(input-\)\=placeholder\>/  contained 
+                   links to PreProc
+cssPseudoClassFn xxx matchgroup=cssFunctionName start=/\<\%(not\|is\|lang\|host\|host-context\|state\|\%(nth\|nth-last\)-\%(of-type\|child\)\)(/ end=/)/  contained contains=cssStringQ,cssStringQQ,cssTagName,cssAttributeSelector,cssClassName,cssIdentifier 
+cssPseudoClass xxx match /:[A-Za-z0-9_-]*/  contained contains=cssNoise,cssPseudoClassId,cssUnicodeEscape,cssVendor,cssPseudoClassFn 
+cssSpecialCharQQ xxx match /\\\\\|\\"/  contained 
+cssSpecialCharQ xxx match /\\\\\|\\'/  contained 
+cssAtKeyword   xxx match /@\%(font-face\|media\|keyframes\|import\|charset\|namespace\|page\|supports\)/  contained 
+                   links to PreProc
+cssAtRuleLogical xxx contained and only not
+                   links to Statement
+cssMediaType   xxx contained speech handheld print braille screen embossed
+                   contained projection aural all tty tv
+                   links to Special
+cssPagePseudo  xxx match /:\%(left\|right\|first\|blank\)/  contained 
+                   links to PreProc
+htmlXml        cluster=xmlError,xmlEntity,xmlEqual,xmlTag,xmlEndTag,xmlCdata,xmlComment,xmlProcessing,xmlDocType,xmlSyncComment 
+Spell          cluster=NONE
+xmlAttribHook  cluster=NONE
+xmlNamespaceHook cluster=NONE
+xmlTagHook     cluster=htmlMathTagName,htmlSvgTagName 
+xmlStartTagHook cluster=NONE
+xmlCommentHook cluster=NONE
+xmlCdataHook   cluster=NONE
+xmlDTD         cluster=NONE
+htmlPreproc    cluster=NONE
+htmlArgCluster cluster=NONE
+htmlTagNameCluster cluster=NONE
+htmlTop        cluster=@Spell,htmlTag,htmlEndTag,htmlSpecialChar,htmlPreProc,htmlComment,htmlLink,javaScript,@htmlPreproc 
+htmlJavaScript cluster=javaScriptLineComment,javaScriptCommentSkip,javaScriptComment,javaScriptSpecial,javaScriptStringD,javaScriptStringS,javaScriptEmbed,javaScriptStringT,javaScriptSpecialCharacter,javaScriptNumber,javaScriptRegexpString,javaScriptConditional,javaScriptRepeat,javaScriptBranch,javaScriptOperator,javaScriptType,javaScriptStatement,javaScriptBoolean,javaScriptNull,javaScriptIdentifier,javaScriptLabel,javaScriptException,javaScriptMessage,javaScriptGlobal,javaScriptMember,javaScriptDeprecated,javaScriptReserved,javaScriptModifier,javaScriptFunction,javaScriptBraces,javaScriptParens,@htmlPreproc 
+javaScriptEmbededExpr cluster=javaScriptBoolean,javaScriptNull,javaScriptIdentifier,javaScriptStringD,javaScriptStringS,javaScriptStringT 
+htmlVbScript   cluster=vbConditional,vbOperator,vbBoolean,vbConst,vbRepeat,vbEvents,vbFunction,vbMethods,vbStatement,vbKeyword,vbTypes,vbDefine,vbNumber,vbFloat,vbString,vbComment,vbLineLabel,vbLineNumber,vbTypeSpecifier,vbPreProc 
+htmlCss        cluster=cssTagName,cssSelectorOp,cssUnicodeEscape,cssStringQ,cssStringQQ,cssAttributeSelector,cssClassName,cssIdentifier,cssTextProp,cssDefinition,cssAtRule,cssComment,cssBraceError,cssAttrComma,cssPseudoClass,cssAtKeyword 

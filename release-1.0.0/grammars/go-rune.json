@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.go-rune",
+ "injectionSelector": "L:source.go string.quoted.rune",
+ "patterns": [
+  {
+   "match": "\\\\(?:[abfnrtv\\\\'\\\"]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[0-7]{3})",
+   "name": "vim.Special"
+  }
+ ]
+}

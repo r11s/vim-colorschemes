@@ -1,0 +1,14 @@
+{
+ "scopeName": "vim.injection.cobol",
+ "injectionSelector": "source.cobol -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:CALL)\\b",
+   "name": "vim.cobolSpace.cobolSpace"
+  },
+  {
+   "match": "(?i)\\b(?:depending|redefines|perform|program|renames|varying|binary|cancel|goback|invoke|occurs|spaces|zeroes|alter|enter|match|space|zeros|comp|exec|goto|null|thru|zero|run)\\b",
+   "name": "vim.cobolSpace.cobolSpace"
+  }
+ ]
+}

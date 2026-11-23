@@ -1,0 +1,143 @@
+
+--- Syntax items ---
+cobolAreaA     xxx match / \{1,4\}/  contained nextgroup=@cobolAreaA,@cobolAreaAB 
+cobolAreaB     xxx match / \{5,\}\|- */  contained nextgroup=@cobolAreaB,@cobolAreaAB 
+                   links to Special
+cobolComment   xxx match +[/*C].*$+  contained 
+                   links to Comment
+cobolCompiler  xxx match /$.*$/  contained 
+                   links to PreProc
+cobolParagraph xxx match /\a[A-Z0-9-]*[A-Z0-9]\.\|\d[A-Z0-9-]*[A-Z]\./he=e-1  contained contains=cobolParagraphName 
+                   links to Label
+cobolSection   xxx match /[A-Z][A-Z0-9-]*[A-Z0-9]\s\+SECTION\./he=e-1  contained contains=cobolSectionName 
+                   links to Label
+cobolDivision  xxx match /[A-Z][A-Z0-9-]*[A-Z0-9]\s\+DIVISION/  contained contains=cobolDivisionName 
+                   links to Label
+cobolLine      xxx match /.*$/  contained contains=cobolReserved,@cobolLine 
+cobolReserved  xxx contained key converting numeric-edited run end-subtract
+                   contained currency of optional on end-unstring or divide als
+                   contained security true returning final segment debug-item
+                   contained number index reference memory page-counter
+                   contained alphabet end-receive giving remainder rerun when
+                   contained leading end-compute external ascending pf perform
+                   contained ph end-delete procedures end-add fd standard-1
+                   contained standard-2 section initial packed-decimal dynamic
+                   contained for date positive thru pic table sequential extend
+                   contained lock cbll alphanumeric-edited purge input using
+                   contained error date-written control end-of-page collating
+                   contained debug-sub-1 debug-sub-2 greater varying output
+                   contained tape terminal end-read indexed just advancing
+                   contained descending initiate multiple right start add
+                   contained cancel any multiply replace alphanumeric read
+                   contained removal alphabetic merge bottom corr debugging
+                   contained unit alternate last times delete high-values
+                   contained organization move through subtract rd rf rh enable
+                   contained from unstring end-write debug-name class
+                   contained debug-sub-3 after clock-units blank exit cobol
+                   contained areas test sign code-set occurs words egi generate
+                   contained tallying installation sd mode division into
+                   contained terminate is communications stop receive modules
+                   contained sequence global compute position than
+                   contained segment-limited binary reset until string and
+                   contained common end-evaluate random end-start accept end-if
+                   contained omitted exception i-o rewind corresponding
+                   contained computational equal filler count initialize area
+                   contained address size reporting esi sum end-search
+                   contained end-rewrite order reversed detail label every
+                   contained references sub-queue-1 sub-queue-2 sub-queue-3
+                   contained day-of-week time suppress date-compiled are
+                   contained standard destination record author report value
+                   contained values at queue delimited source set procedd reel
+                   contained delimiter assign high-value false plus
+                   contained alphabetic-upper first length send page character
+                   contained numeric delaratives pointer content redefines
+                   contained overflow inspect sort comma block status other
+                   contained return search write characters quotes
+                   contained decimal-point before same reports with padding
+                   contained duplicates symbolic trailing else upon close
+                   contained evaluate access printing sort-merge rounded
+                   contained continue top relative display heading release
+                   contained debug-line message native picture cd cf column ch
+                   contained end-return not synchronized day left text group
+                   contained then reserve end-divide up indicate records code
+                   contained end-string depending separate alphabetic-lower off
+                   contained open negative sentence down footing justified no
+                   contained de next select sync rewrite usage debug-contents
+                   contained end-multiply use disable emi type
+                   match /\<CONTAINS\>/  contained 
+                   match /\<\(IF\|INVALID\|END\|EOP\)\>/  contained 
+                   match /\<ALL\>/  contained 
+                   match /\<BY\>\s\+\(==\)\@!/  contained 
+                   match /\<TO\>/  contained 
+                   links to Statement
+cobolMarker    xxx match /^\%( \{,5\}[^ ]\)\@=.\{,6}/  nextgroup=@cobolStart 
+                   links to Error
+cobolSpace     xxx match /^ \{6\}/  nextgroup=@cobolStart 
+cobolDivisionName xxx contained data environment procedure identification
+                   links to Keyword
+cobolSectionName xxx contained linkage file input-output working-storage
+                   contained configuration local-storage
+                   links to Keyword
+cobolParagraphName xxx contained program-id file-control source-computer
+                   contained object-computer i-o-control special-names
+                   links to Keyword
+cobolConstant  xxx low-value zeroes space null zero spaces zeros low-values
+                   links to Constant
+cobolNumber    xxx match /\<-\=\d*\.\=\d\+\>/  contained 
+                   links to Constant
+cobolPic       xxx match /\<S*9\+V*9*\>/  contained 
+                   match /\<$*\.\=9\+\>/  contained 
+                   match /\<Z*\.\=9\+\>/  contained 
+                   match /\<V9\+\>/  contained 
+                   match /\<9\+V\>/  contained 
+                   match /\<-*[Z9]\+-*\>/  contained 
+                   match /\<[ZXA]\+\>/  contained 
+                   links to Constant
+cobolTodo      xxx match /todo/  contained containedin=cobolInlineComment,cobolComment 
+                   links to Todo
+cobolBadLine   xxx match +[^ D\*$/-].*+  contained 
+                   match /\s\+\*.*/  contained 
+                   match /\%73c.*/  containedin=ALLBUT,cobolInlineComment,cobolComment 
+                   links to Error
+cobolGoTo      xxx goto
+                   match /\<GO\>\s\+\<TO\>/  
+                   links to Special
+cobolGoToPara  xxx match /\<GO\>\s\+\<TO\>\s\+[A-Z0-9-]\+/  contains=cobolGoTo 
+                   links to Function
+cobolCopy      xxx match /\<COPY\>\|\<IN\>/  
+                   match /\<REPLACING\>\s\+\(==\)\@=/  
+                   match /\<BY\>\s\+\(==\)\@=/  
+                   links to PreProc
+cobolCopyName  xxx match /\<COPY\>\s\+[A-Z0-9]\+\(\s\+\<IN\>\s\+[A-Z0-9]\+\)\?/  contains=cobolCopy 
+                   links to Special
+cobolBAD       xxx alter renames enter
+                   links to Error
+cobolWatch     xxx run varying occurs program binary redefines comp depending
+                   match /\<REPLACING\>\s\+\(==\)\@!/  contained 
+                   match /\<COMP-[123456XN]/  
+                   match /88 /  contained nextgroup=cobolLine 
+                   links to Special
+cobolEXECs     xxx end-exec exec
+cobolDeclA     xxx match /\(0\=1\|77\|78\) /  contained nextgroup=cobolLine 
+                   links to cobolDecl
+cobolDecl      xxx match /[1-4]\d /  contained nextgroup=cobolLine 
+                   match /0\=[2-9] /  contained nextgroup=cobolLine 
+                   match /66 /  contained nextgroup=cobolLine 
+                   links to Type
+cobolCALLs     xxx invoke perform thru goback end-call cancel end-perform
+                   match /\<CALL\>/  
+                   links to Function
+cobolString    xxx match /"[^"]*\("\|$\)/  
+                   match /'[^']*\('\|$\)/  
+                   links to Constant
+cobolCALLProg  xxx match /\<CALL\>\s\+"\{0,1\}[A-Z0-9]\+"\{0,1\}/  contains=cobolCALLs 
+                   links to Special
+cobolExtras    xxx match /\<VALUE \+\d\+\./hs=s+6,he=e-1  
+                   links to Special
+cobolIndicator xxx match /\%7c[D-]/  contained 
+                   links to Special
+cobolStart     cluster=cobolAreaA,cobolAreaB,cobolComment,cobolCompiler,cobolBadLine 
+cobolAreaA     cluster=cobolParagraph,cobolSection,cobolDivision,cobolDeclA 
+cobolAreaAB    cluster=cobolLine,cobolDecl 
+cobolLine      cluster=cobolReserved,cobolConstant,cobolNumber,cobolPic,cobolGoTo,cobolGoToPara,cobolCopy,cobolCopyName,cobolBAD,cobolWatch,cobolEXECs,cobolCALLs,cobolString,cobolCondFlow,cobolCALLProg 
+cobolAreaB     cluster=NONE

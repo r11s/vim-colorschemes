@@ -1,0 +1,42 @@
+{
+ "scopeName": "vim.injection.r",
+ "injectionSelector": "L:source.r -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:FALSE|TRUE)\\b",
+   "name": "vim.Boolean.rBoolean"
+  },
+  {
+   "match": "\\b(?:else|if)\\b",
+   "name": "vim.Conditional.rConditional"
+  },
+  {
+   "match": "\\b(?:LETTERS|NULL|pi|F|T)\\b",
+   "name": "vim.Constant.rConstant"
+  },
+  {
+   "match": "(?i)\\b(?:letters)\\b",
+   "name": "vim.Constant.rConstant"
+  },
+  {
+   "match": "\\b(?:NA_character_|NA_complex_|NA_integer_|NA_real_|Inf|NaN|NA)\\b",
+   "name": "vim.Number.rNumber"
+  },
+  {
+   "match": "\\b(?:library|require|attach|detach|source)\\b",
+   "name": "vim.PreProc.rPreProc"
+  },
+  {
+   "match": "\\b(?:repeat|while|for|in)\\b",
+   "name": "vim.Repeat.rRepeat"
+  },
+  {
+   "match": "\\b(?:return|break|next)\\b",
+   "name": "vim.Statement.rStatement"
+  },
+  {
+   "match": "\\b(?:character|category|function|complex|integer|logical|numeric|double|matrix|vector|array|list)\\b",
+   "name": "vim.Type.rType"
+  }
+ ]
+}

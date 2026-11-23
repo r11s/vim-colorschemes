@@ -1,0 +1,38 @@
+{
+ "scopeName": "vim.injection.scala",
+ "injectionSelector": "L:source.scala -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:protected|abstract|implicit|override|private|sealed|final|super|lazy|null)\\b",
+   "name": "vim.Function.scalaKeywordModifier"
+  },
+  {
+   "match": "\\b(?:implicitly|require)\\b",
+   "name": "vim.Function.scalaSpecialFunction"
+  },
+  {
+   "match": "\\b(?:package|import)\\b",
+   "name": "vim.Include.scalaExternal"
+  },
+  {
+   "match": "\\b(?:extends|finally|forSome|object|return|catch|class|macro|match|throw|trait|while|yield|case|else|with|def|for|try|val|var|do|if)\\b",
+   "name": "vim.Keyword.scalaKeyword"
+  },
+  {
+   "match": "\\b(?:onTransition|initialize|startWith|unbecome|become|using|goto|stay|when)\\b",
+   "name": "vim.PreProc.scalaAkkaSpecialWord"
+  },
+  {
+   "match": "\\b(?:false|this|true|new|eq|ne)\\b",
+   "name": "vim.PreProc.scalaSpecial"
+  },
+  {
+   "match": "\\b(?:should)\\b",
+   "name": "vim.PreProc.scalatestShouldDSLB"
+  },
+  {
+   "match": "\\b(?:shouldBe)\\b",
+   "name": "vim.PreProc.scalatestSpecialWord"
+  }
+ ]
+}

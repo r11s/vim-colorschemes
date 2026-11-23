@@ -1,0 +1,6 @@
+[
+ {
+  "scope": "comment.block.documentation.ts source.embedded.ts",
+  "group": "Comment"
+ }
+]

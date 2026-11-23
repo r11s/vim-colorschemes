@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.dart-todo",
+ "injectionSelector": "L:source.dart comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|TODO|TBD|XXX)\\b",
+   "name": "vim.Todo.dartCommentTodo"
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.toml-todo",
+ "injectionSelector": "L:source.toml comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|TODO|BUG|XXX)\\b",
+   "name": "vim.Todo.tomlTodo"
+  }
+ ]
+}

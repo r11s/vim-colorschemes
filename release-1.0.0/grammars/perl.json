@@ -1,0 +1,62 @@
+{
+ "scopeName": "vim.injection.perl",
+ "injectionSelector": "L:source.perl -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:default|unless|elsif|given|when|if)\\b",
+   "name": "vim.Conditional.perlConditional"
+  },
+  {
+   "match": "\\b(?:elseif)\\b",
+   "name": "vim.Error.perlElseIfError"
+  },
+  {
+   "match": "\\b(?:UNITCHECK|BEGIN|INIT)\\b",
+   "name": "vim.PreProc.perlControl"
+  },
+  {
+   "match": "\\b(?:return|break|goto|last|next|redo)\\b",
+   "name": "vim.Statement.perlStatementControl"
+  },
+  {
+   "match": "\\b(?:evalbytes|wantarray|caller|dump|eval|exit|die)\\b",
+   "name": "vim.Statement.perlStatementFlow"
+  },
+  {
+   "match": "\\b(?:delete|exists|values|each|keys)\\b",
+   "name": "vim.Statement.perlStatementHash"
+  },
+  {
+   "match": "\\b(?:dbmclose|dbmopen|syscall)\\b",
+   "name": "vim.Statement.perlStatementIOfunc"
+  },
+  {
+   "match": "\\b(?:unimport|require|import)\\b",
+   "name": "vim.Statement.perlStatementInclude"
+  },
+  {
+   "match": "\\b(?:reverse|unshift|splice|unpack|shift|grep|join|push|sort|map|pop)\\b",
+   "name": "vim.Statement.perlStatementList"
+  },
+  {
+   "match": "\\b(?:atan2|srand|rand|sqrt|abs|cos|exp|hex|int|log|oct|sin)\\b",
+   "name": "vim.Statement.perlStatementNumeric"
+  },
+  {
+   "match": "\\b(?:quotemeta|split|study|pos)\\b",
+   "name": "vim.Statement.perlStatementRegexp"
+  },
+  {
+   "match": "\\b(?:local|state|our)\\b",
+   "name": "vim.Statement.perlStatementStorage"
+  },
+  {
+   "match": "\\b(?:localtime|gmtime|time)\\b",
+   "name": "vim.Statement.perlStatementTime"
+  },
+  {
+   "match": "\\b(?:vec)\\b",
+   "name": "vim.Statement.perlStatementVector"
+  }
+ ]
+}

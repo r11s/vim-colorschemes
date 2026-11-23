@@ -1,0 +1,5 @@
+{
+ "scopeName": "vim.injection.html",
+ "injectionSelector": "L:text.html.basic -comment -string",
+ "patterns": []
+}

@@ -1,0 +1,30 @@
+{
+ "scopeName": "vim.injection.sh",
+ "injectionSelector": "source.shell -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:elif|else|then)\\b",
+   "name": "vim.Error.shCondError"
+  },
+  {
+   "match": "\\b(?:done)\\b",
+   "name": "vim.Error.shDoError"
+  },
+  {
+   "match": "\\b(?:esac)\\b",
+   "name": "vim.Error.shEsacError"
+  },
+  {
+   "match": "\\b(?:fi)\\b",
+   "name": "vim.Error.shIfError"
+  },
+  {
+   "match": "\\b(?:in)\\b",
+   "name": "vim.Error.shInError"
+  },
+  {
+   "match": "\\b(?:sha224sum|sha256sum|sha384sum|sha512sum|basename|continue|printenv|readlink|readonly|realpath|command|dirname|getconf|getopts|killall|logname|pathchk|sha1sum|unalias|export|md5sum|mkfifo|mktemp|newgrp|printf|rename|return|ulimit|alias|break|chdir|chgrp|chmod|chown|cksum|clear|egrep|false|fgrep|iconv|local|login|mkdir|mknod|nohup|paste|rmdir|shift|sleep|strip|times|umask|uname|which|xargs|comm|date|eval|exec|exit|expr|find|grep|hash|head|jobs|join|kill|less|nice|read|sort|stty|sync|tail|test|tput|trap|true|type|uniq|wait|cat|cmp|cut|fmt|pwd|rev|sed|sum|tee|tty|bg|cd|cp|du|fc|id|ln|ls|mv|od|rm|tr|wc)\\b",
+   "name": "vim.Statement.shStatement"
+  }
+ ]
+}

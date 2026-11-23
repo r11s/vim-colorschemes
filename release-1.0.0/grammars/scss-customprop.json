@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.scss-customprop",
+ "injectionSelector": "L:source.css.scss -comment -string",
+ "patterns": [
+  {
+   "match": "(?<![\\w$@-])--[\\w-]+",
+   "name": "vim.Special.cssCustomProp"
+  }
+ ]
+}

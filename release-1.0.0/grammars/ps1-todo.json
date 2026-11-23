@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.ps1-todo",
+ "injectionSelector": "L:source.powershell comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|HACK|NOTE|TODO|TBD|XXX)\\b",
+   "name": "vim.Todo.ps1CommentTodo"
+  }
+ ]
+}

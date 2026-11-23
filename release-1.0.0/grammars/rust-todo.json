@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.rust-todo",
+ "injectionSelector": "L:source.rust comment",
+ "patterns": [
+  {
+   "match": "\\b(?:SAFETY|FIXME|NOTE|TODO|XXX|NB)\\b",
+   "name": "vim.Todo.rustTodo"
+  }
+ ]
+}

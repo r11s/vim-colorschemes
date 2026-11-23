@@ -1,0 +1,167 @@
+
+--- Syntax items ---
+ktStatement    xxx return continue break
+                   links to Statement
+ktConditional  xxx when if else
+                   links to Conditional
+ktRepeat       xxx for while do
+                   links to Repeat
+ktOperator     xxx is in by
+                   match #\v\?:|::|\<\=? | \>\=?|[!=]\=\=?|<as>\??|[-*+/%]\=?|[!&|]#  
+                   links to Operator
+ktKeyword      xxx get where this out super set
+                   links to Keyword
+ktException    xxx catch finally try throw
+                   links to Exception
+ktInclude      xxx import package
+                   links to Include
+ktType         xxx FreezingIsDeprecated ConcurrentModificationException CName
+                   IndexedValue ReadWriteProperty TimeMark
+                   ExperimentalContracts CharacterCodingException AbstractMap
+                   ClosedRange Enum SequenceScope JvmInline IntProgression Byte
+                   OverloadResolutionByLambdaReturnType JvmMultifileClass
+                   ArrayList ExperimentalJsExport Destructured OnErrorAction
+                   Sequence MustBeDocumented FloatArray KVisibility
+                   NotImplementedError KProperty0 CoroutineContext KProperty2
+                   DoubleArray Lazy AbstractCoroutineContextKey PublishedApi
+                   Strictfp DurationUnit AssertionError CharProgression
+                   ReadOnlyProperty ClosedFloatingPointRange
+                   JvmDefaultWithCompatibility MutableListIterator
+                   BuilderInference Setter CharArray
+                   AbstractCoroutineContextElement LongIterator Iterable
+                   KTypeParameter Int MatchResult
+                   KotlinReflectionNotSupportedError MutableIterable
+                   ContextFunctionTypeParams AbstractSet IntArray Nothing
+                   Duration UInt Target DeprecationLevel Key ByteIterator
+                   Double NoSuchFileException Pair Boolean LongArray Metadata
+                   JvmSynthetic Long HiddenFromObjC ParameterName
+                   AbstractMutableSet ClassCastException TimeSource
+                   BooleanIterator UIntArray Comparable Entry Throws
+                   AccessDeniedException Function10 AbstractList Function12
+                   Function13 Function14 Function15 Function16 Function17
+                   Function18 Function19 KAnnotatedElement MutableMap
+                   NoWhenBranchMatchedException Throwable KCallable
+                   DeepRecursiveScope KMutableProperty0 KMutableProperty1
+                   KMutableProperty2 ExperimentalStdlibApi ThreadLocal Short
+                   OptionalExpectation Array ComparableTimeMark KClass
+                   KDeclarationContainer ArithmeticException UnsafeVariance
+                   Repeatable Function20 Function21 Function22 LongProgression
+                   Synchronized ListIterator EmptyCoroutineContext
+                   UninitializedPropertyAccessException Appendable FileTreeWalk
+                   Cloneable OptIn Accessor LazyThreadSafetyMode EnumEntries
+                   JvmField CopyActionContext Regex TimedValue RefinesInSwift
+                   IntRange JsName UShort Delegates UIntProgression
+                   CharCategory Deprecated RestrictsSuspension
+                   ExperimentalObjCRefinement SimpleEffect Ignore
+                   MatchNamedGroupCollection Transient Charsets MutableSet
+                   WithComparableMarks OnErrorResult Any
+                   KotlinNullPointerException LinkedHashMap Function
+                   FileVisitorBuilder Typography PathWalkOption Exception
+                   UShortArray Grouping KotlinVersion TypeCastException
+                   Retention CharRange OpenEndRange ReturnsNotNull
+                   DoubleIterator FileSystemException Collection JvmStatic
+                   KClassifier PurelyImplements AbstractMutableMap
+                   StringBuilder NullPointerException KParameter Effect
+                   JvmDefault AbstractDoubleTimeSource ShouldRefineInSwift
+                   ArrayDeque ULongArray ContractBuilder CharIterator Map
+                   KVariance ObjCName RuntimeException LongRange KProperty1
+                   ByteArray TestTimeSource CallsInPlace HashMap
+                   SharedImmutable ConditionalEffect Number
+                   ExperimentalUnsignedTypes MatchGroupCollection Triple Result
+                   KTypeProjection JvmRecord ObservableProperty List
+                   ShortIterator NoSuchElementException LinkedHashSet
+                   SinceKotlin Kind Error PropertyDelegateProvider
+                   ExperimentalPathApi ExperimentalTypeInference
+                   ExperimentalObjCName Suppress ULongProgression JvmName
+                   FloatIterator ExperimentalTime AbstractMutableCollection
+                   UIntRange ShortArray BooleanArray IllegalStateException
+                   JvmSerializableLambda Function0 Function1 Function2
+                   Function3 Function4 Function5 Function6 Function7 Function8
+                   Function9 AnnotationRetention Volatile NumberFormatException
+                   FunctionN Returns ULong AbstractLongTimeSource UByteArray
+                   ExperimentalMultiplatform FileWalkDirection KMutableProperty
+                   HashSet DslMarker Iterator AnnotationTarget
+                   SubclassOptInRequired DeprecatedSinceKotlin String
+                   MutableIterator ExtensionFunctionType AbstractCollection
+                   ReplaceWith FileAlreadyExistsException
+                   ExperimentalSubclassOptIn JsExport UByte
+                   DeepRecursiveFunction Monotonic JvmOverloads
+                   AbstractIterator IndexOutOfBoundsException Random
+                   HidesFromObjC Unit MutableCollection CharSequence
+                   CharDirectionality IntIterator
+                   JvmDefaultWithoutCompatibility MatchGroup KType
+                   UnsupportedOperationException MutableList Annotation Set
+                   Getter Comparator JvmSuppressWildcards CopyActionResult
+                   InvocationKind Function11 Continuation CancellationException
+                   Level AbstractMutableList KProperty ULongRange RequiresOptIn
+                   RegexOption ContinuationInterceptor MutableEntry KFunction
+                   Element Float RandomAccess Char IllegalArgumentException
+                   ValueTimeMark JvmWildcard
+                   links to Type
+ktModifier     xxx actual companion inline annotation final suspend external
+                   dynamic sealed crossinline override expect inner abstract
+                   vararg open reified enum noinline
+                   match /\v<data>\ze\@=.*<(class|object)>/  
+                   match /\v<value>\ze\@=.*<class>/  
+                   match /\v<(tailrec|operator|infix)>\ze\@=.*<fun>/  
+                   match /\v<const>\ze\@=.*<val>/  
+                   match /\v<lateinit>\ze\@=.*<var>/  
+                   match /\v<(internal|private|protected|public)>\ze\@=.*<(class|object|interface|typealias|fun|val|var|constructor|get|set)>/  
+                   links to StorageClass
+ktStructure    xxx typealias object val var class init constructor interface
+                   fun
+                   links to Structure
+ktReservedKeyword xxx typeof
+                   links to Error
+ktBoolean      xxx true false
+                   links to Boolean
+ktConstant     xxx null
+                   links to Constant
+ktTodo         xxx contained XXX FIXME TODO
+                   links to Todo
+ktShebang      xxx match /\v^#!.*$/  
+                   links to Comment
+ktLineComment  xxx match +\v//.*$+  contains=ktTodo,@Spell 
+                   links to Comment
+ktComment      xxx matchgroup=ktCommentMatchGroup start=+/\*+ end=+\*/+  contains=ktComment,ktTodo,@Spell 
+                   match +/\*\*/+  
+                   links to Comment
+ktDocTag       xxx match /\v\@(author|constructor|receiver|return|since|suppress)>/  contained 
+                   match /\v\@(exception|param|property|throws|see|sample)>\s*\S+/  contained contains=ktDocTagParam 
+                   links to Special
+ktDocComment   xxx start=+/\*\*+ end=+\*/+  contains=ktDocTag,ktTodo,@Spell 
+                   links to Comment
+ktDocTagParam  xxx match /\v(\s|\[)\S+/  contained 
+                   links to Identifier
+ktSpecialCharError xxx match /\v\\./  contained 
+                   links to Error
+ktSpecialChar  xxx match /\v\\([tbnr'"$\\]|u\x{4})/  contained 
+                   links to SpecialChar
+ktSimpleInterpolation xxx match /\v\$\h\w*/  contained 
+                   links to Identifier
+ktComplexInterpolation xxx matchgroup=ktComplexInterpolationBrace start=/\v\$\{/ end=/\v\}/  contains=ALLBUT,ktSimpleInterpolation,ktTodo,ktSpecialCharError,ktSpecialChar,ktDocTag,ktDocTagParam 
+ktString       xxx start=/"/ skip=/\\"/ end=/"/  contains=ktSimpleInterpolation,ktComplexInterpolation,ktSpecialChar,ktSpecialCharError,@Spell 
+                   start=/"""/ end=/""""*/  contains=ktSimpleInterpolation,ktComplexInterpolation,@Spell 
+                   links to String
+ktCharacter    xxx match /\v'[^']*'/  contains=ktSpecialChar,ktSpecialCharError 
+                   match /\v'\\''/  contains=ktSpecialChar 
+                   match /\v'[^\\]'/  
+                   links to Character
+ktAnnotation   xxx match /\v(\w)@<!\@[[:alnum:]_.]*(:[[:alnum:]_.]*)?/  
+                   links to Identifier
+ktLabel        xxx match /\v\w+\@/  
+                   match /\v(\w)@<=\@\w+/  
+                   links to Identifier
+ktNumber       xxx match /\v<\d+[_[:digit:]]*(uL?|UL?|[LFf])?/  
+                   match /\v<0[Xx]\x+[_[:xdigit:]]*(uL?|UL?|L)?/  
+                   match /\v<0[Bb][01]+[_01]*(uL?|UL?|L)?/  
+                   links to Number
+ktFloat        xxx match /\v<\d*(\d[eE][-+]?\d+|\.\d+([eE][-+]?\d+)?)[Ff]?/  
+                   links to Float
+ktEscapedName  xxx match /\v`.*`/  
+ktExclExcl     xxx match /!!/  
+                   links to Special
+ktArrow        xxx match /->/  
+                   links to Structure
+ktFold         xxx start=/{/ end=/}/  transparent fold 
+Spell          cluster=NONE

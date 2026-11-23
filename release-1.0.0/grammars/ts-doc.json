@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.ts-doc",
+ "injectionSelector": "L:comment.block.documentation.ts source.embedded.ts",
+ "patterns": [
+  {
+   "match": "(?:(?!```|\\*/).)+",
+   "name": "vim.Comment.typescriptDocComment"
+  }
+ ]
+}

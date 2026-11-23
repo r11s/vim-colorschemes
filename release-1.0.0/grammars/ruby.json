@@ -1,0 +1,74 @@
+{
+ "scopeName": "vim.injection.ruby",
+ "injectionSelector": "L:source.ruby -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.rubyBoolean"
+  },
+  {
+   "match": "\\b(?:unless)\\b",
+   "name": "vim.Conditional.rubyConditional"
+  },
+  {
+   "match": "\\b(?:rescue)\\b",
+   "name": "vim.Conditional.rubyRescueModifier"
+  },
+  {
+   "match": "\\b(?:self|nil)\\b",
+   "name": "vim.Constant.rubyPseudoVariable"
+  },
+  {
+   "match": "\\b(?:alias|undef)\\b",
+   "name": "vim.Define.rubyDefine"
+  },
+  {
+   "match": "\\b(?:module)\\b",
+   "name": "vim.Define.rubyModule"
+  },
+  {
+   "match": "\\b(?:catch|raise|throw|fail)\\b",
+   "name": "vim.Exception.rubyException"
+  },
+  {
+   "match": "\\b(?:class|def)\\b",
+   "name": "vim.Function.rubyMethodName"
+  },
+  {
+   "match": "\\b(?:TOPLEVEL_BINDING|STDERR|STDOUT|FALSE|STDIN|ARGF|ARGV|DATA|TRUE|ENV|NIL)\\b",
+   "name": "vim.Identifier.rubyPredefinedConstant"
+  },
+  {
+   "match": "\\b(?:callcc|caller|lambda|super|yield|proc)\\b",
+   "name": "vim.Keyword.rubyKeyword"
+  },
+  {
+   "match": "\\b(?:protected|private|public)\\b",
+   "name": "vim.Macro.rubyAccess"
+  },
+  {
+   "match": "\\b(?:include|prepend|extend|refine|using)\\b",
+   "name": "vim.Macro.rubyMacro"
+  },
+  {
+   "match": "\\b(?:and|not|or)\\b",
+   "name": "vim.Operator.rubyEnglishBooleanOperator"
+  },
+  {
+   "match": "\\b(?:until|while)\\b",
+   "name": "vim.Repeat.rubyRepeat"
+  },
+  {
+   "match": "\\b(?:BEGIN|END)\\b",
+   "name": "vim.Statement.rubyBeginEnd"
+  },
+  {
+   "match": "\\b(?:at_exit|return|abort|break|retry|exit|fork|loop|next|redo|trap|in)\\b",
+   "name": "vim.Statement.rubyControl"
+  },
+  {
+   "match": "\\b(?:if)\\b",
+   "name": "vim.rubyModuleDeclaration.rubyModuleDeclaration"
+  }
+ ]
+}

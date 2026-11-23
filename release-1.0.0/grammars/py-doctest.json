@@ -1,0 +1,72 @@
+{
+ "scopeName": "vim.injection.py-doctest",
+ "injectionSelector": "L:string.quoted.docstring.multi.python -vim.Special, L:string.quoted.multi.python -vim.Special",
+ "patterns": [
+  {
+   "begin": "^\\s*>>>\\s",
+   "end": "^\\s*$|^(?=\\s*(?:\"\"\"|\\'\\'\\'))|(?=\"\"\")|(?=\\'\\'\\')",
+   "name": "vim.Special",
+   "patterns": [
+    {
+     "match": "^\\s*(?!>>>\\s|\\.\\.\\.\\s|\"\"\"|\\'\\'\\')\\S.*$",
+     "name": "vim.Define"
+    },
+    {
+     "match": "\\b(?:elif|else|if)\\b",
+     "name": "vim.Conditional.pythonConditional"
+    },
+    {
+     "match": "\\b(?:finally|except|raise|try)\\b",
+     "name": "vim.Exception.pythonException"
+    },
+    {
+     "match": "\\b(?:False|True)\\b",
+     "name": "vim.Function.pythonBoolean"
+    },
+    {
+     "match": "\\b(?:staticmethod|classmethod|__import__|breakpoint|isinstance|issubclass|memoryview|bytearray|copyright|enumerate|frozenset|callable|property|reversed|compile|complex|credits|delattr|getattr|globals|hasattr|license|setattr|divmod|filter|format|locals|object|sorted|ascii|bytes|float|input|print|range|round|slice|super|tuple|bool|dict|eval|exec|exit|hash|help|iter|list|next|open|quit|repr|vars|abs|all|any|bin|chr|dir|hex|int|len|map|max|min|oct|ord|pow|set|str|sum|zip|id)\\b",
+     "name": "vim.Function.pythonBuiltin"
+    },
+    {
+     "match": "\\b(?:NotImplemented|__debug__|Ellipsis|None)\\b",
+     "name": "vim.Function.pythonConstant"
+    },
+    {
+     "match": "\\b(?:self|cls)\\b",
+     "name": "vim.Identifier.pythonClassVar"
+    },
+    {
+     "match": "\\b(?:import|from)\\b",
+     "name": "vim.Include.pythonInclude"
+    },
+    {
+     "match": "\\b(?:and|not|in|is|or)\\b",
+     "name": "vim.Operator.pythonOperator"
+    },
+    {
+     "match": "\\b(?:while|for)\\b",
+     "name": "vim.Repeat.pythonRepeat"
+    },
+    {
+     "match": "\\b(?:async|await)\\b",
+     "name": "vim.Statement.pythonAsync"
+    },
+    {
+     "match": "\\b(?:continue|nonlocal|assert|global|lambda|return|break|class|yield|pass|with|def|del|as)\\b",
+     "name": "vim.Statement.pythonStatement"
+    },
+    {
+     "match": "\\b(?:PendingDeprecationWarning|ConnectionAbortedError|ConnectionRefusedError|UnicodeTranslateError|ConnectionResetError|ModuleNotFoundError|NotImplementedError|DeprecationWarning|FloatingPointError|NotADirectoryError|ProcessLookupError|StopAsyncIteration|UnicodeDecodeError|UnicodeEncodeError|ChildProcessError|FileNotFoundError|IsADirectoryError|KeyboardInterrupt|UnboundLocalError|ZeroDivisionError|EnvironmentError|IndentationError|InterruptedError|ArithmeticError|BlockingIOError|BrokenPipeError|ConnectionError|FileExistsError|PermissionError|ResourceWarning|AssertionError|AttributeError|RecursionError|ReferenceError|RuntimeWarning|UnicodeWarning|BaseException|FutureWarning|GeneratorExit|ImportWarning|OverflowError|StopIteration|SyntaxWarning|BytesWarning|RuntimeError|TimeoutError|UnicodeError|WindowsError|BufferError|ImportError|LookupError|MemoryError|SyntaxError|SystemError|UserWarning|IndexError|SystemExit|ValueError|Exception|NameError|TypeError|EOFError|KeyError|TabError|IOError|OSError|Warning)\\b",
+     "name": "vim.Structure.pythonExceptions"
+    },
+    {
+     "match": "[A-Za-z_]\\w*|[^\\s\\w\"\\']",
+     "name": "vim.Special"
+    },
+    {
+     "include": "source.python"
+    }
+   ]
+  }
+ ]
+}

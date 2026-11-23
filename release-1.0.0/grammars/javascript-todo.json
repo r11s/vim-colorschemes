@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.javascript-todo",
+ "injectionSelector": "L:source.js comment",
+ "patterns": [
+  {
+   "match": "\\b(?:TODO|FIXME|XXX|TBD)\\b",
+   "name": "vim.Todo.javaScriptCommentTodo"
+  }
+ ]
+}

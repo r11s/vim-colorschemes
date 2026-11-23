@@ -1,0 +1,110 @@
+{
+ "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+ "name": "Pascal",
+ "scopeName": "source.pascal",
+ "patterns": [
+  {
+   "include": "#comments"
+  },
+  {
+   "include": "#strings"
+  },
+  {
+   "include": "#numbers"
+  },
+  {
+   "include": "#keywords"
+  },
+  {
+   "include": "#types"
+  },
+  {
+   "include": "#constants"
+  }
+ ],
+ "repository": {
+  "comments": {
+   "patterns": [
+    {
+     "name": "meta.preprocessor.pascal",
+     "begin": "\\{\\$",
+     "end": "\\}"
+    },
+    {
+     "name": "comment.block.pascal",
+     "begin": "\\{",
+     "end": "\\}",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.pascal"
+      }
+     },
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.pascal"
+      }
+     }
+    },
+    {
+     "name": "comment.block.pascal",
+     "begin": "\\(\\*",
+     "end": "\\*\\)",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.pascal"
+      }
+     },
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.pascal"
+      }
+     }
+    }
+   ]
+  },
+  "strings": {
+   "patterns": [
+    {
+     "name": "string.quoted.single.pascal",
+     "match": "'(?:[^']|'')*'"
+    },
+    {
+     "name": "string.quoted.char.pascal",
+     "match": "#(?:\\d+|\\$[0-9A-Fa-f]+)"
+    }
+   ]
+  },
+  "numbers": {
+   "patterns": [
+    {
+     "name": "constant.numeric.pascal",
+     "match": "\\$[0-9A-Fa-f]+\\b|%[01]+\\b|\\b\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?\\b"
+    }
+   ]
+  },
+  "keywords": {
+   "patterns": [
+    {
+     "name": "keyword.pascal",
+     "match": "(?i)\\b(?:and|array|as|asm|begin|case|class|const|constructor|destructor|div|do|downto|else|end|except|exports|file|finalization|finally|for|function|goto|if|implementation|in|inherited|initialization|inline|interface|is|label|library|mod|not|object|of|on|operator|or|out|packed|procedure|program|property|raise|record|repeat|resourcestring|set|shl|shr|string|then|threadvar|to|try|type|unit|until|uses|var|while|with|xor|private|protected|public|published|strict|forward|override|virtual|abstract|overload|reintroduce|static|cdecl|stdcall|register|external|dynamic|default|read|write|index|message)\\b"
+    }
+   ]
+  },
+  "types": {
+   "patterns": [
+    {
+     "name": "storage.support.type.pascal",
+     "match": "(?i)\\b(?:Integer|Cardinal|Byte|Word|LongInt|LongWord|Int64|QWord|UInt64|SmallInt|ShortInt|SizeInt|PtrInt|Boolean|ByteBool|WordBool|LongBool|Char|AnsiChar|WideChar|UnicodeChar|Real|Single|Double|Extended|Currency|Comp|Pointer|PChar|PAnsiChar|PWideChar|AnsiString|WideString|UnicodeString|ShortString|Variant|OleVariant|Text|TObject)\\b"
+    }
+   ]
+  },
+  "constants": {
+   "patterns": [
+    {
+     "name": "constant.language.pascal",
+     "match": "(?i)\\b(?:true|false|nil)\\b"
+    }
+   ]
+  }
+ }
+}

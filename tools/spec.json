@@ -1,0 +1,286 @@
+{
+ "rust": [
+  "rs",
+  "rust",
+  "source.rust",
+  [
+   "/tmp/vd/lang/repos/ripgrep/crates/**/*.rs"
+  ]
+ ],
+ "cpp": [
+  "cpp",
+  "cpp",
+  "source.cpp",
+  [
+   "/tmp/vd/lang/repos/leveldb/db/*.cc",
+   "/tmp/vd/lang/repos/leveldb/util/*.cc"
+  ]
+ ],
+ "cs": [
+  "cs",
+  "cs",
+  "source.cs",
+  [
+   "/tmp/vd/lang/repos/Dapper/Dapper/*.cs"
+  ]
+ ],
+ "typescript": [
+  "ts",
+  "typescript",
+  "source.ts",
+  [
+   "/tmp/vd/lang/repos/got/source/**/*.ts"
+  ]
+ ],
+ "ruby": [
+  "rb",
+  "ruby",
+  "source.ruby",
+  [
+   "/tmp/vd/lang/repos/sinatra/lib/**/*.rb",
+   "/tmp/vd/lang/repos/sinatra/test/*.rb"
+  ]
+ ],
+ "sh": [
+  "sh",
+  "sh",
+  "source.shell",
+  [
+   "/tmp/vd/lang/repos/nvm/*.sh",
+   "/tmp/vd/lang/repos/nvm/test/**/*.sh"
+  ]
+ ],
+ "css": [
+  "css",
+  "css",
+  "source.css",
+  [
+   "/tmp/vd/lang/repos/bootstrap3/docs/assets/css/docs.css",
+   "/tmp/vd/lang/repos/bootstrap3/dist/css/bootstrap-theme.css",
+   "/tmp/vd/lang/repos/mojo/lib/Mojolicious/resources/public/mojo/mojo.css"
+  ]
+ ],
+ "json": [
+  "json",
+  "json",
+  "source.json",
+  [
+   "/tmp/vd/lang/repos/composer/res/*.json",
+   "/tmp/vd/lang/repos/composer/composer.json",
+   "/tmp/vd/lang/repos/cobol-check/vs-code-extension/package.json"
+  ]
+ ],
+ "yaml": [
+  "yaml",
+  "yaml",
+  "source.yaml",
+  [
+   "/tmp/vd/lang/repos/composer/.github/workflows/*.yml",
+   "/tmp/vd/lang/repos/bootstrap5/.github/workflows/*.yml",
+   "/tmp/vd/lang/repos/okio/.github/workflows/*.yml",
+   "/tmp/vd/lang/repos/ripgrep/.github/workflows/*.yml"
+  ]
+ ],
+ "markdown": [
+  "md",
+  "markdown",
+  "text.html.markdown",
+  [
+   "/tmp/vd/lang/repos/composer/doc/*.md",
+   "/tmp/vd/lang/repos/composer/doc/**/*.md"
+  ]
+ ],
+ "sql": [
+  "sql",
+  "sql",
+  "source.sql",
+  [
+   "/usr/share/postgresql/*/extension/*.sql",
+   "/usr/share/postgresql/*/*.sql"
+  ]
+ ],
+ "lua": [
+  "lua",
+  "lua",
+  "source.lua",
+  [
+   "/tmp/vd/lang/repos/lazy.nvim/lua/lazy/**/*.lua"
+  ]
+ ],
+ "vim": [
+  "vim",
+  "vim",
+  "source.viml",
+  [
+   "/tmp/vd/lang/repos/vim-fugitive/plugin/*.vim",
+   "/tmp/vd/lang/repos/vim-fugitive/autoload/*.vim"
+  ]
+ ],
+ "ps1": [
+  "ps1",
+  "ps1",
+  "source.powershell",
+  [
+   "/tmp/vd/lang/repos/posh-git/src/*.ps1",
+   "/tmp/vd/lang/repos/posh-git/*.ps1"
+  ]
+ ],
+ "dosbatch": [
+  "bat",
+  "dosbatch",
+  "source.batchfile",
+  [
+   "/tmp/vim92src/**/*.bat",
+   "/tmp/vd/lang/repos/**/*.bat",
+   "/tmp/vd/lang/repos/**/*.cmd"
+  ]
+ ],
+ "perl": [
+  "pl",
+  "perl",
+  "source.perl",
+  [
+   "/tmp/vd/lang/repos/mojo/lib/**/*.pm"
+  ]
+ ],
+ "dosini": [
+  "ini",
+  "dosini",
+  "source.ini",
+  [
+   "/tmp/vd/lang/extra/*.ini*"
+  ]
+ ],
+ "toml": [
+  "toml",
+  "toml",
+  "source.toml",
+  [
+   "/tmp/vd/lang/repos/ripgrep/**/Cargo.toml",
+   "/tmp/vd/lang/extra/*.toml"
+  ]
+ ],
+ "diff": [
+  "diff",
+  "diff",
+  "source.diff",
+  [
+   "/tmp/vd/lang/extra/*.diff"
+  ]
+ ],
+ "scss": [
+  "scss",
+  "scss",
+  "source.css.scss",
+  [
+   "/tmp/vd/lang/repos/bootstrap5/scss/*.scss"
+  ]
+ ],
+ "less": [
+  "less",
+  "less",
+  "source.css.less",
+  [
+   "/tmp/vd/lang/repos/bootstrap3/less/*.less"
+  ]
+ ],
+ "html": [
+  "html",
+  "html",
+  "text.html.basic",
+  [
+   "/tmp/vd/lang/repos/bootstrap3/docs/**/*.html",
+   "/tmp/vd/lang/repos/bootstrap5/**/*.html"
+  ]
+ ],
+ "xml": [
+  "xml",
+  "xml",
+  "text.xml",
+  [
+   "/tmp/vd/lang/extra/*.xml"
+  ]
+ ],
+ "make": [
+  "mk",
+  "make",
+  "source.makefile",
+  [
+   "/tmp/vd/lang/extra/*.mk",
+   "/tmp/vd/lang/repos/**/Makefile"
+  ]
+ ],
+ "php": [
+  "php",
+  "php",
+  "source.php",
+  [
+   "/tmp/vd/lang/repos/composer/src/Composer/**/*.php"
+  ]
+ ],
+ "dockerfile": [
+  "dockerfile",
+  "dockerfile",
+  "source.dockerfile",
+  [
+   "/tmp/vd/lang/repos/python/*/*/Dockerfile"
+  ]
+ ],
+ "cobol": [
+  "cob",
+  "cobol",
+  "source.cobol",
+  [
+   "/tmp/vd/lang/repos/cobol-check/**/*.CBL",
+   "/tmp/vd/lang/repos/cobol-check/**/*.cbl"
+  ]
+ ],
+ "pascal": [
+  "pas",
+  "pascal",
+  "source.pascal",
+  [
+   "/tmp/vd/lang/repos/ATSynEdit/atsynedit/*.pas"
+  ]
+ ],
+ "swift": [
+  "swift",
+  "swift",
+  "source.swift",
+  [
+   "/tmp/vd/lang/repos/swift-argument-parser/Sources/**/*.swift"
+  ]
+ ],
+ "dart": [
+  "dart",
+  "dart",
+  "source.dart",
+  [
+   "/tmp/vd/lang/repos/shelf/pkgs/**/lib/**/*.dart"
+  ]
+ ],
+ "kotlin": [
+  "kt",
+  "kotlin",
+  "source.kotlin",
+  [
+   "/tmp/vd/lang/repos/okio/**/*.kt"
+  ]
+ ],
+ "scala": [
+  "scala",
+  "scala",
+  "source.scala",
+  [
+   "/tmp/vd/lang/repos/os-lib/os/src/*.scala"
+  ]
+ ],
+ "r": [
+  "r",
+  "r",
+  "source.r",
+  [
+   "/tmp/vd/lang/repos/stringr/R/*.R"
+  ]
+ ]
+}

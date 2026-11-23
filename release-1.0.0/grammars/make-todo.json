@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.make-todo",
+ "injectionSelector": "L:source.makefile comment",
+ "patterns": [
+  {
+   "match": "\\b(?:FIXME|TODO|XXX)\\b",
+   "name": "vim.Todo.makeTodo"
+  }
+ ]
+}

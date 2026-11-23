@@ -1,0 +1,57 @@
+
+--- Syntax items ---
+xmlError       xxx match /[<&]/  
+                   links to Error
+xmlEntity      xxx match /&[^; \t]*;/  contains=xmlEntityPunct 
+                   links to Statement
+xmlString      xxx start=/"/ end=/"/  display contained contains=xmlEntity,@Spell 
+                   start=/'/ end=/'/  display contained contains=xmlEntity,@Spell 
+                   links to String
+xmlAttribPunct xxx match /[:.]/  display contained 
+                   links to Comment
+xmlEqual       xxx match /=/  display 
+xmlAttrib      xxx match /[-'"<]\@1<!\<[a-zA-Z:_][-.0-9a-zA-Z:_]*\>\%(['"]\@!\|$\)/  display contained contains=xmlAttribPunct,@xmlAttribHook 
+                   links to Type
+xmlNamespace   xxx match -\(<\|</\)\@2<=[^ /!?<>"':]\+[:]\@=-  display contained contains=@xmlNamespaceHook 
+                   links to Tag
+xmlTagName     xxx match -\%(<\|</\)\@2<=[^ /!?<>"']\+-  display contained contains=xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   links to Function
+xmlTag         xxx matchgroup=xmlTag start=+<[^ /!?<>"']\@=+ end=/>/  contains=xmlError,xmlTagName,xmlAttrib,xmlEqual,xmlString,@xmlStartTagHook 
+                   links to Function
+xmlEndTag      xxx matchgroup=xmlTag start=+</[^ /!?<>"']\@=+ end=/>/  contains=xmlTagName,xmlNamespace,xmlAttribPunct,@xmlTagHook 
+                   links to Identifier
+xmlCdata       xxx start=/<!\[CDATA\[/ end=/]]>/  keepend extend contains=xmlCdataStart,xmlCdataEnd,@xmlCdataHook,@Spell 
+                   links to String
+xmlComment     xxx start=/<!/ end=/>/  extend contains=xmlCommentStart,xmlCommentError 
+                   links to Comment
+xmlProcessing  xxx matchgroup=xmlProcessingDelim start=/<?/ end=/?>/  contains=xmlAttrib,xmlEqual,xmlString 
+                   links to Type
+xmlEntityPunct xxx match /[&.;]/  contained 
+                   links to Type
+xmlCommentStart xxx match /<!/  contained nextgroup=xmlCommentPart 
+                   links to xmlComment
+xmlCommentError xxx match /[^><!]/  contained 
+                   links to Error
+xmlCommentPart xxx start=/--/ end=/--/  contained contains=xmlTodo,@xmlCommentHook,@Spell 
+                   links to Comment
+xmlTodo        xxx contained XXX FIXME TODO
+                   links to Todo
+xmlCdataStart  xxx match /<!\[CDATA\[/  contained contains=xmlCdataCdata 
+                   links to Type
+xmlCdataEnd    xxx match /]]>/  contained 
+                   links to Type
+xmlCdataCdata  xxx contained CDATA
+                   links to Statement
+xmlDocTypeKeyword xxx contained SYSTEM PUBLIC DOCTYPE
+                   links to Statement
+xmlInlineDTD   xxx matchgroup=xmlDocTypeDecl start=/\[/ end=/]/  contained contains=@xmlDTD 
+                   links to Function
+xmlDocType     xxx matchgroup=xmlDocTypeDecl start=/<!DOCTYPE/he=s+2,rs=s+2 end=/>/  contains=xmlDocTypeKeyword,xmlInlineDTD,xmlString 
+Spell          cluster=NONE
+xmlAttribHook  cluster=NONE
+xmlNamespaceHook cluster=NONE
+xmlTagHook     cluster=NONE
+xmlStartTagHook cluster=NONE
+xmlCommentHook cluster=NONE
+xmlCdataHook   cluster=NONE
+xmlDTD         cluster=NONE

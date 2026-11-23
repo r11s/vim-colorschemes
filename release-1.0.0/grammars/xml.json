@@ -1,0 +1,5 @@
+{
+ "scopeName": "vim.injection.xml",
+ "injectionSelector": "L:text.xml -comment -string",
+ "patterns": []
+}

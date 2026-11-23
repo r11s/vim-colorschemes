@@ -1,0 +1,166 @@
+{
+ "scopeName": "vim.injection.vim",
+ "injectionSelector": "L:source.viml -comment -string",
+ "patterns": [
+  {
+   "match": "\\b(?:disable|enable)\\b",
+   "name": "vim.Special.vimMenuStatus"
+  },
+  {
+   "match": "\\b(?:unabbreviate|cnoreabbrev|inoreabbrev|unabbreviat|abbreviate|cnoreabbre|inoreabbre|noreabbrev|unabbrevia|abbreviat|cnoreabbr|cunabbrev|inoreabbr|iunabbrev|noreabbre|unabbrevi|abbrevia|cabclear|cnoreabb|cunabbre|iabclear|inoreabb|iunabbre|noreabbr|unabbrev|abbrevi|abclear|cabbrev|cabclea|cnoreab|cunabbr|iabbrev|iabclea|inoreab|iunabbr|noreabb|unabbre|abbrev|abclea|cabbre|cabcle|cnorea|cunabb|iabbre|iabcle|inorea|iunabb|noreab|unabbr|abbre|abcle|cabbr|cabcl|cunab|iabbr|iabcl|iunab|norea|unabb|abbr|abcl|cabb|cabc|cuna|iabb|iabc|iuna|unab|abb|abc|cab|iab|una|ab|ca|ia)\\b",
+   "name": "vim.Statement.vimAbb"
+  },
+  {
+   "match": "\\b(?:breakadd|breakad|breaka)\\b",
+   "name": "vim.Statement.vimBreakadd"
+  },
+  {
+   "match": "\\b(?:breakdel|breakde|breakd)\\b",
+   "name": "vim.Statement.vimBreakdel"
+  },
+  {
+   "match": "\\b(?:breaklist|breaklis|breakli|breakl)\\b",
+   "name": "vim.Statement.vimBreaklist"
+  },
+  {
+   "match": "\\b(?:catch|catc|cat)\\b",
+   "name": "vim.Statement.vimCatch"
+  },
+  {
+   "match": "\\b(?:lchdir|tchdir|lchdi|tchdi|lchd|tchd|lcd|lch|tcd|tch|cd|lc|tc)\\b",
+   "name": "vim.Statement.vimCd"
+  },
+  {
+   "match": "\\b(?:keeppatterns|keeppattern|belowright|horizontal|keeppatter|noswapfile|rightbelow|aboveleft|belowrigh|horizonta|keepjumps|keepmarks|keeppatte|leftabove|lockmarks|noautocmd|noswapfil|rightbelo|abovelef|belowrig|botright|horizont|keepjump|keepmark|keeppatt|leftabov|lockmark|noautocm|noswapfi|rightbel|unsilent|vertical|abovele|belowri|botrigh|horizon|keepalt|keepjum|keepmar|keeppat|leftabo|lockmar|noautoc|noswapf|rightbe|sandbox|topleft|unsilen|verbose|vertica|vim9cmd|abovel|belowr|botrig|horizo|keepal|keepju|keepma|keeppa|leftab|legacy|lockma|noauto|noswap|rightb|sandbo|silent|toplef|unsile|verbos|vertic|vim9cm|above|below|botri|horiz|keepa|keepj|keepm|keepp|lefta|legac|lockm|noaut|noswa|sandb|silen|tople|unsil|verbo|verti|vim9c|abov|belo|botr|hide|hori|keep|lega|lock|noau|nosw|sand|sile|topl|unsi|verb|vert|vim9|abo|bel|bot|hid|hor|kee|leg|loc|noa|nos|san|sil|tab|top|uns|bo|to)\\b",
+   "name": "vim.Statement.vimCommandModifier"
+  },
+  {
+   "match": "\\b(?:CompilerSet)\\b",
+   "name": "vim.Statement.vimCompilerSet"
+  },
+  {
+   "match": "\\b(?:const|cons)\\b",
+   "name": "vim.Statement.vimConst"
+  },
+  {
+   "match": "\\b(?:debug|debu|deb)\\b",
+   "name": "vim.Statement.vimDebug"
+  },
+  {
+   "match": "\\b(?:def)\\b",
+   "name": "vim.Statement.vimDef"
+  },
+  {
+   "match": "\\b(?:folddoclosed|folddoclose|folddoclos|folddoopen|folddoclo|folddoope|folddocl|folddoop|folddoc|folddoo|folddo|argdo|bufdo|foldd|tabdo|windo|bufd|cfdo|lfdo|tabd|wind|cdo|cfd|ldo|lfd|ld)\\b",
+   "name": "vim.Statement.vimDoCommand"
+  },
+  {
+   "match": "\\b(?:enddef)\\b",
+   "name": "vim.Statement.vimEnddef"
+  },
+  {
+   "match": "\\b(?:mark|k)\\b",
+   "name": "vim.Statement.vimExMark"
+  },
+  {
+   "match": "\\b(?:history|histor|histo|hist|his)\\b",
+   "name": "vim.Statement.vimHistory"
+  },
+  {
+   "match": "\\b(?:language|languag|langua|langu|lang|lan)\\b",
+   "name": "vim.Statement.vimLanguage"
+  },
+  {
+   "match": "\\b(?:let)\\b",
+   "name": "vim.Statement.vimLet"
+  },
+  {
+   "match": "\\b(?:lockvar|lockva|lockv)\\b",
+   "name": "vim.Statement.vimLockvar"
+  },
+  {
+   "match": "\\b(?:luafile|luado|lua)\\b",
+   "name": "vim.Statement.vimLua"
+  },
+  {
+   "match": "\\b(?:cmapclear|imapclear|lmapclear|nmapclear|omapclear|smapclear|tmapclear|vmapclear|xmapclear|cmapclea|cnoremap|imapclea|inoremap|lmapclea|lnoremap|mapclear|nmapclea|nnoremap|omapclea|onoremap|smapclea|snoremap|tmapclea|tnoremap|vmapclea|vnoremap|xmapclea|xnoremap|cmapcle|cnorema|imapcle|inorema|lmapcle|lnorema|mapclea|nmapcle|nnorema|noremap|omapcle|onorema|smapcle|snorema|tmapcle|tnorema|vmapcle|vnorema|xmapcle|xnorema|cmapcl|cnorem|imapcl|inorem|lmapcl|lnorem|mapcle|nmapcl|nnorem|norema|omapcl|onorem|smapcl|snorem|tmapcl|tnorem|vmapcl|vnorem|xmapcl|xnorem|cmapc|cnore|imapc|inore|lmapc|lnore|mapcl|nmapc|nnore|norem|omapc|onore|smapc|snore|tmapc|tnore|vmapc|vnore|xmapc|xnore|cmap|cnor|imap|inor|lmap|lnor|mapc|nmap|nnor|nore|omap|onor|smap|snor|tmap|tnor|vmap|vnor|xmap|xnor|cma|cno|ima|ino|lma|lno|map|nma|nno|nor|oma|ono|tma|tno|vma|vno|xma|xno|cm|im|lm|ln|nm|nn|no|om|vm|vn|xm|xn)\\b",
+   "name": "vim.Statement.vimMap"
+  },
+  {
+   "match": "\\b(?:match)\\b",
+   "name": "vim.Statement.vimMatch"
+  },
+  {
+   "match": "\\b(?:tlnoremenu|anoremenu|cnoremenu|inoremenu|nnoremenu|onoremenu|snoremenu|tlnoremen|vnoremenu|xnoremenu|anoremen|cnoremen|inoremen|nnoremen|noremenu|onoremen|snoremen|tlnoreme|tlunmenu|vnoremen|xnoremen|anoreme|aunmenu|cnoreme|cunmenu|inoreme|iunmenu|nnoreme|noremen|nunmenu|onoreme|ounmenu|snoreme|sunmenu|tlnorem|tlunmen|tunmenu|vnoreme|vunmenu|xnoreme|xunmenu|anorem|aunmen|cunmen|iunmen|noreme|nunmen|ounmen|sunmen|tlmenu|tlnore|tlunme|tunmen|unmenu|vunmen|xunmen|amenu|anore|aunme|cmenu|cunme|imenu|iunme|nmenu|nunme|omenu|ounme|popup|smenu|sunme|tlmen|tlnor|tlunm|tmenu|tunme|unmen|vmenu|vunme|xmenu|xunme|amen|anor|aunm|cmen|imen|menu|nmen|omen|popu|smen|tlme|tlno|tlun|tmen|tunm|unme|vmen|xmen|ame|ano|aun|cme|ime|men|nme|ome|sme|tlm|tln|tlu|tme|tun|vme|xme|am|an|me|tm|tu)\\b",
+   "name": "vim.Statement.vimMenu"
+  },
+  {
+   "match": "\\b(?:mzscheme|mzschem|mzfile|mzsche|mzfil|mzsch|mzfi|mzsc|mzf|mzs|mz)\\b",
+   "name": "vim.Statement.vimMzScheme"
+  },
+  {
+   "match": "\\b(?:perldo|perld|perl|per|pe)\\b",
+   "name": "vim.Statement.vimPerl"
+  },
+  {
+   "match": "\\b(?:promptfind|promptrepl|promptfin|promptrep|promptfi|promptre|promptf|promptr)\\b",
+   "name": "vim.Statement.vimPrompt"
+  },
+  {
+   "match": "\\b(?:pyfile|python|pytho|pydo|pyth|pyt|py)\\b",
+   "name": "vim.Statement.vimPython"
+  },
+  {
+   "match": "\\b(?:py3file|python3|py3do|py3)\\b",
+   "name": "vim.Statement.vimPython3"
+  },
+  {
+   "match": "\\b(?:pythonx|pyxfile|pyxdo|pyx)\\b",
+   "name": "vim.Statement.vimPythonX"
+  },
+  {
+   "match": "\\b(?:rubyfile|rubyfil|rubydo|rubyfi|rubyd|rubyf|ruby|rub)\\b",
+   "name": "vim.Statement.vimRuby"
+  },
+  {
+   "match": "\\b(?:sleep|slee|sle|sl)\\b",
+   "name": "vim.Statement.vimSleep"
+  },
+  {
+   "match": "\\b(?:SynColor)\\b",
+   "name": "vim.Statement.vimSynColor"
+  },
+  {
+   "match": "\\b(?:SynLink)\\b",
+   "name": "vim.Statement.vimSynLink"
+  },
+  {
+   "match": "\\b(?:SynMenu)\\b",
+   "name": "vim.Statement.vimSynMenu"
+  },
+  {
+   "match": "\\b(?:syntime|syntim|synti)\\b",
+   "name": "vim.Statement.vimSyntime"
+  },
+  {
+   "match": "\\b(?:tclfile|tclfil|tcldo|tclfi|tcld|tclf|tcl)\\b",
+   "name": "vim.Statement.vimTcl"
+  },
+  {
+   "match": "\\b(?:throw|thro|thr|th)\\b",
+   "name": "vim.Statement.vimThrow"
+  },
+  {
+   "match": "\\b(?:unlet|unle|unl)\\b",
+   "name": "vim.Statement.vimUnlet"
+  },
+  {
+   "match": "\\b(?:unlockvar|unlockva|unlockv|unlock|unloc|unlo)\\b",
+   "name": "vim.Statement.vimUnlockvar"
+  },
+  {
+   "match": "\\b(?:cunmap|iunmap|lunmap|nunmap|ounmap|sunmap|tunmap|vunmap|xunmap|cunma|iunma|lunma|nunma|ounma|sunma|tunma|unmap|vunma|xunma|cunm|iunm|lunm|nunm|ounm|sunm|unma|vunm|xunm|cun|iun|lun|nun|oun|unm|vun|xun|cu|iu|lu|ou|vu|xu)\\b",
+   "name": "vim.Statement.vimUnmap"
+  }
+ ]
+}

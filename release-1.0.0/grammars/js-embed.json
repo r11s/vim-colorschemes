@@ -1,0 +1,18 @@
+{
+ "scopeName": "vim.injection.js-embed",
+ "injectionSelector": "L:meta.template.expression.js",
+ "patterns": [
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.javaScriptBoolean"
+  },
+  {
+   "match": "\\b(?:arguments|this)\\b",
+   "name": "vim.Identifier.javaScriptIdentifier"
+  },
+  {
+   "match": "[A-Za-z_$][\\w$]*|\\d[\\w.]*|[^\\s\\w$\\'\"`{}]",
+   "name": "vim.Special"
+  }
+ ]
+}

@@ -1,0 +1,234 @@
+{
+ "scopeName": "vim.injection.java",
+ "injectionSelector": "L:source.java -comment -string",
+ "patterns": [
+  {
+   "match": "\\.(\\s*)(class)\\b",
+   "captures": {
+    "2": {
+     "name": "vim.Typedef.javaTypedef"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:false|true)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Boolean.javaBoolean"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:continue|break)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Conditional.javaBranch"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:switch|else|if)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Conditional.javaConditional"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:null)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Constant.javaConstant"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:const|goto)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Error.javaError"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:finally|catch|throw|try)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Exception.javaExceptions"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:package|native)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Include.javaExternal"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:instanceof|new)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Operator.javaOperator"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:while|for|do)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Repeat.javaRepeat"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:assert)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Statement.javaAssert"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:return)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Statement.javaStatement"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:implements|interface|extends|enum)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.StorageClass.javaClassDecl"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:abstract|final)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.StorageClass.javaConceptKind"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:throws)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.StorageClass.javaMethodDecl"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:protected|private|public)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.StorageClass.javaScopeDecl"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:synchronized|transient|strictfp|volatile|static)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.StorageClass.javaStorageClass"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:boolean|double|float|short|byte|char|long|void|int)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Type.javaType"
+    }
+   }
+  },
+  {
+   "match": "(?<!\\d)\\.(\\s*)(\\b(?:super|this)\\b)",
+   "captures": {
+    "2": {
+     "name": "vim.Typedef.javaTypedef"
+    }
+   }
+  },
+  {
+   "match": "\\bimport\\b(?:\\s+static\\b)?",
+   "name": "vim.Include.javaExternal"
+  },
+  {
+   "match": "\\b(?:false|true)\\b",
+   "name": "vim.Boolean.javaBoolean"
+  },
+  {
+   "match": "\\b(?:continue|break)\\b",
+   "name": "vim.Conditional.javaBranch"
+  },
+  {
+   "match": "\\b(?:switch|else|if)\\b",
+   "name": "vim.Conditional.javaConditional"
+  },
+  {
+   "match": "\\b(?:null)\\b",
+   "name": "vim.Constant.javaConstant"
+  },
+  {
+   "match": "\\b(?:const|goto)\\b",
+   "name": "vim.Error.javaError"
+  },
+  {
+   "match": "\\b(?:finally|catch|throw|try)\\b",
+   "name": "vim.Exception.javaExceptions"
+  },
+  {
+   "match": "\\b(?:package|native)\\b",
+   "name": "vim.Include.javaExternal"
+  },
+  {
+   "match": "\\b(?:instanceof|new)\\b",
+   "name": "vim.Operator.javaOperator"
+  },
+  {
+   "match": "\\b(?:while|for|do)\\b",
+   "name": "vim.Repeat.javaRepeat"
+  },
+  {
+   "match": "\\b(?:assert)\\b",
+   "name": "vim.Statement.javaAssert"
+  },
+  {
+   "match": "\\b(?:return)\\b",
+   "name": "vim.Statement.javaStatement"
+  },
+  {
+   "match": "\\b(?:implements|interface|extends|enum)\\b",
+   "name": "vim.StorageClass.javaClassDecl"
+  },
+  {
+   "match": "\\b(?:abstract|final)\\b",
+   "name": "vim.StorageClass.javaConceptKind"
+  },
+  {
+   "match": "\\b(?:throws)\\b",
+   "name": "vim.StorageClass.javaMethodDecl"
+  },
+  {
+   "match": "\\b(?:protected|private|public)\\b",
+   "name": "vim.StorageClass.javaScopeDecl"
+  },
+  {
+   "match": "\\b(?:synchronized|transient|strictfp|volatile|static)\\b",
+   "name": "vim.StorageClass.javaStorageClass"
+  },
+  {
+   "match": "\\b(?:boolean|double|float|short|byte|char|long|void|int)\\b",
+   "name": "vim.Type.javaType"
+  },
+  {
+   "match": "\\b(?:super|this)\\b",
+   "name": "vim.Typedef.javaTypedef"
+  }
+ ]
+}

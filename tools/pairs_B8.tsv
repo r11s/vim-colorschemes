@@ -1,0 +1,785 @@
+lang	vim_group	vim_trans	tm_scopes	chars
+go/words	goPackage	Statement	source.go vim.Statement.goPackage	7
+go/words	goDeclaration	Keyword	source.go vim.Keyword.goDeclaration	8
+go/words	goStatement	Statement	source.go vim.Statement.goStatement	41
+go/words	goConditional	Conditional	source.go vim.Conditional.goConditional	18
+go/words	goLabel	Label	source.go vim.Label.goLabel	11
+go/words	goRepeat	Repeat	source.go vim.Repeat.goRepeat	8
+go/words	goType	Type	source.go vim.Type.goType	35
+go/words	goSignedInts	Type	source.go vim.Type.goSignedInts	26
+go/words	goUnsignedInts	Type	source.go vim.Type.goUnsignedInts	38
+go/words	goFloats	Type	source.go vim.Type.goFloats	14
+go/words	goComplexes	Type	source.go vim.Type.goComplexes	19
+go/words	goBuiltins	Identifier	source.go vim.Identifier.goBuiltins	84
+go/words	goBoolean	Boolean	source.go vim.Boolean.goBoolean	9
+go/words	goPredefinedIdentifiers	Constant	source.go vim.Constant.goPredefinedIdentifiers	7
+go/words	goDeclType	Keyword	source.go vim.Keyword.goDeclType	15
+go/ctx	goPackageComment	Comment	source.go comment.line.double-slash.go punctuation.definition.comment.go	2
+go/ctx	goPackageComment	Comment	source.go comment.line.double-slash.go	33
+go/ctx	goPackage	Statement	source.go vim.Statement.goPackage	7
+go/ctx		None	source.go variable.other.go	121
+go/ctx	goImport	Statement	source.go keyword.control.import.go	6
+go/ctx		None	source.go punctuation.definition.imports.begin.bracket.round.go	1
+go/ctx	goImportString	String	source.go string.quoted.double.go punctuation.definition.string.begin.go	3
+go/ctx	goImportString	String	source.go string.quoted.double.go entity.name.import.go	15
+go/ctx	goImportString	String	source.go string.quoted.double.go punctuation.definition.string.end.go	3
+go/ctx		None	source.go variable.other.import.go	4
+go/ctx		None	source.go punctuation.definition.imports.end.bracket.round.go	1
+go/ctx	goComment	Comment	source.go comment.block.go punctuation.definition.comment.go	4
+go/ctx	goComment	Comment	source.go comment.block.go	24
+go/ctx	goConst	Keyword	source.go keyword.const.go	10
+go/ctx		None	source.go punctuation.definition.begin.bracket.round.go	26
+go/ctx		None	source.go variable.other.constant.go	37
+go/ctx		None	source.go keyword.operator.assignment.go	46
+go/ctx	goFloat	Float	source.go constant.numeric.decimal.go	9
+go/ctx	goFloat	Float	source.go constant.numeric.decimal.point.go	2
+go/ctx	goDecimalInt	Number	source.go constant.numeric.decimal.go	25
+go/ctx	goDecimalInt	Number	source.go constant.numeric.decimal.go punctuation.separator.constant.numeric.go	2
+go/ctx	goHexadecimalInt	Number	source.go keyword.other.unit.hexadecimal.go	2
+go/ctx	goHexadecimalInt	Number	source.go constant.numeric.hexadecimal.go	4
+go/ctx	goHexadecimalInt	Number	source.go constant.numeric.hexadecimal.go punctuation.separator.constant.numeric.go	1
+go/ctx	goOctalInt	Number	source.go keyword.other.unit.octal.go	2
+go/ctx	goOctalInt	Number	source.go constant.numeric.octal.go	3
+go/ctx	goBinaryInt	Number	source.go keyword.other.unit.binary.go	2
+go/ctx	goBinaryInt	Number	source.go constant.numeric.binary.go	4
+go/ctx	goImaginaryDecimal	Number	source.go constant.numeric.decimal.go	2
+go/ctx	goImaginaryDecimal	Number	source.go keyword.other.unit.imaginary.go	2
+go/ctx	goFloat	Float	source.go keyword.other.unit.exponent.decimal.go	1
+go/ctx	goFloat	Float	source.go keyword.operator.minus.exponent.decimal.go	1
+go/ctx	goFloat	Float	source.go constant.numeric.exponent.decimal.go	1
+go/ctx	goBoolean	Boolean	source.go vim.Boolean.goBoolean	4
+go/ctx	goPredefinedIdentifiers	Constant	source.go vim.Constant.goPredefinedIdentifiers	13
+go/ctx		None	source.go punctuation.definition.end.bracket.round.go	26
+go/ctx	goVar	Keyword	source.go keyword.var.go	12
+go/ctx		None	source.go variable.other.assignment.go	45
+go/ctx	goSignedInts	Type	source.go vim.Type.goSignedInts	24
+go/ctx		None	source.go punctuation.definition.begin.bracket.square.go	7
+go/ctx		None	source.go punctuation.definition.end.bracket.square.go	7
+go/ctx	goType	Type	source.go vim.Type.goType	45
+go/ctx		None	source.go punctuation.definition.begin.bracket.curly.go	19
+go/ctx	goString	String	source.go string.quoted.double.go punctuation.definition.string.begin.go	9
+go/ctx	goString	String	source.go string.quoted.double.go	21
+go/ctx	goString	String	source.go string.quoted.double.go punctuation.definition.string.end.go	9
+go/ctx		None	source.go punctuation.other.comma.go	24
+go/ctx		None	source.go punctuation.definition.end.bracket.curly.go	19
+go/ctx		None	source.go punctuation.other.colon.go	10
+go/ctx	goDeclaration	Keyword	source.go vim.Keyword.goDeclaration	40
+go/ctx	goDeclType	Keyword	source.go vim.Keyword.goDeclType	33
+go/ctx		None	source.go entity.name.function.support.go	45
+go/ctx	goFloats	Type	source.go vim.Type.goFloats	14
+go/ctx		None	source.go punctuation.other.period.go	9
+go/ctx	goRawString	String	source.go string.quoted.raw.go punctuation.definition.string.begin.go	2
+go/ctx	goRawString	String	source.go string.quoted.raw.go	29
+go/ctx	goRawString	String	source.go string.quoted.raw.go punctuation.definition.string.end.go	2
+go/ctx		None	source.go keyword.operator.arithmetic.bitwise.go	3
+go/ctx		None	source.go keyword.operator.address.go	4
+go/ctx	goStatement	Statement	source.go vim.Statement.goStatement	42
+go/ctx		None	source.go entity.name.type.go	17
+go/ctx	goBuiltins	Identifier	source.go vim.Identifier.goBuiltins	27
+go/ctx	goRepeat	Repeat	source.go vim.Repeat.goRepeat	11
+go/ctx	goEscapeC	Special	source.go string.quoted.double.go constant.character.escape.go	10
+go/ctx	goEscapeX	Special	source.go string.quoted.double.go constant.character.escape.go	4
+go/ctx	goCharacter	Character	source.go string.quoted.rune.go punctuation.definition.string.begin.go	2
+go/ctx	goCharacter	Character	source.go string.quoted.rune.go constant.other.rune.go	1
+go/ctx	goCharacter	Character	source.go string.quoted.rune.go punctuation.definition.string.end.go	2
+go/ctx	goEscapeC	Special	source.go string.quoted.rune.go vim.Special	2
+go/ctx		None	source.go keyword.operator.channel.go	4
+go/ctx	goConditional	Conditional	source.go vim.Conditional.goConditional	26
+go/ctx	goLabel	Label	source.go keyword.control.go	16
+go/ctx	goLabel	Label	source.go vim.Label.goLabel	7
+go/ctx		None	source.go variable.other.label.go	21
+go/ctx		None	source.go punctuation.terminator.go	3
+go/ctx		None	source.go keyword.operator.comparison.go	9
+go/ctx		None	source.go keyword.operator.increment.go	2
+go/ctx		None	source.go keyword.operator.arithmetic.go	3
+go/ctx		None	source.go keyword.operator.logical.go	5
+go/ctx		None	source.go variable.other.property.go	2
+go/ctx	goComment	Comment	source.go comment.line.double-slash.go punctuation.definition.comment.go	2
+go/ctx	goTodo	Todo	source.go comment.line.double-slash.go vim.Todo.goTodo	4
+go/ctx	goComment	Comment	source.go comment.line.double-slash.go	10
+go/ctx	goVarArgs	goVarArgs	source.go keyword.operator.ellipsis.go	3
+go/ctx	goEscapeBigU	Special	source.go string.quoted.double.go constant.character.escape.go	10
+go/ctx	goEscapeOctal	Special	source.go string.quoted.double.go constant.character.escape.go	4
+go/ctx	goHexadecimalFloat	Float	source.go keyword.other.unit.hexadecimal.go	2
+go/ctx	goHexadecimalFloat	Float	source.go constant.numeric.hexadecimal.go	1
+go/ctx	goHexadecimalFloat	Float	source.go keyword.other.unit.exponent.hexadecimal.go	1
+go/ctx	goHexadecimalFloat	Float	source.go keyword.operator.minus.exponent.hexadecimal.go	1
+go/ctx	goHexadecimalFloat	Float	source.go constant.numeric.exponent.hexadecimal.go	1
+go/ctx	goImaginaryBinary	Number	source.go keyword.other.unit.binary.go	2
+go/ctx	goImaginaryBinary	Number	source.go constant.numeric.binary.go	1
+go/ctx	goImaginaryBinary	Number	source.go keyword.other.unit.imaginary.go	1
+go/ctx	goImaginaryOctal	Number	source.go keyword.other.unit.octal.go	2
+go/ctx	goImaginaryOctal	Number	source.go constant.numeric.octal.go	1
+go/ctx	goImaginaryOctal	Number	source.go keyword.other.unit.imaginary.go	1
+go/ctx	goFormatSpecifier	Special	source.go string.quoted.double.go constant.other.placeholder.go	11
+python/words	pythonBoolean	Function	source.python vim.Function.pythonBoolean	9
+python/words	pythonConstant	Function	source.python vim.Function.pythonConstant	35
+python/words	pythonStatement	Statement	source.python vim.Statement.pythonStatement	71
+python/words	pythonConditional	Conditional	source.python vim.Conditional.pythonConditional	10
+python/words	pythonRepeat	Repeat	source.python vim.Repeat.pythonRepeat	8
+python/words	pythonOperator	Operator	source.python vim.Operator.pythonOperator	12
+python/words	pythonException	Exception	source.python vim.Exception.pythonException	21
+python/words	pythonInclude	Include	source.python vim.Include.pythonInclude	10
+python/words	pythonAsync	Statement	source.python vim.Statement.pythonAsync	10
+python/words	pythonClassVar	Identifier	source.python vim.Identifier.pythonClassVar	7
+python/words	pythonBuiltin	Function	source.python vim.Function.pythonBuiltin	397
+python/words		None	source.python keyword.control.flow.python	5
+python/words	pythonExceptions	Structure	source.python vim.Structure.pythonExceptions	943
+python/ctx	pythonComment	Comment	source.python comment.line.number-sign.python punctuation.definition.comment.python	3
+python/ctx	pythonComment	Comment	source.python comment.line.number-sign.python	55
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.docstring.multi.python punctuation.definition.string.begin.python	9
+python/ctx	pythonString	String	source.python string.quoted.docstring.multi.python	44
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.docstring.multi.python punctuation.definition.string.end.python	9
+python/ctx	pythonInclude	Include	source.python vim.Include.pythonInclude	30
+python/ctx		None	source.python support.variable.magic.python	26
+python/ctx		None	source.python	165
+python/ctx		None	source.python punctuation.separator.element.python	28
+python/ctx	pythonStatement	Statement	source.python vim.Statement.pythonStatement	101
+python/ctx	pythonTodo	Todo	source.python comment.line.number-sign.python vim.Todo.pythonTodo	4
+python/ctx		None	source.python constant.other.caps.python	35
+python/ctx		None	source.python keyword.operator.assignment.python	26
+python/ctx	pythonNumber	Number	source.python constant.numeric.dec.python	28
+python/ctx	pythonNumber	Number	source.python constant.numeric.hex.python storage.type.number.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.hex.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.oct.python storage.type.number.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.oct.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.bin.python storage.type.number.python	2
+python/ctx	pythonNumber	Number	source.python constant.numeric.bin.python	3
+python/ctx	pythonNumber	Number	source.python constant.numeric.float.python	8
+python/ctx	pythonNumber	Number	source.python constant.numeric.dec.python storage.type.imaginary.number.python	1
+python/ctx		None	source.python punctuation.parenthesis.begin.python	15
+python/ctx	pythonBoolean	Function	source.python vim.Function.pythonBoolean	14
+python/ctx	pythonConstant	Function	source.python vim.Function.pythonConstant	26
+python/ctx		None	source.python punctuation.parenthesis.end.python	15
+python/ctx	pythonDecorator	Define	source.python meta.function.decorator.python entity.name.function.decorator.python punctuation.definition.decorator.python	3
+python/ctx	pythonDecoratorName	Function	source.python meta.function.decorator.python entity.name.function.decorator.python	9
+python/ctx		None	source.python meta.function.decorator.python punctuation.definition.arguments.begin.python	1
+python/ctx		None	source.python meta.function.decorator.python meta.function-call.arguments.python variable.parameter.function-call.python	3
+python/ctx		None	source.python meta.function.decorator.python meta.function-call.arguments.python keyword.operator.assignment.python	1
+python/ctx	pythonNumber	Number	source.python meta.function.decorator.python meta.function-call.arguments.python constant.numeric.dec.python	1
+python/ctx		None	source.python meta.function.decorator.python punctuation.definition.arguments.end.python	1
+python/ctx	pythonFunction	Function	source.python vim.Function.pythonFunction	14
+python/ctx		None	source.python punctuation.separator.colon.python	21
+python/ctx	pythonBuiltin	Function	source.python vim.Function.pythonBuiltin	58
+python/ctx	pythonQuotes	String	source.python string.quoted.single.python punctuation.definition.string.begin.python	10
+python/ctx	pythonString	String	source.python string.quoted.single.python	42
+python/ctx	pythonQuotes	String	source.python string.quoted.single.python punctuation.definition.string.end.python	10
+python/ctx		None	source.python keyword.operator.arithmetic.python	8
+python/ctx		None	source.python invalid.illegal.annotation.python	2
+python/ctx		None	source.python meta.item-access.python meta.indexed-name.python	9
+python/ctx		None	source.python meta.item-access.python punctuation.definition.arguments.begin.python	2
+python/ctx	pythonBuiltin	Function	source.python meta.item-access.python meta.item-access.arguments.python vim.Function.pythonBuiltin	3
+python/ctx		None	source.python meta.item-access.python punctuation.definition.arguments.end.python	2
+python/ctx	pythonConditional	Conditional	source.python vim.Conditional.pythonConditional	18
+python/ctx		None	source.python keyword.operator.comparison.python	6
+python/ctx	pythonEscape	Special	source.python string.quoted.single.python constant.character.escape.python	12
+python/ctx	pythonQuotes	String	source.python string.regexp.quoted.single.python storage.type.string.python	3
+python/ctx	pythonQuotes	String	source.python string.regexp.quoted.single.python punctuation.definition.string.begin.python	2
+python/ctx	pythonRawString	String	source.python string.regexp.quoted.single.python vim.String	6
+python/ctx	pythonQuotes	String	source.python string.regexp.quoted.single.python punctuation.definition.string.end.python	2
+python/ctx	pythonQuotes	String	source.python string.quoted.binary.single.python storage.type.string.python	1
+python/ctx	pythonQuotes	String	source.python string.quoted.binary.single.python punctuation.definition.string.begin.python	1
+python/ctx	pythonBytes	String	source.python string.quoted.binary.single.python	5
+python/ctx	pythonEscape	Special	source.python string.quoted.binary.single.python constant.character.escape.python	4
+python/ctx	pythonQuotes	String	source.python string.quoted.binary.single.python punctuation.definition.string.end.python	1
+python/ctx	pythonQuotes	String	source.python meta.fstring.python string.interpolated.python string.quoted.single.python storage.type.string.python	1
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.begin.python string.interpolated.python string.quoted.single.python	1
+python/ctx	pythonFString	String	source.python meta.fstring.python string.interpolated.python string.quoted.single.python	17
+python/ctx	pythonFStringDelimiter	Special	source.python meta.fstring.python constant.character.format.placeholder.other.python	4
+python/ctx	pythonFStringField	pythonFStringField	source.python meta.fstring.python	1
+python/ctx	pythonFStringDelimiter	Special	source.python meta.fstring.python storage.type.format.python	6
+python/ctx	pythonFString	String	source.python meta.fstring.python vim.String	4
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.end.python string.interpolated.python string.quoted.single.python	1
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.multi.python punctuation.definition.string.begin.python	3
+python/ctx	pythonString	String	source.python string.quoted.multi.python	12
+python/ctx	pythonTripleQuotes	String	source.python string.quoted.multi.python punctuation.definition.string.end.python	3
+python/ctx		None	source.python punctuation.definition.dict.begin.python	2
+python/ctx		None	source.python punctuation.separator.dict.python	2
+python/ctx		None	source.python punctuation.definition.list.begin.python	2
+python/ctx		None	source.python punctuation.definition.list.end.python	2
+python/ctx		None	source.python punctuation.definition.dict.end.python	2
+python/ctx	pythonOperator	Operator	source.python vim.Operator.pythonOperator	17
+python/ctx	pythonQuotes	String	source.python meta.item-access.python meta.item-access.arguments.python string.quoted.single.python punctuation.definition.string.begin.python	1
+python/ctx	pythonString	String	source.python meta.item-access.python meta.item-access.arguments.python string.quoted.single.python	1
+python/ctx	pythonQuotes	String	source.python meta.item-access.python meta.item-access.arguments.python string.quoted.single.python punctuation.definition.string.end.python	1
+python/ctx		None	source.python meta.member.access.python punctuation.separator.period.python	5
+python/ctx		None	source.python meta.member.access.python meta.function-call.python meta.function-call.generic.python	4
+python/ctx		None	source.python meta.member.access.python meta.function-call.python punctuation.definition.arguments.begin.python	2
+python/ctx		None	source.python meta.member.access.python meta.function-call.python punctuation.definition.arguments.end.python	2
+python/ctx	pythonException	Exception	source.python vim.Exception.pythonException	21
+python/ctx	pythonExceptions	Structure	source.python vim.Structure.pythonExceptions	28
+python/ctx		None	source.python variable.legacy.builtin.python	4
+python/ctx		None	source.python meta.member.access.python meta.attribute.python	14
+python/ctx	pythonRepeat	Repeat	source.python vim.Repeat.pythonRepeat	8
+python/ctx	pythonClass	Structure	source.python vim.Structure.pythonClass	9
+python/ctx	pythonStatement	Statement	source.python meta.function.python storage.type.function.python	9
+python/ctx	pythonFunction	Function	source.python meta.function.python support.function.magic.python	8
+python/ctx		None	source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.begin.python	3
+python/ctx	pythonClassVar	Identifier	source.python meta.function.python meta.function.parameters.python vim.Identifier.pythonClassVar	8
+python/ctx		None	source.python meta.function.python meta.function.parameters.python	1
+python/ctx		None	source.python meta.function.python meta.function.parameters.python variable.parameter.function.language.python	4
+python/ctx		None	source.python meta.function.python meta.function.parameters.python punctuation.definition.parameters.end.python	3
+python/ctx		None	source.python meta.function.python punctuation.section.function.begin.python	3
+python/ctx	pythonClassVar	Identifier	source.python vim.Identifier.pythonClassVar	8
+python/ctx		None	source.python meta.member.access.python meta.function-call.python support.function.magic.python	8
+python/ctx	pythonDecoratorName	Function	source.python meta.function.decorator.python vim.Function.pythonBuiltin	20
+python/ctx	pythonFunction	Function	source.python meta.function.python entity.name.function.python	7
+python/ctx	pythonAsync	Statement	source.python meta.function.python storage.type.function.async.python	5
+python/ctx	pythonAsync	Statement	source.python vim.Statement.pythonAsync	5
+python/ctx		None	source.python meta.function-call.python meta.function-call.generic.python	9
+python/ctx		None	source.python meta.function-call.python punctuation.definition.arguments.begin.python	1
+python/ctx		None	source.python meta.function-call.python punctuation.definition.arguments.end.python	1
+python/ctx	pythonConditional	Conditional	source.python keyword.control.flow.python	13
+python/ctx	pythonType	Type	source.python vim.Type.pythonType	5
+python/ctx	pythonEllipsis	Function	source.python constant.other.ellipsis.python	3
+python/ctx	pythonRawBytes	String	source.python string.regexp.quoted.single.python vim.String	12
+python/ctx	pythonQuotes	String	source.python meta.fstring.python string.interpolated.python string.quoted.raw.single.python storage.type.string.python	2
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.begin.python string.quoted.raw.single.python	1
+python/ctx	pythonRawFString	String	source.python meta.fstring.python string.interpolated.python string.quoted.raw.single.python	4
+python/ctx	pythonFStringField	pythonFStringField	source.python meta.fstring.python constant.other.caps.python	5
+python/ctx	pythonQuotes	String	source.python meta.fstring.python punctuation.definition.string.end.python string.interpolated.python string.quoted.raw.single.python	1
+python/ctx	pythonUnicodeEscape	Special	source.python string.quoted.single.python constant.character.escape.python	20
+python/ctx	pythonDoctest	Special	source.python string.quoted.docstring.multi.python vim.Special	3
+python/ctx	pythonDoctest	Special	source.python string.quoted.docstring.multi.python vim.Special vim.Special	10
+python/ctx	pythonFStringFieldSkip	pythonFStringFieldSkip	source.python string.quoted.docstring.multi.python vim.Special vim.Special	2
+python/ctx	pythonDoctestValue	Define	source.python string.quoted.docstring.multi.python vim.Special vim.Define	2
+c/words	cStatement	Statement	source.c vim.Statement.cStatement	26
+c/words	cLabel	Label	source.c vim.Label.cLabel	11
+c/words	cConditional	Conditional	source.c vim.Conditional.cConditional	12
+c/words	cRepeat	Repeat	source.c vim.Repeat.cRepeat	10
+c/words		None	source.c	25
+c/words	cOperator	Operator	source.c vim.Operator.cOperator	75
+c/words	cType	Type	source.c vim.Type.cType	1204
+c/words	cTypedef	Structure	source.c vim.Structure.cTypedef	7
+c/words	cStructure	Structure	source.c vim.Structure.cStructure	15
+c/words	cStorageClass	StorageClass	source.c vim.StorageClass.cStorageClass	115
+c/words	cConstant	Constant	source.c vim.Constant.cConstant	2980
+c/ctx	cCommentStart	Comment	source.c comment.block.c punctuation.definition.comment.begin.c	2
+c/ctx	cComment	Comment	source.c comment.block.c	12
+c/ctx	cCommentStart	Comment	source.c comment.block.c punctuation.definition.comment.end.c	2
+c/ctx	cCommentL	Comment	source.c comment.line.double-slash.c punctuation.definition.comment.c	2
+c/ctx	cCommentL	Comment	source.c comment.line.double-slash.c	17
+c/ctx	cTodo	Todo	source.c comment.line.double-slash.c vim.Todo.cTodo	4
+c/ctx	cInclude	Include	source.c meta.preprocessor.include.c keyword.control.directive.include.c punctuation.definition.directive.c	2
+c/ctx	cInclude	Include	source.c meta.preprocessor.include.c keyword.control.directive.include.c	14
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.other.lt-gt.include.c punctuation.definition.string.begin.c	1
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.other.lt-gt.include.c	7
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.other.lt-gt.include.c punctuation.definition.string.end.c	1
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.double.include.c punctuation.definition.string.begin.c	1
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.double.include.c	7
+c/ctx	cIncluded	String	source.c meta.preprocessor.include.c string.quoted.double.include.c punctuation.definition.string.end.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c keyword.control.directive.define.c punctuation.definition.directive.c	4
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c keyword.control.directive.define.c	24
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c entity.name.function.preprocessor.c	16
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.definition.parameters.begin.c	3
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c vim.Macro.cDefine	31
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c variable.parameter.preprocessor.c	1
+c/ctx	cDefine	Macro	source.c meta.preprocessor.macro.c punctuation.definition.parameters.end.c	3
+c/ctx	cNumber	Number	source.c meta.preprocessor.macro.c constant.numeric.decimal.c	1
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c punctuation.definition.directive.c	2
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c	7
+c/ctx	cPreCondit	PreCondit	source.c meta.preprocessor.c vim.PreCondit.cPreCondit	43
+c/ctx	cCppString	String	source.c meta.preprocessor.macro.c string.quoted.double.c punctuation.definition.string.begin.c	1
+c/ctx	cFormat	SpecialChar	source.c meta.preprocessor.macro.c string.quoted.double.c constant.other.placeholder.c	2
+c/ctx	cSpecial	SpecialChar	source.c meta.preprocessor.macro.c string.quoted.double.c constant.character.escape.c	2
+c/ctx	cCppString	String	source.c meta.preprocessor.macro.c string.quoted.double.c punctuation.definition.string.end.c	1
+c/ctx	cPreConditMatch	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c punctuation.definition.directive.c	3
+c/ctx	cPreConditMatch	PreCondit	source.c meta.preprocessor.c keyword.control.directive.conditional.c	14
+c/ctx	cPreProc	PreProc	source.c meta.preprocessor.pragma.c keyword.control.directive.pragma.c punctuation.definition.directive.c	1
+c/ctx	cPreProc	PreProc	source.c meta.preprocessor.pragma.c keyword.control.directive.pragma.c	6
+c/ctx	cPreProc	PreProc	source.c meta.preprocessor.pragma.c entity.other.attribute-name.pragma.preprocessor.c	4
+c/ctx	cTypedef	Structure	source.c vim.Structure.cTypedef	14
+c/ctx	cType	Type	source.c vim.Type.cType	59
+c/ctx		None	source.c support.type.posix-reserved.c	13
+c/ctx		None	source.c punctuation.terminator.statement.c	12
+c/ctx	cStructure	Structure	source.c vim.Structure.cStructure	15
+c/ctx		None	source.c	48
+c/ctx		None	source.c meta.block.c punctuation.section.block.begin.bracket.curly.c	13
+c/ctx	cType	Type	source.c meta.block.c vim.Type.cType	32
+c/ctx		None	source.c meta.block.c	48
+c/ctx		None	source.c meta.block.c punctuation.terminator.statement.c	20
+c/ctx	cStructure	Structure	source.c meta.block.c vim.Structure.cStructure	6
+c/ctx		None	source.c meta.block.c keyword.operator.c	4
+c/ctx	cNumber	Number	source.c meta.block.c constant.numeric.decimal.c	4
+c/ctx		None	source.c meta.block.c punctuation.section.block.end.bracket.curly.c	13
+c/ctx		None	source.c meta.block.c punctuation.separator.delimiter.c	7
+c/ctx		None	source.c meta.block.c keyword.operator.assignment.c	7
+c/ctx	cStorageClass	StorageClass	source.c vim.StorageClass.cStorageClass	37
+c/ctx		None	source.c keyword.operator.c	1
+c/ctx		None	source.c storage.modifier.array.bracket.square.c	2
+c/ctx		None	source.c keyword.operator.assignment.c	14
+c/ctx	cCppString	String	source.c meta.block.c string.quoted.double.c punctuation.definition.string.begin.c	5
+c/ctx	cCppString	String	source.c meta.block.c string.quoted.double.c	11
+c/ctx	cCppString	String	source.c meta.block.c string.quoted.double.c punctuation.definition.string.end.c	5
+c/ctx	cSpecial	SpecialChar	source.c meta.block.c string.quoted.double.c constant.character.escape.c	12
+c/ctx	cNumber	Number	source.c constant.numeric.decimal.c	10
+c/ctx		None	source.c punctuation.separator.delimiter.c	7
+c/ctx	cNumber	Number	source.c keyword.other.unit.hexadecimal.c	2
+c/ctx	cNumber	Number	source.c constant.numeric.hexadecimal.c	2
+c/ctx	cOctal	Number	source.c keyword.other.unit.octal.c	1
+c/ctx	cOctal	Number	source.c constant.numeric.octal.c	3
+c/ctx	cNumber	Number	source.c keyword.other.unit.binary.c	2
+c/ctx	cNumber	Number	source.c constant.numeric.binary.c	3
+c/ctx	cNumber	Number	source.c keyword.other.unit.suffix.integer.c	3
+c/ctx	cFloat	Float	source.c constant.numeric.decimal.c	7
+c/ctx	cFloat	Float	source.c constant.numeric.decimal.point.c	3
+c/ctx	cFloat	Float	source.c keyword.other.unit.exponent.decimal.c	1
+c/ctx	cFloat	Float	source.c keyword.operator.minus.exponent.decimal.c	1
+c/ctx	cFloat	Float	source.c constant.numeric.exponent.decimal.c	1
+c/ctx	cFloat	Float	source.c keyword.other.unit.suffix.floating-point.c	1
+c/ctx	cCharacter	Character	source.c string.quoted.single.c punctuation.definition.string.begin.c	1
+c/ctx	cCharacter	Character	source.c string.quoted.single.c	1
+c/ctx	cCharacter	Character	source.c string.quoted.single.c punctuation.definition.string.end.c	1
+c/ctx	cSpecialCharacter	SpecialChar	source.c vim.SpecialChar.cSpecialCharacter	8
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c entity.name.function.c	7
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c punctuation.section.parameters.begin.bracket.round.c	2
+c/ctx	cType	Type	source.c meta.function.c meta.function.definition.parameters.c vim.Type.cType	13
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c variable.parameter.probably.c	10
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c punctuation.separator.delimiter.c	2
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c punctuation.section.parameters.end.bracket.round.c	2
+c/ctx	cStatement	Statement	source.c meta.block.c vim.Statement.cStatement	29
+c/ctx		None	source.c meta.function.c meta.function.definition.parameters.c keyword.operator.c	2
+c/ctx	cConstant	Constant	source.c meta.block.c vim.Constant.cConstant	32
+c/ctx		None	source.c meta.block.c support.type.posix-reserved.c	6
+c/ctx	cOperator	Operator	source.c meta.block.c vim.Operator.cOperator	6
+c/ctx		None	source.c meta.block.c meta.parens.block.c punctuation.section.parens.begin.bracket.round.c	7
+c/ctx		None	source.c meta.block.c meta.parens.block.c support.type.posix-reserved.c	6
+c/ctx		None	source.c meta.block.c meta.parens.block.c punctuation.section.parens.end.bracket.round.c	7
+c/ctx	cRepeat	Repeat	source.c meta.block.c vim.Repeat.cRepeat	15
+c/ctx		None	source.c meta.block.c meta.parens.block.c	17
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.assignment.c	1
+c/ctx	cNumber	Number	source.c meta.block.c meta.parens.block.c constant.numeric.decimal.c	6
+c/ctx		None	source.c meta.block.c meta.parens.block.c punctuation.terminator.statement.c	2
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.comparison.c	7
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.increment.c	2
+c/ctx	cConditional	Conditional	source.c meta.block.c vim.Conditional.cConditional	12
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.c	3
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.logical.c	5
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c variable.object.c	4
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c punctuation.definition.begin.bracket.square.c	1
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c	1
+c/ctx		None	source.c meta.block.c meta.parens.block.c meta.bracket.square.access.c punctuation.definition.end.bracket.square.c	1
+c/ctx	cConstant	Constant	source.c meta.block.c meta.parens.block.c vim.Constant.cConstant	4
+c/ctx		None	source.c meta.block.c meta.parens.block.c keyword.operator.decrement.c	2
+c/ctx		None	source.c meta.block.c keyword.operator.assignment.compound.bitwise.c	3
+c/ctx	cConditional	Conditional	source.c meta.block.c meta.block.switch.c meta.head.switch.c keyword.control.switch.c	6
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c meta.conditional.switch.c punctuation.section.parens.begin.bracket.round.conditional.switch.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c meta.conditional.switch.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c meta.conditional.switch.c punctuation.section.parens.end.bracket.round.conditional.switch.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.head.switch.c punctuation.section.block.begin.bracket.curly.switch.c	1
+c/ctx	cLabel	Label	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c keyword.control.case.c	4
+c/ctx	cNumber	Number	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c constant.numeric.decimal.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c punctuation.separator.colon.case.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c	3
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.operator.assignment.compound.bitwise.c	3
+c/ctx	cNumber	Number	source.c meta.block.c meta.block.switch.c meta.body.switch.c constant.numeric.decimal.c	2
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c punctuation.terminator.statement.c	3
+c/ctx	cStatement	Statement	source.c meta.block.c meta.block.switch.c meta.body.switch.c vim.Statement.cStatement	5
+c/ctx	cLabel	Label	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c keyword.control.default.c	7
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c meta.conditional.case.c punctuation.separator.colon.case.default.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.operator.assignment.c	1
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c keyword.operator.c	2
+c/ctx		None	source.c meta.block.c meta.block.switch.c meta.body.switch.c punctuation.section.block.end.bracket.curly.switch.c	1
+c/ctx		None	source.c meta.block.c variable.other.object.access.c	1
+c/ctx		None	source.c meta.block.c punctuation.separator.dot-access.c	1
+c/ctx		None	source.c meta.block.c variable.other.member.c	4
+c/ctx	cStructure	Structure	source.c meta.block.c meta.parens.block.c vim.Structure.cStructure	6
+c/ctx		None	source.c meta.block.c meta.function-call.c entity.name.function.c	18
+c/ctx		None	source.c meta.block.c meta.function-call.c punctuation.section.arguments.begin.bracket.round.c	4
+c/ctx		None	source.c meta.block.c meta.function-call.c	3
+c/ctx		None	source.c meta.block.c meta.function-call.c punctuation.section.arguments.end.bracket.round.c	4
+c/ctx	cString	String	source.c meta.block.c meta.function-call.c string.quoted.double.c punctuation.definition.string.begin.c	2
+c/ctx	cFormat	SpecialChar	source.c meta.block.c meta.function-call.c string.quoted.double.c constant.other.placeholder.c	6
+c/ctx	cSpecial	SpecialChar	source.c meta.block.c meta.function-call.c string.quoted.double.c constant.character.escape.c	2
+c/ctx	cString	String	source.c meta.block.c meta.function-call.c string.quoted.double.c punctuation.definition.string.end.c	2
+c/ctx		None	source.c meta.block.c meta.function-call.c punctuation.separator.delimiter.c	3
+c/ctx		None	source.c meta.block.c meta.function-call.c keyword.operator.c	1
+c/ctx		None	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c variable.object.c	4
+c/ctx		None	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c punctuation.definition.begin.bracket.square.c	1
+c/ctx	cNumber	Number	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c constant.numeric.decimal.c	1
+c/ctx		None	source.c meta.block.c meta.function-call.c meta.bracket.square.access.c punctuation.definition.end.bracket.square.c	1
+c/ctx	cString	String	source.c meta.block.c meta.function-call.c string.quoted.double.c	4
+c/ctx	cUserLabel	Label	source.c meta.block.c vim.Label.cUserLabel	4
+c/ctx	cUserCont	cUserCont	source.c meta.block.c	1
+c/ctx	cNumber	Number	source.c meta.block.c meta.function-call.c constant.numeric.decimal.c	2
+c/ctx		None	source.c meta.block.c keyword.operator.ternary.c	2
+java/words	javaError	Error	source.java vim.Error.javaError	9
+java/words		None	source.java	140
+java/words	javaExternal	Include	source.java vim.Include.javaExternal	13
+java/words	javaConditional	Conditional	source.java vim.Conditional.javaConditional	12
+java/words	javaRepeat	Repeat	source.java vim.Repeat.javaRepeat	10
+java/words	javaBoolean	Boolean	source.java vim.Boolean.javaBoolean	9
+java/words	javaConstant	Constant	source.java vim.Constant.javaConstant	4
+java/words	javaTypedef	Typedef	source.java vim.Typedef.javaTypedef	9
+java/words	javaOperator	Operator	source.java vim.Operator.javaOperator	13
+java/words	javaType	Type	source.java vim.Type.javaType	42
+java/words	javaStatement	Statement	source.java vim.Statement.javaStatement	6
+java/words	javaStorageClass	StorageClass	source.java vim.StorageClass.javaStorageClass	43
+java/words	javaExceptions	Exception	source.java vim.Exception.javaExceptions	20
+java/words	javaAssert	Statement	source.java vim.Statement.javaAssert	6
+java/words	javaMethodDecl	StorageClass	source.java vim.StorageClass.javaMethodDecl	6
+java/words	javaClassDecl	StorageClass	source.java vim.StorageClass.javaClassDecl	30
+java/words	javaBranch	Conditional	source.java vim.Conditional.javaBranch	13
+java/words	javaScopeDecl	StorageClass	source.java vim.StorageClass.javaScopeDecl	22
+java/words	javaConceptKind	StorageClass	source.java vim.StorageClass.javaConceptKind	13
+java/ctx	javaCommentStart	Comment	source.java comment.block.java punctuation.definition.comment.java	4
+java/ctx	javaComment	Comment	source.java comment.block.java	13
+java/ctx	javaExternal	Include	source.java vim.Include.javaExternal	31
+java/ctx		None	source.java variable.other.object.java	15
+java/ctx		None	source.java punctuation.separator.period.java	9
+java/ctx		None	source.java variable.other.object.property.java	34
+java/ctx		None	source.java punctuation.terminator.java	4
+java/ctx		None	source.java keyword.operator.arithmetic.java	1
+java/ctx	javaDocComment	Comment	source.java comment.block.javadoc.java punctuation.definition.comment.java	10
+java/ctx	javaCommentStar	Comment	source.java comment.block.javadoc.java vim.SpecialComment vim.Comment	2
+java/ctx	javaCommentTitle	SpecialComment	source.java comment.block.javadoc.java vim.SpecialComment	34
+java/ctx	javaDocLinkTag	Special	source.java comment.block.javadoc.java vim.SpecialComment vim.Special	11
+java/ctx	javaDocComment	Comment	source.java comment.block.javadoc.java	73
+java/ctx	javaDocParamTag	Special	source.java comment.block.javadoc.java vim.Special	12
+java/ctx	javaDocParam	Function	source.java comment.block.javadoc.java vim.Function	29
+java/ctx	javaDocAuthorTag	Special	source.java comment.block.javadoc.java vim.Special	7
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java punctuation.definition.annotation.java	1
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java storage.type.annotation.java	16
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java punctuation.definition.annotation-arguments.begin.bracket.round.java	1
+java/ctx	javaString	String	source.java meta.declaration.annotation.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.declaration.annotation.java string.quoted.double.java	9
+java/ctx	javaString	String	source.java meta.declaration.annotation.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx	javaAnnotationStart	PreProc	source.java meta.declaration.annotation.java punctuation.definition.annotation-arguments.end.bracket.round.java	1
+java/ctx	javaScopeDecl	StorageClass	source.java vim.StorageClass.javaScopeDecl	6
+java/ctx	javaConceptKind	StorageClass	source.java meta.class.java vim.StorageClass.javaConceptKind	8
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.identifier.java storage.modifier.java	10
+java/ctx		None	source.java meta.class.java meta.class.identifier.java entity.name.type.class.java	8
+java/ctx		None	source.java meta.class.java punctuation.bracket.angle.java	4
+java/ctx		None	source.java meta.class.java storage.type.generic.java	2
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java vim.StorageClass.javaClassDecl	24
+java/ctx		None	source.java meta.class.java storage.type.java	10
+java/ctx		None	source.java meta.class.java	22
+java/ctx	javaBlockOtherStart	javaBlockOtherStart	source.java meta.class.java punctuation.section.class.begin.bracket.curly.java	2
+java/ctx	javaLineComment	Comment	source.java meta.class.java meta.class.body.java comment.line.double-slash.java punctuation.definition.comment.java	2
+java/ctx	javaLineComment	Comment	source.java meta.class.java meta.class.body.java comment.line.double-slash.java	17
+java/ctx	javaTodo	Todo	source.java meta.class.java meta.class.body.java comment.line.double-slash.java vim.Todo.javaTodo	4
+java/ctx	javaScopeDecl	StorageClass	source.java meta.class.java meta.class.body.java vim.StorageClass.javaScopeDecl	35
+java/ctx	javaStorageClass	StorageClass	source.java meta.class.java meta.class.body.java vim.StorageClass.javaStorageClass	35
+java/ctx	javaConceptKind	StorageClass	source.java meta.class.java meta.class.body.java vim.StorageClass.javaConceptKind	5
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java vim.Type.javaType	40
+java/ctx		None	source.java meta.class.java meta.class.body.java	30
+java/ctx		None	source.java meta.class.java meta.class.body.java keyword.operator.assignment.java	17
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.decimal.java	23
+java/ctx		None	source.java meta.class.java meta.class.body.java punctuation.terminator.java	11
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.hex.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java punctuation.separator.delimiter.java	6
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.octal.java	3
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java constant.numeric.binary.java	5
+java/ctx	javaCharacter	Character	source.java meta.class.java meta.class.body.java string.quoted.single.java punctuation.definition.string.begin.java	3
+java/ctx	javaCharacter	Character	source.java meta.class.java meta.class.body.java string.quoted.single.java	2
+java/ctx	javaCharacter	Character	source.java meta.class.java meta.class.body.java string.quoted.single.java punctuation.definition.string.end.java	3
+java/ctx	javaSpecialChar	SpecialChar	source.java meta.class.java meta.class.body.java string.quoted.single.java constant.character.escape.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java storage.type.java	22
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java variable.other.definition.java	18
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.double.java	10
+java/ctx	javaSpecialChar	SpecialChar	source.java meta.class.java meta.class.body.java string.quoted.double.java constant.character.escape.java	8
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java string.quoted.triple.java punctuation.definition.string.begin.java	3
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java string.quoted.triple.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java string.quoted.triple.java punctuation.definition.string.end.java	3
+java/ctx	javaBoolean	Boolean	source.java meta.class.java meta.class.body.java vim.Boolean.javaBoolean	9
+java/ctx	javaConstant	Constant	source.java meta.class.java meta.class.body.java vim.Constant.javaConstant	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java punctuation.bracket.angle.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.definition.variable.java storage.type.generic.java	6
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java vim.Operator.javaOperator	3
+java/ctx		None	source.java meta.class.java meta.class.body.java storage.type.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java keyword.operator.comparison.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java punctuation.bracket.round.java	2
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.enum.java storage.modifier.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.enum.java entity.name.type.enum.java	5
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.enum.java punctuation.section.enum.begin.bracket.curly.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.enum.java constant.other.enum.java	8
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.enum.java punctuation.separator.delimiter.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.enum.java punctuation.section.enum.end.bracket.curly.java	1
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.class.java vim.StorageClass.javaClassDecl	9
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java	5
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java punctuation.section.class.begin.bracket.curly.java	1
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java vim.Type.javaType	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java entity.name.function.java	4
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.begin.bracket.round.java	1
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.end.bracket.round.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.class.java meta.class.body.java punctuation.terminator.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.class.java punctuation.section.class.end.bracket.curly.java	1
+java/ctx	javaClassDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java storage.modifier.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java entity.name.type.record.java	5
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java punctuation.definition.parameters.begin.bracket.round.java	1
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java vim.Type.javaType	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java punctuation.separator.delimiter.java	1
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.record.java meta.record.identifier.java punctuation.definition.parameters.end.bracket.round.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.record.java meta.record.body.java punctuation.section.class.begin.bracket.curly.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.record.java punctuation.section.class.end.bracket.curly.java	1
+java/ctx	javaAnnotation	PreProc	source.java meta.class.java meta.class.body.java meta.declaration.annotation.java punctuation.definition.annotation.java	1
+java/ctx	javaAnnotation	PreProc	source.java meta.class.java meta.class.body.java meta.declaration.annotation.java storage.type.annotation.java	8
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java entity.name.function.java	16
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.begin.bracket.round.java	3
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.end.bracket.round.java	3
+java/ctx	javaMethodDecl	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java vim.StorageClass.javaMethodDecl	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java	20
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java punctuation.section.method.begin.bracket.curly.java	3
+java/ctx	javaType	Type	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Type.javaType	12
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java	83
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.assignment.java	11
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java constant.numeric.decimal.java	15
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.terminator.java	28
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.local.java storage.type.local.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.local.java variable.other.definition.java	5
+java/ctx	javaOperator	Operator	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Operator.javaOperator	16
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.bracket.square.java	2
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.section.block.begin.bracket.curly.java	15
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.separator.delimiter.java	2
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.section.block.end.bracket.curly.java	15
+java/ctx	javaRepeat	Repeat	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Repeat.javaRepeat	21
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.bracket.round.java	28
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.comparison.java	10
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.other.object.java	27
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java punctuation.separator.period.java	4
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java variable.other.object.property.java	18
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.increment-decrement.java	6
+java/ctx	javaConditional	Conditional	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Conditional.javaConditional	26
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.arithmetic.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.logical.java	5
+java/ctx	javaBranch	Conditional	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Conditional.javaBranch	28
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.assignment.arithmetic.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java storage.type.java	28
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java variable.other.definition.java	6
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.ternary.java	9
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java punctuation.separator.period.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java entity.name.function.java	19
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java punctuation.definition.parameters.begin.bracket.round.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java	2
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java punctuation.definition.parameters.end.bracket.round.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.operator.bitwise.java	3
+java/ctx	javaLabel	Label	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java keyword.control.java	22
+java/ctx	javaLabelNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java constant.numeric.decimal.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.type.function.arrow.java	6
+java/ctx	javaExceptions	Exception	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Exception.javaExceptions	25
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java entity.name.function.java	24
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java punctuation.definition.parameters.begin.bracket.round.java	2
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java string.quoted.double.java	3
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx	javaParen	javaParen	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java punctuation.definition.parameters.end.bracket.round.java	2
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java constant.numeric.decimal.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java storage.type.java	20
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java string.quoted.double.java punctuation.definition.string.begin.java	1
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java string.quoted.double.java	6
+java/ctx	javaString	String	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.method-call.java string.quoted.double.java punctuation.definition.string.end.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java punctuation.bracket.angle.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java storage.type.generic.java	13
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.definition.variable.java punctuation.separator.delimiter.java	1
+java/ctx	javaTypedef	Typedef	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Typedef.javaTypedef	8
+java/ctx	javaAssert	Statement	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Statement.javaAssert	6
+java/ctx	javaConstant	Constant	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Constant.javaConstant	4
+java/ctx	javaStorageClass	StorageClass	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.StorageClass.javaStorageClass	12
+java/ctx	javaNumber	Number	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java constant.numeric.decimal.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java meta.function-call.java punctuation.separator.delimiter.java	1
+java/ctx	javaBlockStart	javaBlockStart	source.java meta.class.java meta.class.body.java meta.method.java punctuation.section.method.end.bracket.curly.java	3
+java/ctx		None	source.java meta.class.java meta.class.body.java punctuation.bracket.angle.java	2
+java/ctx		None	source.java meta.class.java meta.class.body.java storage.type.generic.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.return-type.java storage.type.java	1
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java storage.type.java	7
+java/ctx		None	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java variable.parameter.java	6
+java/ctx	javaStatement	Statement	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Statement.javaStatement	6
+java/ctx	javaBlockOtherStart	javaBlockOtherStart	source.java meta.class.java punctuation.section.class.end.bracket.curly.java	2
+java/ctx	javaDocReturnTag	Special	source.java comment.block.javadoc.java vim.Special	7
+java/ctx	javaDocThrowsTag	Special	source.java comment.block.javadoc.java vim.Special	7
+java/ctx	javaDocSeeTag	Special	source.java comment.block.javadoc.java vim.Special	4
+java/ctx	javaDocSeeTag3	Function	source.java comment.block.javadoc.java vim.Function	10
+java/ctx	javaDocSinceTag	Special	source.java comment.block.javadoc.java vim.Special	6
+java/ctx	javaDocDeprecatedTag	Special	source.java comment.block.javadoc.java vim.Special	11
+java/ctx	javaDocVersionTag	Special	source.java comment.block.javadoc.java vim.Special	8
+java/ctx	javaDocCodeTag	Special	source.java comment.block.javadoc.java vim.Special	13
+java/ctx	javaDocLiteralTag	Special	source.java comment.block.javadoc.java vim.Special	14
+java/ctx	javaVarArg	Function	source.java meta.class.java meta.class.body.java meta.method.java meta.method.identifier.java punctuation.definition.parameters.varargs.java	3
+java/ctx	javaUserLabel	Label	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Label.javaUserLabel	5
+java/ctx	javaUserLabelRef	Label	source.java meta.class.java meta.class.body.java meta.method.java meta.method.body.java vim.Label.javaUserLabelRef	5
+javascript/words		None	source.js variable.other.readwrite.js	5
+javascript/words	javaScriptConditional	Conditional	source.js vim.Conditional.javaScriptConditional	12
+javascript/words	javaScriptRepeat	Repeat	source.js vim.Repeat.javaScriptRepeat	14
+javascript/words	javaScriptBranch	Conditional	source.js vim.Conditional.javaScriptBranch	13
+javascript/words	javaScriptOperator	Operator	source.js vim.Operator.javaScriptOperator	25
+javascript/words	javaScriptType	Type	source.js vim.Type.javaScriptType	48
+javascript/words	javaScriptStatement	Statement	source.js vim.Statement.javaScriptStatement	20
+javascript/words	javaScriptBoolean	Boolean	source.js vim.Boolean.javaScriptBoolean	9
+javascript/words	javaScriptNull	Keyword	source.js vim.Keyword.javaScriptNull	13
+javascript/words	javaScriptIdentifier	Identifier	source.js vim.Identifier.javaScriptIdentifier	13
+javascript/words	javaScriptLabel	Label	source.js vim.Label.javaScriptLabel	11
+javascript/words	javaScriptException	Exception	source.js vim.Exception.javaScriptException	20
+javascript/words	javaScriptMessage	Keyword	source.js vim.Keyword.javaScriptMessage	24
+javascript/words	javaScriptGlobal	Keyword	source.js vim.Keyword.javaScriptGlobal	19
+javascript/words	javaScriptMember	Keyword	source.js vim.Keyword.javaScriptMember	21
+javascript/words	javaScriptDeprecated	Exception	source.js vim.Exception.javaScriptDeprecated	14
+javascript/words	javaScriptReserved	Keyword	source.js vim.Keyword.javaScriptReserved	212
+javascript/words	javaScriptModifier	StorageClass	source.js vim.StorageClass.javaScriptModifier	6
+javascript/words	javaScriptFunction	Keyword	source.js vim.Keyword.javaScriptFunction	8
+javascript/ctx		None	source.js comment.line.shebang.js punctuation.definition.comment.js	2
+javascript/ctx		None	source.js comment.line.shebang.js	16
+javascript/ctx	javaScriptStringS	String	source.js string.quoted.single.js punctuation.definition.string.begin.js	3
+javascript/ctx	javaScriptStringS	String	source.js string.quoted.single.js	18
+javascript/ctx	javaScriptStringS	String	source.js string.quoted.single.js punctuation.definition.string.end.js	3
+javascript/ctx		None	source.js punctuation.terminator.statement.js	13
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.js punctuation.definition.comment.js	4
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.js	12
+javascript/ctx	javaScriptLineComment	Comment	source.js comment.line.double-slash.js punctuation.definition.comment.js	2
+javascript/ctx	javaScriptLineComment	Comment	source.js comment.line.double-slash.js	17
+javascript/ctx	javaScriptCommentTodo	Todo	source.js comment.line.double-slash.js vim.Todo.javaScriptCommentTodo	4
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js punctuation.definition.comment.js	5
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js	5
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js storage.type.class.jsdoc punctuation.definition.block.tag.jsdoc	1
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js storage.type.class.jsdoc	5
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js entity.name.type.instance.jsdoc punctuation.definition.bracket.curly.begin.jsdoc	1
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js entity.name.type.instance.jsdoc	6
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js entity.name.type.instance.jsdoc punctuation.definition.bracket.curly.end.jsdoc	1
+javascript/ctx	javaScriptComment	Comment	source.js comment.block.documentation.js variable.other.jsdoc	4
+javascript/ctx	javaScriptReserved	Keyword	source.js vim.Keyword.javaScriptReserved	77
+javascript/ctx		None	source.js variable.other.readwrite.js	78
+javascript/ctx		None	source.js punctuation.separator.comma.js	16
+javascript/ctx	javaScriptBraces	Function	source.js meta.objectliteral.js punctuation.definition.block.js	8
+javascript/ctx		None	source.js meta.objectliteral.js	10
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.objectliteral.js vim.Keyword.javaScriptReserved	2
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js variable.other.readwrite.js	12
+javascript/ctx		None	source.js keyword.operator.arithmetic.js	1
+javascript/ctx	javaScriptStringD	String	source.js string.quoted.double.js punctuation.definition.string.begin.js	4
+javascript/ctx	javaScriptStringD	String	source.js string.quoted.double.js	20
+javascript/ctx	javaScriptStringD	String	source.js string.quoted.double.js punctuation.definition.string.end.js	4
+javascript/ctx	javaScriptLabel	Label	source.js vim.Label.javaScriptLabel	7
+javascript/ctx	javaScriptBraces	Function	source.js meta.block.js punctuation.definition.block.js	6
+javascript/ctx	javaScriptModifier	StorageClass	source.js meta.block.js vim.StorageClass.javaScriptModifier	6
+javascript/ctx		None	source.js meta.block.js variable.other.readwrite.js	73
+javascript/ctx		None	source.js meta.block.js keyword.operator.assignment.js	3
+javascript/ctx	javaScriptNumber	Number	source.js meta.block.js constant.numeric.decimal.js	7
+javascript/ctx		None	source.js meta.block.js punctuation.terminator.statement.js	4
+javascript/ctx		None	source.js meta.block.js	5
+javascript/ctx		None	source.js meta.block.js meta.function-call.js entity.name.function.js	22
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.block.js meta.brace.round.js	30
+javascript/ctx		None	source.js meta.block.js punctuation.separator.comma.js	3
+javascript/ctx		None	source.js meta.block.js keyword.operator.spread.js	6
+javascript/ctx	javaScriptBraces	Function	source.js meta.block.js meta.block.js punctuation.definition.block.js	32
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.block.js meta.block.js vim.Keyword.javaScriptReserved	10
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.block.js meta.block.js meta.brace.round.js	16
+javascript/ctx		None	source.js meta.block.js meta.block.js variable.other.readwrite.js	31
+javascript/ctx		None	source.js meta.block.js meta.block.js punctuation.terminator.statement.js	19
+javascript/ctx	javaScriptIdentifier	Identifier	source.js meta.block.js meta.block.js vim.Identifier.javaScriptIdentifier	12
+javascript/ctx		None	source.js meta.block.js meta.block.js punctuation.accessor.js	3
+javascript/ctx		None	source.js meta.block.js meta.block.js variable.other.property.js	6
+javascript/ctx		None	source.js meta.block.js meta.block.js keyword.operator.assignment.js	4
+javascript/ctx	javaScriptStatement	Statement	source.js meta.block.js meta.block.js vim.Statement.javaScriptStatement	28
+javascript/ctx		None	source.js meta.block.js meta.block.js keyword.operator.arithmetic.js	1
+javascript/ctx	javaScriptReserved	Keyword	source.js meta.block.js vim.Keyword.javaScriptReserved	18
+javascript/ctx		None	source.js meta.block.js meta.block.js meta.function-call.js entity.name.function.js	31
+javascript/ctx		None	source.js meta.block.js meta.block.js meta.function-call.js variable.other.object.js	10
+javascript/ctx		None	source.js meta.block.js meta.block.js meta.function-call.js punctuation.accessor.js	4
+javascript/ctx		None	source.js meta.block.js keyword.operator.arithmetic.js	1
+javascript/ctx	javaScriptNumber	Number	source.js meta.block.js meta.block.js constant.numeric.decimal.js	3
+javascript/ctx		None	source.js keyword.operator.assignment.js	23
+javascript/ctx	javaScriptNumber	Number	source.js constant.numeric.decimal.js	15
+javascript/ctx	javaScriptNumber	Number	source.js constant.numeric.hex.js	4
+javascript/ctx	javaScriptNumber	Number	source.js constant.numeric.octal.js	4
+javascript/ctx	javaScriptNumber	Number	source.js constant.numeric.binary.js	5
+javascript/ctx		None	source.js vim.Normal	3
+javascript/ctx	javaScriptNumber	Number	source.js constant.numeric.decimal.js meta.delimiter.decimal.period.js	1
+javascript/ctx	javaScriptSpecial	Special	source.js string.quoted.single.js vim.Special	6
+javascript/ctx	javaScriptSpecial	Special	source.js string.quoted.double.js vim.Special	2
+javascript/ctx	javaScriptStringT	String	source.js string.template.js punctuation.definition.string.template.begin.js	1
+javascript/ctx	javaScriptStringT	String	source.js string.template.js	15
+javascript/ctx	javaScriptEmbed	Special	source.js string.template.js meta.template.expression.js punctuation.definition.template-expression.begin.js	4
+javascript/ctx	javaScriptEmbed	Special	source.js string.template.js meta.template.expression.js meta.embedded.line.js vim.Special	21
+javascript/ctx	javaScriptEmbed	Special	source.js string.template.js meta.template.expression.js punctuation.definition.template-expression.end.js	2
+javascript/ctx	javaScriptStringT	String	source.js string.template.js punctuation.definition.string.template.end.js	1
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js	3
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js keyword.operator.quantifier.regexp	1
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js constant.other.character-class.regexp	2
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js constant.other.character-class.set.regexp punctuation.definition.character-class.regexp	2
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js constant.other.character-class.set.regexp constant.other.character-class.range.regexp	3
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptRegexpString	String	source.js string.regexp.js keyword.other.js	2
+javascript/ctx	javaScriptBoolean	Boolean	source.js vim.Boolean.javaScriptBoolean	4
+javascript/ctx	javaScriptNull	Keyword	source.js vim.Keyword.javaScriptNull	13
+javascript/ctx		None	source.js constant.language.nan.js	3
+javascript/ctx		None	source.js constant.language.infinity.js	8
+javascript/ctx	javaScriptBraces	Function	source.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx	javaScriptNumber	Number	source.js meta.array.literal.js constant.numeric.decimal.js	3
+javascript/ctx		None	source.js meta.array.literal.js punctuation.separator.comma.js	2
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js	1
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js punctuation.separator.key-value.js	4
+javascript/ctx	javaScriptNumber	Number	source.js meta.objectliteral.js meta.object.member.js constant.numeric.decimal.js	4
+javascript/ctx		None	source.js meta.objectliteral.js punctuation.separator.comma.js	5
+javascript/ctx	javaScriptStringS	String	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js string.quoted.single.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js meta.array.literal.js variable.other.readwrite.js	3
+javascript/ctx		None	source.js meta.objectliteral.js meta.method.declaration.js meta.definition.method.js entity.name.function.js	6
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.objectliteral.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.objectliteral.js meta.method.declaration.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx	javaScriptBraces	Function	source.js meta.objectliteral.js meta.method.declaration.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js meta.object-literal.key.js entity.name.function.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.objectliteral.js meta.object.member.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.objectliteral.js meta.object.member.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx		None	source.js meta.objectliteral.js meta.object.member.js meta.arrow.js storage.type.function.arrow.js	2
+javascript/ctx		None	source.js meta.block.js entity.name.label.js	6
+javascript/ctx		None	source.js meta.block.js punctuation.separator.label.js	2
+javascript/ctx	javaScriptFunction	Keyword	source.js vim.Keyword.javaScriptFunction	16
+javascript/ctx		None	source.js meta.function-call.js entity.name.function.js	35
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.brace.round.js	8
+javascript/ctx	javaScriptConditional	Conditional	source.js meta.block.js vim.Conditional.javaScriptConditional	14
+javascript/ctx		None	source.js meta.block.js keyword.operator.comparison.js	3
+javascript/ctx		None	source.js meta.block.js keyword.operator.logical.js	5
+javascript/ctx		None	source.js meta.block.js keyword.operator.relational.js	3
+javascript/ctx	javaScriptException	Exception	source.js meta.block.js meta.block.js vim.Exception.javaScriptException	5
+javascript/ctx	javaScriptOperator	Operator	source.js meta.block.js meta.block.js vim.Operator.javaScriptOperator	12
+javascript/ctx	javaScriptStringD	String	source.js meta.block.js meta.block.js string.quoted.double.js punctuation.definition.string.begin.js	2
+javascript/ctx	javaScriptStringD	String	source.js meta.block.js meta.block.js string.quoted.double.js	5
+javascript/ctx	javaScriptStringD	String	source.js meta.block.js meta.block.js string.quoted.double.js punctuation.definition.string.end.js	2
+javascript/ctx	javaScriptRepeat	Repeat	source.js meta.block.js vim.Repeat.javaScriptRepeat	30
+javascript/ctx		None	source.js meta.block.js keyword.operator.increment.js	2
+javascript/ctx	javaScriptBranch	Conditional	source.js meta.block.js meta.block.js vim.Conditional.javaScriptBranch	18
+javascript/ctx	javaScriptBraces	Function	source.js meta.block.js meta.block.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx		None	source.js meta.block.js meta.block.js meta.array.literal.js variable.other.readwrite.js	1
+javascript/ctx		None	source.js meta.block.js meta.block.js keyword.operator.expression.void.js	4
+javascript/ctx		None	source.js meta.block.js keyword.operator.decrement.js	2
+javascript/ctx		None	source.js meta.block.js meta.block.js keyword.operator.assignment.compound.bitwise.js	3
+javascript/ctx		None	source.js meta.block.js meta.block.js keyword.operator.increment.js	2
+javascript/ctx	javaScriptOperator	Operator	source.js meta.block.js vim.Operator.javaScriptOperator	16
+javascript/ctx	javaScriptLabel	Label	source.js meta.block.js meta.block.js vim.Label.javaScriptLabel	11
+javascript/ctx	javaScriptStringS	String	source.js meta.block.js meta.block.js string.quoted.single.js punctuation.definition.string.begin.js	1
+javascript/ctx	javaScriptStringS	String	source.js meta.block.js meta.block.js string.quoted.single.js	6
+javascript/ctx	javaScriptStringS	String	source.js meta.block.js meta.block.js string.quoted.single.js punctuation.definition.string.end.js	1
+javascript/ctx		None	source.js meta.block.js meta.block.js	2
+javascript/ctx		None	source.js meta.block.js meta.block.js keyword.operator.logical.js	2
+javascript/ctx	javaScriptException	Exception	source.js meta.block.js vim.Exception.javaScriptException	15
+javascript/ctx		None	source.js meta.block.js meta.block.js meta.function-call.js variable.other.constant.object.js	4
+javascript/ctx	javaScriptType	Type	source.js meta.block.js meta.block.js vim.Type.javaScriptType	4
+javascript/ctx	javaScriptStatement	Statement	source.js meta.block.js vim.Statement.javaScriptStatement	6
+javascript/ctx	javaScriptType	Type	source.js meta.block.js vim.Type.javaScriptType	6
+javascript/ctx		None	source.js meta.block.js keyword.operator.ternary.js	2
+javascript/ctx		None	source.js entity.name.function.js	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.begin.js	1
+javascript/ctx		None	source.js meta.arrow.js meta.parameters.js variable.parameter.js	1
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.arrow.js meta.parameters.js punctuation.definition.parameters.end.js	1
+javascript/ctx		None	source.js meta.arrow.js storage.type.function.arrow.js	2
+javascript/ctx	javaScriptBraces	Function	source.js meta.arrow.js meta.block.js punctuation.definition.block.js	2
+javascript/ctx	javaScriptStatement	Statement	source.js meta.arrow.js meta.block.js vim.Statement.javaScriptStatement	5
+javascript/ctx		None	source.js meta.arrow.js meta.block.js meta.function-call.js support.class.promise.js	7
+javascript/ctx		None	source.js meta.arrow.js meta.block.js meta.function-call.js punctuation.accessor.js	1
+javascript/ctx		None	source.js meta.arrow.js meta.block.js meta.function-call.js entity.name.function.js	3
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.arrow.js meta.block.js meta.brace.round.js	2
+javascript/ctx	javaScriptBraces	Function	source.js meta.arrow.js meta.block.js meta.array.literal.js meta.brace.square.js	2
+javascript/ctx		None	source.js meta.arrow.js meta.block.js meta.array.literal.js variable.other.readwrite.js	1
+javascript/ctx		None	source.js meta.arrow.js meta.block.js punctuation.terminator.statement.js	1
+javascript/ctx	javaScriptMember	Keyword	source.js vim.Keyword.javaScriptMember	8
+javascript/ctx		None	source.js meta.function-call.js punctuation.accessor.js	2
+javascript/ctx	javaScriptGlobal	Keyword	source.js meta.objectliteral.js vim.Keyword.javaScriptGlobal	6
+javascript/ctx	javaScriptMessage	Keyword	source.js meta.objectliteral.js vim.Keyword.javaScriptMessage	5
+javascript/ctx	javaScriptParens	javaScriptParens	source.js meta.objectliteral.js	2
+javascript/ctx	javaScriptIdentifier	Identifier	source.js meta.objectliteral.js vim.Identifier.javaScriptIdentifier	4
+javascript/ctx		None	source.js support.type.object.module.js	13
+javascript/ctx		None	source.js punctuation.accessor.js	1
