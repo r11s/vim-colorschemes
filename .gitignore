@@ -1,4 +1,4 @@
-# Alles ignorieren, nur das Notwendige aufnehmen
+# Alles ignorieren, nur das Notwendige aufnehmen (Allowlist)
 /*
 
 !/.gitignore
@@ -7,8 +7,38 @@
 !/tools/
 !/data/
 
-# Pakete und Zwischenstände
+# Nur lokal, nie einchecken (durch "/*" schon ignoriert; hier zur Dokumentation und als zweite Sicherung)
+/corpus/
+/messung/
+/rt92/
+/dist/
+/themes/
+/probe-vim-all/
+/css/
+/PRUEFLISTE.md
+/install-all.sh
+/remove-all.sh
+/vim_themes.jpeg
+
+# Pakete und Zwischenstände (gelten auch in release/, tools/ und data/)
 *.vsix
 __pycache__/
 *.pyc
 node_modules/
+
+# Editor- und Systemdateien
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.bak
+*.orig
+*.tmp
+*.log
+
+# Geheimnisse
+.env
+.env.*
+*.pem
+*.key

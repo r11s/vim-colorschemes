@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+- README simplified and made more general; it no longer states accuracy figures.
+- Fixed JavaScript colors: double-quoted strings, JSDoc comments, parts of regular expressions and `true`/`false` now use the Vim colors.
+- Added the license notice for the user interface colors, which are derived from the VS Code default themes (MIT), as `THIRD-PARTY-NOTICES.txt`.
+
 ## 1.0.1
 - Added an extension icon.
 - README, changelog and description are now in English.

@@ -30838,6 +30838,134 @@
     "foreground": "#00afaf",
     "fontStyle": ""
    }
+  },
+  {
+   "name": "Comment",
+   "scope": "comment.block.documentation.js",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Boolean",
+   "scope": "constant.language.boolean.false.js",
+   "settings": {
+    "foreground": "#00ffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Boolean",
+   "scope": "constant.language.boolean.true.js",
+   "settings": {
+    "foreground": "#00ffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Special",
+   "scope": "constant.other.character-class.regexp",
+   "settings": {
+    "foreground": "#ff0000",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Comment",
+   "scope": "entity.name.type.instance.jsdoc",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Delimiter",
+   "scope": "invalid.illegal.expected-dictionary-separator.json",
+   "settings": {
+    "foreground": "#ffff00",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Comment",
+   "scope": "punctuation.definition.block.tag.jsdoc",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Comment",
+   "scope": "punctuation.definition.bracket.curly.begin.jsdoc",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Comment",
+   "scope": "punctuation.definition.bracket.curly.end.jsdoc",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "String",
+   "scope": "punctuation.definition.character-class.regexp",
+   "settings": {
+    "foreground": "#00ffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Comment",
+   "scope": "punctuation.definition.comment.js",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "String",
+   "scope": "punctuation.definition.string.begin.js",
+   "settings": {
+    "foreground": "#00ffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "String",
+   "scope": "punctuation.definition.string.end.js",
+   "settings": {
+    "foreground": "#00ffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "SpecialComment",
+   "scope": "storage.type.class.jsdoc",
+   "settings": {
+    "foreground": "#ff0000",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "String",
+   "scope": "string.quoted.double.js",
+   "settings": {
+    "foreground": "#00ffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Comment",
+   "scope": "variable.other.jsdoc",
+   "settings": {
+    "foreground": "#00afaf",
+    "fontStyle": ""
+   }
   }
  ]
 }

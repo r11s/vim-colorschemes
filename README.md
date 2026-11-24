@@ -9,7 +9,8 @@ Details, supported languages, status and feedback: see [release/README.md](relea
 ## Repository layout
 
 - `release/` – the extension as it is published (package, grammars, themes, license).
-- `tools/` – scripts that generate the grammars and themes from Vim's data. They are written for the author's working environment, paths may need adjusting.
+- `tools/` – scripts that generate the grammars and themes from Vim's data. They were written for the author's working environment; the paths can be set with environment variables: `VD` (working directory, default `/tmp/vd`), `TM` (default `/tmp/tm`), `VIM` (Vim 9.2 binary, default `/tmp/vim92/bin/vim`) and `RT92` (Vim's runtime files, default: `rt92/` in this repository, otherwise `$VD/rt92`). `tools/spec.json` and `tools/more_train.py` still name the example projects under `/tmp/vd/lang/repos/` that were used for training.
+- `rt92/` – optional local copy of Vim 9.2's runtime files (`colors`, `syntax`, …); not tracked, see `.gitignore`.
 - `data/` – data extracted from Vim 9.2 (colors, syntax word lists, scope-to-group pairs) that the tools work with.
 
 ## License

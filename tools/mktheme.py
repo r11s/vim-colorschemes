@@ -39,14 +39,22 @@ if _os.environ.get('LANGDUMP'):
 STD0 = [k for k in G if k in set('Comment Constant String Character Number Boolean Float Identifier Function Statement Conditional Repeat Label Operator Keyword Exception PreProc Include Define Macro PreCondit Type StorageClass Structure Typedef Special SpecialChar Tag Delimiter SpecialComment Debug Underlined Ignore Error Todo'.split())]
 STD = STD0
 EXTRA_OK = set(G) - set(STD0) - {'Normal'}
-m = collections.defaultdict(collections.Counter)
+def embedded_in_markdown(r):
+    # Codeblöcke in Markdown färbt Vim pauschal als markdownCodeBlock, nicht nach Sprache.
+    # Diese Zeilen sagen nichts über die Farbe der eingebetteten Sprache (js, jsdoc, json, ...).
+    return r['lang'].startswith('markdown/') and any(x.startswith('meta.embedded.') for x in r['tm_scopes'].split(' '))
+m = collections.defaultdict(collections.Counter)       # ohne Codeblock-Zeilen aus Markdown
+m_all = collections.defaultdict(collections.Counter)   # mit allen Zeilen: nur für die Eltern-Präfixe (Rückfall unbekannter Scopes)
 for r in csv.DictReader(open(pairs), delimiter='\t', quoting=csv.QUOTE_NONE):
     inner = r['tm_scopes'].split(' ')[-1]
     g0 = r['vim_trans'] or 'None'
-    m[inner][g0 if (g0 in STD or g0 in EXTRA_OK) else 'None'] += int(r['chars'])
+    k0 = g0 if (g0 in STD or g0 in EXTRA_OK) else 'None'
+    m_all[inner][k0] += int(r['chars'])
+    if not embedded_in_markdown(r): m[inner][k0] += int(r['chars'])
 # Eltern-qualifizierte Zählung: (Elternscope, innerster Scope) -> Gruppe
 mq = collections.defaultdict(collections.Counter)
 for r in csv.DictReader(open(pairs), delimiter='\t', quoting=csv.QUOTE_NONE):
+    if embedded_in_markdown(r): continue
     sc = r['tm_scopes'].split(' ')
     if len(sc) < 2: continue
     inner, parent = sc[-1], sc[-2]
@@ -54,10 +62,11 @@ for r in csv.DictReader(open(pairs), delimiter='\t', quoting=csv.QUOTE_NONE):
     g0 = r['vim_trans'] or 'None'
     mq[(parent, inner)][g0 if (g0 in STD or g0 in EXTRA_OK) else 'None'] += int(r['chars'])
 by = collections.defaultdict(collections.Counter)
-for inner, c in m.items():
+for inner, c_all in m_all.items():
     if inner.startswith(('source.', 'text.', 'vim.')): continue
     parts = inner.split('.')
     for k in range(1, len(parts) + 1):
+        c = m.get(inner, {}) if k == len(parts) else c_all    # der Scope selbst: ohne Codeblöcke; Eltern: wie bisher
         for g, n in c.items(): by['.'.join(parts[:k])][g] += n
 
 def style(b, i, u):

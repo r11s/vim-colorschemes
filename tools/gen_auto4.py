@@ -1,8 +1,10 @@
+import os
 import csv, collections, json, sys, glob
+VD = os.environ.get('VD', '/tmp/vd')       # Arbeitsverzeichnis (Zwischenstände, Beispielprojekte)
 pairs, out, colname = sys.argv[1], sys.argv[2], sys.argv[3]
 # Palette: wirksame Gruppe -> Farbe aus den Vim-Läufen
 pal = {}
-for r in csv.reader(open('/tmp/vd/ctx/go.go.' + colname + '.std.tsv.pal'), delimiter='\t', quoting=csv.QUOTE_NONE):
+for r in csv.reader(open(VD + '/ctx/go.go.' + colname + '.std.tsv.pal'), delimiter='\t', quoting=csv.QUOTE_NONE):
     pal[r[0]] = r[1]
 fg = pal['Normal']
 STD = set(pal)

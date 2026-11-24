@@ -1,9 +1,12 @@
 # python3 gen_words_all.py <inj_in> <inj_out>   (Wort-/Todo-Injektionen für alle weiteren Sprachen)
 import csv, json, sys, os, re, collections, shutil
+VD = os.environ.get('VD', '/tmp/vd')       # Arbeitsverzeichnis (Zwischenstände, Beispielprojekte)
+RT92 = os.environ.get('RT92') or (os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'rt92')
+                                   if os.path.isdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'rt92')) else VD + '/rt92')
 src, out = sys.argv[1], sys.argv[2]
 shutil.copytree(src, out, dirs_exist_ok=True)
-SPEC = [l.split() for l in open('/tmp/vd/lang/list.txt')]
-W = '/tmp/vd/words/gen/'; UP = '/tmp/vd/lang/upper/'; RT = '/tmp/vd/rt92/syntax/'
+SPEC = [l.split() for l in open(VD + '/lang/list.txt')]
+W = VD + '/words/gen/'; UP = VD + '/lang/upper/'; RT = RT92 + '/syntax/'
 index = json.load(open(f'{out}/index.json'))
 groups = [l.rstrip('\n') for l in open(f'{out}/groups_std.tsv')]
 GR = set(tuple(l.split('\t')) for l in groups if l)

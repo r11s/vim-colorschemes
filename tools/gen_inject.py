@@ -1,9 +1,10 @@
 # python3 gen_inject.py <groups,komma> <ausgabeordner>
 # Wörter je Sprache aus den Vim-Läufen (Wort -> Standardgruppe) -> Injection-Grammatiken
 import csv, json, sys, os, collections
+VD = os.environ.get('VD', '/tmp/vd')       # Arbeitsverzeichnis (Zwischenstände, Beispielprojekte)
 groups = set(sys.argv[1].split(',')) if sys.argv[1] != 'ALL' else None
 out = sys.argv[2]; os.makedirs(out, exist_ok=True)
-W = '/tmp/vd/words/gen/'
+W = VD + '/words/gen/'
 L = {'go': ('source.go', 'go'), 'python': ('source.python', 'py'), 'c': ('source.c', 'c'), 'java': ('source.java', 'java'), 'javascript': ('source.js', 'js')}
 info = {}
 for lang, (scope, ext) in L.items():

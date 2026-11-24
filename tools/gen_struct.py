@@ -1,9 +1,10 @@
 # python3 gen_struct.py <inj_in> <inj_out>
 # Struktur-Injektionen "wie Vim": Todo, C-Regionen, Zeichenliterale, Labels, ...
 import csv, json, sys, os, collections, shutil
+VD = os.environ.get('VD', '/tmp/vd')       # Arbeitsverzeichnis (Zwischenstände, Beispielprojekte)
 src, out = sys.argv[1], sys.argv[2]
 shutil.copytree(src, out, dirs_exist_ok=True)
-W = '/tmp/vd/words/gen/'
+W = VD + '/words/gen/'
 L = {'go': ('source.go', 'go'), 'python': ('source.python', 'py'), 'c': ('source.c', 'c'), 'java': ('source.java', 'java'), 'javascript': ('source.js', 'js')}
 index = json.load(open(f'{out}/index.json'))
 

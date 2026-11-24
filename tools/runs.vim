@@ -1,5 +1,8 @@
 set nocp
-set rtp^=/tmp/vd/rt92
+" Runtime von Vim 9.2: $RT92, sonst rt92/ im Repo, sonst /tmp/vd/rt92
+let s:repo = expand('<sfile>:p:h:h')
+let s:rt = !empty($RT92) ? $RT92 : (isdirectory(s:repo . '/rt92') ? s:repo . '/rt92' : '/tmp/vd/rt92')
+execute 'set rtp^=' . fnameescape(s:rt)
 set columns=200
 syntax on
 execute 'edit ' . $FILE

@@ -3,7 +3,7 @@
   "displayName": "Vim Colorschemes",
   "icon": "icon.png",
   "description": "The color schemes of Vim 9.2 for VS Code and VSCodium, generated automatically from Vim",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "r11s",
   "engines": {
     "vscode": "^1.60.0"
