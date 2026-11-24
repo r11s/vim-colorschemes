@@ -22673,10 +22673,10 @@
    }
   },
   {
-   "name": "PreProc",
+   "name": "None",
    "scope": "variable.other.readwrite.ts",
    "settings": {
-    "foreground": "#cd5c5c",
+    "foreground": "#ffffff",
     "fontStyle": ""
    }
   },
@@ -30965,6 +30965,150 @@
    "scope": "variable.other.jsdoc",
    "settings": {
     "foreground": "#6dceeb",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Keyword",
+   "scope": "storage.type.function.ts",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "Keyword",
+   "scope": "storage.type.interface.ts",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.ts meta.definition.function.ts entity.name.function.ts",
+   "settings": {
+    "foreground": "#89fb98",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "None",
+   "scope": "new.expr.ts meta.template.expression.ts variable.other.object.ts",
+   "settings": {
+    "foreground": "#ffffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "None",
+   "scope": "new.expr.ts meta.template.expression.ts variable.other.object.property.ts",
+   "settings": {
+    "foreground": "#ffffff",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Statement",
+   "scope": "storage.modifier.readonly.shell",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "Statement",
+   "scope": "storage.modifier.declare.shell",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "Statement",
+   "scope": "storage.modifier.typeset.shell",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.shell entity.name.function.shell",
+   "settings": {
+    "foreground": "#89fb98",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.shell punctuation.definition.arguments.shell",
+   "settings": {
+    "foreground": "#89fb98",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.shell punctuation.section.function.definition.shell",
+   "settings": {
+    "foreground": "#89fb98",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shCommandSub",
+   "scope": "meta.scope.subshell entity.name.command.shell",
+   "settings": {
+    "foreground": "#ffde9b",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell punctuation.section.arithmetic.double.shell",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell variable.other.normal.shell",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell punctuation.separator.semicolon.range",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell keyword.operator.arithmetic.shell",
+   "settings": {
+    "foreground": "#f0e68c",
+    "fontStyle": "bold"
+   }
+  },
+  {
+   "name": "Delimiter",
+   "scope": "meta.arithmetic.shell punctuation.section.arithmetic.double.shell",
+   "settings": {
+    "foreground": "#ffde9b",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shDblParen",
+   "scope": "meta.arithmetic.shell variable.other.normal.shell",
+   "settings": {
+    "foreground": "#ffffff",
     "fontStyle": ""
    }
   }

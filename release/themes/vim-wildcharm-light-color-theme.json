@@ -22680,10 +22680,10 @@
    }
   },
   {
-   "name": "PreProc",
+   "name": "None",
    "scope": "variable.other.readwrite.ts",
    "settings": {
-    "foreground": "#008787",
+    "foreground": "#000000",
     "fontStyle": ""
    }
   },
@@ -30972,6 +30972,150 @@
    "scope": "variable.other.jsdoc",
    "settings": {
     "foreground": "#8a8a8a",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Keyword",
+   "scope": "storage.type.function.ts",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Keyword",
+   "scope": "storage.type.interface.ts",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.ts meta.definition.function.ts entity.name.function.ts",
+   "settings": {
+    "foreground": "#870087",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "None",
+   "scope": "new.expr.ts meta.template.expression.ts variable.other.object.ts",
+   "settings": {
+    "foreground": "#000000",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "None",
+   "scope": "new.expr.ts meta.template.expression.ts variable.other.object.property.ts",
+   "settings": {
+    "foreground": "#000000",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Statement",
+   "scope": "storage.modifier.readonly.shell",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Statement",
+   "scope": "storage.modifier.declare.shell",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Statement",
+   "scope": "storage.modifier.typeset.shell",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.shell entity.name.function.shell",
+   "settings": {
+    "foreground": "#870087",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.shell punctuation.definition.arguments.shell",
+   "settings": {
+    "foreground": "#870087",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Function",
+   "scope": "meta.function.shell punctuation.section.function.definition.shell",
+   "settings": {
+    "foreground": "#870087",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shCommandSub",
+   "scope": "meta.scope.subshell entity.name.command.shell",
+   "settings": {
+    "foreground": "#5f00d7",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell punctuation.section.arithmetic.double.shell",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell variable.other.normal.shell",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell punctuation.separator.semicolon.range",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shLoop",
+   "scope": "meta.for.shell meta.arithmetic.shell keyword.operator.arithmetic.shell",
+   "settings": {
+    "foreground": "#005faf",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "Delimiter",
+   "scope": "meta.arithmetic.shell punctuation.section.arithmetic.double.shell",
+   "settings": {
+    "foreground": "#5f00d7",
+    "fontStyle": ""
+   }
+  },
+  {
+   "name": "lang:shDblParen",
+   "scope": "meta.arithmetic.shell variable.other.normal.shell",
+   "settings": {
+    "foreground": "#000000",
     "fontStyle": ""
    }
   }

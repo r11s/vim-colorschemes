@@ -1,0 +1,2 @@
+{"scopeName":"vim.injection.shell-arith","injectionSelector":"L:source.shell meta.arithmetic.shell -comment",
+ "patterns":[{"match":"(?:==|!=|<=|>=|(?<![-+*/%&|^<>!=])=(?!=)|<(?!<)|>(?!>))","name":"vim.Conditional.shTestOpr"}]}

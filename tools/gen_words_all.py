@@ -51,6 +51,16 @@ for lang, ext, syn, scope in SPEC:
                               open(f'{out}/{name}.json', 'w'), indent=1)
                     index.setdefault(scope, []).append(f'vim.injection.{name}'); GR.add((vg, 'Todo'))
                 break
+# Von Hand geschriebene Zusatz-Injektionen (tools/extra_inject/*.json, Zuordnung zu Scopes in index.json)
+EX = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'extra_inject')
+if os.path.exists(os.path.join(EX, 'index.json')):
+    for sc, names in json.load(open(os.path.join(EX, 'index.json'))).items():
+        for nm in names:
+            fn = nm.split('.', 2)[2] + '.json'
+            shutil.copy(os.path.join(EX, fn), f'{out}/{fn}')
+            if nm not in index.setdefault(sc, []): index[sc].append(nm)
+            for pt in json.load(open(os.path.join(EX, fn))).get('patterns', []):
+                if pt.get('name', '').count('.') == 2: GR.add((pt['name'].split('.', 2)[2], pt['name'].split('.')[1]))
 json.dump(index, open(f'{out}/index.json', 'w'))
 open(f'{out}/groups_std.tsv', 'w').write('\n'.join(f'{g}\t{s}' for g, s in sorted(GR)) + '\n')
 print(len(index), 'Scopes;', len(GR), 'Gruppen')

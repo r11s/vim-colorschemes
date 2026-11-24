@@ -1,0 +1,10 @@
+{
+ "scopeName": "vim.injection.typescript-readonly",
+ "injectionSelector": "L:source.ts meta.parameters.ts -comment -string",
+ "patterns": [
+  {
+   "match": "(?<=\\bprivate\\s|\\bpublic\\s|\\bprotected\\s)readonly\\b",
+   "name": "vim.Type.typescriptReadonlyModifier"
+  }
+ ]
+}

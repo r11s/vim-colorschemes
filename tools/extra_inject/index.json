@@ -1,0 +1,9 @@
+{
+ "source.ts": [
+  "vim.injection.typescript-readonly",
+  "vim.injection.typescript-host"
+ ],
+ "source.shell": [
+  "vim.injection.shell-arith"
+ ]
+}

@@ -3,7 +3,7 @@
   "displayName": "Vim Colorschemes",
   "icon": "icon.png",
   "description": "The color schemes of Vim 9.2 for VS Code and VSCodium, generated automatically from Vim",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "r11s",
   "engines": {
     "vscode": "^1.60.0"
@@ -673,6 +673,20 @@
         ]
       },
       {
+        "scopeName": "vim.injection.typescript-readonly",
+        "path": "./grammars/typescript-readonly.json",
+        "injectTo": [
+          "source.ts"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.typescript-host",
+        "path": "./grammars/typescript-host.json",
+        "injectTo": [
+          "source.ts"
+        ]
+      },
+      {
         "scopeName": "vim.injection.vim",
         "path": "./grammars/vim.json",
         "injectTo": [
@@ -745,6 +759,13 @@
         "path": "./grammars/pascal-todo.json",
         "injectTo": [
           "source.pascal"
+        ]
+      },
+      {
+        "scopeName": "vim.injection.shell-arith",
+        "path": "./grammars/shell-arith.json",
+        "injectTo": [
+          "source.shell"
         ]
       }
     ],

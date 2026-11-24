@@ -2,5 +2,81 @@
  {
   "scope": "comment.block.documentation.ts source.embedded.ts",
   "group": "Comment"
+ },
+ {
+  "scope": "storage.type.function.ts",
+  "group": "Keyword"
+ },
+ {
+  "scope": "storage.type.interface.ts",
+  "group": "Keyword"
+ },
+ {
+  "scope": "meta.function.ts meta.definition.function.ts entity.name.function.ts",
+  "group": "Function"
+ },
+ {
+  "scope": "variable.other.readwrite.ts",
+  "group": "None"
+ },
+ {
+  "scope": "new.expr.ts meta.template.expression.ts variable.other.object.ts",
+  "group": "None"
+ },
+ {
+  "scope": "new.expr.ts meta.template.expression.ts variable.other.object.property.ts",
+  "group": "None"
+ },
+ {
+  "scope": "storage.modifier.readonly.shell",
+  "group": "Statement"
+ },
+ {
+  "scope": "storage.modifier.declare.shell",
+  "group": "Statement"
+ },
+ {
+  "scope": "storage.modifier.typeset.shell",
+  "group": "Statement"
+ },
+ {
+  "scope": "meta.function.shell entity.name.function.shell",
+  "group": "Function"
+ },
+ {
+  "scope": "meta.function.shell punctuation.definition.arguments.shell",
+  "group": "Function"
+ },
+ {
+  "scope": "meta.function.shell punctuation.section.function.definition.shell",
+  "group": "Function"
+ },
+ {
+  "scope": "meta.scope.subshell entity.name.command.shell",
+  "group": "lang:shCommandSub"
+ },
+ {
+  "scope": "meta.for.shell meta.arithmetic.shell punctuation.section.arithmetic.double.shell",
+  "group": "lang:shLoop"
+ },
+ {
+  "scope": "meta.for.shell meta.arithmetic.shell variable.other.normal.shell",
+  "group": "lang:shLoop"
+ },
+ {
+  "scope": "meta.for.shell meta.arithmetic.shell punctuation.separator.semicolon.range",
+  "group": "lang:shLoop"
+ },
+ {
+  "scope": "meta.for.shell meta.arithmetic.shell keyword.operator.arithmetic.shell",
+  "group": "lang:shLoop"
+ },
+ {
+  "scope": "meta.arithmetic.shell punctuation.section.arithmetic.double.shell",
+  "group": "Delimiter"
+ },
+ {
+  "scope": "meta.arithmetic.shell variable.other.normal.shell",
+  "group": "lang:shDblParen"
  }
 ]

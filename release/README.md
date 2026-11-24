@@ -8,11 +8,18 @@ This extension replaces the former separate Vim theme extensions by r11s (Defaul
 
 ## Languages
 
-The themes color these languages the way Vim does:
+The themes color these languages the way Vim does. Whether a file is colored at all depends on a grammar for the language being available in VS Code.
 
-Go, Python, C, C++, C#, Java, JavaScript, TypeScript, Rust, Swift, Dart, Kotlin, Scala, Ruby, Perl, PHP, Lua, R, Shell, PowerShell, Batch, SQL, HTML, XML, CSS, SCSS, Less, JSON, YAML, TOML, INI, Markdown, Make, Dockerfile, Diff, Cobol, Vim script and Pascal.
+**Grammar built into VS Code** (no extra extension needed):
+Go, Python, C, C++, C#, Java, JavaScript, TypeScript, Rust, Swift, Dart, Ruby, Perl, PHP, Lua, R, Shell, PowerShell, Batch, SQL, HTML, XML, CSS, SCSS, Less, JSON, YAML, INI, Markdown, Make, Dockerfile and Diff.
 
-This relies on a grammar for the language being available in VS Code. For **Kotlin, Scala, Cobol, TOML and Vim script** VS Code does not ship one, so a suitable language extension must be installed; otherwise the file is not colored. **Pascal** is provided by this extension itself.
+**Grammar provided by this extension:** Pascal.
+
+**Needs a language extension:** Kotlin. VS Code has no grammar for Kotlin, so without a language extension Kotlin files are not colored at all, with any theme. The colors were tested with the grammar of the extension "Kotlin" by fwcd.
+
+**Coming later:** Scala, Cobol, TOML and Vim script (VS Code has no grammar for them either; recommended extensions will follow), and other languages for which Vim has a syntax file.
+
+Other languages, including Assembly, Ada, Fortran, Julia, Visual Basic, Objective-C and MATLAB, are not colored the way Vim does yet. MATLAB files (`.m`) are treated as Objective-C by VS Code.
 
 ## Recommended settings
 
@@ -25,7 +32,9 @@ VS Code draws some things in its own colors. To get closer to Vim, you can turn 
 
 ## Limitations
 
-The themes follow Vim's syntax highlighting as closely as TextMate grammars allow. The result depends on the grammar VS Code uses for each language, so some constructs are colored differently than in Vim, and Vim's own quirks are not reproduced. If you find a difference that bothers you, please report it (see below).
+The themes follow Vim's syntax highlighting as closely as TextMate grammars allow. The result depends on the grammar VS Code uses for each language, so some constructs are colored differently than in Vim, and Vim's own quirks are not reproduced.
+
+The colors were compared with gVim file by file for most of the languages above. For Make, Dockerfile, Diff, INI, HTML, XML, CSS, SCSS, Less, JSON, YAML, Markdown and Batch this comparison has not been done yet. They are generated the same way from Vim's syntax data, so they should be close, but differences are more likely there. If you find a difference that bothers you, please report it (see below).
 
 ## Feedback
 
