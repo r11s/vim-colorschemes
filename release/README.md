@@ -21,6 +21,10 @@ Go, Python, C, C++, C#, Java, JavaScript, TypeScript, Rust, Swift, Dart, Ruby, P
 
 Other languages, including Assembly, Ada, Fortran, Julia, Visual Basic, Objective-C and MATLAB, are not colored the way Vim does yet. MATLAB files (`.m`) are treated as Objective-C by VS Code.
 
+## User interface
+
+Vim has no counterpart for the VS Code interface around the editor, so these colors are built for each theme from its own Vim colors: side bar, activity bar, tabs, title and status bar, menus and widgets are graded in small steps from the editor background. The selection color comes from Vim's `PmenuSel`, the suggestion list uses `Pmenu`, errors and warnings use Vim's error and warning colors, and the terminal uses the theme's ANSI colors. The editor itself is not affected.
+
 ## Recommended settings
 
 VS Code draws some things in its own colors. To get closer to Vim, you can turn these off:
@@ -44,7 +48,7 @@ Helpful: the theme, the language, a short code snippet and, if possible, a scree
 
 ## License and origin
 
-The extension is licensed under the Vim License (file `LICENSE`). Colors and word lists come from Vim 9.2 (`runtime/colors` and `runtime/syntax`). The colors of the user interface around the editor (tabs, side bar, status bar and so on) are derived from the VS Code default themes "Dark (Visual Studio)" and "Light (Visual Studio)" by Microsoft (MIT License, see `THIRD-PARTY-NOTICES.txt`). The grammars and the generator tool are newly written.
+The extension is licensed under the Vim License (file `LICENSE`). Colors and word lists come from Vim 9.2 (`runtime/colors` and `runtime/syntax`). The colors of the user interface around the editor (tabs, side bar, status bar and so on) are derived for each theme from its own Vim colors. The grammars and the generator tools are newly written.
 
 Author and license of the color schemes, as given in the header lines of the Vim files:
 

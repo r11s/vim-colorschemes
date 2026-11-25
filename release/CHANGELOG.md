@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+- The user interface (side bar, activity bar, tabs, title bar, status bar, menus, widgets, lists, buttons, terminal and so on) is now built for each theme from that theme's own Vim colors, so that it fits the theme. The colors no longer come from the VS Code default themes.
+- Editor colors and all syntax colors are unchanged.
+
 ## 1.0.3
 - TypeScript: `readonly` after `private`, `public` or `protected` in constructor parameters now uses the Vim color for `readonly`.
 - TypeScript: built-in names such as `console`, `Math`, `Date`, `Error` and their members (`console.log`, `Math.floor`, `toFixed`) now use the Vim colors.
